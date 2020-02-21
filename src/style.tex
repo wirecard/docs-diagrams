@@ -1,0 +1,36 @@
+\usepackage{fontspec}
+\graphicspath{{../icons/}}
+
+% Colors
+%% 1 - 4 = mix of Ice Blue #8EE6FF and Mulberry #A77BCA for participants; 5 = Gray3 for arrows
+\definecolor{1}{HTML}{043056}
+\definecolor{2}{HTML}{A77BCA}
+\definecolor{3}{HTML}{135198}
+\definecolor{4}{HTML}{2272DA}
+\definecolor{5}{HTML}{425563}
+
+% Style
+%% ic = style for icons; pt = participant; ad = aid lines; txt_bd = text in diagram; arw_sl = solid arrow; arw_dsh = dashed arrow
+\tikzset{
+  ic/.style={inner sep=0pt},
+  pt1/.style={1, font=\Large, text width=7cm, align=center, below},
+  pt2/.style={2, font=\Large, text width=7cm, align=center, below},
+  pt3/.style={3, font=\Large,  text width=7cm, align=center, below},
+  pt4/.style={4, font=\Large,  text width=7cm, align=center, below},
+  ad1/.style={1!50!white, dashed, very thin},
+  ad2/.style={2!50!white, dashed, very thin},
+  ad3/.style={3!50!white, dashed, very thin},
+  ad4/.style={4!50!white, dashed, very thin},
+  txt_bd/.style={text width=8cm, align=left},
+  arw_sl/.style={5, ->, >=stealth},
+  arw_dsh/.style={5, ->, >=stealth, dashed}
+}
+
+% Font
+%% ItalicFont=DINWebPro-Ita.otf,
+%% BoldItalicFont=texgyreheros-bolditalic.otf]
+\setmainfont[
+  Path=../fonts/,
+  BoldFont=DINWebPro-Bold.ttf,
+  ItalicFont=DINWebPro-Ita.ttf
+]{DINWebPro.ttf}

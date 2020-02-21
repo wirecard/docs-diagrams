@@ -1,0 +1,45 @@
+% Preamble
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\input{style.tex}
+
+\begin{document}
+\begin{tikzpicture}
+
+  % Aid Lines
+  \draw[ad1] (-5,0) -- (-5,-19.5);
+  \draw[ad2] (5,0) -- (5,-19.5);
+  \draw[ad3] (15,0) -- (15,-19.5);
+  \draw[ad4] (25,0) -- (25,-19.75);
+
+  % Participants
+  \node[pt1] at (-5,1.5) {Consumer};
+  \node[ic] (ic1) at (-5,3)
+       {\includegraphics[width=.1\textwidth]{useralt.png}};
+       \node[pt2] at (5,2) {Payment Page \\ (Merchant Site)};
+       \node[ic] (ic2) at (5,3)
+            {\includegraphics[width=.1\textwidth]{paymentpage.png}};
+            \node[pt3] at (15,1.5) {Payment Gateway};
+            \node[ic] (ic3) at (15,3)
+                 {\includegraphics[width=.1\textwidth]{gateway.png}};
+                 \node[pt4] at (25,1.5) {Financial Institutioni};
+                 \node[ic] (ic4) at (25,3)
+                      {\includegraphics[width=.1\textwidth]{issuing.png}};
+
+                      % Nodes
+                      \fill[1] (-5.1,-.75) rectangle (-4.9,-1.25);
+                      \fill[2] (5.1,-1) rectangle (4.9,-1.5);
+
+
+
+                      % Arrows & Text
+                      \draw[arw_sl]
+                      (-4.8,-1) -- node[midway,above] {1. Checks out} (4.8,-1);
+                      \draw[arw_sl, txt_bd]
+                      (5.2,-1.5) -- node[midway,above] {2. Validate signature and return list of payment methods} (14.8,-1.5);
+                      \draw[arw_dsh, txt_bd]
+                      (14.8,-3) -- node[midway,above] {3. Displays payment methods} (5.2,-3);
+                      \draw[arw_sl, txt_bd]
+                      (5.2,-4.5) -- node[midway,above] {4.} (14.8,-4.5);
+
+\end{tikzpicture}
+\end{document}
