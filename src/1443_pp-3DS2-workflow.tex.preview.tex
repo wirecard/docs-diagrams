@@ -1,0 +1,105 @@
+% Preamble
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\input{style.tikz}
+
+\begin{document}
+\begin{tikzpicture}
+
+  % Aid Lines
+  \draw[ad1] (-5,0) -- (-5,-19.5);
+  \draw[ad2] (5,0) -- (5,-19.5);
+  \draw[ad3] (15,0) -- (15,-19.5);
+  \draw[ad4] (25,0) -- (25,-19.75);
+
+  % Participants
+  \node[pt1] at (-5,1) {Cardholder};
+  \node[ic] (ic1) at (-5,2)
+       {\includegraphics[width=.1\textwidth]{useralt.png}};
+       \node[pt2] at (5,1) {Merchant System};
+       \node[ic] (ic2) at (5,2)
+            {\includegraphics[width=.1\textwidth]{connection.png}};
+            \node[pt3] at (15,1) {WPG};
+            \node[ic] (ic3) at (15,2)
+                 {\includegraphics[width=.1\textwidth]{bigdata.png}};
+                 \node[pt4] at (25,1) {Wirecard 3DS Router};
+                 \node[ic] (ic4) at (25,2)
+                      {\includegraphics[width=.1\textwidth]{intgsolutions.png}};
+
+                      % Nodes
+                      \fill[1] (-5.1,-.75) rectangle (-4.9,-1.25);
+                      \fill[2] (5.1,-1) rectangle (4.9,-1.5);
+                      \fill[3] (15.1,-1.5) rectangle (14.9,-3);
+                      \fill[2] (5.1,-3) rectangle (4.9,-3.5);
+                      \fill[1] (-5.1,-3.5) rectangle (-4.9,-6.5);
+                      \fill[4] (25.1,-5) rectangle (24.9,-6.5);
+                      \fill[4] (25.1,-8) rectangle (24.9,-8.5);
+
+                      \fill[1] (-4.9,-8.25) rectangle (-5.1,-12.5);
+                      \fill[4] (25.1,-12.5) rectangle (24.9,-14);
+                      \fill[1] (-4.9,-14) rectangle (-5.1,-15.5);
+                      \fill[2] (5.1,-15.5) rectangle (4.9,-16);
+                      \fill[3] (15.1,-16) rectangle (14.9,-17.5);
+                      \fill[2] (5.1,-19) rectangle (4.9,-17.5);
+                      \fill[3] (15.1,-18.75) rectangle (14.9,-19.25);
+
+
+                      % Arrows & Text
+                      \draw[arw_sl]
+                      (-4.8,-1) -- node[midway,above] {1.1 Checkout} (4.8,-1);
+                      \draw[arw_sl, txt_bd]
+                      (5.2,-1.5) -- node[midway,above] {1.2 Check-enrollment} (14.8,-1.5);
+                      \draw[arw_sl,txt_bd]
+                      (15.2,-1.7) -- (15.5,-1.7) -- node[midway, right] {1.3 Check the supported 3DS \\ version with 3DS Server} (15.5,-2.8) -- (15.2,-2.8);
+                      \draw[arw_sl, txt_bd]
+                      (14.8,-3) -- node[midway,above] {1.4 Check-enrollment response} (5.2,-3);
+                      \draw[arw_dsh, txt_bd]
+                      (4.8,-3.5) -- node[midway,above] {2.1 Initiating cardholder \\ POST HTTPS redirect} (-4.8,-3.5);
+                      \draw[arw_sl, txt_bd]
+                      (-4.8,-5) -- node[midway,above] {2.1 POST HTTPS redirect} (24.8,-5);
+                      \draw[arw_sl, txt_bd]
+                      (25.2,-5.2) -- (25.5,-5.2) -- node[midway, right] {2.2 Decodes PAReq} (25.5,-6.3) -- (25.2,-6.3);
+                      \draw[arw_dsh, txt_bd]
+                      (24.8,-6.5) -- node[midway,above] {2.3 POST HTML redirect} (-4.8,-6.5);
+                      \draw[arw_dsh, txt_bd]
+                      (24.8,-8.25) -- node[midway,above] {2.4 Redirect cardholder to 3DSMethodURL for device fingerprinting} (-4.8,-8.25);
+
+                      \draw[arw_sl, txt_bd]
+                      (-4.8,-9.7) -- (-4.6,-9.7) -- node[midway, right] {2.5 Issuer ACS executes \\ information gathering} (-4.6,-10.8) -- (-4.8,-10.8);
+                      \draw[arw_sl]
+                      (-4.8,-12.5) -- node[midway,above] {2.5 3DS method completion} (24.8,-12.5);
+                      \draw[arw_sl, txt_bd]
+                      (25.2,-12.7) -- (25.5,-12.7) -- node[midway, right] {2.6 Initiate \\ authentication flow} (25.5,-13.8) -- (25.2,-13.8);
+                      \draw[arw_dsh, txt_bd]
+                      (24.8,-14) -- node[midway,above] {2.7 Authentication response} (-4.8,-14);
+                      \draw[arw_sl, txt_bd]
+                      (-4.8,-15.5) -- node[midway,above] {2.7 Redirect through cardholder \\ browser to termURL} (4.8,-15.5);
+                      \draw[arw_sl, txt_bd]
+                      (5.2,-16) -- node[midway,above] {3.1 Check-payer-response} (14.8,-16);
+                      \draw[arw_sl, txt_bd]
+                      (15.2,-16.2) -- (15.5,-16.2) -- node[midway, right] {3.2 Decode PARes} (15.5,-17.3) -- (15.2,-17.3);
+                      \draw[arw_dsh, txt_bd]
+                      (14.8,-17.5) -- node[midway,above] {3.3 Check-payer-response response} (5.2,-17.5);
+                      \draw[arw_sl, txt_bd]
+                      (5.2,-19) -- node[midway,above] {4.1 Authorization or purchase} (14.8,-19);
+
+
+\usetikzlibrary{calc}
+\pgftransformreset
+\node[inner sep=0pt,outer sep=0pt,minimum size=0pt,line width=0pt,text width=0pt,text height=0pt] at (current bounding box) {};
+%add border to avoid cropping by pdflibnet
+\foreach \border in {0.1}
+  \useasboundingbox (current bounding box.south west)+(-\border,-\border) rectangle (current bounding box.north east)+(\border,\border);
+\newwrite\metadatafile
+\immediate\openout\metadatafile=\jobname_BB.txt
+\path
+  let
+    \p1=(current bounding box.south west),
+    \p2=(current bounding box.north east)
+  in
+  node[inner sep=0pt,outer sep=0pt,minimum size=0pt,line width=0pt,text width=0pt,text height=0pt,draw=white] at (current bounding box) {
+\immediate\write\metadatafile{\p1,\p2}
+};
+\immediate\closeout\metadatafile
+\end{tikzpicture}
+\end{document}
+
