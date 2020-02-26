@@ -24,8 +24,8 @@
   line_nightsky/.style={nightsky!50!white, dashed, very thin},
   line_sky/.style={sky!50!white, dashed, very thin},
   text/.style={text width=8cm, align=left},
-  solidarrow/.style={5, ->, >=stealth},
-  dashedarrow/.style={5, ->, >=stealth, dashed}
+  solidarrow/.style={gray, ->, >=stealth},
+  dashedarrow/.style={gray, ->, >=stealth, dashed}
 }
 
 % Font
