@@ -14,16 +14,16 @@
   % Particonipants
   \node[pt1] at (-5,1) {Cardholder};
   \node[icon] (icon1) at (-5,2)
-       {\includegraphicons[width=.1\textwidth]{useralt.png}};
+       {\includegraphics[width=.1\textwidth]{useralt.png}};
        \node[pt2] at (5,1) {Merchant System};
        \node[icon] (icon2) at (5,2)
-            {\includegraphicons[width=.1\textwidth]{connection.png}};
+            {\includegraphics[width=.1\textwidth]{connection.png}};
             \node[pt3] at (15,1) {WPG};
             \node[icon] (icon3) at (15,2)
-                 {\includegraphicons[width=.1\textwidth]{bigdata.png}};
+                 {\includegraphics[width=.1\textwidth]{bigdata.png}};
                  \node[pt4] at (25,1) {Wirecard 3DS Router};
                  \node[icon] (icon4) at (25,2)
-                      {\includegraphicons[width=.1\textwidth]{intgsolutions.png}};
+                      {\includegraphics[width=.1\textwidth]{intgsolutions.png}};
 
                       % Nodes
                       \fill[night] (-5.1,-.75) rectangle (-4.9,-1.25);
@@ -43,7 +43,7 @@
 
 
                       % Arrows & Text
-                      \draw[solidarrow, text]
+                      \draw[solidarrow]
                       (-4.8,-1) -- node[midway,above] {1.1 Checkout} (4.8,-1);
                       \draw[solidarrow, text]
                       (5.2,-1.5) -- node[midway,above] {1.2 Check-enrollment} (14.8,-1.5);
