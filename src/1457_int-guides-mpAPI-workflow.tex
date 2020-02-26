@@ -1,0 +1,46 @@
+% Preamble
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\input{style.tex}
+
+\begin{document}
+\begin{tikzpicture}
+
+	% Aid Lines
+	\draw[2!50!white] (-5,0) -- (-5,-19.5);
+	\draw[1!50!white] (5,0) -- (5,-19.5);
+	\draw[3!50!white] (15,0) -- (15,-19.5);
+    	
+    	% Participants
+    	\node[pt2] at (-5,1) {Merchant System};
+    		\node[inner sep=0pt] (img1) at (-5,2)
+		{\includegraphics[width=.1\textwidth]{retailers.png}};
+    	\node[pt3] at (5,1) {Elastic Engine};
+		\node[inner sep=0pt] (ic2) at (5,2)
+		{\includegraphics[width=.1\textwidth]{technology.png}};
+    	\node[pt4] at (15,1) {Payment Provider};
+		\node[inner sep=0pt] (ic3) at (15,2)
+		{\includegraphics[width=.1\textwidth]{bigdata.png}};
+    	
+    	% Nodes
+    	\fill[2] (-5.1,-.75) rectangle (-4.9,-1.25);
+    	\fill[3] (5.1,-0.9) rectangle (4.9,-6.2);
+    	\fill[4] (15.1,-6.0) rectangle (14.9,-9.3);
+    	\fill[3] (5.1,-9.2) rectangle (4.9,-9.6);
+
+    	
+    	% Arrows & Text
+    	\draw[arw_sl]
+    		(-4.8,-1) -- node[midway,above] {1. Multipayment Request} (4.8,-1);
+    	\draw[arw_sl, txt_bd]
+    		(5.2,-1) -- (5.4,-1) -- node[midway,right] {2.1 Validate Payment Request} (5.4,-2.5) -- (5.2,-2.5);
+    	\draw[arw_sl, txt_bd]
+    		(5.2,-3) -- (5.4,-3) -- node[midway,right] {2.2 Generate single payment request \\ for each payment method} (5.4,-4.5) -- (5.2,-4.5);
+    	\draw[arw_sl, txt_bd]
+    		(5.2,-6.1) -- node[midway,above] {3. Send request for a single payment method} (14.8,-6.1);
+    	\draw[arw_sl, txt_bd]
+    		(15.2,-6.2) -- (15.4,-6.2) -- node[midway,right] {4.1 Process the \\ payment request} (15.4,-9.2) -- (15.2,-9.2);
+    	\draw[arw_sl, txt_bd]
+    		(14.8,-9.2) -- node[midway,above] {4.2 Payment Response} (5.2,-9.4);
+    	
+\end{tikzpicture}
+\end{document}
