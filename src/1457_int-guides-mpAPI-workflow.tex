@@ -2,17 +2,19 @@
 \documentclass[tikz,border=12pt,12pt]{standalone}
 \input{sequence_style.tikz}
 
+\newcommand\multipaymentapi{Multi Payment API}
+
 \begin{document}
 \begin{tikzpicture}
   	
     	% Participants
-    	\node[pt2] at (-5,1) {Merchant System};
+    	\node[pt1] at (-5,1) {Merchant System};
     		\node[inner sep=0pt] (icon1) at (-5,2)
 		{\includegraphics[width=.1\textwidth]{retailers.png}};
-    	\node[pt3] at (5,1) {Elastic Engine};
+    	\node[pt2] at (5,1) {\multipaymentapi};
 		\node[inner sep=0pt] (icon2) at (5,2)
 		{\includegraphics[width=.1\textwidth]{technology.png}};
-    	\node[pt4] at (15,1) {Payment Provider};
+    	\node[pt3] at (15,1) {Payment Provider};
 		\node[inner sep=0pt] (icon3) at (15,2)
 		{\includegraphics[width=.1\textwidth]{bigdata.png}};
 

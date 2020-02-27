@@ -2,18 +2,20 @@
 \documentclass[tikz,border=12pt,12pt]{standalone}
 \input{sequence_style.tikz}
 
+\newcommand\paymentgateway{Wirecard Payment Gateway}
+
 \begin{document}
 \begin{tikzpicture}
 
 % Body
   % Participants
-  \node[pt1] at (-5,1.5) {Consumer};
+  \node[pt2] at (-5,1.5) {Consumer};
   \node[icon] (icon1) at (-5,3)
        {\includegraphics[width=.1\textwidth]{useralt.png}};
-       \node[pt2] at (5,2) {Payment Page \\ (Merchant Site)};
+       \node[pt1] at (5,2) {Payment Page \\ (Merchant Site)};
        \node[icon] (icon2) at (5,3)
             {\includegraphics[width=.1\textwidth]{paymentpage.png}};
-            \node[pt3] at (15,1.5) {Payment Gateway};
+            \node[pt3] at (15,2) {\paymentgateway};
             \node[icon] (icon3) at (15,3)
                  {\includegraphics[width=.1\textwidth]{gear.png}};
                  \node[pt4] at (25,2) {Financial \\ Institution};
@@ -28,13 +30,13 @@
 
                       % Nodes
                       \fill[night] (-5.1,-.75) rectangle (-4.9,-1.25);
-                      \fill[mulberry] (5.1,-1) rectangle (4.9,-1.5);
-                      \fill[nightsky] (15.1,-1.5) rectangle (14.9,-3);
-                      \fill[mulberry] (5.1,-3) rectangle (4.9,-4.5);
-                      \fill[nightsky] (14.9,-4.5) rectangle (15.1,-5);
-                      \fill[sky] (24.9,-5) rectangle (25.1,-6.5);
-                      \fill[nightsky] (14.9,-6.5) rectangle (15.1,-7);
-                      \fill[mulberry] (5.1,-7) rectangle (4.9,-9);
+                      \fill[mulberry] (5.1,-.9) rectangle (4.9,-1.6);
+                      \fill[nightsky] (15.1,-1.4) rectangle (14.9,-3.1);
+                      \fill[mulberry] (5.1,-2.9) rectangle (4.9,-4.6);
+                      \fill[nightsky] (14.9,-4.4) rectangle (15.1,-5.1);
+                      \fill[sky] (24.9,-4.9) rectangle (25.1,-6.6);
+                      \fill[nightsky] (14.9,-6.4) rectangle (15.1,-7.1);
+                      \fill[mulberry] (5.1,-6.9) rectangle (4.9,-9.1);
                       \fill[night] (-5.1,-8.75) rectangle (-4.9,-9.25);
 
                       % Arrows & Text
