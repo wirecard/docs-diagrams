@@ -4,12 +4,7 @@
 
 \begin{document}
 \begin{tikzpicture}
-
-	% Aid Lines
-	\draw[line_mulberry] (-5,0) -- (-5,-19.5);
-	\draw[line_night] (5,0) -- (5,-19.5);
-	\draw[line_nightsky] (15,0) -- (15,-19.5);
-    	
+  	
     	% Participants
     	\node[pt2] at (-5,1) {Merchant System};
     		\node[inner sep=0pt] (icon1) at (-5,2)
@@ -20,6 +15,11 @@
     	\node[pt4] at (15,1) {Payment Provider};
 		\node[inner sep=0pt] (icon3) at (15,2)
 		{\includegraphics[width=.1\textwidth]{bigdata.png}};
+
+	% Aid Lines
+	\draw[line_mulberry] (-5,0) -- (-5,-19.5);
+	\draw[line_night] (5,0) -- (5,-19.5);
+	\draw[line_nightsky] (15,0) -- (15,-19.5);
     	
     	% Nodes
     	\fill[mulberry] (-5.1,-.75) rectangle (-4.9,-1.25);

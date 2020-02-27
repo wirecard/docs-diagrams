@@ -5,12 +5,7 @@
 \begin{document}
 \begin{tikzpicture}
 
-  % Aid Lines
-  \draw[line_night] (-5,0) -- (-5,-10);
-  \draw[line_mulberry] (5,0) -- (5,-10);
-  \draw[line_nightsky] (15,0) -- (15,-10);
-  \draw[line_sky] (25,0) -- (25,-10);
-
+% Body
   % Participants
   \node[pt1] at (-5,1.5) {Consumer};
   \node[icon] (icon1) at (-5,3)
@@ -24,6 +19,12 @@
                  \node[pt4] at (25,2) {Financial \\ Institution};
                  \node[icon] (icon4) at (25,3)
                       {\includegraphics[width=.1\textwidth]{issuing.png}};
+                      
+  			% Aid Lines
+  			\draw[line_night] (-5,0) -- (-5,-10);
+  			\draw[line_mulberry] (5,0) -- (5,-10);
+  			\draw[line_nightsky] (15,0) -- (15,-10);
+  			\draw[line_sky] (25,0) -- (25,-10);
 
                       % Nodes
                       \fill[night] (-5.1,-.75) rectangle (-4.9,-1.25);
@@ -35,7 +36,6 @@
                       \fill[nightsky] (14.9,-6.5) rectangle (15.1,-7);
                       \fill[mulberry] (5.1,-7) rectangle (4.9,-9);
                       \fill[night] (-5.1,-8.75) rectangle (-4.9,-9.25);
-
 
                       % Arrows & Text
                       \draw[solidarrow]

@@ -5,13 +5,8 @@
 \begin{document}
 \begin{tikzpicture}
 
-  % Aid Lines
-  \draw[line_night] (-5,0) -- (-5,-19.5);
-  \draw[line_mulberry] (5,0) -- (5,-19.5);
-  \draw[line_nightsky] (15,0) -- (15,-19.5);
-  \draw[line_sky] (25,0) -- (25,-19.75);
-
-  % Particonipants
+% Body
+  % Participants
   \node[pt1] at (-5,1) {Cardholder};
   \node[icon] (icon1) at (-5,2)
        {\includegraphics[width=.1\textwidth]{useralt.png}};
@@ -24,7 +19,13 @@
                  \node[pt4] at (25,1) {Wirecard 3DS Router};
                  \node[icon] (icon4) at (25,2)
                       {\includegraphics[width=.1\textwidth]{intgsolutions.png}};
-
+                      
+ 			 % Aid Lines
+  			\draw[line_night] (-5,0) -- (-5,-19.5);
+  			\draw[line_mulberry] (5,0) -- (5,-19.5);
+ 			\draw[line_nightsky] (15,0) -- (15,-19.5);
+  			\draw[line_sky] (25,0) -- (25,-19.75);
+  
                       % Nodes
                       \fill[night] (-5.1,-.75) rectangle (-4.9,-1.25);
                       \fill[mulberry] (5.1,-1) rectangle (4.9,-1.5);
