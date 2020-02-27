@@ -1,21 +1,20 @@
 % Preamble
 \documentclass[tikz,border=12pt,12pt]{standalone}
-\input{sequence_style.tikz}
-
-\newcommand\multipaymentapi{Multi Payment API}
+\input{style/sequence.tikz}
+\input{vars/shortcuts.tex}
 
 \begin{document}
 \begin{tikzpicture}
   	
     	% Participants
-    	\node[pt1] at (-5,1) {Merchant System};
-    		\node[inner sep=0pt] (icon1) at (-5,2)
+    	\node[pt1] at (-5,1.5) {Merchant System};
+    		\node[inner sep=0pt] (icon1) at (-5,3)
 		{\includegraphics[width=.1\textwidth]{retailers.png}};
-    	\node[pt2] at (10,1) {\multipaymentapi};
-		\node[inner sep=0pt] (icon2) at (10,2)
+    	\node[pt2] at (10,2) {\wdpaymentprocessingapi};
+		\node[inner sep=0pt] (icon2) at (10,3)
 		{\includegraphics[width=.1\textwidth]{technology.png}};
-    	\node[pt3] at (25,1) {Payment Provider};
-		\node[inner sep=0pt] (icon3) at (25,2)
+    	\node[pt3] at (25,1.5) {Payment Provider};
+		\node[inner sep=0pt] (icon3) at (25,3)
 		{\includegraphics[width=.1\textwidth]{bigdata.png}};
 
 	% Aid Lines
@@ -72,25 +71,4 @@
     		
 \end{tikzpicture}
 \end{document}
-
-bounding box.south west)+(-\border,-\border) rectangle (current bounding box.north east)+(\border,\border);
-\newwrite\metadatafile
-\immediate\openout\metadatafile=\jobname_BB.txt
-\path
-  let
-    \p1=(current bounding box.south west),
-    \p2=(current bounding box.north east)
-  in
-  node[inner sep=0pt,outer sep=0pt,minimum size=0pt,line width=0pt,text width=0pt,text height=0pt,draw=white] at (current bounding box) {
-\immediate\write\metadatafile{\p1,\p2}
-};
-\immediate\closeout\metadatafile
-\end{tikzpicture}
-\end{document}
-
-
-
-
-
-
 

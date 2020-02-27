@@ -1,25 +1,24 @@
 % Preamble
 \documentclass[tikz,border=12pt,12pt]{standalone}
 \input{style/sequence.tikz}
-
-\newcommand\paymentgatewayabbr{WPG}
+\input{vars/shortcuts.tex}
 
 \begin{document}
 \begin{tikzpicture}
 
 % Body
   % Participants
-  \node[pt1] at (-5,1) {Cardholder};
-  \node[icon] (icon1) at (-5,2.5)
+  \node[pt1] at (-5,1.5) {Cardholder};
+  \node[icon] (icon1) at (-5,3)
        {\includegraphics[width=.1\textwidth]{useralt.png}};
-       \node[pt2] at (5,1) {Merchant System};
-       \node[icon] (icon2) at (5,2.5)
+       \node[pt2] at (5,1.5) {Merchant System};
+       \node[icon] (icon2) at (5,3)
             {\includegraphics[width=.1\textwidth]{connection.png}};
-            \node[pt3] at (15,1) {\paymentgatewayabbr};
-            \node[icon] (icon3) at (15,2.5)
+            \node[pt3] at (15,2) {\wdpaymentgateway};
+            \node[icon] (icon3) at (15,3)
                  {\includegraphics[width=.1\textwidth]{bigdata.png}};
-                 \node[pt4] at (25,1) {Wirecard 3DS Router};
-                 \node[icon] (icon4) at (25,2.5)
+                 \node[pt4] at (25,1.5) {Wirecard 3DS Router};
+                 \node[icon] (icon4) at (25,3)
                       {\includegraphics[width=.1\textwidth]{intgsolutions.png}};
                       
  			 % Aid Lines
