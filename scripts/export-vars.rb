@@ -24,7 +24,7 @@ def replace_num(val)
   val.to_s.scan(/\d+/).each do |num|
     val = val.sub(num, num.to_i.humanize.capitalize)
   end
-  return val
+  return val.delete(' ')
 end
 
 OptionParser.new do |opts|
