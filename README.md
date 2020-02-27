@@ -23,3 +23,5 @@ build system has been tested enough.
 * texlive (xelatex)
 * imagemagick
 * pdf2svg
+* Ruby
+  * humanize
