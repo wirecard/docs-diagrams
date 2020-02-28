@@ -1,4 +1,5 @@
 *.pdf
+src/*.tex.preview.tex
 src/*.png
 out/
 ## Core latex/pdflatex auxiliary files:

@@ -12,7 +12,7 @@
 \definecolor{gray}{HTML}{425563}
 
 % Style
-%% pt = participant; line = dashed aid lines in the background;
+%% pt = participant; line = dashed aid lines in the background; txt = style of text
 \tikzset{
   icon/.style={inner sep=0pt},
   pt1/.style={mulberry, font=\Large, text width=7cm, align=center, below},
@@ -23,9 +23,9 @@
   line_night/.style={night!50!white, dashed, very thin},
   line_nightsky/.style={nightsky!50!white, dashed, very thin},
   line_sky/.style={sky!50!white, dashed, very thin},
-  text/.style={text width=8cm, align=left},
-  solidarrow/.style={5, ->, >=stealth},
-  dashedarrow/.style={5, ->, >=stealth, dashed}
+  txt/.style={text width=8cm, align=left},
+  solidarrow/.style={gray, ->, >=stealth},
+  dashedarrow/.style={gray, ->, >=stealth, dashed}
 }
 
 % Font
