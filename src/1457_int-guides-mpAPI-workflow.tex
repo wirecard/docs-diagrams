@@ -18,15 +18,18 @@
 		{\includegraphics[width=.1\textwidth]{bigdata.png}};
 
 	% Aid Lines
-	\draw[line_mulberry] (-5,0) -- (-5,-19.5);
-	\draw[line_night] (10,0) -- (10,-19.5);
-	\draw[line_nightsky] (25,0) -- (25,-19.5);
+	\draw[line_mulberry] (-5,0) -- (-5,-20);
+	\draw[line_night] (10,0) -- (10,-20);
+	\draw[line_nightsky] (25,0) -- (25,-20);
     	
     	% Nodes
     	\fill[mulberry] (-5.1,-.75) rectangle (-4.9,-1.25);
     	\fill[nightsky] (10.1,-0.9) rectangle (9.9,-6.2);
     	\fill[sky] (25.1,-6.0) rectangle (24.9,-10.2);
+    	\fill[sky] (24.8,-9) rectangle (24.7,-10.2);
     	\fill[nightsky] (10.1,-9) rectangle (9.9,-19.3);
+    	\fill[nightsky] (10.2,-10) rectangle (10.3,-13.2);
+    	\fill[sky] (25.1,-13) rectangle (24.9,-19.3);
     	\fill[mulberry] (-5.1,-18.95) rectangle (-4.9,-19.45);
     	
     	% Arrows & Text
@@ -43,11 +46,10 @@
     	\draw[solidarrow, txt]
     		(25.2,-8.1) -- (25.4,-8.1) -- node[midway,right] {Send payment response} (25.4,-9.6) -- (25.2,-9.6);
       	\draw[solidarrow, txt]
-    		(24.8,-9.1) -- node[midway,above] {Payment successful} (10.2,-9.1);
+    		(24.6,-9.1) -- node[midway,above] {Payment successful} (10.2,-9.1);
     	\draw[solidarrow, txt]
-    		(24.8,-10.1) -- node[midway,above] {Payment failed} (10.4,-10.1);
-    	\draw[gray]
-    		(10.4,-10.1) -- node[midway,right] { } (10.4,-13.1);
+    		(24.6,-10.1) -- node[midway,above] {Payment failed} (10.4,-10.1);
+  
     	\draw[solidarrow, txt]
     		(10.4,-13.1) -- node[midway,above] {Rollback previously successful \\ payment transaction} (24.8,-13.1);
     			\draw[solidarrow, txt]
