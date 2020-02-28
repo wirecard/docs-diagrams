@@ -8,18 +8,18 @@
 
 % Body
   % Participants
-  \node[pt1] at (-5,1.5) {Cardholder};
-  \node[icon] (icon1) at (-5,3)
+  \node[pt2] at (-5,1.5) {Cardholder};
+  	\node[icon] (icon1) at (-5,3.5)
        {\includegraphics[width=.1\textwidth]{useralt.png}};
-       \node[pt2] at (5,1.5) {Merchant System};
-       \node[icon] (icon2) at (5,3)
+   \node[pt1] at (5,1.5) {Merchant System};
+       \node[icon] (icon2) at (5,3.5)
             {\includegraphics[width=.1\textwidth]{connection.png}};
-            \node[pt3] at (15,2) {\wdpaymentgateway};
-            \node[icon] (icon3) at (15,3)
-                 {\includegraphics[width=.1\textwidth]{bigdata.png}};
-                 \node[pt4] at (25,1.5) {Wirecard 3DS Router};
-                 \node[icon] (icon4) at (25,3)
-                      {\includegraphics[width=.1\textwidth]{intgsolutions.png}};
+    \node[pt3] at (15,1.5) {Payment Gateway};
+       \node[icon] (icon3) at (15,3.5)
+            {\includegraphics[width=.1\textwidth]{bigdata.png}};
+     \node[pt4] at (25,2) {Wirecard 3DS Router (Public Endpoint)};
+        \node[icon] (icon4) at (25,3.5)
+             {\includegraphics[width=.1\textwidth]{intgsolutions.png}};
                       
  			 % Aid Lines
   			\draw[line_night] (-5,0) -- (-5,-19.5);
@@ -29,18 +29,18 @@
   
                       % Nodes
                       \fill[night] (-5.1,-.75) rectangle (-4.9,-1.25);
-                      \fill[mulberry] (5.1,-1) rectangle (4.9,-1.5);
-                      \fill[nightsky] (15.1,-1.5) rectangle (14.9,-3);
-                      \fill[mulberry] (5.1,-3) rectangle (4.9,-3.5);
-                      \fill[night] (-5.1,-3.5) rectangle (-4.9,-6.5);
-                      \fill[sky] (25.1,-5) rectangle (24.9,-6.5);
+                      \fill[mulberry] (5.1,-0.9) rectangle (4.9,-1.6);
+                      \fill[nightsky] (15.1,-1.4) rectangle (14.9,-3.1);
+                      \fill[mulberry] (5.1,-2.9) rectangle (4.9,-3.6);
+                      \fill[night] (-5.1,-3.4) rectangle (-4.9,-6.6);
+                      \fill[sky] (25.1,-4.9) rectangle (24.9,-6.6);
                       \fill[sky] (25.1,-8) rectangle (24.9,-8.5);
-                      \fill[night] (-4.9,-8.25) rectangle (-5.1,-12.5);
-                      \fill[sky] (25.1,-12.5) rectangle (24.9,-14);
-                      \fill[night] (-4.9,-14) rectangle (-5.1,-15.5);
-                      \fill[mulberry] (5.1,-15.5) rectangle (4.9,-16);
+                      \fill[night] (-4.9,-8.15) rectangle (-5.1,-12.6);
+                      \fill[sky] (25.1,-12.4) rectangle (24.9,-14.1);
+                      \fill[night] (-4.9,-13.9) rectangle (-5.1,-15.6);
+                      \fill[mulberry] (5.1,-15.4) rectangle (4.9,-16.1);
                       \fill[nightsky] (15.1,-16) rectangle (14.9,-17.5);
-                      \fill[mulberry] (5.1,-19) rectangle (4.9,-17.5);
+                      \fill[mulberry] (5.1,-19.1) rectangle (4.9,-17.4);
                       \fill[nightsky] (15.1,-18.75) rectangle (14.9,-19.25);
 
 
@@ -62,15 +62,15 @@
                       \draw[dashedarrow, txt]
                       (24.8,-6.5) -- node[midway,above] {2.3 POST HTML redirect} (-4.8,-6.5);
                       \draw[dashedarrow, txt]
-                      (24.8,-8.25) -- node[midway,above] {2.4 Redirect cardholder to 3DSMethodURL for devicone fingerprinting} (-4.8,-8.25);
+                      (24.8,-8.25) -- node[midway,above] {2.4 Redirect cardholder to 3DSMethodURL for device fingerprinting} (-4.8,-8.25);
                       \draw[solidarrow, txt]
                       (-4.8,-9.7) -- (-4.6,-9.7) -- node[midway, right] {2.5 Issuer ACS executes \\ information gathering} (-4.6,-10.8) -- (-4.8,-10.8);
                       \draw[solidarrow]
                       (-4.8,-12.5) -- node[midway,above] {2.5 3DS method completion} (24.8,-12.5);
                       \draw[solidarrow, txt]
-                      (25.2,-12.7) -- (25.5,-12.7) -- node[midway, right] {2.6 Initiate \\ authenticonation flow} (25.5,-13.8) -- (25.2,-13.8);
+                      (25.2,-12.7) -- (25.5,-12.7) -- node[midway, right] {2.6 Initiate \\ authentication flow} (25.5,-13.8) -- (25.2,-13.8);
                       \draw[dashedarrow, txt]
-                      (24.8,-14) -- node[midway,above] {2.7 Authenticonation response} (-4.8,-14);
+                      (24.8,-14) -- node[midway,above] {2.7 Authentication response} (-4.8,-14);
                       \draw[solidarrow, txt]
                       (-4.8,-15.5) -- node[midway,above] {2.7 Redirect through cardholder \\ browser to termURL} (4.8,-15.5);
                       \draw[solidarrow, txt]
