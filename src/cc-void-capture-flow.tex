@@ -1,0 +1,36 @@
+% Preamble
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\input{style/sequence.tikz}
+\input{vars/shortcuts.tex}
+
+\begin{document}
+\begin{tikzpicture}
+
+% Body
+  % Participants
+  \node[pt2] at (0,1) {capture (Request)};
+   \node[pt3] at (10,1) {capture (Response)};
+    \node[pt4] at (20,1) {void-capture (Request)};
+     \node[pt1] at (30,1) {void-capture (Response)};
+                      
+ 			 % Aid Lines
+  			\draw[line_night] (0,0) -- (0,-19.5);
+  			\draw[line_nightsky] (10,0) -- (10,-19.5);
+ 			\draw[line_sky] (20,0) -- (20,-19.5);
+  			\draw[line_mulberry] (30,0) -- (30,-19.75);
+  
+                      % Nodes
+                      \fill[night] (-0.1,-0.9) rectangle (0.1,-3.6);
+
+
+
+                      % Arrows & Text
+                      \draw[solidarrow, txt]
+                      (0.2,-1) -- (0.4,-1) -- node[midway,right] {1 Start \\ \texttt{<requested-amount \\ currency="EUR"></requested-amount>}} (0.4,-2.5) -- (0.2,-2.5);
+                      \draw[solidarrow, txt]
+                      \draw[solidarrow, txt]
+                      (20.2,-1) -- node[midway,above] {3} (29.8,-1)
+                      (20.2,-1) -- node[midway,below] {\texttt{<tparent-ransaction-id>12345</ \\ parent-transaction-id>}} (29.8,-1);
+
+\end{tikzpicture}
+\end{document}
