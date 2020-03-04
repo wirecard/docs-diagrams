@@ -1,0 +1,75 @@
+% Preamble
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows, arrows.meta, calc, positioning, quotes, shapes}
+\input{style/sequence.tikz}
+\input{vars/shortcuts.tex}
+
+\begin{document}
+\begin{tikzpicture}
+
+% Body
+  % Participants
+  \node[pt2] at (-5,1.1) {Consumer};
+  \node[icon] (icon1) at (-5,2.1)
+       {\includegraphics[width=.1\textwidth]{useralt.png}};
+       
+       \node[pt1] at (5,1.1) {Merchant System};
+       \node[icon] (icon2) at (5,2.1)
+            {\includegraphics[width=.1\textwidth]{connection.png}};
+
+	     \node[pt3] at (15,1.1) {\wdpaymentpagevTwoabbr};
+            \node[icon] (icon3) at (15,2.1)
+                 {\includegraphics[width=.1\textwidth]{paymentpage.png}};
+	                 
+			  % Aid Lines
+			  \draw[line_night] (-5,0) -- (-5,-11.9);
+			  \draw[line_mulberry] (5,0) -- (5,-11.9);
+			  \draw[line_nightsky] (15,0) -- (15,-11.9);
+
+                      % Nodes
+                      \fill[night] (-5.1,-.75) rectangle (-4.9,-1.25);
+                      \fill[mulberry] (5.1,-1) rectangle (4.9,-1.5);
+                      \fill[nightsky] (15.1,-1.5) rectangle (14.9,-3);
+                      \fill[mulberry] (5.1,-3) rectangle (4.9,-3.5);
+                      \fill[night] (-5.1,-3.5) rectangle ++(0.2,-1.5);
+                      \fill[nightsky] (15.1,-5) rectangle (14.9,-6.5);
+
+                      % Arrows & Text
+                      \draw[solidarrow]
+                      (-4.8,-1) -- node[midway,above] {Checkout} (4.8,-1);
+                      \draw[solidarrow]
+                      (5.2,-1.5) -- node[midway,above] {Sends POST request with payment data} (14.8,-1.5);
+                      \draw[solidarrow]
+                      (15.2,-1.7) -- (15.5,-1.7) -- node[right] {Creates a session} (15.5,-2.8) -- (15.2,-2.8);
+                      \draw[solidarrow]
+                      (14.8,-3) -- node[midway,above] {Returns payment URL response} (5.2,-3);
+                      \draw[solidarrow]
+                      (4.8,-3.5) -- node[midway,above, align=center] {Redirects consumer to payment page\\ using payment URL} (-4.8,-3.5);
+                      \draw[solidarrow, txt]
+                      (-5.2,-3.7) -- (-5.5,-3.7) -- (-5.5,-4.8) -- (-5.2,-4.8);
+                      \draw[text=gray]
+                      (-6.7,-4.25) node [align=right] {Enters\\ additional\\ data};
+                      \draw[solidarrow, txt]
+                      (-4.8,-5) -- node (Submit) [pos=0.6,above] {Submits payment} (14.8,-5);
+                      \draw[solidarrow]
+                      (15.2,-5.2) -- (15.5,-5.2) -- node[right] {Processes payment} (15.5,-6.3) -- (15.2,-6.3);
+                      \draw[solidarrow, txt]
+                      (14.8,-6.5) -- (5,-6.5) -- (5,-6.8);
+                      \draw [text=gray]
+                      (9.7,-6.5) node [align=right, above] {Returns transaction result};
+                      
+	                      %Transaction OK?
+	                      \node (decision) [align=center, draw=gray, diamond, text=gray] at (5,-8.6) {Transaction\\ OK?};
+
+ 	                \draw (-5, -8.6) node (success) [align=center, rectangle, rounded corners=11pt, draw=ok, text=gray] {\parbox{3cm}{\centering Redirected to\\success page}};
+                    
+	                \draw (-5, -10.8) node (fail) [rectangle, rounded corners=11pt, draw=fail, text=gray] {\parbox{3cm}{\centering Redirected to\\fail page}};                
+	
+	                \draw [->, draw=ok] (decision.west) -- (success.east) node [midway, above, draw=none, solidarrow] {success};                      
+	
+	                \draw [-{Latex[length=3mm]}, solidarrow,draw=fail] 
+	                 (decision.south) |- node [pos=0.799pt, above] {fail} (fail.east);
+
+\end{tikzpicture}
+\end{document}
