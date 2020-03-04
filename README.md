@@ -22,4 +22,4 @@ build system has been tested enough.
 * texlive (xelatex)
 * pdf2svg
 * Ruby
-  * humanize
+  * humanize (translate numbers to words, because Latex variables cannot contain digits)
