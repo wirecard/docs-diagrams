@@ -10,7 +10,7 @@
 \definecolor{nightsky}{HTML}{135198}
 \definecolor{sky}{HTML}{2272DA}
 \definecolor{gray}{HTML}{425563}
-\definecolor{ok}{HTML}{00FFC8}
+\definecolor{ok}{HTML}{02EFC4}
 \definecolor{fail}{HTML}{0AA0AE}
 
 % Style
