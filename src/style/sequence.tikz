@@ -10,6 +10,8 @@
 \definecolor{nightsky}{HTML}{135198}
 \definecolor{sky}{HTML}{2272DA}
 \definecolor{gray}{HTML}{425563}
+\definecolor{ok}{HTML}{02EFC4}
+\definecolor{fail}{HTML}{0AA0AE}
 
 % Style
 %% pt = participant; line = dashed aid lines in the background; txt = style of text
