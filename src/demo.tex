@@ -1,0 +1,28 @@
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\input{style/sequence.tikz}
+\input{vars/shortcuts.tex}
+
+\begin{document}
+\begin{tikzpicture}
+  \node[pt2] at (0,1.5) {Consumer};
+  	...
+  \node[pt1] at (15,1.5) {Merchant};
+  \node[pt3] at (30,1.5) {Payment Gateway};
+  
+  
+  \draw[line_night] (0,0) -- (0,-10);
+	...
+  
+  
+  \fill[night](-0.1,-0.9) rectangle (0.1,-6.5);
+  \fill[mulberry](14.9,-3.4) rectangle (15.1,-4.5);
+	...
+ 
+ 
+ \draw[solidarrow,txt]
+ 	(0.2,-1) -- (0.4,-1) -- node[midway,right] {1.1 Selects Payment Method \\ "Credit Card"} (0.4,-2.5) -- (0.2,-2.5);
+	...
+
+
+\end{tikzpicture}
+\end{document}
