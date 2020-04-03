@@ -1,0 +1,46 @@
+%New Style Sheet
+
+\usepackage{fontspec}
+\graphicspath{{../icons/}}
+
+% Gray tones (according to brand colors)
+%% gray3 is the darkest and, thus, for arrows and lines
+\definecolor{lightgray}{HTML}{EBEBEB}
+\definecolor{gray1}{HTML}{D0D3D4}
+\definecolor{gray2}{HTML}{A2AAAD}
+\definecolor{gray3}{HTML}{425563}
+
+% Colors (according to brand colors)
+\definecolor{mulberry}{HTML}{A77BCA}
+\definecolor{iceblue}{HTML}{8EE6FF}
+\definecolor{skyblue}{HTML}{2983FB}
+\definecolor{nightblue}{HTML}{002846}
+
+% Gradients (from skyblue to mulberry)
+\definecolor{blueish}{HTML}{3682F6}
+\definecolor{mulberryblue}{HTML}{687FE3}
+\definecolor{bluemulberry}{HTML}{8E7DD4}
+
+% Style
+\tikzset{
+  icon/.style={inner sep=1pt},
+  consumer/.style={mulberryblue, font=\Large, text width=4cm, align=center, below},
+  merchant/.style={blueish, font=\Large, text width=4cm, align=center, below},
+  paymentgateway/.style={bluemulberry, font=\Large,  text width=7cm, align=center, below},
+  paymentprovider/.style={mulberrylike, font=\Large,  text width=7cm, align=center, below},
+  aidline/.style={gray1, dashed, thin},
+  box/.style={line width=6pt},
+  txt/.style={text width=7cm, align=left},
+  fontscale/.style={font=11pt},
+  solidarrow/.style={line width=2pt, gray3, ->, >=stealth},
+  dashedarrow/.style={line width=2pt, gray3, ->, >=stealth, dashed}
+}
+
+% Font
+%% ItalicFont=DINWebPro-Ita.otf,
+%% BoldItalicFont=texgyreheros-bolditalic.otf]
+\setmainfont[
+  Path=../fonts/,
+  BoldFont=DINWebPro-Bold.ttf,
+  ItalicFont=DINWebPro-Ita.ttf
+]{DINWebPro.ttf}
