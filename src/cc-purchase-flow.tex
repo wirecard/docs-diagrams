@@ -1,0 +1,48 @@
+% Preamble
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,calc}
+
+\begin{document}
+\begin{tikzpicture}
+
+% Body
+   % tx types
+   \node (purchase) [tx] at (0,0) {purchase};     
+   \node (Start) [start_end, above of= purchase, node distance=15] {Start};
+   \node (decision1) [decision, right of= purchase, node distance=128] {Funds\\ transfer\\ triggered?};
+   \node (refund-purchase) [tx, right of= decision1, node distance=160] {refund-purchase};
+   \node (void-purchase) [tx, below of= decision1, node distance=120] {void-purchase};
+   \node (referenced-purchase) [tx, left of= void-purchase, node distance=240] {referenced-purchase};
+   \node (decision2) [decision, right of= refund-purchase, node distance=145] {Funds\\ transfer\\ triggered?};
+   \node (void-refund-purchase) [tx, below of= decision2, node distance=120] {void-refund-purchase};
+   \node (end) [start_end, below of= Start, node distance=190] {End};
+   
+% Arrows & Text
+  \draw[solidarrow, txt, text width=9cm]
+                      	(purchase.south) -| (end.north);
+  \path [draw, solidarrow, rounded corners] 
+                           (referenced-purchase) |- ($(referenced-purchase.south) + (-2.8,-0.5)$) |- (referenced-purchase.west);
+  \draw[solidarrow, txt, text width=9cm]
+                      	(referenced-purchase.east) -| (-1.3,-6) |- (end.west);
+  \draw[solidarrow, txt, text width=9cm]
+                      	(purchase.west) -| (referenced-purchase.north);
+  \draw[solidarrow]
+                      	(purchase.east) -- (decision1.west);
+  \draw[solidarrow]
+                      	(decision1.south) -- (void-purchase.north) node [yes_no] {no}; 
+  \draw[solidarrow, txt, text width=9cm]
+                      	(void-purchase.south) |- (end.east);
+  \draw[solidarrow]
+                      	(decision1.east) -- (refund-purchase.west) node [yes_no] {yes};
+  \draw[solidarrow]
+                      	(refund-purchase.east) -- (decision2.west); 
+  \draw[solidarrow]
+                      	(decision2.south) -- (void-refund-purchase.north) node [yes_no] {no};
+  \draw[solidarrow, txt, text width=9cm]
+                      	(void-refund-purchase.south) |- (0,-7) |- (end.south);
+                      
+\end{tikzpicture}
+\end{document}

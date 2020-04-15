@@ -36,7 +36,8 @@
   dashedarrow/.style={line width=2pt, gray3, ->, >=stealth, dashed},
   % for tx types sequence flow:
   decision/.style={diamond, text=white, font=\bf, align=center, fill=nightblue},
-  yes_no/.style={midway, text=nightblue, fill=white},
+  start_end/.style={rectangle, rounded corners=3, text=white, font=\bf, align=center, fill=nightblue},
+  yes_no/.style={midway, text=nightblue, fill=white, font=\small},
   tx/.style={skyblue}
 }
 
