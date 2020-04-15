@@ -16,10 +16,11 @@
 \definecolor{skyblue}{HTML}{2983FB}
 \definecolor{nightblue}{HTML}{002846}
 
-% Gradients (from skyblue to mulberry)
+% Gradients (for participants, from skyblue to mulberry)
 \definecolor{blueish}{HTML}{3682F6}
 \definecolor{mulberryblue}{HTML}{687FE3}
 \definecolor{bluemulberry}{HTML}{8E7DD4}
+\definecolor{mulberrylike}{HTML}{927CD2}
 
 % Style
 \tikzset{
