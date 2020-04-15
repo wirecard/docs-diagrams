@@ -1,38 +1,27 @@
-% Preamble
 \documentclass[tikz,border=12pt,12pt]{standalone}
-\input{style/sequence.tikz}
+\input{style/new_sequence.tikz}
 \input{vars/shortcuts.tex}
 
 \begin{document}
 \begin{tikzpicture}
   	
-    	% Participants
-    	\node[pt1] at (-5,1.5) {Merchant System};
-    		\node[inner sep=0pt] (icon1) at (-5,3)
-		{\includegraphics[width=.1\textwidth]{retailers.png}};
-    	\node[pt2] at (10,2) {\wdpaymentprocessingapi};
+    	\node[merchant] at (0,1.5) {Merchant};
+    		\node[inner sep=0pt] (icon1) at (0,3)
+		{\includegraphics[width=.1\textwidth]{merchant.png}};
+    	\node[paymentgateway] at (10,1.5) {Payment Gateway};
 		\node[inner sep=0pt] (icon2) at (10,3)
-		{\includegraphics[width=.1\textwidth]{gear.png}};
-    	\node[pt3] at (25,1.5) {Payment Provider};
-		\node[inner sep=0pt] (icon3) at (25,3)
+		{\includegraphics[width=.1\textwidth]{paymentgateway.png}};
+    	\node[paymentprovider] at (20,1.5) {Payment Provider};
+		\node[inner sep=0pt] (icon3) at (20,3)
 		{\includegraphics[width=.1\textwidth]{bigdata.png}};
 
-	% Aid Lines
-	\draw[line_mulberry] (-5,0) -- (-5,-20);
-	\draw[line_night] (10,0) -- (10,-20);
-	\draw[line_nightsky] (25,0) -- (25,-20);
+	\draw[aidline] (0,0) -- (0,-20);
+	\draw[aidline] (10,0) -- (10,-20);
+	\draw[aidline] (20,0) -- (20,-20);
     	
     	% Nodes
-    	\fill[mulberry] (-5.1,-.75) rectangle (-4.9,-1.25);
-    	\fill[nightsky] (10.1,-0.9) rectangle (9.9,-6.2);
-    	\fill[sky] (25.1,-6.0) rectangle (24.9,-10.2);
-    	\fill[sky] (24.8,-9) rectangle (24.7,-10.2);
-    	\fill[nightsky] (10.1,-9) rectangle (9.9,-19.3);
-    	\fill[nightsky] (10.2,-10) rectangle (10.3,-13.2);
-    	\fill[sky] (25.1,-13) rectangle (24.9,-19.3);
-    	\fill[mulberry] (-5.1,-18.95) rectangle (-4.9,-19.45);
+
     	
-    	% Arrows & Text
     	\draw[solidarrow]
     		(-4.8,-1) -- node[midway,above] {Multipayment Request} (9.8,-1);
     	\draw[solidarrow, txt]
