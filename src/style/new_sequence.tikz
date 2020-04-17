@@ -35,9 +35,9 @@
   fontscale/.style={font=11pt},
   solidarrow/.style={line width=2pt, gray3, ->, >=stealth},
   dashedarrow/.style={line width=2pt, gray3, ->, >=stealth, dashed},
-% For decision nodes within a sequence diagram
+% For questions or decision nodes within a sequence diagram
   question/.style={rectangle,draw=bluemulberry,fill=white,ultra thick,text width=2.5cm,align=center},
-% For tx types workflow (no participants, workflow only)
+% For tx types workflow (no participants, only workflow)
   decision/.style={diamond, text=white, font=\bf, align=center, fill=nightblue},
   start_end/.style={rectangle, rounded corners=3, text=white, font=\bf, align=center, fill=nightblue},
   yes_no/.style={midway, text=nightblue, fill=white, font=\small},
