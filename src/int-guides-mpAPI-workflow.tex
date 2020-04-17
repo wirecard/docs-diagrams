@@ -41,8 +41,8 @@
     	(20.2,-6) -- (20.6,-6) -- node[midway,right] {Processes payment request} (20.6,-9) -- (20.2,-9);
     	\draw[solidarrow, txt]
     		(19.8,-9) -- node[midway,above] {Payment response} (11.5,-9);
-    		% Style for decisions within sequence diagram
-    			\node (rectangle) [draw=bluemulberry,fill=white,ultra thick,text width=2.5cm,align=center] at (10,-9) {Payment \\ successful?};
+    		% Style for questions within sequence diagram
+    			\node (question) [question] at (10,-9) {Payment \\ successful?};
     				\draw[dashedarrow]
     				(9.4,-9.7) -- node[left] {yes} (9.4,-12);
     				\draw[dashedarrow]
@@ -54,7 +54,7 @@
     					\draw[solidarrow, txt]
     					(19.8,-17) -- node[midway,above] {Payment response} (10.7,-17);   					
     					
-    			\node (rectangle) [draw=bluemulberry,fill=white,ultra thick,text width=2.5cm,align=center] at (10,-13) {Pending payment request?};
+    			\node (question) [question] at (10,-13) {Pending payment request?};
     				\draw[dashedarrow]
     				(9.4,-14) -- node[left] {yes (1 to n)} (9.4,-15.5) -- (6.4,-15.5)-- (6.4,-6) -- (9.8,-6);
     				\draw[dashedarrow]
