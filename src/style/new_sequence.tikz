@@ -14,14 +14,14 @@
 \tikzset{
   icon/.style={inner sep=1pt},
   participant/.style={nightblue, font=\Large, text width=6cm, align=center, below},
-  aidline/.style={nightblue, dashed, thin},
-  box/.style={nightblue,line width=6pt},
-  txt/.style={text=gray2,text width=7cm, align=left},
+  aidline/.style={gray2, dashed, thin},
+  box/.style={gray2,line width=6pt},
+  txt/.style={text=nightblue,text width=7cm, align=left},
   fontscale/.style={font=11pt},
-  solidarrow/.style={line width=2pt, gray2, ->, >=stealth},
-  dashedarrow/.style={line width=2pt, gray2, ->, >=stealth, dashed},
+  solidarrow/.style={line width=2pt,nightblue, ->, >=stealth},
+  dashedarrow/.style={line width=2pt,nightblue, ->, >=stealth, dashed},
 % For questions or decision nodes within a sequence diagram
-  question/.style={rectangle,draw=nightblue,fill=white,ultra thick,text width=2.5cm,align=center}
+  question/.style={rectangle,draw=gray3,fill=white,ultra thick,text width=2.5cm,align=center}
 }
 
 % Font
