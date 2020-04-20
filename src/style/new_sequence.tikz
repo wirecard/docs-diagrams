@@ -3,45 +3,25 @@
 \usepackage{fontspec}
 \graphicspath{{../icons/}}
 
-% Gray tones (according to brand colors)
-%% gray3 is the darkest and, thus, for arrows and lines
-\definecolor{lightgray}{HTML}{EBEBEB}
-\definecolor{gray1}{HTML}{D0D3D4}
+% Colors and gray tones (according to brand colors):
+%% Nightblue for participants, icons, boxes
+%% Gray for arrows and text
+\definecolor{nightblue}{HTML}{002846}
 \definecolor{gray2}{HTML}{A2AAAD}
 \definecolor{gray3}{HTML}{425563}
-
-% Colors (according to brand colors)
-\definecolor{mulberry}{HTML}{A77BCA}
-\definecolor{iceblue}{HTML}{8EE6FF}
-\definecolor{skyblue}{HTML}{2983FB}
-\definecolor{nightblue}{HTML}{002846}
-
-% Gradients (for participants, from skyblue to mulberry)
-\definecolor{blueish}{HTML}{3682F6}
-\definecolor{mulberryblue}{HTML}{687FE3}
-\definecolor{bluemulberry}{HTML}{8E7DD4}
-\definecolor{mulberrylike}{HTML}{927CD2}
 
 % Style
 \tikzset{
   icon/.style={inner sep=1pt},
-  consumer/.style={mulberryblue, font=\Large, text width=4cm, align=center, below},
-  merchant/.style={blueish, font=\Large, text width=4cm, align=center, below},
-  paymentgateway/.style={bluemulberry, font=\Large,  text width=7cm, align=center, below},
-  paymentprovider/.style={mulberrylike, font=\Large,  text width=7cm, align=center, below},
-  aidline/.style={gray1, dashed, thin},
-  box/.style={line width=6pt},
-  txt/.style={text width=7cm, align=left},
+  participant/.style={nightblue, font=\Large, text width=6cm, align=center, below},
+  aidline/.style={nightblue, dashed, thin},
+  box/.style={nightblue,line width=6pt},
+  txt/.style={text=gray2,text width=7cm, align=left},
   fontscale/.style={font=11pt},
-  solidarrow/.style={line width=2pt, gray3, ->, >=stealth},
-  dashedarrow/.style={line width=2pt, gray3, ->, >=stealth, dashed},
+  solidarrow/.style={line width=2pt, gray2, ->, >=stealth},
+  dashedarrow/.style={line width=2pt, gray2, ->, >=stealth, dashed},
 % For questions or decision nodes within a sequence diagram
-  question/.style={rectangle,draw=bluemulberry,fill=white,ultra thick,text width=2.5cm,align=center},
-% For tx types workflow (no participants, only workflow)
-  decision/.style={diamond, text=white, font=\bf, align=center, fill=nightblue},
-  start_end/.style={rectangle, rounded corners=3, text=white, font=\bf, align=center, fill=nightblue},
-  yes_no/.style={midway, text=nightblue, fill=white, font=\small},
-  tx/.style={skyblue}
+  question/.style={rectangle,draw=nightblue,fill=white,ultra thick,text width=2.5cm,align=center}
 }
 
 % Font
