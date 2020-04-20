@@ -7,14 +7,14 @@
 \begin{document}
 \begin{tikzpicture}
   	
-    	\node[merchant] at (0,2) {Merchant};
+    	\node[participant] at (0,2) {Merchant};
     		\node[inner sep=0pt] (icon1) at (0,3.5)
 		{\includegraphics[width=.1\textwidth]{merchant.png}};
-    	\node[paymentgateway] at (10,2) {Payment Gateway};
+    	\node[participant] at (10,2) {Payment Gateway};
 		\node[inner sep=0pt] (icon2) at (10,3.5)
 		{\includegraphics[width=.1\textwidth]{paymentgateway.png}};
-    	\node[paymentprovider] at (20,2) {Payment Provider};
-    		\node[txt,mulberrylike,align=center] at (20,0.75) {(Voucher, Credit Card, Online Bank Transfer)};
+    	\node[participant] at (20,2) {Payment Provider};
+    		\node[txt,align=center] at (20,0.75) {(Voucher, Credit Card, Online Bank Transfer)};
 		\node[inner sep=0pt] (icon3) at (20,3.5)
 		{\includegraphics[width=.1\textwidth]{paymentprovider.png}};
 
@@ -22,12 +22,12 @@
 		\draw[aidline] (\i,0) -- (\i,-19.5);
 		}
 
-	\draw[box,mulberryblue] (0,-0.5)-- (0,-1.5);
-	\draw[box,bluemulberry] (10,-0.9) -- (10,-6.1);
-	\draw[box,mulberrylike] (20,-5.9) -- (20,-9.1);
-	\draw[box,mulberrylike] (20,-11.1) -- (20,-17.1);
-	\draw[box,bluemulberry] (10,-16.9) -- (10,-18.6);
-	\draw[box,mulberryblue] (0,-18)-- (0,-19);
+	\draw[box] (0,-0.5)-- (0,-1.5);
+	\draw[box] (10,-0.9) -- (10,-6.1);
+	\draw[box] (20,-5.9) -- (20,-9.1);
+	\draw[box] (20,-11.1) -- (20,-17.1);
+	\draw[box] (10,-16.9) -- (10,-18.6);
+	\draw[box] (0,-18)-- (0,-19);
     	
     	\draw[solidarrow]
     	(0.2,-1) -- node[midway,above] {Multipayment request} (9.8,-1);
