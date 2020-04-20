@@ -5,13 +5,13 @@
 \begin{document}
 \begin{tikzpicture}
 
-\node[consumer] at (0,0) {Consumer};
+\node[participant] at (0,0) {Consumer};
 	\node[icon] (icon1) at (0,1)
 	{\includegraphics[width=.1\textwidth] {consumer.png}};
-\node[merchant] at (10,0) {Merchant};
+\node[participant] at (10,0) {Merchant};
 	\node[icon] (icon2) at (10,1)
 	{\includegraphics[width=.1\textwidth]{merchant.png}};
-\node[paymentgateway] at (20,0) {Payment Gateway};
+\node[participant] at (20,0) {Payment Gateway};
 	\node[icon] (icon3) at (20,1)
 	{\includegraphics[width=.1\textwidth]{paymentgateway.png}};
 
@@ -20,10 +20,10 @@
 		\draw[aidline] (\i,-1) -- (\i,-12);
 	}
 	
-\draw[box,mulberryblue] (0,-1.4) -- (0,-5.1);
-\draw[box, blueish] (10,-4.9) -- (10,-6.1);
-\draw[box, bluemulberry] (20,-5.9) -- (20,-9.6);
-\draw[box, blueish] (10,-9.4) -- (10,-11.6);
+\draw[box] (0,-1.4) -- (0,-5.1);
+\draw[box] (10,-4.9) -- (10,-6.1);
+\draw[box] (20,-5.9) -- (20,-9.6);
+\draw[box] (10,-9.4) -- (10,-11.6);
 
 \draw[solidarrow, txt]
 	(0.2,-1.5) -- (0.6,-1.5) -- node[midway,right] {1.1 Selects payment method \\ Credit Card} (0.6,-3) -- (0.2,-3);
