@@ -1,0 +1,55 @@
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+
+\begin{document}
+\begin{tikzpicture}
+
+  \node[participant] at (0,1.5) {Consumer};
+  	\node[icon] (icon1) at (0,3)
+  		{\includegraphics[width=.1\textwidth]{consumer.png}};
+  \node[participant] at (7,2) {Pament Page \\ (Merchant)};
+  	\node[icon] (icon2) at (7,3)
+  		{\includegraphics[width=.1\textwidth]{paymentpage.png}};
+  \node[participant] at (14,1.5) {Payment Gateway};
+  	\node[icon] (icon3) at (14,3)
+  		{\includegraphics[width=.1\textwidth]{paymentgateway.png}};
+  \node[participant] at (21,1.5) {Financial Institution};
+  	\node[icon] (icon4) at (21,3)
+  		{\includegraphics[width=.1\textwidth]{financialinstitution.png}};
+                      
+	\foreach \i in {0,7,14,21} {
+		\draw[aidline] (\i,-1) -- (\i,-10);
+		}
+		
+	\draw[box] (0,-0.5) -- (0,-1.5);
+	\draw[box] (7,-0.9) -- (7,-2.6);
+	\draw[box] (14,-2.4) -- (14,-4.1);	
+	\draw[box] (7,-3.9) -- (7,-5.6);
+	\draw[box] (14,-5.25) -- (14,-5.75);
+	\draw[box] (21,-5.4) -- (21,-7.1);
+	\draw[box] (14,-6.75) -- (14,-7.25);
+	\draw[box] (7,-6.9) -- (7,-9.1);
+	\draw[box] (0,-8.5) -- (0,-9.5);
+	
+                      \draw[solidarrow]
+                      	(0.2,-1) -- node[midway,above] {1 } (6.8,-1);
+                      \draw[solidarrow]
+                      	(7.2,-2.5) -- node[midway,above] {2 } (13.8,-2.5);
+                      \draw[dashedarrow]
+                      	(13.8,-4) -- node[midway,above] {3 } (7.2,-4);
+                      \draw[solidarrow]
+                     	 (7.2,-5.5) -- node[midway,above] {4 } (13.8,-5.5);
+                      \draw[solidarrow]
+                      	(14.2,-5.5) -- node[midway,above] {5.1 } (20.8,-5.5);
+                      \draw[dashedarrow]
+                      	(20.8,-7) -- node[midway,above] {5.2 } (14.2,-7);
+                      \draw[dashedarrow]
+                      	(13.8,-7) -- node[midway,above] {6 } (7.2,-7);
+                      \draw[dashedarrow]
+                      	(7.2,-7.5) -- (7.6,-7.5) -- node[midway,right] {7 } (7.6,-9) -- (7.2,-9);
+                      \draw[dashedarrow]
+                      	(6.8,-9) -- node[midway,above] {8 } (0.2,-9);
+
+\end{tikzpicture}
+\end{document}
