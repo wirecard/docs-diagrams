@@ -11,7 +11,7 @@
 % Style
 \tikzset{
   fontscale/.style={font=11pt},
-  transaction/.style={nightblue,font=\itshape,text width=5cm,align=center},
+  transaction/.style={gray3,font=\itshape,text width=3cm,align=center},
   decision/.style={diamond,draw=nightblue,fill=white,text=nightblue,ultra thick,text width=2.5cm,align=center},
   solidarrow/.style={line width=2pt, gray3, ->, >=stealth},
   dashedarrow/.style={line width=2pt, gray3, ->, >=stealth, dashed},
