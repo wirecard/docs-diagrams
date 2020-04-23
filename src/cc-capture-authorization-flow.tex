@@ -1,26 +1,20 @@
-% Preamble
 \documentclass[tikz,border=12pt,12pt]{standalone}
 \input{style/flowchart.tikz}
 \input{vars/shortcuts.tex}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric}
 
-
 \begin{document}
 \begin{tikzpicture}
+   \node[transaction] (authorization) at (5,1.6) {authorization};
+   \node[decision] (decision1) at (5,-2.2) {Reserved\\ funds\\ captured?};
+   \node[transaction] (void-authorization) at (11,-2.2) {void-authorization};
+   \node[transaction] (capture-authorization) at (5,-6.5) {capture-authorization};
+   \node[transaction] (void-capture) at (11,-10.5) {void-capture};
+   \node[transaction] (refund-capture) at (5,-14.8) {refund-capture};
+   \node[decision] (decision2) at (5,-10.5) {Funds\\ transfer\\ triggered?};
 
-% Body
-   % tx types
-   \node (authorization) [tx] at (5,1.6) {authorization};
-   \node (decision1) [decision] at (5,-2.2) {Reserved\\ funds\\ captured?};
-   \node (void-authorization) [tx] at (11.1,-2.2) {void-authorization};
-   \node (capture-authorization) [tx] at (5,-6.5) {capture-authorization};
-   \node (void-capture) [tx] at (10.56,-10.5) {void-capture};
-   \node (refund-capture) [tx] at (5,-14.8) {refund-capture};
-   \node (decision2) [decision] at (5,-10.5) {Funds\\ transfer\\ triggered?};
-
-% Arrows & Text
-  \draw[solidarrow, txt, text width=9cm]
+  \draw[solidarrow]
                       	(authorization.south) -- (decision1.north);
  \draw[solidarrow]
                       	(decision1.east) -- (void-authorization.west) node [yes_no] {no}; 
@@ -32,6 +26,5 @@
                       	(decision2.south) -- (refund-capture.north) node [yes_no] {yes}; 
   \draw[solidarrow]
                       	(decision2.east) -- (void-capture.west) node [yes_no] {no};                       
-                      
 \end{tikzpicture}
 \end{document}
