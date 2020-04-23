@@ -11,10 +11,10 @@
 % Style
 \tikzset{
   fontscale/.style={font=11pt},
-  transaction/.style={nightblue,font=\itshape,text width=7cm, align=left},
+  transaction/.style={nightblue,font=\itshape,text width=5cm,align=center},
+  decision/.style={diamond,draw=nightblue,fill=white,text=nightblue,ultra thick,text width=2.5cm,align=center},
   solidarrow/.style={line width=2pt, gray3, ->, >=stealth},
   dashedarrow/.style={line width=2pt, gray3, ->, >=stealth, dashed},
-  decision/.style={diamond,draw=nightblue,fill=white,text=nightblue,ultra thick,text width=2.5cm,align=center},
   start_end/.style={rectangle, rounded corners=3, text=white, font=\bf, align=center, fill=nightblue},
   yes_no/.style={midway, text=nightblue, fill=white, font=\small},
   }
