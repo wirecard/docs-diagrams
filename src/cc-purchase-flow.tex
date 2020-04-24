@@ -10,14 +10,14 @@
 
 % Body
    % tx types
-   \node (purchase) [tx] at (0,0) {purchase};     
+   \node [transaction] (purchase) at (0,0) {purchase};     
 %   \node (Start) [start_end, above of= purchase, node distance=15] {Start};
    \node (decision1) [decision, right of= purchase, node distance=158] {Funds\\ transfer\\ triggered?};
-   \node (void-purchase) [tx, right of= decision1, node distance=160] {void-purchase};
-   \node (refund-purchase) [tx, below of= decision1, node distance=120] {refund-purchase};
-   \node (referenced-purchase) [tx] at (refund-purchase -| purchase) {referenced-purchase};
+   \node [transaction,right of= decision1, node distance=160] (void-purchase) {void-purchase};
+   \node [transaction, below of= decision1, node distance=120] (refund-purchase) {refund-purchase};
+   \node[transaction] (referenced-purchase) at (refund-purchase -| purchase) {referenced-purchase};
    \node (decision2) [decision, below of= refund-purchase, node distance=112] {Funds\\ transfer\\ triggered?};
-      \node (void-refund-purchase) [tx] at (decision2 -| void-purchase)  {void-refund-purchase};
+      \node[transaction] (void-refund-purchase) at (decision2 -| void-purchase)  {void-refund-purchase};
    \node (end) [start_end, below of= void-refund-purchase, node distance=90] {End};
    
 % Arrows & Text
