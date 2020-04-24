@@ -6,37 +6,41 @@
 
 \begin{document}
 \begin{tikzpicture}
-   \node[transaction] (purchase) at (0,0) {purchase};     
-%   \node (Start) [start_end, above of= purchase, node distance=15] {Start};
-   \node[decision, right of= purchase, node distance=158] (decision1) {Funds\\ transfer\\ triggered?};
+   \node(purchase) [transaction] at (0,0) {purchase};
+   \node(decision1) [decision, below of= purchase, node distance=130] {Funds\\ transfer\\ triggered?};
    \node[transaction,right of= decision1, node distance=160] (void-purchase) {void-purchase};
-   \node[transaction, below of= decision1, node distance=120] (refund-purchase) {refund-purchase};
-   \node[transaction] (referenced-purchase) at (refund-purchase -| purchase) {referenced-purchase};
-   \node[decision, below of= refund-purchase, node distance=112] (decision2) {Funds\\ transfer\\ triggered?};
-      \node[transaction] (void-refund-purchase) at (decision2 -| void-purchase)  {void-refund-purchase};
-   \node[start_end, below of= void-refund-purchase, node distance=90] (end) {End};
+   \node(refund-purchase) [transaction, below of= decision1, node distance=140] {refund-purchase};
+   \node(decision2) [decision, below of= refund-purchase, node distance=112] {Funds\\ transfer\\ triggered?};
+   \node(void-refund-purchase) [transaction]  at (decision2 -| void-purchase) {void-refund-purchase};
    
-  \draw [solidarrow, rounded corners] 
-                           (referenced-purchase) |- ($(referenced-purchase.south) + (+2.8,-0.5)$) |- (referenced-purchase.east);
-  \draw[solidarrow]
-                           (referenced-purchase.west) -| ($(referenced-purchase.west) + (-0.5,-8.1)$) -| (end.south);
-  \draw[solidarrow]
-                      	(purchase.south) -| (referenced-purchase.north);
-  \draw[solidarrow]
-                      	(purchase.east) -- (decision1.west);
-  \draw[solidarrow]
-                      	(decision1.east) -- (void-purchase.west) node [yes_no] {no}; 
-  \draw[solidarrow]
-                      	(void-purchase.east) |- (13.9,-0) |-  (end.east);
-  \draw[solidarrow]
-                      	(decision1.south) -- (refund-purchase.north) node [yes_no] {yes};
-  \draw[solidarrow]
-                      	(refund-purchase.south) -- (decision2.north); 
-  \draw[solidarrow]
+   \node(referenced-purchase) [transaction, left of=decision1, node distance=160] {referenced-purchase};
+   \node[start_end, below of=decision2, node distance=140] (end) {End};
+   
+   \draw[solidarrow]
+                      	(purchase.south) -- (decision1.north);
+   \draw[solidarrow]
+                      	(decision1.east) -- (void-purchase.west) node [yes_no] {no};
+   \draw [solidarrow, rounded corners] 
+                           (referenced-purchase) |- ($(referenced-purchase.south) + (-2,-0.5)$) |- (referenced-purchase.west);
+   \draw[solidarrow]
+                      	(purchase.west) -| (referenced-purchase.north);
+   \draw[solidarrow]
+                           (referenced-purchase.south) |- (end.west);
+   \draw[solidarrow]
+                      	(decision1.south) -- (refund-purchase.north) node [yes_no] {yes};   
+   \draw[solidarrow]
+                      	(refund-purchase.south) -- (decision2.north);
+   \draw[solidarrow]
+                      	(decision2.south) -- (end.north) node [yes_no] {yes};
+   \draw[solidarrow]
                       	(decision2.east) -- (void-refund-purchase.west) node [yes_no] {no};
-  \draw[solidarrow]
-                      	(void-refund-purchase.south) -- (end.north);
-  \draw[solidarrow]
-                      	(decision2.south) |- (end.west) node [yes_no] {yes};                      	
+   \draw[solidarrow]
+                      	(void-refund-purchase.south) |- (end.east);
+   \draw[solidarrow]
+                      	(void-purchase.east) |-(8,-4.6) |-  (end.east);
+   \draw[solidarrow]
+                      	(purchase.east) |- (10,0) |-  (end.east);
+       
+   
 \end{tikzpicture}
 \end{document}
