@@ -1,0 +1,30 @@
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\input{style/flowchart.tikz}
+\input{vars/shortcuts.tex}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+
+\begin{document}
+\begin{tikzpicture}
+   \node[transaction] (authorization) at (5,1.6) {authorization};
+   \node[decision] (decision1) at (5,-2.2) {Reserved\\ funds\\ captured?};
+   \node[transaction] (void-authorization) at (11,-2.2) {void-authorization};
+   \node[transaction] (capture-authorization) at (5,-6.5) {capture-authorization};
+   \node[transaction] (void-capture) at (11,-10.5) {void-capture};
+   \node[transaction] (refund-capture) at (5,-14.8) {refund-capture};
+   \node[decision] (decision2) at (5,-10.5) {Funds\\ transfer\\ triggered?};
+
+  \draw[solidarrow]
+                      	(authorization.south) -- (decision1.north);
+ \draw[solidarrow]
+                      	(decision1.east) -- (void-authorization.west) node [yes_no] {no}; 
+  \draw[solidarrow]
+                      	(decision1.south) -- (capture-authorization.north) node [yes_no] {yes}; 
+  \draw[solidarrow]
+                      	(capture-authorization.south) -- (decision2.north);     
+  \draw[solidarrow]
+                      	(decision2.south) -- (refund-capture.north) node [yes_no] {yes}; 
+  \draw[solidarrow]
+                      	(decision2.east) -- (void-capture.west) node [yes_no] {no};                       
+\end{tikzpicture}
+\end{document}
