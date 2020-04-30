@@ -20,6 +20,13 @@ build system has been tested enough.
 2. [GNU Make](http://gnuwin32.sourceforge.net/packages/make.htm)
 3. [pdf2svg](http://www.cityinthesky.co.uk/opensource/pdf2svg/)
 
+### Build
+Run:
+```
+make
+```
+... and find the diagrams in `out/`.
+
 ## Variable export from Asciidoctor
 
 * Ruby
