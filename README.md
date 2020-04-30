@@ -14,13 +14,13 @@ build system has been tested enough.
 
 ![image](assets/settings.png)
 
-### Optional
-1. [GNU Make](http://gnuwin32.sourceforge.net/packages/make.htm)
-2. [pdf2svg](http://www.cityinthesky.co.uk/opensource/pdf2svg/)
-
-## Build system
+## Build System
 ### Requirements
+1. texlive (xelatex)
+2. [GNU Make](http://gnuwin32.sourceforge.net/packages/make.htm)
+3. [pdf2svg](http://www.cityinthesky.co.uk/opensource/pdf2svg/)
 
-* texlive (xelatex)
+## Variable export from Asciidoctor
+
 * Ruby
   * humanize (translate numbers to words, because Latex variables cannot contain digits)
