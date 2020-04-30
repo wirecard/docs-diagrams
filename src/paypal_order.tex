@@ -1,0 +1,60 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-8.4);
+
+% Stage "merchant"
+\node[participant] at (15,2) {Merchant};
+\node[icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (15, 0.9) -- (15,-8.4);
+
+% Stage "payment"
+\node[participant] at (30,2) {Payment Gateway};
+\node[icon] (icon2) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (30, 0.9) -- (30,-8.4);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (15,0.1) -- (15,-1.35);
+\draw[box, nightblue] (30,-1.15) -- (30,-2.6);
+\draw[box, nightblue] (15,-2) -- (15,-3);
+\draw[box, nightblue] (0,-2.4) -- (0,-3.85);
+\draw[box, nightblue] (30,-3.65) -- (30,-7.6);
+\draw[box, nightblue] (15,-7) -- (15,-8);
+
+% Flows
+% Flow "1 Selects _PayPal_"
+\draw[solidarrow, txt]
+(0.21,0) -- node[midway,above] {1 Selects \textit{PayPal}} (14.79,0);
+% Flow "2 Sends _order_ request"
+\draw[solidarrow, txt]
+(15.21,-1.25) -- node[midway,above] {2 Sends \textit{order} request} (29.79,-1.25);
+% Flow "3 Returns _redirect URL_"
+\draw[solidarrow, txt]
+(29.79,-2.5) -- node[midway,above] {3 Returns \textit{redirect URL}} (15.21,-2.5);
+% Flow "4 Redirects consumer to _redirect URL_"
+\draw[solidarrow, txt]
+(14.79,-2.5) -- node[midway,above] {4 Redirects consumer to \textit{redirect URL}} (0.21,-2.5);
+% Flow "5 Authorizes payment"
+\draw[solidarrow, txt]
+(0.21,-3.75) -- node[midway,above] {5 Authorizes payment} (29.79,-3.75);
+% Flow "6.1 Processes payment"
+\draw[solidarrow, txt]
+(30.21,-3.75) -- (30.61,-3.75) -- node[midway,right] {6.1 Processes payment} (30.61,-5) -- (30.21,-5);
+% Flow "6.2 Verifies payment"
+\draw[solidarrow, txt]
+(30.21,-6.25) -- (30.61,-6.25) -- node[midway,right] {6.2 Verifies payment} (30.61,-7.5) -- (30.21,-7.5);
+% Flow "6.3 Sends notification with payment result"
+\draw[solidarrow, txt]
+(29.79,-7.5) -- node[midway,above] {6.3 Sends notification with payment result} (15.21,-7.5);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}
