@@ -1,10 +1,5 @@
 # docs-diagrams
 
-**NOTE:**
-Both imagemagick and pdf2svg are listed as requirements,
-but in reality we will only use one after the initial
-build system has been tested enough.
-
 ## Writer (Windows Setup)
 ### Setup
 
