@@ -1,0 +1,76 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-20.9);
+
+% Stage "merchant"
+\node[participant] at (15,2) {Merchant};
+\node[icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (15, 0.9) -- (15,-20.9);
+
+% Stage "payment"
+\node[participant] at (30,2) {Payment Gateway};
+\node[icon] (icon2) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (30, 0.9) -- (30,-20.9);
+
+% Stage "klarna"
+\node[participant] at (45,2) {Klarna};
+\node[icon] (icon3) at (45,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (45, 0.9) -- (45,-20.9);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (15,0.1) -- (15,-3.85);
+\draw[box, nightblue] (30,-3.65) -- (30,-7.6);
+\draw[box, nightblue] (45,-7.4) -- (45,-11.35);
+\draw[box, nightblue] (15,-13.65) -- (15,-20.1);
+\draw[box, nightblue] (0,-19.5) -- (0,-20.5);
+
+% Flows
+% Flow "1 Initiates payment"
+\draw[solidarrow, txt]
+(0.21,0) -- node[midway,above] {1 Initiates payment} (14.79,0);
+% Flow "2.1 Prepares authorization request"
+\draw[solidarrow, txt]
+(15.21,-1.25) -- (15.61,-1.25) -- node[midway,right] {2.1 Prepares authorization request} (15.61,-2.5) -- (15.21,-2.5);
+% Flow "2.2 Sends authorization request"
+\draw[solidarrow, txt]
+(15.21,-3.75) -- node[midway,above] {2.2 Sends authorization request} (29.79,-3.75);
+% Flow "3.1 Creates authorization transaction"
+\draw[solidarrow, txt]
+(30.21,-5) -- (30.61,-5) -- node[midway,right] {3.1 Creates authorization transaction} (30.61,-6.25) -- (30.21,-6.25);
+% Flow "3.2 Sends reserve_amount"
+\draw[solidarrow, txt]
+(30.21,-7.5) -- node[midway,above] {3.2 Sends reserve\_amount} (44.79,-7.5);
+% Flow "4.1 Performs risk check"
+\draw[solidarrow, txt]
+(45.21,-8.75) -- (45.61,-8.75) -- node[midway,right] {4.1 Performs risk check} (45.61,-10) -- (45.21,-10);
+% Flow "4.2 Sends reserveAmount response rno"
+\draw[solidarrow, txt]
+(44.79,-11.25) -- node[midway,above] {4.2 Sends reserveAmount response rno} (31.455437777652815,-11.25);
+% Flow "Response status"
+\draw[dashedarrow] (28.98119355564303,-11.25) -- node[left] {ok} (28.98119355564303,-13.75) -- (28.375755777990218,-13.75);
+\draw[solidarrow, txt]
+(28.170318000337403,-13.75) -- node[midway,above] {5.1 Updates authorization transaction status to success} (15.205437777652815,-13.75);
+\draw[dashedarrow] (31.01880644435697,-11.25) -- node[right] {nok} (31.01880644435697,-16.25) -- (30.413368666704155,-16.25);
+\draw[solidarrow, txt]
+(30.20793088905134,-16.25) -- node[midway,above] {5.2 Updates authorization transaction status to failed} (15.205437777652815,-16.25);
+\node (question) [question] at (30,-11.25) {Response status};
+% Flow "5.3 Processes authorization response"
+\draw[solidarrow, txt]
+(15.21,-17.5) -- (15.61,-17.5) -- node[midway,right] {5.3 Processes authorization response} (15.61,-18.75) -- (15.21,-18.75);
+% Flow "6 Shows confirmation page"
+\draw[solidarrow, txt]
+(14.79,-20) -- node[midway,above] {6 Shows confirmation page} (0.21,-20);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,74 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "merchant"
+\node[participant] at (0,2) {Merchant};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (0, 0.9) -- (0,-9.65);
+
+% Stage "sftp"
+\node[participant] at (9,2) {SFTP Server};
+\node[icon] (icon1) at (9,3.5) {\includegraphics[width=.1\textwidth] {server.png}};
+\draw[aidline] (9, 0.9) -- (9,-9.65);
+
+% Stage "updater"
+\node[participant] at (18,2) {Account Updater};
+\node[icon] (icon2) at (18,3.5) {\includegraphics[width=.1\textwidth] {update.png}};
+\draw[aidline] (18, 0.9) -- (18,-9.65);
+
+% Stage "schemes"
+\node[participant] at (27,2) {Schemes};
+\node[txt,align=center] at (27,0.75) {(Mastercard/Visa)};
+\node[icon] (icon3) at (27,3.5) {\includegraphics[width=.1\textwidth] {schemes.png}};
+\draw[aidline] (27, 0.9) -- (27,-9.65);
+
+% Stage "issuers"
+\node[participant] at (36,2) {Issuers};
+\node[icon] (icon4) at (36,3.5) {\includegraphics[width=.1\textwidth] {financialinstitution.png}};
+\draw[aidline] (36, 0.9) -- (36,-9.65);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (9,0.1) -- (9,-1.35);
+\draw[box, nightblue] (18,-1.15) -- (18,-2.6);
+\draw[box, nightblue] (27,-2.4) -- (27,-5.1);
+\draw[box, nightblue] (36,-3.25) -- (36,-4.25);
+\draw[box, nightblue] (18,-4.9) -- (18,-7.6);
+\draw[box, nightblue] (9,-5.75) -- (9,-6.75);
+\draw[box, nightblue] (9,-8.25) -- (9,-9.25);
+\draw[box, nightblue] (0,-7.4) -- (0,-8.85);
+
+% Flows
+% Flow "1 Uploads request file"
+\draw[solidarrow, txt]
+(0.21,0) -- node[midway,above] {1 Uploads request file} (8.79,0);
+% Flow "2 Retrieves request file"
+\draw[solidarrow, txt]
+(9.21,-1.25) -- node[midway,above] {2 Retrieves request file} (17.79,-1.25);
+% Flow "3 Requests scheme data"
+\draw[solidarrow, txt]
+(18.21,-2.5) -- node[midway,above] {3 Requests scheme data} (26.79,-2.5);
+% Flow "7 Populates schemes continuously"
+\draw[solidarrow, txt]
+(35.79,-3.75) -- node[midway,above] {7 Populates schemes continuously} (27.21,-3.75);
+% Flow "4 Updates credit card details"
+\draw[solidarrow, txt]
+(26.79,-5) -- node[midway,above] {4 Updates credit card details} (18.21,-5);
+% Flow "5.1 Sends response file"
+\draw[solidarrow, txt]
+(17.79,-6.25) -- node[midway,above] {5.1 Sends response file} (9.21,-6.25);
+% Flow "5.2 Sends notification email"
+\draw[solidarrow, txt]
+(17.79,-7.5) -- node[midway,above] {5.2 Sends notification email} (0.21,-7.5);
+% Flow "6 Retrieves response file"
+\draw[solidarrow, txt]
+(8.79,-8.75) -- node[midway,above] {6 Retrieves response file} (0.21,-8.75);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}
