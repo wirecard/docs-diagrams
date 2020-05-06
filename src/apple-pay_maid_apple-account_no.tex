@@ -1,5 +1,6 @@
 % Document Header
 \documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
 \input{style/new_sequence.tikz}
 \input{vars/shortcuts.tex}
 \begin{document}
@@ -17,25 +18,24 @@
 
 % Boxes
 \draw[box, nightblue] (0,-3.65) -- (0,-8.85);
-\draw[box, nightblue] (15,0.1) -- (15,-1.35);
-\draw[box, nightblue] (15,-2.4) -- (15,-3.85);
+\draw[box, nightblue] (15,0.1) -- (15,-3.85);
 
 % Flows
 % Flow "1.1 Generates Apple Merchant ID"
 \draw[solidarrow, txt]
 (15.21,0) -- (15.61,0) -- node[midway,right] {1.1 Generates Apple Merchant ID} (15.61,-1.25) -- (15.21,-1.25);
-% Flow "2.1 Uses Apple Merchant ID to generate a csr-file"
+% Flow "1.2 Uses Apple Merchant ID to generate csr-file"
 \draw[solidarrow, txt]
-(15.21,-2.5) -- (15.61,-2.5) -- node[midway,right] {2.1 Uses Apple Merchant ID to generate a csr-file} (15.61,-3.75) -- (15.21,-3.75);
-% Flow "2.2 Sends Apple Merchant ID and csr-file"
+(15.21,-2.5) -- (15.61,-2.5) -- node[midway,right] {1.2 Uses Apple Merchant ID to generate csr-file} (15.61,-3.75) -- (15.21,-3.75);
+% Flow "1.3 Sends Apple Merchant ID and csr-file"
 \draw[solidarrow, txt]
-(14.79,-3.75) -- node[midway,above] {2.2 Sends Apple Merchant ID and csr-file} (0.21,-3.75);
-% Flow "2.3 Uses Apple Merchant ID to create an Apple Merchant Account"
+(14.79,-3.75) -- node[midway,above] {1.3 Sends Apple Merchant ID and csr-file} (0.21,-3.75);
+% Flow "2.1 Uses Apple Merchant ID to create Apple Merchant Account"
 \draw[solidarrow, txt]
-(0.21,-5) -- (0.61,-5) -- node[midway,right] {2.3 Uses Apple Merchant ID to create an Apple Merchant Account} (0.61,-6.25) -- (0.21,-6.25);
-% Flow "2.4 Uploads csr-file"
+(0.21,-5) -- (0.61,-5) -- node[midway,right] {2.1 Uses Apple Merchant ID to create Apple Merchant Account} (0.61,-6.25) -- (0.21,-6.25);
+% Flow "2.2 Uploads csr-file"
 \draw[solidarrow, txt]
-(0.21,-7.5) -- (0.61,-7.5) -- node[midway,right] {2.4 Uploads csr-file} (0.61,-8.75) -- (0.21,-8.75);
+(0.21,-7.5) -- (0.61,-7.5) -- node[midway,right] {2.2 Uploads csr-file} (0.61,-8.75) -- (0.21,-8.75);
 
 % Document Footer
 \end{tikzpicture}

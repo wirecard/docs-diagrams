@@ -1,5 +1,6 @@
 % Document Header
 \documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
 \input{style/new_sequence.tikz}
 \input{vars/shortcuts.tex}
 \begin{document}
@@ -21,15 +22,15 @@
 \draw[box, nightblue] (0,-0.75) -- (0,-1.75);
 
 % Flows
-% Flow "1 Submits _capture_ request"
+% Flow "1 Submits capture request"
 \draw[solidarrow, txt]
-(0.21,0) -- node[midway,above] {1 Submits \textit{capture} request} (14.79,0);
-% Flow "2.1 Processes payment"
+(0.21,0) -- node[midway,above] {1 Submits capture request} (14.79,0);
+% Flow "2 Processes payment"
 \draw[solidarrow, txt]
-(15.21,0) -- (15.61,0) -- node[midway,right] {2.1 Processes payment} (15.61,-1.25) -- (15.21,-1.25);
-% Flow "2.2 Sends notification with payment result"
+(15.21,0) -- (15.61,0) -- node[midway,right] {2 Processes payment} (15.61,-1.25) -- (15.21,-1.25);
+% Flow "3 Sends notification with payment result"
 \draw[solidarrow, txt]
-(14.79,-1.25) -- node[midway,above] {2.2 Sends notification with payment result} (0.21,-1.25);
+(14.79,-1.25) -- node[midway,above] {3 Sends notification with payment result} (0.21,-1.25);
 
 % Document Footer
 \end{tikzpicture}

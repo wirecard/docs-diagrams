@@ -1,5 +1,6 @@
 % Document Header
 \documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
 \input{style/new_sequence.tikz}
 \input{vars/shortcuts.tex}
 \begin{document}
@@ -21,18 +22,18 @@
 \draw[box, nightblue] (0,-1.15) -- (0,-3.85);
 
 % Flows
-% Flow "1.1 Send `pending-credit` request"
+% Flow "1 Sends pending-credit request"
 \draw[solidarrow, txt]
-(0.21,0) -- node[midway,above] {1.1 Send \texttt{pending-credit} request} (14.79,0);
-% Flow "2.1 Processes transaction"
+(0.21,0) -- node[midway,above] {1 Sends pending-credit request} (14.79,0);
+% Flow "2 Processes transaction"
 \draw[solidarrow, txt]
-(15.21,0) -- (15.61,0) -- node[midway,right] {2.1 Processes transaction} (15.61,-1.25) -- (15.21,-1.25);
-% Flow "2.2 Send notification with transaction result"
+(15.21,0) -- (15.61,0) -- node[midway,right] {2 Processes transaction} (15.61,-1.25) -- (15.21,-1.25);
+% Flow "3 Sends notification with transaction result"
 \draw[solidarrow, txt]
-(14.79,-1.25) -- node[midway,above] {2.2 Send notification with transaction result} (0.21,-1.25);
-% Flow "3.1 Redirects consumer to merchant's result page"
+(14.79,-1.25) -- node[midway,above] {3 Sends notification with transaction result} (0.21,-1.25);
+% Flow "4 Redirects consumer to merchant's result page"
 \draw[solidarrow, txt]
-(0.21,-2.5) -- (0.61,-2.5) -- node[midway,right] {3.1 Redirects consumer to merchant's result page} (0.61,-3.75) -- (0.21,-3.75);
+(0.21,-2.5) -- (0.61,-2.5) -- node[midway,right] {4 Redirects consumer to merchant's result page} (0.61,-3.75) -- (0.21,-3.75);
 
 % Document Footer
 \end{tikzpicture}

@@ -1,5 +1,6 @@
 % Document Header
 \documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
 \input{style/new_sequence.tikz}
 \input{vars/shortcuts.tex}
 \begin{document}
@@ -20,9 +21,9 @@
 \draw[box, nightblue] (15,0.1) -- (15,-1.35);
 
 % Flows
-% Flow "1 Submits _authorization_ request"
+% Flow "1 Submits authorization request"
 \draw[solidarrow, txt]
-(0.21,0) -- node[midway,above] {1 Submits \textit{authorization} request} (14.79,0);
+(0.21,0) -- node[midway,above] {1 Submits authorization request} (14.79,0);
 % Flow "2 Reserves funds for further capture"
 \draw[solidarrow, txt]
 (15.21,0) -- (15.61,0) -- node[midway,right] {2 Reserves funds for further capture} (15.61,-1.25) -- (15.21,-1.25);
