@@ -44,30 +44,30 @@
 % Flow "2 Sends get-url request"
 \draw[solidarrow, txt]
 (15.21,-1.87) -- node[midway,above] {2 Sends get-url request} (29.79,-1.87);
-% Flow "3 Processes and validates \\ transaction and sends request to giropay"
+% Flow "3 Processes and validates transaction and sends request to giropay"
 \draw[solidarrow, txt]
-(30.21,-3.12) -- node[midway,above] {3 Processes and validates \\ transaction and sends request to giropay} (44.79,-3.12);
-% Flow "4 Provides URL of consumer's \\ online banking account for payment verification"
+(30.21,-3.12) -- node[midway,above] {3 Processes and validates transaction and sends request to giropay} (44.79,-3.12);
+% Flow "4 Provides URL of consumer's online banking account for payment verification"
 \draw[solidarrow, txt]
-(44.79,-5.62) -- node[midway,above] {4 Provides URL of consumer's \\ online banking account for payment verification} (30.21,-5.62);
+(44.79,-5.62) -- node[midway,above] {4 Provides URL of consumer's online banking account for payment verification} (30.21,-5.62);
 % Flow "5 Processes response and redirects consumer to provided online bank URL"
 \draw[solidarrow, txt]
 (29.79,-6.87) -- node[midway,above] {5 Processes response and redirects consumer to provided online bank URL} (0.21,-6.87);
 % Flow "6 Verifies payment within personal online banking system"
 \draw[solidarrow, txt]
 (0.21,-8.12) -- node[midway,above] {6 Verifies payment within personal online banking system} (44.79,-8.12);
-% Flow "7.1 Transfers funds from \\ consumer's bank account to \\ merchant's bank account"
+% Flow "7 Transfers funds from consumer's bank account to merchant's bank account"
 \draw[solidarrow, txt]
-(45.21,-8.12) -- (45.61,-8.12) -- node[midway,right] {7.1 Transfers funds from \\ consumer's bank account to \\ merchant's bank account} (45.61,-9.37) -- (45.21,-9.37);
-% Flow "7.2 Sends payment notification"
+(45.21,-8.12) -- (45.61,-8.12) -- node[midway,right] {7 Transfers funds from consumer's bank account to merchant's bank account} (45.61,-9.37) -- (45.21,-9.37);
+% Flow "8 Sends payment notification"
 \draw[solidarrow, txt]
-(44.79,-9.37) -- node[midway,above] {7.2 Sends payment notification} (30.21,-9.37);
-% Flow "8 Processes notification and sends payment notification"
+(44.79,-9.37) -- node[midway,above] {8 Sends payment notification} (30.21,-9.37);
+% Flow "9 Processes notification and sends payment notification"
 \draw[solidarrow, txt]
-(29.79,-10.62) -- node[midway,above] {8 Processes notification and sends payment notification} (15.21,-10.62);
-% Flow "9 Receives notification with payment result"
+(29.79,-10.62) -- node[midway,above] {9 Processes notification and sends payment notification} (15.21,-10.62);
+% Flow "10 Receives notification with payment result"
 \draw[solidarrow, txt]
-(15.21,-11.87) -- (15.61,-11.87) -- node[midway,right] {9 Receives notification with payment result} (15.61,-13.12) -- (15.21,-13.12);
+(15.21,-11.87) -- (15.61,-11.87) -- node[midway,right] {10 Receives notification with payment result} (15.61,-13.12) -- (15.21,-13.12);
 
 % Document Footer
 \end{tikzpicture}
