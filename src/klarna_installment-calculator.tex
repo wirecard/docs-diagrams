@@ -9,44 +9,44 @@
 % Stage "consumer"
 \node[participant] at (0,2) {Consumer};
 \node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
-\draw[aidline] (0, 0.5) -- (0,-8.62);
+\draw[aidline] (0, 0.9) -- (0,-8.62);
 
 % Stage "merchant"
 \node[participant] at (15,2) {Merchant};
 \node[icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
-\draw[aidline] (15, 0.5) -- (15,-8.62);
+\draw[aidline] (15, 0.9) -- (15,-8.62);
 
 % Stage "payment"
 \node[participant] at (30,2) {Payment Gateway};
 \node[icon] (icon2) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
-\draw[aidline] (30, 0.5) -- (30,-8.62);
+\draw[aidline] (30, 0.9) -- (30,-8.62);
 
 % Stage "klarna"
 \node[participant] at (45,2) {Klarna};
 \node[icon] (icon3) at (45,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
-\draw[aidline] (45, 0.5) -- (45,-8.62);
+\draw[aidline] (45, 0.9) -- (45,-8.62);
 
 % Boxes
-\draw[box, nightblue] (0,0.1) -- (0,-1.35);
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
 \draw[box, nightblue] (0,-5.525) -- (0,-8.225);
-\draw[box, nightblue] (15,-0.525) -- (15,-1.975);
+\draw[box, nightblue] (15,0.1) -- (15,-1.35);
 \draw[box, nightblue] (15,-4.275) -- (15,-5.725);
-\draw[box, nightblue] (30,-1.775) -- (30,-3.225);
-\draw[box, nightblue] (45,-3.025) -- (45,-4.475);
+\draw[box, nightblue] (30,-1.15) -- (30,-2.6);
+\draw[box, nightblue] (45,-2.4) -- (45,-4.475);
 
 % Flows
 % Flow "1 Selects payment option installment"
 \draw[solidarrow, txt]
-(0.21,-0.62) -- node[midway,above] {1 Selects payment option installment} (14.79,-0.62);
+(0.21,0) -- node[midway,above] {1 Selects payment option installment} (14.79,0);
 % Flow "2 Prepares installment calculator request"
 \draw[solidarrow, txt]
-(15.21,-1.87) -- node[midway,above] {2 Prepares installment calculator request} (29.79,-1.87);
+(15.21,-1.25) -- node[midway,above] {2 Prepares installment calculator request} (29.79,-1.25);
 % Flow "3 Forwards request"
 \draw[solidarrow, txt]
-(30.21,-3.12) -- node[midway,above] {3 Forwards request} (44.79,-3.12);
+(30.21,-2.5) -- node[midway,above] {3 Forwards request} (44.79,-2.5);
 % Flow "4 Generates list of available installment plans"
 \draw[solidarrow, txt]
-(45.21,-3.12) -- (45.61,-3.12) -- node[midway,right] {4 Generates list of available installment plans} (45.61,-4.37) -- (45.21,-4.37);
+(45.21,-2.5) -- (45.61,-2.5) -- node[midway,right] {4 Generates list of available installment plans} (45.61,-4.37) -- (45.21,-4.37);
 % Flow "5 Sends list of available installment plans"
 \draw[solidarrow, txt]
 (44.79,-4.37) -- node[midway,above] {5 Sends list of available installment plans} (15.21,-4.37);
