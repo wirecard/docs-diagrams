@@ -29,21 +29,21 @@
 \draw[box, nightblue] (0,-4.9) -- (0,-7.6);
 
 % Flows
-% Flow "1 Sends authorization-renewal request"
+% Flow "1 Sends `authorization-renewal` request"
 \draw[solidarrow, txt]
-(0.21,0) -- node[midway,above] {1 Sends authorization-renewal request} (14.79,0);
-% Flow "2 Creates authorization-renewal transaction"
+(0.21,0) -- node[midway,above] {1 Sends \texttt{authorization-renewal} request} (14.79,0);
+% Flow "2 Creates `authorization-renewal` transaction"
 \draw[solidarrow, txt]
-(15.21,-1.25) -- node[midway,above] {2 Creates authorization-renewal transaction} (29.79,-1.25);
+(15.21,-1.25) -- node[midway,above] {2 Creates \texttt{authorization-renewal} transaction} (29.79,-1.25);
 % Flow "3 Extends reservation expiration"
 \draw[solidarrow, txt]
 (30.21,-1.25) -- (30.61,-1.25) -- node[midway,right] {3 Extends reservation expiration} (30.61,-3.75) -- (30.21,-3.75);
 % Flow "4 Sends new expiration date"
 \draw[solidarrow, txt]
 (29.79,-3.75) -- node[midway,above] {4 Sends new expiration date} (15.21,-3.75);
-% Flow "5 Sends authorization-renewal response"
+% Flow "5 Sends `authorization-renewal` response"
 \draw[solidarrow, txt]
-(14.79,-5) -- node[midway,above] {5 Sends authorization-renewal response} (0.21,-5);
+(14.79,-5) -- node[midway,above] {5 Sends \texttt{authorization-renewal} response} (0.21,-5);
 % Flow "6 Extends reservation expiration"
 \draw[solidarrow, txt]
 (0.21,-6.25) -- (0.61,-6.25) -- node[midway,right] {6 Extends reservation expiration} (0.61,-7.5) -- (0.21,-7.5);
