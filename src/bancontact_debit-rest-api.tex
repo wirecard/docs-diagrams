@@ -1,0 +1,56 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-7.15);
+
+% Stage "merchant"
+\node[participant] at (10,2) {Merchant};
+\node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (10, 0.9) -- (10,-7.15);
+
+% Stage "payment"
+\node[participant] at (20,2) {Payment Gateway};
+\node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (20, 0.9) -- (20,-7.15);
+
+% Stage "bancontact"
+\node[participant] at (30,2) {Bancontact};
+\node[icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (30, 0.9) -- (30,-7.15);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (20,0.1) -- (20,-1.35);
+\draw[box, nightblue] (0,-1.15) -- (0,-3.225);
+\draw[box, nightblue] (30,-3.025) -- (30,-5.1);
+\draw[box, nightblue] (20,-4.9) -- (20,-6.35);
+\draw[box, nightblue] (10,-5.75) -- (10,-6.75);
+
+% Flows
+% Flow "1 Selects payment method Bancontact"
+\draw[solidarrow, txt]
+(0.21,0) -- node[midway,above] {1 Selects payment method Bancontact} (19.79,0);
+% Flow "2 Redirects consumer to Bancontact"
+\draw[solidarrow, txt]
+(19.79,-1.25) -- node[midway,above] {2 Redirects consumer to Bancontact} (0.21,-1.25);
+% Flow "3 Enters Bancontact card data and confirms payment"
+\draw[solidarrow, txt]
+(0.21,-3.12) -- node[midway,above] {3 Enters Bancontact card data and confirms payment} (29.79,-3.12);
+% Flow "4 Redirects consumer to merchant's confirmation page"
+\draw[solidarrow, txt]
+(29.79,-5) -- node[midway,above] {4 Redirects consumer to merchant's confirmation page} (20.21,-5);
+% Flow "5 Sends notification with transaction result"
+\draw[solidarrow, txt]
+(19.79,-6.25) -- node[midway,above] {5 Sends notification with transaction result} (10.21,-6.25);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

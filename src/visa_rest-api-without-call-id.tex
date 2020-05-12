@@ -1,0 +1,101 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-18.4);
+
+% Stage "merchant"
+\node[participant] at (10,2) {Merchant};
+\node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (10, 0.9) -- (10,-18.4);
+
+% Stage "payment"
+\node[participant] at (20,2) {Payment Gateway};
+\node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (20, 0.9) -- (20,-18.4);
+
+% Stage "visa"
+\node[participant] at (30,2) {VISA Checkout Page};
+\node[icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentpage.png}};
+\draw[aidline] (30, 0.9) -- (30,-18.4);
+
+% Stage "acquirer"
+\node[participant] at (40,2) {Merchant's Acquirer};
+\node[icon] (icon4) at (40,3.5) {\includegraphics[width=.1\textwidth] {financialinstitution.png}};
+\draw[aidline] (40, 0.9) -- (40,-18.4);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (0,-1.15) -- (0,-2.6);
+\draw[box, nightblue] (0,-8.65) -- (0,-10.1);
+\draw[box, nightblue] (10,0.1) -- (10,-1.35);
+\draw[box, nightblue] (10,-2.4) -- (10,-3.85);
+\draw[box, nightblue] (10,-4.9) -- (10,-6.35);
+\draw[box, nightblue] (10,-17) -- (10,-18);
+\draw[box, nightblue] (20,-3.65) -- (20,-5.1);
+\draw[box, nightblue] (20,-6.15) -- (20,-7.6);
+\draw[box, nightblue] (20,-11.15) -- (20,-12.6);
+\draw[box, nightblue] (20,-13.65) -- (20,-15.1);
+\draw[box, nightblue] (20,-16.15) -- (20,-17.6);
+\draw[box, nightblue] (30,-7.4) -- (30,-8.85);
+\draw[box, nightblue] (30,-9.9) -- (30,-11.35);
+\draw[box, nightblue] (30,-12.4) -- (30,-13.85);
+\draw[box, nightblue] (40,-14.9) -- (40,-16.35);
+
+% Flows
+% Flow "1 Initiates checkout"
+\draw[solidarrow, txt]
+(0.21,0) -- node[midway,above] {1 Initiates checkout} (9.79,0);
+% Flow "2 Displays all payment methods"
+\draw[solidarrow, txt]
+(9.79,-1.25) -- node[midway,above] {2 Displays all payment methods} (0.21,-1.25);
+% Flow "3 Selects VISA checkout"
+\draw[solidarrow, txt]
+(0.21,-2.5) -- node[midway,above] {3 Selects VISA checkout} (9.79,-2.5);
+% Flow "4 Submits transaction to receive URL"
+\draw[solidarrow, txt]
+(10.21,-3.75) -- node[midway,above] {4 Submits transaction to receive URL} (19.79,-3.75);
+% Flow "5 Generates URL"
+\draw[solidarrow, txt]
+(19.79,-5) -- node[midway,above] {5 Generates URL} (10.21,-5);
+% Flow "6 Redirects consumer"
+\draw[solidarrow, txt]
+(10.21,-6.25) -- node[midway,above] {6 Redirects consumer} (19.79,-6.25);
+% Flow "7 Initiates VISA checkout"
+\draw[solidarrow, txt]
+(20.21,-7.5) -- node[midway,above] {7 Initiates VISA checkout} (29.79,-7.5);
+% Flow "8 Prompts consumer to login"
+\draw[solidarrow, txt]
+(29.79,-8.75) -- node[midway,above] {8 Prompts consumer to login} (0.21,-8.75);
+% Flow "9 Enters login data and selects preferred card and shipping details"
+\draw[solidarrow, txt]
+(0.21,-10) -- node[midway,above] {9 Enters login data and selects preferred card and shipping details} (29.79,-10);
+% Flow "10 Returns checkout response for processing"
+\draw[solidarrow, txt]
+(29.79,-11.25) -- node[midway,above] {10 Returns checkout response for processing} (20.21,-11.25);
+% Flow "11 Calls for full payment data"
+\draw[solidarrow, txt]
+(20.21,-12.5) -- node[midway,above] {11 Calls for full payment data} (29.79,-12.5);
+% Flow "12 Provides full payment data"
+\draw[solidarrow, txt]
+(29.79,-13.75) -- node[midway,above] {12 Provides full payment data} (20.21,-13.75);
+% Flow "13 Submits transaction for authorization"
+\draw[solidarrow, txt]
+(20.21,-15) -- node[midway,above] {13 Submits transaction for authorization} (39.79,-15);
+% Flow "14 Processes transaction"
+\draw[solidarrow, txt]
+(39.79,-16.25) -- node[midway,above] {14 Processes transaction} (20.21,-16.25);
+% Flow "15 Sends status of transaction"
+\draw[solidarrow, txt]
+(19.79,-17.5) -- node[midway,above] {15 Sends status of transaction} (10.21,-17.5);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}
