@@ -1,0 +1,62 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-12.37);
+
+% Stage "merchant"
+\node[participant] at (10,2) {Merchant};
+\node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (10, 0.9) -- (10,-12.37);
+
+% Stage "payment"
+\node[participant] at (20,2) {Payment Gateway};
+\node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (20, 0.9) -- (20,-12.37);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (0,-3.65) -- (0,-6.35);
+\draw[box, nightblue] (0,-9.275) -- (0,-11.975);
+\draw[box, nightblue] (10,0.1) -- (10,-1.35);
+\draw[box, nightblue] (10,-2.4) -- (10,-3.85);
+\draw[box, nightblue] (10,-8.025) -- (10,-9.475);
+\draw[box, nightblue] (20,-1.15) -- (20,-2.6);
+\draw[box, nightblue] (20,-6.15) -- (20,-8.225);
+
+% Flows
+% Flow "1 Selects payment method Masterpass"
+\draw[solidarrow, txt]
+(0.21,0) -- node[midway,above] {1 Selects payment method Masterpass} (9.79,0);
+% Flow "2 Initiates request-checkout transaction with request-type pairing"
+\draw[solidarrow, txt]
+(10.21,-1.25) -- node[midway,above] {2 Initiates request-checkout transaction with request-type pairing} (19.79,-1.25);
+% Flow "3 Sends `redirect-url`"
+\draw[solidarrow, txt]
+(19.79,-2.5) -- node[midway,above] {3 Sends \texttt{redirect-url}} (10.21,-2.5);
+% Flow "4 Initiates Masterpass lightbox"
+\draw[solidarrow, txt]
+(9.79,-3.75) -- node[midway,above] {4 Initiates Masterpass lightbox} (0.21,-3.75);
+% Flow "5 Enters Masterpass credentials and selects preferred card and shipping address (optional), approves paring request"
+\draw[solidarrow, txt]
+(0.21,-6.25) -- node[midway,above] {5 Enters Masterpass credentials and selects preferred card and shipping address (optional), approves paring request} (19.79,-6.25);
+% Flow "6 Returns token and shipping address (optional) information"
+\draw[solidarrow, txt]
+(19.79,-8.12) -- node[midway,above] {6 Returns token and shipping address (optional) information} (10.21,-8.12);
+% Flow "7 Sends transaction status"
+\draw[solidarrow, txt]
+(9.79,-9.37) -- node[midway,above] {7 Sends transaction status} (0.21,-9.37);
+% Flow "8 Displays pairing status"
+\draw[solidarrow, txt]
+(0.21,-10.62) -- (0.61,-10.62) -- node[midway,right] {8 Displays pairing status} (0.61,-11.87) -- (0.21,-11.87);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

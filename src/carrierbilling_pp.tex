@@ -1,0 +1,66 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-9.25);
+
+% Stage "merchant"
+\node[participant] at (10,2) {Merchant};
+\node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (10, 0.9) -- (10,-9.25);
+
+% Stage "payment"
+\node[participant] at (20,2) {Payment Gateway};
+\node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (20, 0.9) -- (20,-9.25);
+
+% Stage "cbilling"
+\node[participant] at (30,2) {Carrier Billing};
+\node[icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (30, 0.9) -- (30,-9.25);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (20,0.1) -- (20,-1.35);
+\draw[box, nightblue] (30,-1.15) -- (30,-2.6);
+\draw[box, nightblue] (0,-2.4) -- (0,-3.85);
+\draw[box, nightblue] (30,-3.65) -- (30,-5.725);
+\draw[box, nightblue] (20,-5.525) -- (20,-6.975);
+\draw[box, nightblue] (10,-6.775) -- (10,-8.85);
+
+% Flows
+% Flow "1 Selects Carrier Billing"
+\draw[solidarrow, txt]
+(0.21,0) -- node[midway,above] {1 Selects Carrier Billing} (19.79,0);
+% Flow "2 Redirects consumer"
+\draw[solidarrow, txt]
+(20.21,-1.25) -- node[midway,above] {2 Redirects consumer} (29.79,-1.25);
+% Flow "3 Requests consumer's mobile number"
+\draw[solidarrow, txt]
+(29.79,-2.5) -- node[midway,above] {3 Requests consumer's mobile number} (0.21,-2.5);
+% Flow "4 Enters mobile number"
+\draw[solidarrow, txt]
+(0.21,-3.75) -- node[midway,above] {4 Enters mobile number} (29.79,-3.75);
+% Flow "5 Processes payment"
+\draw[solidarrow, txt]
+(30.21,-3.75) -- (30.61,-3.75) -- node[midway,right] {5 Processes payment} (30.61,-5.62) -- (30.21,-5.62);
+% Flow "6 Sends notification"
+\draw[solidarrow, txt]
+(29.79,-5.62) -- node[midway,above] {6 Sends notification} (20.21,-5.62);
+% Flow "7 Confirms payment"
+\draw[solidarrow, txt]
+(19.79,-6.87) -- node[midway,above] {7 Confirms payment} (10.21,-6.87);
+% Flow "8 Redirects consumer to confirmation page"
+\draw[solidarrow, txt]
+(10.21,-7.5) -- (10.61,-7.5) -- node[midway,right] {8 Redirects consumer to confirmation page} (10.61,-8.75) -- (10.21,-8.75);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

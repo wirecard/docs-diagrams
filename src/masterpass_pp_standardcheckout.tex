@@ -1,0 +1,82 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-17.15);
+
+% Stage "merchant"
+\node[participant] at (11,2) {Merchant};
+\node[icon] (icon1) at (11,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (11, 0.9) -- (11,-17.15);
+
+% Stage "payment"
+\node[participant] at (22,2) {Payment Gateway};
+\node[icon] (icon2) at (22,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (22, 0.9) -- (22,-17.15);
+
+% Stage "finstitution"
+\node[participant] at (33,2) {Financial Institution};
+\node[icon] (icon3) at (33,3.5) {\includegraphics[width=.1\textwidth] {financialinstitution.png}};
+\draw[aidline] (33, 0.9) -- (33,-17.15);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (11,0.1) -- (11,-1.35);
+\draw[box, nightblue] (22,-1.15) -- (22,-3.85);
+\draw[box, nightblue] (33,-3.65) -- (33,-5.725);
+\draw[box, nightblue] (22,-5.525) -- (22,-6.975);
+\draw[box, nightblue] (0,-6.775) -- (0,-11.35);
+\draw[box, nightblue] (22,-11.15) -- (22,-12.6);
+\draw[box, nightblue] (33,-12.4) -- (33,-13.85);
+\draw[box, nightblue] (22,-13.65) -- (22,-15.1);
+\draw[box, nightblue] (11,-14.9) -- (11,-16.35);
+\draw[box, nightblue] (0,-15.75) -- (0,-16.75);
+
+% Flows
+% Flow "1 Selects payment method Masterpass"
+\draw[solidarrow, txt]
+(0.21,0) -- node[midway,above] {1 Selects payment method Masterpass} (10.79,0);
+% Flow "2 Sends get-url request"
+\draw[solidarrow, txt]
+(11.21,-1.25) -- node[midway,above] {2 Sends get-url request} (21.79,-1.25);
+% Flow "3 Validates transaction"
+\draw[solidarrow, txt]
+(22.21,-1.25) -- (22.61,-1.25) -- node[midway,right] {3 Validates transaction} (22.61,-2.5) -- (22.21,-2.5);
+% Flow "4 Sends get-url request"
+\draw[solidarrow, txt]
+(22.21,-3.75) -- node[midway,above] {4 Sends get-url request} (32.79,-3.75);
+% Flow "5 Provides URL of consumer’s online banking account for payment verification"
+\draw[solidarrow, txt]
+(32.79,-5.62) -- node[midway,above] {5 Provides URL of consumer’s online banking account for payment verification} (22.21,-5.62);
+% Flow "6 Redirects consumer to Masterpass"
+\draw[solidarrow, txt]
+(21.79,-6.87) -- node[midway,above] {6 Redirects consumer to Masterpass} (0.21,-6.87);
+% Flow "7 Enters credentials and selects preferred card and shipping address (optional)"
+\draw[solidarrow, txt]
+(0.21,-8.12) -- (0.61,-8.12) -- node[midway,right] {7 Enters credentials and selects preferred card and shipping address (optional)} (0.61,-9.37) -- (0.21,-9.37);
+% Flow "8 Verifies payment within personal online banking system"
+\draw[solidarrow, txt]
+(0.21,-11.25) -- node[midway,above] {8 Verifies payment within personal online banking system} (21.79,-11.25);
+% Flow "9 Processes transaction with merchant's acquirer"
+\draw[solidarrow, txt]
+(22.21,-12.5) -- node[midway,above] {9 Processes transaction with merchant's acquirer} (32.79,-12.5);
+% Flow "10 Sends transaction status"
+\draw[solidarrow, txt]
+(32.79,-13.75) -- node[midway,above] {10 Sends transaction status} (22.21,-13.75);
+% Flow "11 Sends transaction status"
+\draw[solidarrow, txt]
+(21.79,-15) -- node[midway,above] {11 Sends transaction status} (11.21,-15);
+% Flow "12 Display completion of payment process"
+\draw[solidarrow, txt]
+(10.79,-16.25) -- node[midway,above] {12 Display completion of payment process} (0.21,-16.25);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

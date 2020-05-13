@@ -1,0 +1,75 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-13);
+
+% Stage "visa"
+\node[participant] at (10,2) {VISA Checkout Page};
+\node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {paymentpage.png}};
+\draw[aidline] (10, 0.9) -- (10,-13);
+
+% Stage "merchant"
+\node[participant] at (20,2) {Merchant};
+\node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (20, 0.9) -- (20,-13);
+
+% Stage "payment"
+\node[participant] at (30,2) {Payment Gateway};
+\node[icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (30, 0.9) -- (30,-13);
+
+% Stage "acquirer"
+\node[participant] at (40,2) {Merchant's Acquirer};
+\node[icon] (icon4) at (40,3.5) {\includegraphics[width=.1\textwidth] {financialinstitution.png}};
+\draw[aidline] (40, 0.9) -- (40,-13);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (30,0.1) -- (30,-1.35);
+\draw[box, nightblue] (10,-1.15) -- (10,-5.1);
+\draw[box, nightblue] (30,-4.9) -- (30,-6.35);
+\draw[box, nightblue] (40,-6.15) -- (40,-7.6);
+\draw[box, nightblue] (30,-7.4) -- (30,-10.1);
+\draw[box, nightblue] (20,-8.25) -- (20,-9.25);
+\draw[box, nightblue] (20,-9.9) -- (20,-12.6);
+
+% Flows
+% Flow "1 Selects payment method VISA checkout"
+\draw[solidarrow, txt]
+(0.21,0) -- node[midway,above] {1 Selects payment method VISA checkout} (29.79,0);
+% Flow "2 Redirects consumer"
+\draw[solidarrow, txt]
+(29.79,-1.25) -- node[midway,above] {2 Redirects consumer} (10.21,-1.25);
+% Flow "3 Enters VISA checkout credentials"
+\draw[solidarrow, txt]
+(10.21,-2.5) -- (10.61,-2.5) -- node[midway,right] {3 Enters VISA checkout credentials} (10.61,-3.75) -- (10.21,-3.75);
+% Flow "4 Selects preferred card"
+\draw[solidarrow, txt]
+(10.21,-5) -- node[midway,above] {4 Selects preferred card} (29.79,-5);
+% Flow "5 Processes transaction"
+\draw[solidarrow, txt]
+(30.21,-6.25) -- node[midway,above] {5 Processes transaction} (39.79,-6.25);
+% Flow "6 Receives transaction status"
+\draw[solidarrow, txt]
+(39.79,-7.5) -- node[midway,above] {6 Receives transaction status} (30.21,-7.5);
+% Flow "7 Sends transaction status"
+\draw[solidarrow, txt]
+(29.79,-8.75) -- node[midway,above] {7 Sends transaction status} (20.21,-8.75);
+% Flow "8 Redirects consumer"
+\draw[solidarrow, txt]
+(29.79,-10) -- node[midway,above] {8 Redirects consumer} (20.21,-10);
+% Flow "9 Displays completion of payment process"
+\draw[solidarrow, txt]
+(20.21,-11.25) -- (20.61,-11.25) -- node[midway,right] {9 Displays completion of payment process} (20.61,-12.5) -- (20.21,-12.5);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}
