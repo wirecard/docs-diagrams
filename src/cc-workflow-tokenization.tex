@@ -5,14 +5,14 @@
 \begin{document}
 \begin{tikzpicture}
 
-\node[txt, participant] at (0,0) {Consumer};
-	\node[txt, icon] (icon1) at (0,1)
+\node[participant] at (0,0) {Consumer};
+	\node[icon] (icon1) at (0,1)
 	{\includegraphics[width=.1\textwidth] {consumer.png}};
-\node[txt, participant] at (10,0) {Merchant};
-	\node[txt, icon] (icon2) at (10,1)
+\node[participant] at (10,0) {Merchant};
+	\node[icon] (icon2) at (10,1)
 	{\includegraphics[width=.1\textwidth]{merchant.png}};
-\node[txt, participant] at (20,0) {Payment Gateway};
-	\node[txt, icon] (icon3) at (20,1)
+\node[participant] at (20,0) {Payment Gateway};
+	\node[icon] (icon3) at (20,1)
 	{\includegraphics[width=.1\textwidth]{paymentgateway.png}};
 
 % aid lines (loop)

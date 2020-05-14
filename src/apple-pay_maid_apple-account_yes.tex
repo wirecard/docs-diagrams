@@ -7,13 +7,13 @@
 \begin{tikzpicture}
 
 % Stage "merchant"
-\node[txt, participant] at (0,2) {Merchant};
-\node[txt, icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\node[participant] at (0,2) {Merchant};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
 \draw[aidline] (0, 0.9) -- (0,-4.25);
 
 % Stage "payment"
-\node[txt, participant] at (15,2) {Payment Gateway};
-\node[txt, icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\node[participant] at (15,2) {Payment Gateway};
+\node[icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
 \draw[aidline] (15, 0.9) -- (15,-4.25);
 
 % Boxes
