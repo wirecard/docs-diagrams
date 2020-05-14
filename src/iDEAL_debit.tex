@@ -7,23 +7,23 @@
 \begin{tikzpicture}
 
 % Stage "consumer"
-\node[participant] at (0,2) {Consumer};
-\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\node[txt, participant] at (0,2) {Consumer};
+\node[txt, icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
 \draw[aidline] (0, 0.9) -- (0,-18.4);
 
 % Stage "merchant"
-\node[participant] at (15,2) {Merchant};
-\node[icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\node[txt, participant] at (15,2) {Merchant};
+\node[txt, icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
 \draw[aidline] (15, 0.9) -- (15,-18.4);
 
 % Stage "payment"
-\node[participant] at (30,2) {Payment Gateway};
-\node[icon] (icon2) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\node[txt, participant] at (30,2) {Payment Gateway};
+\node[txt, icon] (icon2) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
 \draw[aidline] (30, 0.9) -- (30,-18.4);
 
 % Stage "ideal"
-\node[participant] at (45,2) {iDEAL};
-\node[icon] (icon3) at (45,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\node[txt, participant] at (45,2) {iDEAL};
+\node[txt, icon] (icon3) at (45,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
 \draw[aidline] (45, 0.9) -- (45,-18.4);
 
 % Boxes
@@ -40,44 +40,44 @@
 
 % Flows
 % Flow "1 Selects payment method iDEAL"
-\draw[solidarrow, txt]
-(0.21,0) -- node[midway,above] {1 Selects payment method iDEAL} (14.79,0);
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Selects payment method iDEAL} (14.79,0);
 % Flow "2 Sends get-url request"
-\draw[solidarrow, txt]
-(15.21,-1.25) -- node[midway,above] {2 Sends get-url request} (29.79,-1.25);
+\draw[solidarrow]
+(15.21,-1.25) -- node[txt, midway,above] {2 Sends get-url request} (29.79,-1.25);
 % Flow "3 Processes and validates \\ transaction"
-\draw[solidarrow, txt]
-(30.21,-2.5) -- (30.61,-2.5) -- node[midway,right] {3 Processes and validates \\ transaction} (30.61,-3.75) -- (30.21,-3.75);
+\draw[solidarrow]
+(30.21,-2.5) -- (30.61,-2.5) -- node[txt, midway,right] {3 Processes and validates \\ transaction} (30.61,-3.75) -- (30.21,-3.75);
 % Flow "4 Sends request"
-\draw[solidarrow, txt]
-(30.21,-5) -- node[midway,above] {4 Sends request} (44.79,-5);
+\draw[solidarrow]
+(30.21,-5) -- node[txt, midway,above] {4 Sends request} (44.79,-5);
 % Flow "5 Provides URL of consumer's \\ online banking account for payment verification"
-\draw[solidarrow, txt]
-(44.79,-7.5) -- node[midway,above] {5 Provides URL of consumer's \\ online banking account for payment verification} (30.21,-7.5);
+\draw[solidarrow]
+(44.79,-7.5) -- node[txt, midway,above] {5 Provides URL of consumer's \\ online banking account for payment verification} (30.21,-7.5);
 % Flow "6 Redirects consumer to provided online banking URL"
-\draw[solidarrow, txt]
-(29.79,-8.75) -- node[midway,above] {6 Redirects consumer to provided online banking URL} (0.21,-8.75);
+\draw[solidarrow]
+(29.79,-8.75) -- node[txt, midway,above] {6 Redirects consumer to provided online banking URL} (0.21,-8.75);
 % Flow "7 Verifies payment within personal online banking system"
-\draw[solidarrow, txt]
-(0.21,-10) -- node[midway,above] {7 Verifies payment within personal online banking system} (44.79,-10);
+\draw[solidarrow]
+(0.21,-10) -- node[txt, midway,above] {7 Verifies payment within personal online banking system} (44.79,-10);
 % Flow "8 Transfers funds from \\ consumer's bank account to \\ merchant's bank account"
-\draw[solidarrow, txt]
-(45.21,-10) -- (45.61,-10) -- node[midway,right] {8 Transfers funds from \\ consumer's bank account to \\ merchant's bank account} (45.61,-11.25) -- (45.21,-11.25);
+\draw[solidarrow]
+(45.21,-10) -- (45.61,-10) -- node[txt, midway,right] {8 Transfers funds from \\ consumer's bank account to \\ merchant's bank account} (45.61,-11.25) -- (45.21,-11.25);
 % Flow "9 Redirects consumer to \\ merchant's result page"
-\draw[solidarrow, txt]
-(45.21,-12.5) -- (45.61,-12.5) -- node[midway,right] {9 Redirects consumer to \\ merchant's result page} (45.61,-13.75) -- (45.21,-13.75);
+\draw[solidarrow]
+(45.21,-12.5) -- (45.61,-12.5) -- node[txt, midway,right] {9 Redirects consumer to \\ merchant's result page} (45.61,-13.75) -- (45.21,-13.75);
 % Flow "10 Queries continuously for \\ payment status"
-\draw[solidarrow, txt]
-(30.21,-13.75) -- node[midway,above] {10 Queries continuously for \\ payment status} (44.79,-13.75);
+\draw[solidarrow]
+(30.21,-13.75) -- node[txt, midway,above] {10 Queries continuously for \\ payment status} (44.79,-13.75);
 % Flow "11 Send transaction status"
-\draw[solidarrow, txt]
-(44.79,-15) -- node[midway,above] {11 Send transaction status} (30.21,-15);
+\draw[solidarrow]
+(44.79,-15) -- node[txt, midway,above] {11 Send transaction status} (30.21,-15);
 % Flow "12 Processes transaction"
-\draw[solidarrow, txt]
-(30.21,-16.25) -- (30.61,-16.25) -- node[midway,right] {12 Processes transaction} (30.61,-17.5) -- (30.21,-17.5);
+\draw[solidarrow]
+(30.21,-16.25) -- (30.61,-16.25) -- node[txt, midway,right] {12 Processes transaction} (30.61,-17.5) -- (30.21,-17.5);
 % Flow "13 Send debit notification"
-\draw[solidarrow, txt]
-(29.79,-17.5) -- node[midway,above] {13 Send debit notification} (15.21,-17.5);
+\draw[solidarrow]
+(29.79,-17.5) -- node[txt, midway,above] {13 Send debit notification} (15.21,-17.5);
 
 % Document Footer
 \end{tikzpicture}

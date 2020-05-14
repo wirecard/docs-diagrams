@@ -7,13 +7,13 @@
 \begin{tikzpicture}
 
 % Stage "merchant"
-\node[participant] at (0,2) {Merchant};
-\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\node[txt, participant] at (0,2) {Merchant};
+\node[txt, icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
 \draw[aidline] (0, 0.9) -- (0,-1.75);
 
 % Stage "payment"
-\node[participant] at (15,2) {Payment Gateway};
-\node[icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\node[txt, participant] at (15,2) {Payment Gateway};
+\node[txt, icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
 \draw[aidline] (15, 0.9) -- (15,-1.75);
 
 % Boxes
@@ -22,11 +22,11 @@
 
 % Flows
 % Flow "1 Submits authorization request"
-\draw[solidarrow, txt]
-(0.21,0) -- node[midway,above] {1 Submits authorization request} (14.79,0);
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Submits authorization request} (14.79,0);
 % Flow "2 Reserves funds for further capture"
-\draw[solidarrow, txt]
-(15.21,0) -- (15.61,0) -- node[midway,right] {2 Reserves funds for further capture} (15.61,-1.25) -- (15.21,-1.25);
+\draw[solidarrow]
+(15.21,0) -- (15.61,0) -- node[txt, midway,right] {2 Reserves funds for further capture} (15.61,-1.25) -- (15.21,-1.25);
 
 % Document Footer
 \end{tikzpicture}

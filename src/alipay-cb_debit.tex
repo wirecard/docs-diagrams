@@ -7,23 +7,23 @@
 \begin{tikzpicture}
 
 % Stage "consumer"
-\node[participant] at (0,2) {Consumer};
-\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\node[txt, participant] at (0,2) {Consumer};
+\node[txt, icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
 \draw[aidline] (0, 0.9) -- (0,-15.5);
 
 % Stage "merchant"
-\node[participant] at (10,2) {Merchant};
-\node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\node[txt, participant] at (10,2) {Merchant};
+\node[txt, icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
 \draw[aidline] (10, 0.9) -- (10,-15.5);
 
 % Stage "alipay"
-\node[participant] at (20,2) {Alipay Cross-border};
-\node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\node[txt, participant] at (20,2) {Alipay Cross-border};
+\node[txt, icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
 \draw[aidline] (20, 0.9) -- (20,-15.5);
 
 % Stage "payment"
-\node[participant] at (30,2) {Payment Gateway};
-\node[icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\node[txt, participant] at (30,2) {Payment Gateway};
+\node[txt, icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
 \draw[aidline] (30, 0.9) -- (30,-15.5);
 
 % Boxes
@@ -39,38 +39,38 @@
 
 % Flows
 % Flow "1 Displays all available payment methods"
-\draw[solidarrow, txt]
-(9.79,0) -- node[midway,above] {1 Displays all available payment methods} (0.21,0);
+\draw[solidarrow]
+(9.79,0) -- node[txt, midway,above] {1 Displays all available payment methods} (0.21,0);
 % Flow "2 Selects Alipay Cross-border"
-\draw[solidarrow, txt]
-(0.21,-1.25) -- node[midway,above] {2 Selects Alipay Cross-border} (9.79,-1.25);
+\draw[solidarrow]
+(0.21,-1.25) -- node[txt, midway,above] {2 Selects Alipay Cross-border} (9.79,-1.25);
 % Flow "3 Initiates debit transaction"
-\draw[solidarrow, txt]
-(10.21,-2.5) -- node[midway,above] {3 Initiates debit transaction} (29.79,-2.5);
+\draw[solidarrow]
+(10.21,-2.5) -- node[txt, midway,above] {3 Initiates debit transaction} (29.79,-2.5);
 % Flow "4 Sends redirection URL"
-\draw[solidarrow, txt]
-(29.79,-3.75) -- node[midway,above] {4 Sends redirection URL} (10.21,-3.75);
+\draw[solidarrow]
+(29.79,-3.75) -- node[txt, midway,above] {4 Sends redirection URL} (10.21,-3.75);
 % Flow "5 Redirects to Alipay Cross-border"
-\draw[solidarrow, txt]
-(9.79,-5) -- node[midway,above] {5 Redirects to Alipay Cross-border} (0.21,-5);
+\draw[solidarrow]
+(9.79,-5) -- node[txt, midway,above] {5 Redirects to Alipay Cross-border} (0.21,-5);
 % Flow "6 Enters account data"
-\draw[solidarrow, txt]
-(0.21,-6.25) -- (0.61,-6.25) -- node[midway,right] {6 Enters account data} (0.61,-7.5) -- (0.21,-7.5);
+\draw[solidarrow]
+(0.21,-6.25) -- (0.61,-6.25) -- node[txt, midway,right] {6 Enters account data} (0.61,-7.5) -- (0.21,-7.5);
 % Flow "7 Confirms payment"
-\draw[solidarrow, txt]
-(0.21,-8.75) -- node[midway,above] {7 Confirms payment} (19.79,-8.75);
+\draw[solidarrow]
+(0.21,-8.75) -- node[txt, midway,above] {7 Confirms payment} (19.79,-8.75);
 % Flow "8 Processes transaction"
-\draw[solidarrow, txt]
-(20.21,-10) -- node[midway,above] {8 Processes transaction} (29.79,-10);
+\draw[solidarrow]
+(20.21,-10) -- node[txt, midway,above] {8 Processes transaction} (29.79,-10);
 % Flow "9 Sends transaction's status"
-\draw[solidarrow, txt]
-(29.79,-11.25) -- node[midway,above] {9 Sends transaction's status} (10.21,-11.25);
+\draw[solidarrow]
+(29.79,-11.25) -- node[txt, midway,above] {9 Sends transaction's status} (10.21,-11.25);
 % Flow "10 Redirects consumer back"
-\draw[solidarrow, txt]
-(29.79,-12.5) -- node[midway,above] {10 Redirects consumer back} (10.21,-12.5);
+\draw[solidarrow]
+(29.79,-12.5) -- node[txt, midway,above] {10 Redirects consumer back} (10.21,-12.5);
 % Flow "11 Displays completion of payment process"
-\draw[solidarrow, txt]
-(10.21,-13.75) -- (10.61,-13.75) -- node[midway,right] {11 Displays completion of payment process} (10.61,-15) -- (10.21,-15);
+\draw[solidarrow]
+(10.21,-13.75) -- (10.61,-13.75) -- node[txt, midway,right] {11 Displays completion of payment process} (10.61,-15) -- (10.21,-15);
 
 % Document Footer
 \end{tikzpicture}
