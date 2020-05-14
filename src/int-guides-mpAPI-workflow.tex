@@ -8,14 +8,14 @@
 \begin{tikzpicture}
   	
     	\node[participant] at (0,2) {Merchant};
-    		\node[txt, inner sep=0pt] (icon1) at (0,3.5)
+    		\node[inner sep=0pt] (icon1) at (0,3.5)
 		{\includegraphics[width=.1\textwidth]{merchant.png}};
     	\node[participant] at (10,2) {Payment Gateway};
-		\node[txt, inner sep=0pt] (icon2) at (10,3.5)
+		\node[inner sep=0pt] (icon2) at (10,3.5)
 		{\includegraphics[width=.1\textwidth]{paymentgateway.png}};
     	\node[participant] at (20,2) {Payment Provider};
-    		\node[txt, align=center] at (20,0.75) {(Voucher, Credit Card, Online Bank Transfer)};
-		\node[txt, inner sep=0pt] (icon3) at (20,3.5)
+    		\node[align=center] at (20,0.75) {(Voucher, Credit Card, Online Bank Transfer)};
+		\node[inner sep=0pt] (icon3) at (20,3.5)
 		{\includegraphics[width=.1\textwidth]{paymentprovider.png}};
 
     		\foreach \i in {0,10,20} {
@@ -44,7 +44,7 @@
     		% Style for questions within sequence diagram
     			\node (question) [question] at (10,-9) {Payment \\ successful?};
     				\draw[dashedarrow]
-    				(9.4,-9.7) -- node[txt, left] {yes} (9.4,-12);
+    				(9.4,-9.7) -- node[txt, left, text width=0.7cm] {yes} (9.4,-12);
     				\draw[dashedarrow]
     				(10.6,-9.7) -- node[txt, right] {no} (10.6,-11.2) -- (11,-11.2);  	
      					\draw[solidarrow]
@@ -56,7 +56,7 @@
     					
     			\node (question) [question] at (10,-13) {Pending payment request?};
     				\draw[dashedarrow]
-    				(9.4,-14) -- node[txt, left] {yes (1 to n)} (9.4,-15.5) -- (6.4,-15.5)-- (6.4,-6) -- (9.8,-6);
+    				(9.4,-14) -- node[txt, left, text width=1.5cm, align=center] {yes \\ (1 to n)} (9.4,-15.5) -- (6.4,-15.5)-- (6.4,-6) -- (9.8,-6);
     				\draw[dashedarrow]
     				(10.6,-14) -- node[txt, right] {no} (10.6,-16.9);  	
     				\draw[solidarrow]
