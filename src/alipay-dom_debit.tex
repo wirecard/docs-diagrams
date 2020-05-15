@@ -42,47 +42,47 @@
 
 % Flows
 % Flow "1 Displays all `payment-methods`"
-\draw[solidarrow, txt]
-(14.79,0) -- node[midway,above] {1 Displays all \texttt{payment-methods}} (0.21,0);
+\draw[solidarrow]
+(14.79,0) -- node[txt, midway,above] {1 Displays all \texttt{payment-methods}} (0.21,0);
 % Flow "2 Selects Alipay Domestic"
-\draw[solidarrow, txt]
-(0.21,-1.25) -- node[midway,above] {2 Selects Alipay Domestic} (14.79,-1.25);
+\draw[solidarrow]
+(0.21,-1.25) -- node[txt, midway,above] {2 Selects Alipay Domestic} (14.79,-1.25);
 % Flow "3 Initiates debit transaction"
-\draw[solidarrow, txt]
-(15.21,-2.5) -- node[midway,above] {3 Initiates debit transaction} (29.79,-2.5);
+\draw[solidarrow]
+(15.21,-2.5) -- node[txt, midway,above] {3 Initiates debit transaction} (29.79,-2.5);
 % Flow "4 Requests `redirect-url`"
-\draw[solidarrow, txt]
-(30.21,-3.75) -- node[midway,above] {4 Requests \texttt{redirect-url}} (44.79,-3.75);
+\draw[solidarrow]
+(30.21,-3.75) -- node[txt, midway,above] {4 Requests \texttt{redirect-url}} (44.79,-3.75);
 % Flow "5 Responds with `redirect-url`"
-\draw[solidarrow, txt]
-(44.79,-5) -- node[midway,above] {5 Responds with \texttt{redirect-url}} (30.21,-5);
+\draw[solidarrow]
+(44.79,-5) -- node[txt, midway,above] {5 Responds with \texttt{redirect-url}} (30.21,-5);
 % Flow "6 Forwards `redirect-url`"
-\draw[solidarrow, txt]
-(29.79,-6.25) -- node[midway,above] {6 Forwards \texttt{redirect-url}} (15.21,-6.25);
+\draw[solidarrow]
+(29.79,-6.25) -- node[txt, midway,above] {6 Forwards \texttt{redirect-url}} (15.21,-6.25);
 % Flow "7 Redirects consumer to Alipay Domestic"
-\draw[solidarrow, txt]
-(14.79,-7.5) -- node[midway,above] {7 Redirects consumer to Alipay Domestic} (0.21,-7.5);
+\draw[solidarrow]
+(14.79,-7.5) -- node[txt, midway,above] {7 Redirects consumer to Alipay Domestic} (0.21,-7.5);
 % Flow "8 Enters account data"
-\draw[solidarrow, txt]
-(0.21,-8.75) -- (0.61,-8.75) -- node[midway,right] {8 Enters account data} (0.61,-10) -- (0.21,-10);
+\draw[solidarrow]
+(0.21,-8.75) -- (0.61,-8.75) -- node[txt, midway,right] {8 Enters account data} (0.61,-10) -- (0.21,-10);
 % Flow "9 Confirms payment"
-\draw[solidarrow, txt]
-(0.21,-11.25) -- node[midway,above] {9 Confirms payment} (44.79,-11.25);
+\draw[solidarrow]
+(0.21,-11.25) -- node[txt, midway,above] {9 Confirms payment} (44.79,-11.25);
 % Flow "10 Processes transaction"
-\draw[solidarrow, txt]
-(44.79,-12.5) -- node[midway,above] {10 Processes transaction} (30.21,-12.5);
+\draw[solidarrow]
+(44.79,-12.5) -- node[txt, midway,above] {10 Processes transaction} (30.21,-12.5);
 % Flow "11 Receives transaction's status"
-\draw[solidarrow, txt]
-(30.21,-13.75) -- (30.61,-13.75) -- node[midway,right] {11 Receives transaction's status} (30.61,-15) -- (30.21,-15);
+\draw[solidarrow]
+(30.21,-13.75) -- (30.61,-13.75) -- node[txt, midway,right] {11 Receives transaction's status} (30.61,-15) -- (30.21,-15);
 % Flow "12 Sends transaction's status"
-\draw[solidarrow, txt]
-(29.79,-15) -- node[midway,above] {12 Sends transaction's status} (15.21,-15);
+\draw[solidarrow]
+(29.79,-15) -- node[txt, midway,above] {12 Sends transaction's status} (15.21,-15);
 % Flow "13 Redirects consumer back"
-\draw[solidarrow, txt]
-(29.79,-17.5) -- node[midway,above] {13 Redirects consumer back} (15.21,-17.5);
+\draw[solidarrow]
+(29.79,-17.5) -- node[txt, midway,above] {13 Redirects consumer back} (15.21,-17.5);
 % Flow "14 Displays completion of payment process"
-\draw[solidarrow, txt]
-(15.21,-18.75) -- (15.61,-18.75) -- node[midway,right] {14 Displays completion of payment process} (15.61,-20) -- (15.21,-20);
+\draw[solidarrow]
+(15.21,-18.75) -- (15.61,-18.75) -- node[txt, midway,right] {14 Displays completion of payment process} (15.61,-20) -- (15.21,-20);
 
 % Document Footer
 \end{tikzpicture}
