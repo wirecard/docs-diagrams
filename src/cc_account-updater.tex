@@ -23,7 +23,7 @@
 
 % Stage "schemes"
 \node[participant] at (27,2) {Schemes};
-\node[txt,align=center] at (27,0.75) {(Mastercard/Visa)};
+\node[txt, txt,align=center] at (27,0.75) {(Mastercard/Visa)};
 \node[icon] (icon3) at (27,3.5) {\includegraphics[width=.1\textwidth] {schemes.png}};
 \draw[aidline] (27, 0.15) -- (27,-10.4);
 
@@ -45,29 +45,29 @@
 
 % Flows
 % Flow "1 Uploads request file"
-\draw[solidarrow, txt]
-(0.21,-0.75) -- node[midway,above] {1 Uploads request file} (8.79,-0.75);
+\draw[solidarrow]
+(0.21,-0.75) -- node[txt, midway,above] {1 Uploads request file} (8.79,-0.75);
 % Flow "2 Retrieves request file"
-\draw[solidarrow, txt]
-(9.21,-2) -- node[midway,above] {2 Retrieves request file} (17.79,-2);
+\draw[solidarrow]
+(9.21,-2) -- node[txt, midway,above] {2 Retrieves request file} (17.79,-2);
 % Flow "3 Requests scheme data"
-\draw[solidarrow, txt]
-(18.21,-3.25) -- node[midway,above] {3 Requests scheme data} (26.79,-3.25);
+\draw[solidarrow]
+(18.21,-3.25) -- node[txt, midway,above] {3 Requests scheme data} (26.79,-3.25);
 % Flow "7 Populates schemes continuously"
-\draw[solidarrow, txt]
-(35.79,-4.5) -- node[midway,above] {7 Populates schemes continuously} (27.21,-4.5);
+\draw[solidarrow]
+(35.79,-4.5) -- node[txt, midway,above] {7 Populates schemes continuously} (27.21,-4.5);
 % Flow "4 Updates credit card details"
-\draw[solidarrow, txt]
-(26.79,-5.75) -- node[midway,above] {4 Updates credit card details} (18.21,-5.75);
+\draw[solidarrow]
+(26.79,-5.75) -- node[txt, midway,above] {4 Updates credit card details} (18.21,-5.75);
 % Flow "5.1 Sends response file"
-\draw[solidarrow, txt]
-(17.79,-7) -- node[midway,above] {5.1 Sends response file} (9.21,-7);
+\draw[solidarrow]
+(17.79,-7) -- node[txt, midway,above] {5.1 Sends response file} (9.21,-7);
 % Flow "5.2 Sends notification email"
-\draw[solidarrow, txt]
-(17.79,-8.25) -- node[midway,above] {5.2 Sends notification email} (0.21,-8.25);
+\draw[solidarrow]
+(17.79,-8.25) -- node[txt, midway,above] {5.2 Sends notification email} (0.21,-8.25);
 % Flow "6 Retrieves response file"
-\draw[solidarrow, txt]
-(8.79,-9.5) -- node[midway,above] {6 Retrieves response file} (0.21,-9.5);
+\draw[solidarrow]
+(8.79,-9.5) -- node[txt, midway,above] {6 Retrieves response file} (0.21,-9.5);
 
 % Document Footer
 \end{tikzpicture}
