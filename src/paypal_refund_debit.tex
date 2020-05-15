@@ -29,20 +29,20 @@
 
 % Flows
 % Flow "1 Initiates refund"
-\draw[solidarrow]
-(0.21,-0.62) -- node[txt, midway,above] {1 Initiates refund} (14.79,-0.62);
+\draw[solidarrow, txt]
+(0.21,-0.62) -- node[midway,above] {1 Initiates refund} (14.79,-0.62);
 % Flow "2 Sends refund request"
-\draw[solidarrow]
-(15.21,-1.87) -- node[txt, midway,above] {2 Sends refund request} (29.79,-1.87);
+\draw[solidarrow, txt]
+(15.21,-1.87) -- node[midway,above] {2 Sends refund request} (29.79,-1.87);
 % Flow "3 Processes transaction"
-\draw[solidarrow]
-(30.21,-1.87) -- (30.61,-1.87) -- node[txt, midway,right] {3 Processes transaction} (30.61,-3.12) -- (30.21,-3.12);
+\draw[solidarrow, txt]
+(30.21,-1.87) -- (30.61,-1.87) -- node[midway,right] {3 Processes transaction} (30.61,-3.12) -- (30.21,-3.12);
 % Flow "4 Sends notification with transaction result"
-\draw[solidarrow]
-(29.79,-3.12) -- node[txt, midway,above] {4 Sends notification with transaction result} (15.21,-3.12);
+\draw[solidarrow, txt]
+(29.79,-3.12) -- node[midway,above] {4 Sends notification with transaction result} (15.21,-3.12);
 % Flow "5 Redirects consumer to merchants result page"
-\draw[solidarrow]
-(15.21,-4.37) -- (15.61,-4.37) -- node[txt, midway,right] {5 Redirects consumer to merchants result page} (15.61,-5.62) -- (15.21,-5.62);
+\draw[solidarrow, txt]
+(15.21,-4.37) -- (15.61,-4.37) -- node[midway,right] {5 Redirects consumer to merchants result page} (15.61,-5.62) -- (15.21,-5.62);
 
 % Document Footer
 \end{tikzpicture}

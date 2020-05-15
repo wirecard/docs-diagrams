@@ -23,14 +23,14 @@
 
 % Flows
 % Flow "1 Submits authorization-capture \\ request"
-\draw[solidarrow]
-(0.21,0) -- node[txt, midway,above] {1 Submits authorization-capture \\ request} (14.79,0);
+\draw[solidarrow, txt]
+(0.21,0) -- node[midway,above] {1 Submits authorization-capture \\ request} (14.79,0);
 % Flow "2 Processes payment"
-\draw[solidarrow]
-(15.21,0) -- (15.61,0) -- node[txt, midway,right] {2 Processes payment} (15.61,-1.25) -- (15.21,-1.25);
+\draw[solidarrow, txt]
+(15.21,0) -- (15.61,0) -- node[midway,right] {2 Processes payment} (15.61,-1.25) -- (15.21,-1.25);
 % Flow "3 Sends notification with payment result"
-\draw[solidarrow]
-(14.79,-1.25) -- node[txt, midway,above] {3 Sends notification with payment result} (0.21,-1.25);
+\draw[solidarrow, txt]
+(14.79,-1.25) -- node[midway,above] {3 Sends notification with payment result} (0.21,-1.25);
 
 % Document Footer
 \end{tikzpicture}
