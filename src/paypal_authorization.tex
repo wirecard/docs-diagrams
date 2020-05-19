@@ -32,22 +32,22 @@
 % Flows
 % Flow "1 Selects PayPal"
 \draw[solidarrow]
-(0.21,0) -- node[txt, txt, midway,above] {1 Selects PayPal} (14.79,0);
+(0.21,0) -- node[txt, midway,above] {1 Selects PayPal} (14.79,0);
 % Flow "2 Sends authorization request"
 \draw[solidarrow]
-(15.21,-1.25) -- node[txt, txt, midway,above] {2 Sends authorization request} (29.79,-1.25);
+(15.21,-1.25) -- node[txt, midway,above] {2 Sends authorization request} (29.79,-1.25);
 % Flow "3 Sends `redirect-url`"
 \draw[solidarrow]
-(29.79,-2.5) -- node[txt, txt, midway,above] {3 Sends \texttt{redirect-url}} (15.21,-2.5);
+(29.79,-2.5) -- node[txt, midway,above] {3 Sends \texttt{redirect-url}} (15.21,-2.5);
 % Flow "4 Redirect consumer to `redirect-url`"
 \draw[solidarrow]
-(14.79,-3.75) -- node[txt, txt, midway,above] {4 Redirect consumer to \texttt{redirect-url}} (0.21,-3.75);
+(14.79,-3.75) -- node[txt, midway,above] {4 Redirect consumer to \texttt{redirect-url}} (0.21,-3.75);
 % Flow "5 Authorizes payment"
 \draw[solidarrow]
-(0.21,-5) -- node[txt, txt, midway,above] {5 Authorizes payment} (29.79,-5);
+(0.21,-5) -- node[txt, midway,above] {5 Authorizes payment} (29.79,-5);
 % Flow "6 Redirects consumer to merchant's result page"
 \draw[solidarrow]
-(30.21,-5) -- (30.61,-5) -- node[txt, txt, midway,right] {6 Redirects consumer to merchant's result page} (30.61,-6.25) -- (30.21,-6.25);
+(30.21,-5) -- (30.61,-5) -- node[txt, midway,right] {6 Redirects consumer to merchant's result page} (30.61,-6.25) -- (30.21,-6.25);
 
 % Document Footer
 \end{tikzpicture}
