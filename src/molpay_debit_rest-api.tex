@@ -1,0 +1,76 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-13.4);
+
+% Stage "merchant"
+\node[participant] at (10,2) {Merchant};
+\node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (10, 0.9) -- (10,-13.4);
+
+% Stage "payment"
+\node[participant] at (20,2) {Payment Gateway};
+\node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (20, 0.9) -- (20,-13.4);
+
+% Stage "molpay"
+\node[participant] at (30,2) {MOLPay};
+\node[icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (30, 0.9) -- (30,-13.4);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (0,-3.65) -- (0,-5.1);
+\draw[box, nightblue] (0,-6.775) -- (0,-8.85);
+\draw[box, nightblue] (0,-12) -- (0,-13);
+\draw[box, nightblue] (10,0.1) -- (10,-1.35);
+\draw[box, nightblue] (10,-2.4) -- (10,-3.85);
+\draw[box, nightblue] (10,-11.15) -- (10,-12.6);
+\draw[box, nightblue] (20,-1.15) -- (20,-2.6);
+\draw[box, nightblue] (20,-9.9) -- (20,-11.35);
+\draw[box, nightblue] (30,-4.9) -- (30,-6.975);
+\draw[box, nightblue] (30,-8.65) -- (30,-10.1);
+
+% Flows
+% Flow "1 Selects payment method MOLPay"
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Selects payment method MOLPay} (9.79,0);
+% Flow "2 Sends debit request"
+\draw[solidarrow]
+(10.21,-1.25) -- node[txt, midway,above] {2 Sends debit request} (19.79,-1.25);
+% Flow "3 Returns `redirect-url` and payload information"
+\draw[solidarrow]
+(19.79,-2.5) -- node[txt, midway,above] {3 Returns \texttt{redirect-url} and payload information} (10.21,-2.5);
+% Flow "4 Processes response and redirects consumer to MOLPay landing page"
+\draw[solidarrow]
+(9.79,-3.75) -- node[txt, midway,above] {4 Processes response and redirects consumer to MOLPay landing page} (0.21,-3.75);
+% Flow "5 Confirms payment"
+\draw[solidarrow]
+(0.21,-5) -- node[txt, midway,above] {5 Confirms payment} (29.79,-5);
+% Flow "6 Redirects consumer to personal online banking system"
+\draw[solidarrow]
+(29.79,-6.87) -- node[txt, midway,above] {6 Redirects consumer to personal online banking system} (0.21,-6.87);
+% Flow "7 Completes payment in personal online banking system"
+\draw[solidarrow]
+(0.21,-8.75) -- node[txt, midway,above] {7 Completes payment in personal online banking system} (29.79,-8.75);
+% Flow "8 Sends payment notification"
+\draw[solidarrow]
+(29.79,-10) -- node[txt, midway,above] {8 Sends payment notification} (20.21,-10);
+% Flow "9 Processes notification and sends payment notification"
+\draw[solidarrow]
+(19.79,-11.25) -- node[txt, midway,above] {9 Processes notification and sends payment notification} (10.21,-11.25);
+% Flow "10 Redirects consumer back to shop (optionally)"
+\draw[solidarrow]
+(9.79,-12.5) -- node[txt, midway,above] {10 Redirects consumer back to shop (optionally)} (0.21,-12.5);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

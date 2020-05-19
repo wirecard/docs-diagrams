@@ -1,0 +1,79 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-14.25);
+
+% Stage "merchant"
+\node[participant] at (11,2) {Merchant};
+\node[icon] (icon1) at (11,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (11, 0.9) -- (11,-14.25);
+
+% Stage "payment"
+\node[participant] at (22,2) {Payment Gateway};
+\node[icon] (icon2) at (22,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (22, 0.9) -- (22,-14.25);
+
+% Stage "finstitution"
+\node[participant] at (33,2) {Financial Institution};
+\node[icon] (icon3) at (33,3.5) {\includegraphics[width=.1\textwidth] {financialinstitution.png}};
+\draw[aidline] (33, 0.9) -- (33,-14.25);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (11,0.1) -- (11,-1.35);
+\draw[box, nightblue] (22,-1.15) -- (22,-3.225);
+\draw[box, nightblue] (11,-3.025) -- (11,-4.475);
+\draw[box, nightblue] (0,-4.275) -- (0,-6.35);
+\draw[box, nightblue] (22,-6.15) -- (22,-7.6);
+\draw[box, nightblue] (33,-7.4) -- (33,-8.85);
+\draw[box, nightblue] (22,-8.65) -- (22,-13.85);
+\draw[box, nightblue] (11,-9.9) -- (11,-11.35);
+\draw[box, nightblue] (0,-10.75) -- (0,-11.75);
+\draw[box, nightblue] (11,-12.4) -- (11,-13.85);
+
+% Flows
+% Flow "1 Selects Paylib"
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Selects Paylib} (10.79,0);
+% Flow "2 Initiates debit transaction"
+\draw[solidarrow]
+(11.21,-1.25) -- node[txt, midway,above] {2 Initiates debit transaction} (21.79,-1.25);
+% Flow "3 Returns `redirect-url` and payload information"
+\draw[solidarrow]
+(21.79,-3.12) -- node[txt, midway,above] {3 Returns \texttt{redirect-url} and payload information} (11.21,-3.12);
+% Flow "4 Submits payload information to `redirect-url` and redirects to Paylip"
+\draw[solidarrow]
+(10.79,-4.37) -- node[txt, midway,above] {4 Submits payload information to \texttt{redirect-url} and redirects to Paylip} (0.21,-4.37);
+% Flow "5 Enters Paylib credentials, selects preferred card and confirms payment"
+\draw[solidarrow]
+(0.21,-6.25) -- node[txt, midway,above] {5 Enters Paylib credentials, selects preferred card and confirms payment} (21.79,-6.25);
+% Flow "6 Processes transaction with merchant's acquirer"
+\draw[solidarrow]
+(22.21,-7.5) -- node[txt, midway,above] {6 Processes transaction with merchant's acquirer} (32.79,-7.5);
+% Flow "7 Sends transaction status"
+\draw[solidarrow]
+(32.79,-8.75) -- node[txt, midway,above] {7 Sends transaction status} (22.21,-8.75);
+% Flow "8 Sends transaction status and redirects consumer"
+\draw[solidarrow]
+(21.79,-10) -- node[txt, midway,above] {8 Sends transaction status and redirects consumer} (11.21,-10);
+% Flow "9 Displays completion of payment process"
+\draw[solidarrow]
+(10.79,-11.25) -- node[txt, midway,above] {9 Displays completion of payment process} (0.21,-11.25);
+% Flow "10 Sends Paylib debit notification"
+\draw[solidarrow]
+(21.79,-12.5) -- node[txt, midway,above] {10 Sends Paylib debit notification} (11.21,-12.5);
+% Flow "11 Sends credit card purchase notification"
+\draw[solidarrow]
+(21.79,-13.75) -- node[txt, midway,above] {11 Sends credit card purchase notification} (11.21,-13.75);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

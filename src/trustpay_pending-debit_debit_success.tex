@@ -1,0 +1,82 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-16.75);
+
+% Stage "merchant"
+\node[participant] at (12,2) {Merchant};
+\node[icon] (icon1) at (12,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (12, 0.9) -- (12,-16.75);
+
+% Stage "payment"
+\node[participant] at (24,2) {Payment Gateway};
+\node[icon] (icon2) at (24,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (24, 0.9) -- (24,-16.75);
+
+% Stage "trustpay"
+\node[participant] at (36,2) {TrustPay};
+\node[icon] (icon3) at (36,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (36, 0.9) -- (36,-16.75);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (36,0.1) -- (36,-2.6);
+\draw[box, nightblue] (12,-1.15) -- (12,-2.6);
+\draw[box, nightblue] (24,-4.9) -- (24,-9.475);
+\draw[box, nightblue] (12,-6.775) -- (12,-11.35);
+\draw[box, nightblue] (0,-8.025) -- (0,-10.725);
+\draw[box, nightblue] (12,-14.5) -- (12,-15.5);
+\draw[box, nightblue] (0,-13.65) -- (0,-16.35);
+
+% Flows
+% Flow "1 Initiates payment"
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Initiates payment} (35.79,0);
+% Flow "2 Redirects consumer"
+\draw[solidarrow]
+(35.79,-1.25) -- node[txt, midway,above] {2 Redirects consumer} (12.21,-1.25);
+% Flow "3 Sends notification (IPN)"
+\draw[solidarrow]
+(35.79,-2.5) -- node[txt, midway,above] {3 Sends notification (IPN)} (13.455437777652815,-2.5);
+% Flow "IPN received?"
+\draw[dashedarrow] (10.98119355564303,-2.5) -- node[left] {no} (10.98119355564303,-6.875) -- (11.794562222347185,-6.875);
+\draw[dashedarrow] (13.01880644435697,-2.5) -- node[right] {yes} (13.01880644435697,-5) -- (13.624244222009786,-5);
+\draw[solidarrow]
+(13.8296819996626,-5) -- node[txt, midway,above] {4 Forwards IPN} (23.794562222347185,-5);
+\node (question) [question] at (12,-2.5) {IPN received?};
+% Flow "5 Writes debit transaction and pendig-debit transaction to DB"
+\draw[solidarrow]
+(24.21,-8.12) -- (24.61,-8.12) -- node[txt, midway,right] {5 Writes debit transaction and pendig-debit transaction to DB} (24.61,-9.37) -- (24.21,-9.37);
+% Flow "6 Created pendig-debit transaction"
+\draw[solidarrow]
+(12.21,-6.87) -- node[txt, midway,above] {6 Created pendig-debit transaction} (23.79,-6.87);
+% Flow "7 Redirects consumer to TrustPay page"
+\draw[solidarrow]
+(11.79,-8.12) -- node[txt, midway,above] {7 Redirects consumer to TrustPay page} (0.21,-8.12);
+% Flow "8 Sees success page (as indicated in pendig-debit status)"
+\draw[solidarrow]
+(0.21,-9.37) -- (0.61,-9.37) -- node[txt, midway,right] {8 Sees success page (as indicated in pendig-debit status)} (0.61,-10.62) -- (0.21,-10.62);
+% Flow "9 Sends debit response"
+\draw[solidarrow]
+(23.79,-9.37) -- node[txt, midway,above] {9 Sends debit response} (12.21,-9.37);
+% Flow "IPN received?"
+\draw[dashedarrow] (10.98119355564303,-11.25) -- node[left] {yes} (10.98119355564303,-13.75) -- (10.375755777990214,-13.75);
+\draw[solidarrow]
+(10.1703180003374,-13.75) -- node[txt, midway,above] {10 Redirects consumer to TrustPay page} (0.20543777765281448,-13.75);
+\draw[dashedarrow] (13.01880644435697,-11.25) -- node[right] {no} (13.01880644435697,-15) -- (12.205437777652815,-15);
+\node (question) [question] at (12,-11.25) {IPN received?};
+% Flow "12 Sees success page (as indicated in pendig-debit status)"
+\draw[solidarrow]
+(0.21,-15) -- (0.61,-15) -- node[txt, midway,right] {12 Sees success page (as indicated in pendig-debit status)} (0.61,-16.25) -- (0.21,-16.25);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}
