@@ -30,39 +30,39 @@
 	\draw[box] (0,-18)-- (0,-19);
     	
     	\draw[solidarrow]
-    	(0.2,-1) -- node[txt, txt, midway,above] {1 Multipayment request} (9.8,-1);
+    	(0.2,-1) -- node[txt, midway,above] {1 Multipayment request} (9.8,-1);
     	\draw[solidarrow]
-    	(10.2,-1) -- (10.6,-1) -- node[txt, txt, midway,right] {2 Validates payment request} (10.6,-2.5) -- (10.2,-2.5);
+    	(10.2,-1) -- (10.6,-1) -- node[txt, midway,right] {2 Validates payment request} (10.6,-2.5) -- (10.2,-2.5);
     	\draw[solidarrow]
-    	(10.2,-3.5) -- (10.6,-3.5) -- node[txt, txt, midway,right] {3 Generates single payment request \\ for each payment method} (10.6,-5) -- (10.2,-5);
+    	(10.2,-3.5) -- (10.6,-3.5) -- node[txt, midway,right] {3 Generates single payment request \\ for each payment method} (10.6,-5) -- (10.2,-5);
     	\draw[solidarrow]
-    	(10.2,-6) -- node[txt, txt, midway,above] {4 Single payment request} (19.8,-6);
+    	(10.2,-6) -- node[txt, midway,above] {4 Single payment request} (19.8,-6);
     	\draw[solidarrow]
-    	(20.2,-6) -- (20.6,-6) -- node[txt, txt, midway,right] {5 Processes payment request} (20.6,-9) -- (20.2,-9);
+    	(20.2,-6) -- (20.6,-6) -- node[txt, midway,right] {5 Processes payment request} (20.6,-9) -- (20.2,-9);
     	\draw[solidarrow]
-    		(19.8,-9) -- node[txt, txt, midway,above] {6 Payment response} (11.5,-9);
+    		(19.8,-9) -- node[txt, midway,above] {6 Payment response} (11.5,-9);
     		% Style for questions within sequence diagram
     			\node (question) [question] at (10,-9) {Payment \\ successful?};
     				\draw[dashedarrow]
-    				(9.4,-9.7) -- node[txt, txt, left, text width=0.7cm] {yes} (9.4,-12);
+    				(9.4,-9.7) -- node[txt, left, text width=0.7cm] {yes} (9.4,-12);
     				\draw[dashedarrow]
-    				(10.6,-9.7) -- node[txt, txt, right] {no} (10.6,-11.2) -- (11,-11.2);  	
+    				(10.6,-9.7) -- node[txt, right] {no} (10.6,-11.2) -- (11,-11.2);  	
      					\draw[solidarrow]
-    					(11.1,-11.2) -- node[txt, txt, midway,above] {7 Rolls back previously successful \\ payment transaction} (19.8,-11.2);
+    					(11.1,-11.2) -- node[txt, midway,above] {7 Rolls back previously successful \\ payment transaction} (19.8,-11.2);
     					\draw[solidarrow]
-    					(20.2,-11.2) -- (20.6,-11.2) -- node[txt, txt, midway,right] {8 Cancels previous \\ payment transaction} (20.6,-17) -- (20.2,-17);
+    					(20.2,-11.2) -- (20.6,-11.2) -- node[txt, midway,right] {8 Cancels previous \\ payment transaction} (20.6,-17) -- (20.2,-17);
     					\draw[solidarrow]
-    					(19.8,-17) -- node[txt, txt, midway,above] {9 Payment response} (10.7,-17);   					
+    					(19.8,-17) -- node[txt, midway,above] {9 Payment response} (10.7,-17);   					
     					
     			\node (question) [question] at (10,-13) {Pending payment request?};
     				\draw[dashedarrow]
-    				(9.4,-14) -- node[txt, txt, left, text width=1.5cm, align=center] {yes \\ (1 to n)} (9.4,-15.5) -- (6.4,-15.5)-- (6.4,-6) -- (9.8,-6);
+    				(9.4,-14) -- node[txt, left, text width=1.5cm, align=center] {yes \\ (1 to n)} (9.4,-15.5) -- (6.4,-15.5)-- (6.4,-6) -- (9.8,-6);
     				\draw[dashedarrow]
-    				(10.6,-14) -- node[txt, txt, right] {no} (10.6,-16.9);  	
+    				(10.6,-14) -- node[txt, right] {no} (10.6,-16.9);  	
     				\draw[solidarrow]
-    					(10.2,-17) -- (10.6,-17) -- node[txt, txt, midway,right] {10 Builds response} (10.6,-18.5) -- (10.2,-18.5);
+    					(10.2,-17) -- (10.6,-17) -- node[txt, midway,right] {10 Builds response} (10.6,-18.5) -- (10.2,-18.5);
     	\draw[solidarrow]
-    		(9.8,-18.5) -- node[txt, txt, midway,above] {11 Multipayment response} (0.2,-18.5);
+    		(9.8,-18.5) -- node[txt, midway,above] {11 Multipayment response} (0.2,-18.5);
     		
 \end{tikzpicture}
 \end{document}
