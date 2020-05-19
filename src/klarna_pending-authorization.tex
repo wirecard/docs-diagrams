@@ -106,11 +106,11 @@
 \draw[solidarrow]
 (29.79,-31.25) -- node[txt, midway,above] {19 Sends checkOrderStatus response} (21.455437777652815,-31.25);
 % Flow "Order Status"
-\draw[dashedarrow] (18.98119355564303,-31.25) -- node[txt, left] {pending} (18.98119355564303,-22.5) -- (19.794562222347185,-22.5);
+\draw[dashedarrow] (18.98119355564303,-31.25) -- node[left] {pending} (18.98119355564303,-22.5) -- (19.794562222347185,-22.5);
 \draw[dashedarrow] (20,-31.25) -- node[txt, right] {ok} (20,-33.75) -- (19.394562222347187,-33.75);
 \draw[solidarrow]
 (19.18912444469437,-33.75) -- node[txt, midway,above] {20 Creates \texttt{authorization} TX with \texttt{sucess} status referencing \texttt{pending-authorization} TX and sends payment notification TX ID} (10.205437777652815,-33.75);
-\draw[dashedarrow] (21.01880644435697,-31.25) -- node[txt, right] {nok} (21.01880644435697,-37.5) -- (20.413368666704155,-37.5);
+\draw[dashedarrow] (21.01880644435697,-31.25) -- node[right] {nok} (21.01880644435697,-37.5) -- (20.413368666704155,-37.5);
 \draw[solidarrow]
 (20.20793088905134,-37.5) -- node[txt, midway,above] {21 Creates \texttt{authorization} TX with \texttt{failed} status referencing \texttt{pending-authorization} TX and sends payment notification TX ID} (10.205437777652815,-37.5);
 \node (question) [question] at (20,-31.25) {Order Status};
