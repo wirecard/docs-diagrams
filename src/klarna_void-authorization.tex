@@ -28,14 +28,14 @@
 
 % Flows
 % Flow "1 Cancels order"
-\draw[solidarrow, txt]
-(0.21,-0.62) -- node[midway,above] {1 Cancels order} (14.79,-0.62);
+\draw[solidarrow]
+(0.21,-0.62) -- node[txt, midway,above] {1 Cancels order} (14.79,-0.62);
 % Flow "2 Creates void-authorization \\ transaction"
-\draw[solidarrow, txt]
-(15.21,-1.87) -- node[midway,above] {2 Creates void-authorization \\ transaction} (29.79,-1.87);
+\draw[solidarrow]
+(15.21,-1.87) -- node[txt, midway,above] {2 Creates void-authorization \\ transaction} (29.79,-1.87);
 % Flow "3 Processes cancellation"
-\draw[solidarrow, txt]
-(30.21,-1.87) -- (30.61,-1.87) -- node[midway,right] {3 Processes cancellation} (30.61,-3.12) -- (30.21,-3.12);
+\draw[solidarrow]
+(30.21,-1.87) -- (30.61,-1.87) -- node[txt, midway,right] {3 Processes cancellation} (30.61,-3.12) -- (30.21,-3.12);
 
 % Document Footer
 \end{tikzpicture}

@@ -40,86 +40,86 @@
 
 % Flows
 % Flow "1 Initiates payment"
-\draw[solidarrow, txt]
-(0.21,0) -- (0.61,0) -- node[midway,right] {1 Initiates payment} (0.61,-1.25) -- (0.21,-1.25);
+\draw[solidarrow]
+(0.21,0) -- (0.61,0) -- node[txt, midway,right] {1 Initiates payment} (0.61,-1.25) -- (0.21,-1.25);
 % Flow "2 Sends payment request"
-\draw[solidarrow, txt]
-(0.21,-2.5) -- node[midway,above] {2 Sends payment request} (9.79,-2.5);
+\draw[solidarrow]
+(0.21,-2.5) -- node[txt, midway,above] {2 Sends payment request} (9.79,-2.5);
 % Flow "3 Prepares `authorization` request"
-\draw[solidarrow, txt]
-(10.21,-2.5) -- (10.61,-2.5) -- node[midway,right] {3 Prepares \texttt{authorization} request} (10.61,-3.75) -- (10.21,-3.75);
+\draw[solidarrow]
+(10.21,-2.5) -- (10.61,-2.5) -- node[txt, midway,right] {3 Prepares \texttt{authorization} request} (10.61,-3.75) -- (10.21,-3.75);
 % Flow "4 Sends `authorization` request"
-\draw[solidarrow, txt]
-(10.21,-5) -- node[midway,above] {4 Sends \texttt{authorization} request} (19.79,-5);
+\draw[solidarrow]
+(10.21,-5) -- node[txt, midway,above] {4 Sends \texttt{authorization} request} (19.79,-5);
 % Flow "5 Creates `authorization` TX"
-\draw[solidarrow, txt]
-(20.21,-5) -- (20.61,-5) -- node[midway,right] {5 Creates \texttt{authorization} TX} (20.61,-6.25) -- (20.21,-6.25);
+\draw[solidarrow]
+(20.21,-5) -- (20.61,-5) -- node[txt, midway,right] {5 Creates \texttt{authorization} TX} (20.61,-6.25) -- (20.21,-6.25);
 % Flow "6 Sends `reserve_amount` request"
-\draw[solidarrow, txt]
-(20.21,-7.5) -- node[midway,above] {6 Sends \texttt{reserve\_amount} request} (29.79,-7.5);
+\draw[solidarrow]
+(20.21,-7.5) -- node[txt, midway,above] {6 Sends \texttt{reserve\_amount} request} (29.79,-7.5);
 % Flow "7 Risk check"
-\draw[solidarrow, txt]
-(30.21,-7.5) -- (30.61,-7.5) -- node[midway,right] {7 Risk check} (30.61,-10) -- (30.21,-10);
+\draw[solidarrow]
+(30.21,-7.5) -- (30.61,-7.5) -- node[txt, midway,right] {7 Risk check} (30.61,-10) -- (30.21,-10);
 % Flow "8 Sends `reserve_amount` response"
-\draw[solidarrow, txt]
-(29.79,-10) -- node[midway,above] {8 Sends \texttt{reserve\_amount} response} (21.455437777652815,-10);
+\draw[solidarrow]
+(29.79,-10) -- node[txt, midway,above] {8 Sends \texttt{reserve\_amount} response} (21.455437777652815,-10);
 % Flow "Response status"
 \draw[dashedarrow] (18.98119355564303,-10) -- node[left] {ok} (18.98119355564303,-12.5) -- (18.375755777990218,-12.5);
-\draw[solidarrow, txt]
-(18.170318000337403,-12.5) -- node[midway,above] {9 Updates \texttt{authorization} TX status to \texttt{sucess} and sends \texttt{authorization} TX ID} (10.205437777652815,-12.5);
+\draw[solidarrow]
+(18.170318000337403,-12.5) -- node[txt, midway,above] {9 Updates \texttt{authorization} TX status to \texttt{sucess} and sends \texttt{authorization} TX ID} (10.205437777652815,-12.5);
 \draw[dashedarrow] (20,-10) -- node[right] {nok} (20,-15) -- (19.394562222347187,-15);
-\draw[solidarrow, txt]
-(19.18912444469437,-15) -- node[midway,above] {10 Updates \texttt{authorization} TX status to \texttt{failed} and sends \texttt{authorization} TX ID} (10.205437777652815,-15);
+\draw[solidarrow]
+(19.18912444469437,-15) -- node[txt, midway,above] {10 Updates \texttt{authorization} TX status to \texttt{failed} and sends \texttt{authorization} TX ID} (10.205437777652815,-15);
 \draw[dashedarrow] (21.01880644435697,-10) -- node[right] {pending} (21.01880644435697,-17.5) -- (20.205437777652815,-17.5);
 \node (question) [question] at (20,-10) {Response status};
 % Flow "11 Creates `pending-authorization` TX status to `failed` with special pending status code"
-\draw[solidarrow, txt]
-(20.21,-18.75) -- (20.61,-18.75) -- node[midway,right] {11 Creates \texttt{pending-authorization} TX status to \texttt{failed} with special pending status code} (20.61,-20) -- (20.21,-20);
+\draw[solidarrow]
+(20.21,-18.75) -- (20.61,-18.75) -- node[txt, midway,right] {11 Creates \texttt{pending-authorization} TX status to \texttt{failed} with special pending status code} (20.61,-20) -- (20.21,-20);
 % Flow "12 Sends `authorization` TX ID"
-\draw[solidarrow, txt]
-(19.79,-20) -- node[midway,above] {12 Sends \texttt{authorization} TX ID} (10.21,-20);
+\draw[solidarrow]
+(19.79,-20) -- node[txt, midway,above] {12 Sends \texttt{authorization} TX ID} (10.21,-20);
 % Flow "13 Processes `authorization` response"
-\draw[solidarrow, txt]
-(10.21,-21.25) -- (10.61,-21.25) -- node[midway,right] {13 Processes \texttt{authorization} response} (10.61,-22.5) -- (10.21,-22.5);
+\draw[solidarrow]
+(10.21,-21.25) -- (10.61,-21.25) -- node[txt, midway,right] {13 Processes \texttt{authorization} response} (10.61,-22.5) -- (10.21,-22.5);
 % Flow ""
-\draw[solidarrow, txt]
-(9.79,-22.5) -- node[midway,above] {} (0.21,-22.5);
+\draw[solidarrow]
+(9.79,-22.5) -- node[txt, midway,above] {} (0.21,-22.5);
 % Flow "14 Shows confirmation page"
-\draw[solidarrow, txt]
-(0.21,-23.75) -- (0.61,-23.75) -- node[midway,right] {14 Shows confirmation page} (0.61,-38.75) -- (0.21,-38.75);
+\draw[solidarrow]
+(0.21,-23.75) -- (0.61,-23.75) -- node[txt, midway,right] {14 Shows confirmation page} (0.61,-38.75) -- (0.21,-38.75);
 % Flow ""
-\draw[solidarrow, txt]
-(20.21,-21.25) -- (20.61,-21.25) -- node[midway,right] {} (20.61,-22.5) -- (20.21,-22.5);
+\draw[solidarrow]
+(20.21,-21.25) -- (20.61,-21.25) -- node[txt, midway,right] {} (20.61,-22.5) -- (20.21,-22.5);
 % Flow "15 Offline job checks pending authorizations"
-\draw[solidarrow, txt]
-(20.21,-23.75) -- (20.61,-23.75) -- node[midway,right] {15 Offline job checks pending authorizations} (20.61,-25) -- (20.21,-25);
+\draw[solidarrow]
+(20.21,-23.75) -- (20.61,-23.75) -- node[txt, midway,right] {15 Offline job checks pending authorizations} (20.61,-25) -- (20.21,-25);
 % Flow "16 Processes checkOrderStatus notification"
-\draw[solidarrow, txt]
-(20.21,-26.25) -- (20.61,-26.25) -- node[midway,right] {16 Processes checkOrderStatus notification} (20.61,-27.5) -- (20.21,-27.5);
+\draw[solidarrow]
+(20.21,-26.25) -- (20.61,-26.25) -- node[txt, midway,right] {16 Processes checkOrderStatus notification} (20.61,-27.5) -- (20.21,-27.5);
 % Flow "17 Sends checkOrderStatus request"
-\draw[solidarrow, txt]
-(20.21,-28.75) -- node[midway,above] {17 Sends checkOrderStatus request} (29.79,-28.75);
+\draw[solidarrow]
+(20.21,-28.75) -- node[txt, midway,above] {17 Sends checkOrderStatus request} (29.79,-28.75);
 % Flow "18 Checks order status"
-\draw[solidarrow, txt]
-(30.21,-28.75) -- (30.61,-28.75) -- node[midway,right] {18 Checks order status} (30.61,-31.25) -- (30.21,-31.25);
+\draw[solidarrow]
+(30.21,-28.75) -- (30.61,-28.75) -- node[txt, midway,right] {18 Checks order status} (30.61,-31.25) -- (30.21,-31.25);
 % Flow "19 Sends checkOrderStatus response"
-\draw[solidarrow, txt]
-(29.79,-31.25) -- node[midway,above] {19 Sends checkOrderStatus response} (21.455437777652815,-31.25);
+\draw[solidarrow]
+(29.79,-31.25) -- node[txt, midway,above] {19 Sends checkOrderStatus response} (21.455437777652815,-31.25);
 % Flow "Order Status"
 \draw[dashedarrow] (18.98119355564303,-31.25) -- node[left] {pending} (18.98119355564303,-22.5) -- (19.794562222347185,-22.5);
-\draw[dashedarrow] (20,-31.25) -- node[right] {ok} (20,-33.75) -- (19.394562222347187,-33.75);
-\draw[solidarrow, txt]
-(19.18912444469437,-33.75) -- node[midway,above] {20 Creates \texttt{authorization} TX with \texttt{sucess} status referencing \texttt{pending-authorization} TX and sends payment notification TX ID} (10.205437777652815,-33.75);
+\draw[dashedarrow] (20,-31.25) -- node[txt, right] {ok} (20,-33.75) -- (19.394562222347187,-33.75);
+\draw[solidarrow]
+(19.18912444469437,-33.75) -- node[txt, midway,above] {20 Creates \texttt{authorization} TX with \texttt{sucess} status referencing \texttt{pending-authorization} TX and sends payment notification TX ID} (10.205437777652815,-33.75);
 \draw[dashedarrow] (21.01880644435697,-31.25) -- node[right] {nok} (21.01880644435697,-37.5) -- (20.413368666704155,-37.5);
-\draw[solidarrow, txt]
-(20.20793088905134,-37.5) -- node[midway,above] {21 Creates \texttt{authorization} TX with \texttt{failed} status referencing \texttt{pending-authorization} TX and sends payment notification TX ID} (10.205437777652815,-37.5);
+\draw[solidarrow]
+(20.20793088905134,-37.5) -- node[txt, midway,above] {21 Creates \texttt{authorization} TX with \texttt{failed} status referencing \texttt{pending-authorization} TX and sends payment notification TX ID} (10.205437777652815,-37.5);
 \node (question) [question] at (20,-31.25) {Order Status};
 % Flow "22 Processes payment status notification"
-\draw[solidarrow, txt]
-(10.21,-38.75) -- (10.61,-38.75) -- node[midway,right] {22 Processes payment status notification} (10.61,-40) -- (10.21,-40);
+\draw[solidarrow]
+(10.21,-38.75) -- (10.61,-38.75) -- node[txt, midway,right] {22 Processes payment status notification} (10.61,-40) -- (10.21,-40);
 % Flow ""
-\draw[solidarrow, txt]
-(9.79,-40) -- node[midway,above] {} (0.21,-40);
+\draw[solidarrow]
+(9.79,-40) -- node[txt, midway,above] {} (0.21,-40);
 
 % Document Footer
 \end{tikzpicture}

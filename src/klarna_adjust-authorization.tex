@@ -29,34 +29,34 @@
 
 % Flows
 % Flow "1 Updates order"
-\draw[solidarrow, txt]
-(0.21,0) -- (0.61,0) -- node[midway,right] {1 Updates order} (0.61,-1.25) -- (0.21,-1.25);
+\draw[solidarrow]
+(0.21,0) -- (0.61,0) -- node[txt, midway,right] {1 Updates order} (0.61,-1.25) -- (0.21,-1.25);
 % Flow "2 Sends adjust-authorization request"
-\draw[solidarrow, txt]
-(0.21,-2.5) -- node[midway,above] {2 Sends adjust-authorization request} (14.79,-2.5);
+\draw[solidarrow]
+(0.21,-2.5) -- node[txt, midway,above] {2 Sends adjust-authorization request} (14.79,-2.5);
 % Flow "3 Creates adjust-authorization transaction"
-\draw[solidarrow, txt]
-(15.21,-2.5) -- (15.61,-2.5) -- node[midway,right] {3 Creates adjust-authorization transaction} (15.61,-3.75) -- (15.21,-3.75);
+\draw[solidarrow]
+(15.21,-2.5) -- (15.61,-2.5) -- node[txt, midway,right] {3 Creates adjust-authorization transaction} (15.61,-3.75) -- (15.21,-3.75);
 % Flow "4 Updates order request rno"
-\draw[solidarrow, txt]
-(15.21,-5) -- node[midway,above] {4 Updates order request rno} (29.79,-5);
+\draw[solidarrow]
+(15.21,-5) -- node[txt, midway,above] {4 Updates order request rno} (29.79,-5);
 % Flow "5 Updates order/new risk check"
-\draw[solidarrow, txt]
-(30.21,-5) -- (30.61,-5) -- node[midway,right] {5 Updates order/new risk check} (30.61,-7.5) -- (30.21,-7.5);
+\draw[solidarrow]
+(30.21,-5) -- (30.61,-5) -- node[txt, midway,right] {5 Updates order/new risk check} (30.61,-7.5) -- (30.21,-7.5);
 % Flow "6 Updates order status response"
-\draw[solidarrow, txt]
-(29.79,-7.5) -- node[midway,above] {6 Updates order status response} (16.455437777652815,-7.5);
+\draw[solidarrow]
+(29.79,-7.5) -- node[txt, midway,above] {6 Updates order status response} (16.455437777652815,-7.5);
 % Flow "Response status"
 \draw[dashedarrow] (13.98119355564303,-7.5) -- node[left] {ok} (13.98119355564303,-10) -- (13.375755777990214,-10);
-\draw[solidarrow, txt]
-(13.1703180003374,-10) -- node[midway,above] {7 Updates adjust-authorization transaction status to success} (0.20543777765281448,-10);
+\draw[solidarrow]
+(13.1703180003374,-10) -- node[txt, midway,above] {7 Updates adjust-authorization transaction status to success} (0.20543777765281448,-10);
 \draw[dashedarrow] (16.01880644435697,-7.5) -- node[right] {nok} (16.01880644435697,-12.5) -- (15.413368666704153,-12.5);
-\draw[solidarrow, txt]
-(15.207930889051338,-12.5) -- node[midway,above] {8 Updates adjust-authorization transaction status to failed} (0.20543777765281448,-12.5);
+\draw[solidarrow]
+(15.207930889051338,-12.5) -- node[txt, midway,above] {8 Updates adjust-authorization transaction status to failed} (0.20543777765281448,-12.5);
 \node (question) [question] at (15,-7.5) {Response status};
 % Flow "9 Processes adjust-authorization response"
-\draw[solidarrow, txt]
-(0.21,-13.75) -- (0.61,-13.75) -- node[midway,right] {9 Processes adjust-authorization response} (0.61,-15) -- (0.21,-15);
+\draw[solidarrow]
+(0.21,-13.75) -- (0.61,-13.75) -- node[txt, midway,right] {9 Processes adjust-authorization response} (0.61,-15) -- (0.21,-15);
 
 % Document Footer
 \end{tikzpicture}
