@@ -33,31 +33,31 @@
 % Flows
 % Flow "1 Selects PayPal"
 \draw[solidarrow]
-(0.21,0) -- node[txt, txt, midway,above] {1 Selects PayPal} (14.79,0);
+(0.21,0) -- node[txt, midway,above] {1 Selects PayPal} (14.79,0);
 % Flow "2 Sends debit request"
 \draw[solidarrow]
-(15.21,-1.25) -- node[txt, txt, midway,above] {2 Sends debit request} (29.79,-1.25);
+(15.21,-1.25) -- node[txt, midway,above] {2 Sends debit request} (29.79,-1.25);
 % Flow "3 Returns `redirect-url`"
 \draw[solidarrow]
-(29.79,-2.5) -- node[txt, txt, midway,above] {3 Returns \texttt{redirect-url}} (15.21,-2.5);
+(29.79,-2.5) -- node[txt, midway,above] {3 Returns \texttt{redirect-url}} (15.21,-2.5);
 % Flow "4 Redirects consumer to `redirect-url`"
 \draw[solidarrow]
-(14.79,-3.75) -- node[txt, txt, midway,above] {4 Redirects consumer to \texttt{redirect-url}} (0.21,-3.75);
+(14.79,-3.75) -- node[txt, midway,above] {4 Redirects consumer to \texttt{redirect-url}} (0.21,-3.75);
 % Flow "5 Confirms payment"
 \draw[solidarrow]
-(0.21,-5) -- node[txt, txt, midway,above] {5 Confirms payment} (29.79,-5);
+(0.21,-5) -- node[txt, midway,above] {5 Confirms payment} (29.79,-5);
 % Flow "6 Processes payment"
 \draw[solidarrow]
-(30.21,-5) -- (30.61,-5) -- node[txt, txt, midway,right] {6 Processes payment} (30.61,-6.25) -- (30.21,-6.25);
+(30.21,-5) -- (30.61,-5) -- node[txt, midway,right] {6 Processes payment} (30.61,-6.25) -- (30.21,-6.25);
 % Flow "7 Verifies payment"
 \draw[solidarrow]
-(30.21,-7.5) -- (30.61,-7.5) -- node[txt, txt, midway,right] {7 Verifies payment} (30.61,-8.75) -- (30.21,-8.75);
+(30.21,-7.5) -- (30.61,-7.5) -- node[txt, midway,right] {7 Verifies payment} (30.61,-8.75) -- (30.21,-8.75);
 % Flow "8 Redirects consumer to merchant's result page"
 \draw[solidarrow]
-(30.21,-10) -- (30.61,-10) -- node[txt, txt, midway,right] {8 Redirects consumer to merchant's result page} (30.61,-11.25) -- (30.21,-11.25);
+(30.21,-10) -- (30.61,-10) -- node[txt, midway,right] {8 Redirects consumer to merchant's result page} (30.61,-11.25) -- (30.21,-11.25);
 % Flow "9 Sends notification with payment result"
 \draw[solidarrow]
-(29.79,-11.25) -- node[txt, txt, midway,above] {9 Sends notification with payment result} (15.21,-11.25);
+(29.79,-11.25) -- node[txt, midway,above] {9 Sends notification with payment result} (15.21,-11.25);
 
 % Document Footer
 \end{tikzpicture}
