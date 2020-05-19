@@ -1,0 +1,73 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.5) -- (0,-15.5);
+
+% Stage "merchant"
+\node[participant] at (15,2) {Merchant};
+\node[icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (15, 0.5) -- (15,-15.5);
+
+% Stage "payment"
+\node[participant] at (30,2) {Payment Gateway};
+\node[icon] (icon2) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (30, 0.5) -- (30,-15.5);
+
+% Stage "klarna"
+\node[participant] at (45,2) {Klarna};
+\node[icon] (icon3) at (45,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (45, 0.5) -- (45,-15.5);
+
+% Boxes
+\draw[box, nightblue] (0,0.1) -- (0,-1.35);
+\draw[box, nightblue] (0,-9.9) -- (0,-15.1);
+\draw[box, nightblue] (15,-4.9) -- (15,-6.35);
+\draw[box, nightblue] (15,-8.65) -- (15,-10.1);
+\draw[box, nightblue] (30,-6.15) -- (30,-7.6);
+\draw[box, nightblue] (45,-7.4) -- (45,-8.85);
+
+% Flows
+% Flow "1 Initiates payment in certain country"
+\draw[solidarrow]
+(0.21,0) -- (0.61,0) -- node[txt, midway,right] {1 Initiates payment in certain country} (0.61,-1.25) -- (0.21,-1.25);
+% Flow "Consumer's country"
+\draw[dashedarrow] (-1.01880644435697,-2.5) -- node[left] {DE, AT, NL, FI, DM, NO} (-1.01880644435697,-13.75) -- (-0.4133686667041555,-13.75);
+\draw[solidarrow]
+(-0.20793088905134102,-13.75) -- node[txt, midway,above] {} (-0.20543777765281448,-13.75);
+\draw[dashedarrow] (1.01880644435697,-2.5) -- node[right] {SE} (1.01880644435697,-5) -- (1.6242442220097844,-5);
+\draw[solidarrow]
+(1.8296819996625988,-5) -- node[txt, midway,above] {} (14.794562222347185,-5);
+\node (question) [question] at (0,-2.5) {Consumer's country};
+% Flow "2 Prepares get_address request"
+\draw[solidarrow]
+(15.21,-6.25) -- node[txt, midway,above] {2 Prepares get\_address request} (29.79,-6.25);
+% Flow "3 Sends get_addresses request"
+\draw[solidarrow]
+(30.21,-7.5) -- node[txt, midway,above] {3 Sends get\_addresses request} (44.79,-7.5);
+% Flow "4 Searches addresses according to consumer's Social Security Number"
+\draw[solidarrow]
+(45.21,-7.5) -- (45.61,-7.5) -- node[txt, midway,right] {4 Searches addresses according to consumer's Social Security Number} (45.61,-8.75) -- (45.21,-8.75);
+% Flow "5 Gets addresses"
+\draw[solidarrow]
+(44.79,-8.75) -- node[txt, midway,above] {5 Gets addresses} (15.21,-8.75);
+% Flow "6 Shows address list"
+\draw[solidarrow]
+(14.79,-10) -- node[txt, midway,above] {6 Shows address list} (0.21,-10);
+% Flow "7 Selects address"
+\draw[solidarrow]
+(0.21,-11.25) -- (0.61,-11.25) -- node[txt, midway,right] {7 Selects address} (0.61,-12.5) -- (0.21,-12.5);
+% Flow "8 Proceeds with payment process"
+\draw[solidarrow]
+(0.21,-13.75) -- (0.61,-13.75) -- node[txt, midway,right] {8 Proceeds with payment process} (0.61,-15) -- (0.21,-15);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}
