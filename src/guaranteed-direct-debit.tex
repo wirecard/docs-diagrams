@@ -36,26 +36,26 @@
 
 % Flows
 % Flow "1 Selects Guaranteed Direct Debit"
-\draw[solidarrow, txt]
-(0.21,0) -- node[midway,above] {1 Selects Guaranteed Direct Debit} (14.79,0);
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Selects Guaranteed Direct Debit} (14.79,0);
 % Flow "2 Sends authorization request"
-\draw[solidarrow, txt]
-(15.21,-1.25) -- node[midway,above] {2 Sends authorization request} (29.79,-1.25);
+\draw[solidarrow]
+(15.21,-1.25) -- node[txt, midway,above] {2 Sends authorization request} (29.79,-1.25);
 % Flow "3 Generates descriptor"
-\draw[solidarrow, txt]
-(30.21,-1.25) -- (30.61,-1.25) -- node[midway,right] {3 Generates descriptor} (30.61,-3.75) -- (30.21,-3.75);
+\draw[solidarrow]
+(30.21,-1.25) -- (30.61,-1.25) -- node[txt, midway,right] {3 Generates descriptor} (30.61,-3.75) -- (30.21,-3.75);
 % Flow "4 Sends authorization response including descriptor"
-\draw[solidarrow, txt]
-(29.79,-3.75) -- node[midway,above] {4 Sends authorization response including descriptor} (15.21,-3.75);
+\draw[solidarrow]
+(29.79,-3.75) -- node[txt, midway,above] {4 Sends authorization response including descriptor} (15.21,-3.75);
 % Flow "5 Sends capture request"
-\draw[solidarrow, txt]
-(15.21,-6.25) -- node[midway,above] {5 Sends capture request} (29.79,-6.25);
+\draw[solidarrow]
+(15.21,-6.25) -- node[txt, midway,above] {5 Sends capture request} (29.79,-6.25);
 % Flow "6 Generates invoice"
-\draw[solidarrow, txt]
-(30.21,-7.5) -- node[midway,above] {6 Generates invoice} (44.79,-7.5);
+\draw[solidarrow]
+(30.21,-7.5) -- node[txt, midway,above] {6 Generates invoice} (44.79,-7.5);
 % Flow "7 Collects transaction amount from consumer's bank"
-\draw[solidarrow, txt]
-(45.21,-7.5) -- (45.61,-7.5) -- node[midway,right] {7 Collects transaction amount from consumer's bank} (45.61,-10) -- (45.21,-10);
+\draw[solidarrow]
+(45.21,-7.5) -- (45.61,-7.5) -- node[txt, midway,right] {7 Collects transaction amount from consumer's bank} (45.61,-10) -- (45.21,-10);
 
 % Document Footer
 \end{tikzpicture}

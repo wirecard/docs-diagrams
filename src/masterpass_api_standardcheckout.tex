@@ -39,29 +39,29 @@
 
 % Flows
 % Flow "1 Selects payment method Masterpass"
-\draw[solidarrow, txt]
-(0.21,0) -- node[midway,above] {1 Selects payment method Masterpass} (10.79,0);
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Selects payment method Masterpass} (10.79,0);
 % Flow "2 Initiates debit transaction"
-\draw[solidarrow, txt]
-(11.21,-1.25) -- node[midway,above] {2 Initiates debit transaction} (21.79,-1.25);
+\draw[solidarrow]
+(11.21,-1.25) -- node[txt, midway,above] {2 Initiates debit transaction} (21.79,-1.25);
 % Flow "3 Sends `redirect-url`"
-\draw[solidarrow, txt]
-(21.79,-2.5) -- node[midway,above] {3 Sends \texttt{redirect-url}} (0.21,-2.5);
+\draw[solidarrow]
+(21.79,-2.5) -- node[txt, midway,above] {3 Sends \texttt{redirect-url}} (0.21,-2.5);
 % Flow "4 Enters Masterpass credentials and selects preferred card and shipping address (optional)"
-\draw[solidarrow, txt]
-(0.21,-4.37) -- node[midway,above] {4 Enters Masterpass credentials and selects preferred card and shipping address (optional)} (21.79,-4.37);
+\draw[solidarrow]
+(0.21,-4.37) -- node[txt, midway,above] {4 Enters Masterpass credentials and selects preferred card and shipping address (optional)} (21.79,-4.37);
 % Flow "5 Processes transaction with merchant's acquirer"
-\draw[solidarrow, txt]
-(22.21,-5.62) -- node[midway,above] {5 Processes transaction with merchant's acquirer} (32.79,-5.62);
+\draw[solidarrow]
+(22.21,-5.62) -- node[txt, midway,above] {5 Processes transaction with merchant's acquirer} (32.79,-5.62);
 % Flow "6 Sends transaction status"
-\draw[solidarrow, txt]
-(32.79,-6.87) -- node[midway,above] {6 Sends transaction status} (22.21,-6.87);
+\draw[solidarrow]
+(32.79,-6.87) -- node[txt, midway,above] {6 Sends transaction status} (22.21,-6.87);
 % Flow "7 Sends transaction status and redirect consumer"
-\draw[solidarrow, txt]
-(21.79,-8.12) -- node[midway,above] {7 Sends transaction status and redirect consumer} (11.21,-8.12);
+\draw[solidarrow]
+(21.79,-8.12) -- node[txt, midway,above] {7 Sends transaction status and redirect consumer} (11.21,-8.12);
 % Flow "8 Displays completion of payment process"
-\draw[solidarrow, txt]
-(10.79,-9.37) -- node[midway,above] {8 Displays completion of payment process} (0.21,-9.37);
+\draw[solidarrow]
+(10.79,-9.37) -- node[txt, midway,above] {8 Displays completion of payment process} (0.21,-9.37);
 
 % Document Footer
 \end{tikzpicture}

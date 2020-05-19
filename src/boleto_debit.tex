@@ -9,91 +9,88 @@
 % Stage "consumer"
 \node[participant] at (0,2) {Consumer};
 \node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
-\draw[aidline] (0, 0.9) -- (0,-24.65);
+\draw[aidline] (0, 0.9) -- (0,-22.15);
 
 % Stage "merchant"
 \node[participant] at (10,2) {Merchant};
 \node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
-\draw[aidline] (10, 0.9) -- (10,-24.65);
+\draw[aidline] (10, 0.9) -- (10,-22.15);
 
 % Stage "payment"
 \node[participant] at (20,2) {Payment Gateway};
 \node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
-\draw[aidline] (20, 0.9) -- (20,-24.65);
+\draw[aidline] (20, 0.9) -- (20,-22.15);
 
 % Stage "boleto"
 \node[participant] at (30,2) {Boleto};
 \node[icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
-\draw[aidline] (30, 0.9) -- (30,-24.65);
+\draw[aidline] (30, 0.9) -- (30,-22.15);
 
 % Boxes
 \draw[box, nightblue] (0,0.5) -- (0,-0.5);
-\draw[box, nightblue] (0,-17.4) -- (0,-21.35);
+\draw[box, nightblue] (0,-14.9) -- (0,-18.85);
 \draw[box, nightblue] (10,0.1) -- (10,-1.35);
-\draw[box, nightblue] (10,-23.25) -- (10,-24.25);
+\draw[box, nightblue] (10,-20.75) -- (10,-21.75);
 \draw[box, nightblue] (20,-1.15) -- (20,-3.85);
 \draw[box, nightblue] (20,-4.9) -- (20,-8.85);
-\draw[box, nightblue] (20,-9.9) -- (20,-20.1);
-\draw[box, nightblue] (20,-22.4) -- (20,-23.85);
+\draw[box, nightblue] (20,-9.9) -- (20,-17.6);
+\draw[box, nightblue] (20,-19.9) -- (20,-21.35);
 \draw[box, nightblue] (30,-3.65) -- (30,-5.1);
 \draw[box, nightblue] (30,-8.65) -- (30,-10.1);
-\draw[box, nightblue] (30,-21.15) -- (30,-22.6);
+\draw[box, nightblue] (30,-18.65) -- (30,-20.1);
 
 % Flows
 % Flow "1 Initiates payment process"
-\draw[solidarrow, txt]
-(0.21,0) -- node[midway,above] {1 Initiates payment process} (9.79,0);
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Initiates payment process} (9.79,0);
 % Flow "2 Sends payment request"
-\draw[solidarrow, txt]
-(10.21,-1.25) -- node[midway,above] {2 Sends payment request} (19.79,-1.25);
+\draw[solidarrow]
+(10.21,-1.25) -- node[txt, midway,above] {2 Sends payment request} (19.79,-1.25);
 % Flow "3 Creates order request"
-\draw[solidarrow, txt]
-(20.21,-1.25) -- (20.61,-1.25) -- node[midway,right] {3 Creates order request} (20.61,-2.5) -- (20.21,-2.5);
+\draw[solidarrow]
+(20.21,-1.25) -- (20.61,-1.25) -- node[txt, midway,right] {3 Creates order request} (20.61,-2.5) -- (20.21,-2.5);
 % Flow "4 Sends order request"
-\draw[solidarrow, txt]
-(20.21,-3.75) -- node[midway,above] {4 Sends order request} (29.79,-3.75);
+\draw[solidarrow]
+(20.21,-3.75) -- node[txt, midway,above] {4 Sends order request} (29.79,-3.75);
 % Flow "5 Sends order response"
-\draw[solidarrow, txt]
-(29.79,-5) -- node[midway,above] {5 Sends order response} (20.21,-5);
+\draw[solidarrow]
+(29.79,-5) -- node[txt, midway,above] {5 Sends order response} (20.21,-5);
 % Flow "6 Creates payment request"
-\draw[solidarrow, txt]
-(20.21,-6.25) -- (20.61,-6.25) -- node[midway,right] {6 Creates payment request} (20.61,-7.5) -- (20.21,-7.5);
+\draw[solidarrow]
+(20.21,-6.25) -- (20.61,-6.25) -- node[txt, midway,right] {6 Creates payment request} (20.61,-7.5) -- (20.21,-7.5);
 % Flow "7 Sends payment request"
-\draw[solidarrow, txt]
-(20.21,-8.75) -- node[midway,above] {7 Sends payment request} (29.79,-8.75);
+\draw[solidarrow]
+(20.21,-8.75) -- node[txt, midway,above] {7 Sends payment request} (29.79,-8.75);
 % Flow "8 Sends payment response"
-\draw[solidarrow, txt]
-(29.79,-10) -- node[midway,above] {8 Sends payment response} (20.21,-10);
+\draw[solidarrow]
+(29.79,-10) -- node[txt, midway,above] {8 Sends payment response} (20.21,-10);
 % Flow "9 Stores get-url transaction"
-\draw[solidarrow, txt]
-(20.21,-11.25) -- (20.61,-11.25) -- node[midway,right] {9 Stores get-url transaction} (20.61,-12.5) -- (20.21,-12.5);
+\draw[solidarrow]
+(20.21,-11.25) -- (20.61,-11.25) -- node[txt, midway,right] {9 Stores get-url transaction} (20.61,-12.5) -- (20.21,-12.5);
 % Flow "10 Creates redirect URL"
-\draw[solidarrow, txt]
-(20.21,-13.75) -- (20.61,-13.75) -- node[midway,right] {10 Creates redirect URL} (20.61,-15) -- (20.21,-15);
-% Flow "11 Sends payment response including redirect URL"
-\draw[solidarrow, txt]
-(20.21,-16.25) -- (20.61,-16.25) -- node[midway,right] {11 Sends payment response including redirect URL} (20.61,-17.5) -- (20.21,-17.5);
-% Flow "12 Redirects consumer to website of his bank"
-\draw[solidarrow, txt]
-(19.79,-17.5) -- node[midway,above] {12 Redirects consumer to website of his bank} (0.21,-17.5);
-% Flow "13 Stores pending debit transaction"
-\draw[solidarrow, txt]
-(20.21,-18.75) -- (20.61,-18.75) -- node[midway,right] {13 Stores pending debit transaction} (20.61,-20) -- (20.21,-20);
-% Flow "14 Prints out boleto slip"
-\draw[solidarrow, txt]
-(0.21,-18.75) -- (0.61,-18.75) -- node[midway,right] {14 Prints out boleto slip} (0.61,-20) -- (0.21,-20);
-% Flow "15 Pays boleto slip"
-\draw[solidarrow, txt]
-(0.21,-21.25) -- node[midway,above] {15 Pays boleto slip} (29.79,-21.25);
-% Flow "16 Processes confirmation from consumer's bank"
-\draw[solidarrow, txt]
-(30.21,-21.25) -- (30.61,-21.25) -- node[midway,right] {16 Processes confirmation from consumer's bank} (30.61,-22.5) -- (30.21,-22.5);
+\draw[solidarrow]
+(20.21,-13.75) -- (20.61,-13.75) -- node[txt, midway,right] {10 Creates redirect URL} (20.61,-15) -- (20.21,-15);
+% Flow "11 Sends payment response including redirect URL and redirects consumer to website of his bank"
+\draw[solidarrow]
+(19.79,-15) -- node[txt, midway,above] {11 Sends payment response including redirect URL and redirects consumer to website of his bank} (0.21,-15);
+% Flow "12 Stores pending debit transaction"
+\draw[solidarrow]
+(20.21,-16.25) -- (20.61,-16.25) -- node[txt, midway,right] {12 Stores pending debit transaction} (20.61,-17.5) -- (20.21,-17.5);
+% Flow "13 Prints out boleto slip"
+\draw[solidarrow]
+(0.21,-16.25) -- (0.61,-16.25) -- node[txt, midway,right] {13 Prints out boleto slip} (0.61,-17.5) -- (0.21,-17.5);
+% Flow "14 Pays boleto slip"
+\draw[solidarrow]
+(0.21,-18.75) -- node[txt, midway,above] {14 Pays boleto slip} (29.79,-18.75);
+% Flow "15 Processes confirmation from consumer's bank"
+\draw[solidarrow]
+(30.21,-18.75) -- (30.61,-18.75) -- node[txt, midway,right] {15 Processes confirmation from consumer's bank} (30.61,-20) -- (30.21,-20);
+% Flow "16 Sends notification"
+\draw[solidarrow]
+(29.79,-20) -- node[txt, midway,above] {16 Sends notification} (20.21,-20);
 % Flow "17 Sends notification"
-\draw[solidarrow, txt]
-(29.79,-22.5) -- node[midway,above] {17 Sends notification} (20.21,-22.5);
-% Flow "18 Sends notification"
-\draw[solidarrow, txt]
-(19.79,-23.75) -- node[midway,above] {18 Sends notification} (10.21,-23.75);
+\draw[solidarrow]
+(19.79,-21.25) -- node[txt, midway,above] {17 Sends notification} (10.21,-21.25);
 
 % Document Footer
 \end{tikzpicture}

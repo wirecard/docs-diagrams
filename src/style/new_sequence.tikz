@@ -16,7 +16,7 @@
   participant/.style={nightblue, font=\Large, text width=6cm, align=center, below},
   aidline/.style={gray2, dashed, thin},
   box/.style={nightblue,line width=6pt},
-  txt/.style={text=gray3,fill=white,text width=9cm,align=left},
+  txt/.style={text=gray3, outer sep=0.08cm, fill=white, text width=8cm,align=left},
   txt_right/.style={text=gray3,text width=7cm, align=right},
   fontscale/.style={font=11pt},
   solidarrow/.style={line width=2pt,gray3, ->, >=stealth},

@@ -42,44 +42,44 @@
 
 % Flows
 % Flow "1 Selects payment method Masterpass"
-\draw[solidarrow, txt]
-(0.21,0) -- node[midway,above] {1 Selects payment method Masterpass} (10.79,0);
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Selects payment method Masterpass} (10.79,0);
 % Flow "2 Initiates request-checkout transaction with request-type pairing-and-checkout"
-\draw[solidarrow, txt]
-(11.21,-1.25) -- node[midway,above] {2 Initiates request-checkout transaction with request-type pairing-and-checkout} (21.79,-1.25);
+\draw[solidarrow]
+(11.21,-1.25) -- node[txt, midway,above] {2 Initiates request-checkout transaction with request-type pairing-and-checkout} (21.79,-1.25);
 % Flow "3 Sends `redirect-url`"
-\draw[solidarrow, txt]
-(21.79,-2.5) -- node[midway,above] {3 Sends \texttt{redirect-url}} (11.21,-2.5);
+\draw[solidarrow]
+(21.79,-2.5) -- node[txt, midway,above] {3 Sends \texttt{redirect-url}} (11.21,-2.5);
 % Flow "4 Initiates Masterpass lightbox"
-\draw[solidarrow, txt]
-(10.79,-3.75) -- node[midway,above] {4 Initiates Masterpass lightbox} (0.21,-3.75);
+\draw[solidarrow]
+(10.79,-3.75) -- node[txt, midway,above] {4 Initiates Masterpass lightbox} (0.21,-3.75);
 % Flow "5 Enters Masterpass credentials and selects preferred card and shipping address (optional) and approves pairing request"
-\draw[solidarrow, txt]
-(0.21,-6.87) -- node[midway,above] {5 Enters Masterpass credentials and selects preferred card and shipping address (optional) and approves pairing request} (21.79,-6.87);
+\draw[solidarrow]
+(0.21,-6.87) -- node[txt, midway,above] {5 Enters Masterpass credentials and selects preferred card and shipping address (optional) and approves pairing request} (21.79,-6.87);
 % Flow "6 Processes card and shipping address (optional) information"
-\draw[solidarrow, txt]
-(22.21,-6.87) -- (22.61,-6.87) -- node[midway,right] {6 Processes card and shipping address (optional) information} (22.61,-8.75) -- (22.21,-8.75);
+\draw[solidarrow]
+(22.21,-6.87) -- (22.61,-6.87) -- node[txt, midway,right] {6 Processes card and shipping address (optional) information} (22.61,-8.75) -- (22.21,-8.75);
 % Flow "7 Sends pairing status, token and shipping address (optional) information"
-\draw[solidarrow, txt]
-(21.79,-8.75) -- node[midway,above] {7 Sends pairing status, token and shipping address (optional) information} (11.21,-8.75);
+\draw[solidarrow]
+(21.79,-8.75) -- node[txt, midway,above] {7 Sends pairing status, token and shipping address (optional) information} (11.21,-8.75);
 % Flow "8 Re-calculates shipping amount (optional) and final charges and displays masked card information for consumer's confirmation"
-\draw[solidarrow, txt]
-(11.21,-10) -- (11.61,-10) -- node[midway,right] {8 Re-calculates shipping amount (optional) and final charges and displays masked card information for consumer's confirmation} (11.61,-11.25) -- (11.21,-11.25);
+\draw[solidarrow]
+(11.21,-10) -- (11.61,-10) -- node[txt, midway,right] {8 Re-calculates shipping amount (optional) and final charges and displays masked card information for consumer's confirmation} (11.61,-11.25) -- (11.21,-11.25);
 % Flow "9 Initiates payment request"
-\draw[solidarrow, txt]
-(11.21,-13.12) -- node[midway,above] {9 Initiates payment request} (21.79,-13.12);
+\draw[solidarrow]
+(11.21,-13.12) -- node[txt, midway,above] {9 Initiates payment request} (21.79,-13.12);
 % Flow "10 Processes transaction with merchant's acquirer"
-\draw[solidarrow, txt]
-(22.21,-14.37) -- node[midway,above] {10 Processes transaction with merchant's acquirer} (32.79,-14.37);
+\draw[solidarrow]
+(22.21,-14.37) -- node[txt, midway,above] {10 Processes transaction with merchant's acquirer} (32.79,-14.37);
 % Flow "11 Sends transaction status"
-\draw[solidarrow, txt]
-(32.79,-15.62) -- node[midway,above] {11 Sends transaction status} (22.21,-15.62);
+\draw[solidarrow]
+(32.79,-15.62) -- node[txt, midway,above] {11 Sends transaction status} (22.21,-15.62);
 % Flow "12 Sends transaction status"
-\draw[solidarrow, txt]
-(21.79,-16.87) -- node[midway,above] {12 Sends transaction status} (11.21,-16.87);
+\draw[solidarrow]
+(21.79,-16.87) -- node[txt, midway,above] {12 Sends transaction status} (11.21,-16.87);
 % Flow "13 Displays completion of payment process"
-\draw[solidarrow, txt]
-(10.79,-18.12) -- node[midway,above] {13 Displays completion of payment process} (0.21,-18.12);
+\draw[solidarrow]
+(10.79,-18.12) -- node[txt, midway,above] {13 Displays completion of payment process} (0.21,-18.12);
 
 % Document Footer
 \end{tikzpicture}

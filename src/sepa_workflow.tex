@@ -36,30 +36,30 @@
 
 % Flows
 % Flow "1 Sends debit-return or credit-return transaction"
-\draw[solidarrow, txt]
-(0.21,0) -- node[midway,above] {1 Sends debit-return or credit-return transaction} (19.79,0);
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Sends debit-return or credit-return transaction} (19.79,0);
 % Flow "2 Forwards *-return transaction"
-\draw[solidarrow, txt]
-(20.21,-1.25) -- node[midway,above] {2 Forwards *-return transaction} (29.79,-1.25);
+\draw[solidarrow]
+(20.21,-1.25) -- node[txt, midway,above] {2 Forwards *-return transaction} (29.79,-1.25);
 % Flow "3 Looks for corresponding parent transaction"
-\draw[solidarrow, txt]
-(30.21,-1.25) -- (30.61,-1.25) -- node[midway,right] {3 Looks for corresponding parent transaction} (30.61,-2.5) -- (30.21,-2.5);
+\draw[solidarrow]
+(30.21,-1.25) -- (30.61,-1.25) -- node[txt, midway,right] {3 Looks for corresponding parent transaction} (30.61,-2.5) -- (30.21,-2.5);
 % Flow "Parent found?"
 \draw[dashedarrow] (28.98119355564303,-3.75) -- node[left] {yes} (28.98119355564303,-6.25) -- (29.794562222347185,-6.25);
 \draw[dashedarrow] (31.01880644435697,-3.75) -- node[right] {no} (31.01880644435697,-11.25) -- (30.205437777652815,-11.25);
 \node (question) [question] at (30,-3.75) {Parent found?};
 % Flow "4 Maps *-return transaction to existing debit or credit"
-\draw[solidarrow, txt_right]
-(29.79,-7.5) -- (29.39,-7.5) -- node[midway,left] {4 Maps *-return transaction to existing debit or credit} (29.39,-8.75) -- (29.79,-8.75);
+\draw[solidarrow]
+(29.79,-7.5) -- (29.39,-7.5) -- node[txt_right, midway,left] {4 Maps *-return transaction to existing debit or credit} (29.39,-8.75) -- (29.79,-8.75);
 % Flow "5 Sends *-return notification"
-\draw[solidarrow, txt]
-(29.79,-10) -- node[midway,above] {5 Sends *-return notification} (10.21,-10);
+\draw[solidarrow]
+(29.79,-10) -- node[txt, midway,above] {5 Sends *-return notification} (10.21,-10);
 % Flow "6 Generates unreferenced *-return transaction"
-\draw[solidarrow, txt]
-(30.21,-12.5) -- (30.61,-12.5) -- node[midway,right] {6 Generates unreferenced *-return transaction} (30.61,-13.75) -- (30.21,-13.75);
+\draw[solidarrow]
+(30.21,-12.5) -- (30.61,-12.5) -- node[txt, midway,right] {6 Generates unreferenced *-return transaction} (30.61,-13.75) -- (30.21,-13.75);
 % Flow "7 Sends *-return notification"
-\draw[solidarrow, txt]
-(29.79,-13.75) -- node[midway,above] {7 Sends *-return notification} (10.21,-13.75);
+\draw[solidarrow]
+(29.79,-13.75) -- node[txt, midway,above] {7 Sends *-return notification} (10.21,-13.75);
 
 % Document Footer
 \end{tikzpicture}

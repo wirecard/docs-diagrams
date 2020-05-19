@@ -29,23 +29,23 @@
 
 % Flows
 % Flow "1 Requests refund"
-\draw[solidarrow, txt]
-(0.21,0) -- node[midway,above] {1 Requests refund} (9.79,0);
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Requests refund} (9.79,0);
 % Flow "2 Creates refund request"
-\draw[solidarrow, txt]
-(10.21,0) -- (10.61,0) -- node[midway,right] {2 Creates refund request} (10.61,-1.25) -- (10.21,-1.25);
+\draw[solidarrow]
+(10.21,0) -- (10.61,0) -- node[txt, midway,right] {2 Creates refund request} (10.61,-1.25) -- (10.21,-1.25);
 % Flow "3 Sends refund request"
-\draw[solidarrow, txt]
-(10.21,-2.5) -- node[midway,above] {3 Sends refund request} (19.79,-2.5);
+\draw[solidarrow]
+(10.21,-2.5) -- node[txt, midway,above] {3 Sends refund request} (19.79,-2.5);
 % Flow "4 Processes refund"
-\draw[solidarrow, txt]
-(20.21,-2.5) -- (20.61,-2.5) -- node[midway,right] {4 Processes refund} (20.61,-3.75) -- (20.21,-3.75);
+\draw[solidarrow]
+(20.21,-2.5) -- (20.61,-2.5) -- node[txt, midway,right] {4 Processes refund} (20.61,-3.75) -- (20.21,-3.75);
 % Flow "5 Sends refund response"
-\draw[solidarrow, txt]
-(20.21,-5) -- (20.61,-5) -- node[midway,right] {5 Sends refund response} (20.61,-6.25) -- (20.21,-6.25);
+\draw[solidarrow]
+(20.21,-5) -- (20.61,-5) -- node[txt, midway,right] {5 Sends refund response} (20.61,-6.25) -- (20.21,-6.25);
 % Flow "6 Sends notification"
-\draw[solidarrow, txt]
-(19.79,-6.25) -- node[midway,above] {6 Sends notification} (0.21,-6.25);
+\draw[solidarrow]
+(19.79,-6.25) -- node[txt, midway,above] {6 Sends notification} (0.21,-6.25);
 
 % Document Footer
 \end{tikzpicture}
