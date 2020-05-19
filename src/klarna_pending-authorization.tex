@@ -64,13 +64,13 @@
 \draw[solidarrow]
 (29.79,-10) -- node[txt, midway,above] {8 Sends \texttt{reserve\_amount} response} (21.455437777652815,-10);
 % Flow "Response status"
-\draw[dashedarrow] (18.98119355564303,-10) -- node[txt, left] {ok} (18.98119355564303,-12.5) -- (18.375755777990218,-12.5);
+\draw[dashedarrow] (18.98119355564303,-10) -- node[left] {ok} (18.98119355564303,-12.5) -- (18.375755777990218,-12.5);
 \draw[solidarrow]
 (18.170318000337403,-12.5) -- node[txt, midway,above] {9 Updates \texttt{authorization} TX status to \texttt{sucess} and sends \texttt{authorization} TX ID} (10.205437777652815,-12.5);
-\draw[dashedarrow] (20,-10) -- node[txt, right] {nok} (20,-15) -- (19.394562222347187,-15);
+\draw[dashedarrow] (20,-10) -- node[right] {nok} (20,-15) -- (19.394562222347187,-15);
 \draw[solidarrow]
 (19.18912444469437,-15) -- node[txt, midway,above] {10 Updates \texttt{authorization} TX status to \texttt{failed} and sends \texttt{authorization} TX ID} (10.205437777652815,-15);
-\draw[dashedarrow] (21.01880644435697,-10) -- node[txt, right] {pending} (21.01880644435697,-17.5) -- (20.205437777652815,-17.5);
+\draw[dashedarrow] (21.01880644435697,-10) -- node[right] {pending} (21.01880644435697,-17.5) -- (20.205437777652815,-17.5);
 \node (question) [question] at (20,-10) {Response status};
 % Flow "11 Creates `pending-authorization` TX status to `failed` with special pending status code"
 \draw[solidarrow]
