@@ -1,0 +1,66 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-9.65);
+
+% Stage "merchant"
+\node[participant] at (10,2) {Merchant};
+\node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (10, 0.9) -- (10,-9.65);
+
+% Stage "payment"
+\node[participant] at (20,2) {Payment Gateway};
+\node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (20, 0.9) -- (20,-9.65);
+
+% Stage "skrill"
+\node[participant] at (30,2) {Skrill Digital Wallet};
+\node[icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (30, 0.9) -- (30,-9.65);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (0,-2.4) -- (0,-6.35);
+\draw[box, nightblue] (0,-8.25) -- (0,-9.25);
+\draw[box, nightblue] (10,0.1) -- (10,-1.35);
+\draw[box, nightblue] (10,-7.4) -- (10,-8.85);
+\draw[box, nightblue] (20,-1.15) -- (20,-2.6);
+\draw[box, nightblue] (30,-6.15) -- (30,-7.6);
+
+% Flows
+% Flow "1 Selects Skrill"
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Selects Skrill} (9.79,0);
+% Flow "2 Sends transaction request"
+\draw[solidarrow]
+(10.21,-1.25) -- node[txt, midway,above] {2 Sends transaction request} (19.79,-1.25);
+% Flow "3 Creates payment URL"
+\draw[solidarrow]
+(20.21,-1.25) -- (20.61,-1.25) -- node[txt, midway,right] {3 Creates payment URL} (20.61,-2.5) -- (20.21,-2.5);
+% Flow "4 Sends URL in response"
+\draw[solidarrow]
+(19.79,-2.5) -- node[txt, midway,above] {4 Sends URL in response} (0.21,-2.5);
+% Flow "5 Logs in to personal wallet account"
+\draw[solidarrow]
+(0.21,-3.75) -- (0.61,-3.75) -- node[txt, midway,right] {5 Logs in to personal wallet account} (0.61,-5) -- (0.21,-5);
+% Flow "6 Confirms payment"
+\draw[solidarrow]
+(0.21,-6.25) -- node[txt, midway,above] {6 Confirms payment} (29.79,-6.25);
+% Flow "7 Redirects consumer to success/failure page"
+\draw[solidarrow]
+(29.79,-7.5) -- node[txt, midway,above] {7 Redirects consumer to success/failure page} (10.21,-7.5);
+% Flow "8 Ships goods/services (if transaction was successful)"
+\draw[solidarrow]
+(9.79,-8.75) -- node[txt, midway,above] {8 Ships goods/services (if transaction was successful)} (0.21,-8.75);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

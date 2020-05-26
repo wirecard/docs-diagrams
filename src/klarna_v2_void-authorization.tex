@@ -1,0 +1,64 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "merchant"
+\node[participant] at (0,2) {Merchant};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (0, 0.5) -- (0,-12.77);
+
+% Stage "payment"
+\node[participant] at (15,2) {Payment Gateway};
+\node[icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (15, 0.5) -- (15,-12.77);
+
+% Stage "klarna"
+\node[participant] at (30,2) {Klarna};
+\node[icon] (icon2) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (30, 0.5) -- (30,-12.77);
+
+% Boxes
+\draw[box, nightblue] (0,0.1) -- (0,-2.6);
+\draw[box, nightblue] (0,-11.375) -- (0,-12.375);
+\draw[box, nightblue] (15,-2.4) -- (15,-4.475);
+\draw[box, nightblue] (15,-7.625) -- (15,-8.625);
+\draw[box, nightblue] (15,-10.525) -- (15,-11.975);
+\draw[box, nightblue] (30,-3.25) -- (30,-4.25);
+\draw[box, nightblue] (30,-6.775) -- (30,-8.225);
+\draw[box, nightblue] (30,-9.275) -- (30,-10.725);
+
+% Flows
+% Flow "1 Cancels order"
+\draw[solidarrow]
+(0.21,0) -- (0.61,0) -- node[txt, midway,right] {1 Cancels order} (0.61,-1.25) -- (0.21,-1.25);
+% Flow "2 Sends void-authorization requests"
+\draw[solidarrow]
+(0.21,-2.5) -- node[txt, midway,above] {2 Sends void-authorization requests} (14.79,-2.5);
+% Flow "3 Creates void-authorization transaction"
+\draw[solidarrow]
+(15.21,-3.75) -- node[txt, midway,above] {3 Creates void-authorization transaction} (29.79,-3.75);
+% Flow "Capture check"
+\draw[dashedarrow] (13.98119355564303,-5) -- node[left] {no partial capture before} (13.98119355564303,-9.375) -- (14.586631333295845,-9.375);
+\draw[solidarrow]
+(14.79206911094866,-9.375) -- node[txt, midway,above] {6 Cancels authorization request} (29.794562222347185,-9.375);
+\draw[dashedarrow] (16.01880644435697,-5) -- node[right] {partial capture before} (16.01880644435697,-6.875) -- (16.624244222009782,-6.875);
+\draw[solidarrow]
+(16.829681999662597,-6.875) -- node[txt, midway,above] {4 Releases remaining auth. request} (29.794562222347185,-6.875);
+\node (question) [question] at (15,-5) {Capture check};
+% Flow "5 Releases remaining order"
+\draw[solidarrow]
+(29.79,-8.12) -- node[txt, midway,above] {5 Releases remaining order} (15.21,-8.12);
+% Flow "7 Cancels authorization"
+\draw[solidarrow]
+(29.79,-10.62) -- node[txt, midway,above] {7 Cancels authorization} (15.21,-10.62);
+% Flow "8 Creates and sends response"
+\draw[solidarrow]
+(14.79,-11.87) -- node[txt, midway,above] {8 Creates and sends response} (0.21,-11.87);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

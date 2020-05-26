@@ -1,0 +1,88 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-22.15);
+
+% Stage "merchant"
+\node[participant] at (15,2) {Merchant};
+\node[icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (15, 0.9) -- (15,-22.15);
+
+% Stage "payment"
+\node[participant] at (30,2) {Payment Gateway};
+\node[icon] (icon2) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (30, 0.9) -- (30,-22.15);
+
+% Stage "klarna"
+\node[participant] at (45,2) {Klarna};
+\node[icon] (icon3) at (45,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (45, 0.9) -- (45,-22.15);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (15,0.1) -- (15,-1.35);
+\draw[box, nightblue] (30,-1.15) -- (30,-2.6);
+\draw[box, nightblue] (45,-2.4) -- (45,-5.1);
+\draw[box, nightblue] (30,-4.9) -- (30,-7.6);
+\draw[box, nightblue] (45,-7.4) -- (45,-10.1);
+\draw[box, nightblue] (30,-9.9) -- (30,-13.85);
+\draw[box, nightblue] (30,-18.65) -- (30,-20.1);
+\draw[box, nightblue] (15,-12.4) -- (15,-21.35);
+\draw[box, nightblue] (0,-20.75) -- (0,-21.75);
+
+% Flows
+% Flow "1 Proceeds to checkout"
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Proceeds to checkout} (14.79,0);
+% Flow "2 Sends authorization request"
+\draw[solidarrow]
+(15.21,-1.25) -- node[txt, midway,above] {2 Sends authorization request} (29.79,-1.25);
+% Flow "3 Forwards request, sends `check-signature` and `get-url`"
+\draw[solidarrow]
+(30.21,-2.5) -- node[txt, midway,above] {3 Forwards request, sends \texttt{check-signature} and \texttt{get-url}} (44.79,-2.5);
+% Flow "4 Creates and sends session token"
+\draw[solidarrow]
+(44.79,-5) -- node[txt, midway,above] {4 Creates and sends session token} (30.21,-5);
+% Flow "5 Creates and sends pending-authorization transaction"
+\draw[solidarrow]
+(30.21,-7.5) -- node[txt, midway,above] {5 Creates and sends pending-authorization transaction} (44.79,-7.5);
+% Flow "6 Performs basic risk check"
+\draw[solidarrow]
+(45.21,-7.5) -- (45.61,-7.5) -- node[txt, midway,right] {6 Performs basic risk check} (45.61,-10) -- (45.21,-10);
+% Flow "7 Sends result"
+\draw[solidarrow]
+(44.79,-10) -- node[txt, midway,above] {7 Sends result} (30.21,-10);
+% Flow "8 Updates pending-authorization"
+\draw[solidarrow]
+(30.21,-11.25) -- (30.61,-11.25) -- node[txt, midway,right] {8 Updates pending-authorization} (30.61,-12.5) -- (30.21,-12.5);
+% Flow "9 Sends authorization success/failure response and IPN"
+\draw[solidarrow]
+(29.79,-12.5) -- node[txt, midway,above] {9 Sends authorization success/failure response and IPN} (15.21,-12.5);
+% Flow "Advanced risk check required?"
+\draw[dashedarrow] (30,-14.375) -- node[right] {yes} (30,-17.5) -- (29.394562222347187,-17.5);
+\draw[solidarrow]
+(29.18912444469437,-17.5) -- node[txt, midway,above] {10 Sends pending-authorization response} (15.205437777652815,-17.5);
+\node (question) [question] at (30,-14.375) {Advanced risk check required?};
+% Flow "Advanced risk check required?"
+\draw[dashedarrow] (45,-14.375) -- node[right] {yes} (45,-18.75) -- (44.39456222234718,-18.75);
+\draw[solidarrow]
+(44.18912444469437,-18.75) -- node[txt, midway,above] {11 Performs advanced risk check and sends result} (30.205437777652815,-18.75);
+\node (question) [question] at (45,-14.375) {Advanced risk check required?};
+% Flow "12 Processes result and sends authorization response and IPN"
+\draw[solidarrow]
+(29.79,-20) -- node[txt, midway,above] {12 Processes result and sends authorization response and IPN} (15.21,-20);
+% Flow "13 Redirects to payment status page"
+\draw[solidarrow]
+(14.79,-21.25) -- node[txt, midway,above] {13 Redirects to payment status page} (0.21,-21.25);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}
