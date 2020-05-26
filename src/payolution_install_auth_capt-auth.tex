@@ -48,30 +48,30 @@
 % Flow "1 Provides account data"
 \draw[solidarrow]
 (0.21,0) -- node[txt, midway,above] {1 Provides account data} (14.79,0);
-% Flow "2 Offers payment method installment if requirements are fulfilled"
+% Flow "2 Offers payment method Installment if requirements are fulfilled"
 \draw[solidarrow]
-(14.79,-1.87) -- node[txt, midway,above] {2 Offers payment method installment if requirements are fulfilled} (0.21,-1.87);
-% Flow "3 Selects payment method installment"
+(14.79,-1.87) -- node[txt, midway,above] {2 Offers payment method Installment if requirements are fulfilled} (0.21,-1.87);
+% Flow "3 Selects payment method Installment"
 \draw[solidarrow]
-(0.21,-3.12) -- node[txt, midway,above] {3 Selects payment method installment} (14.79,-3.12);
-% Flow "4 Sends authorization request with payment method payolution-inst"
+(0.21,-3.12) -- node[txt, midway,above] {3 Selects payment method Installment} (14.79,-3.12);
+% Flow "4 Sends authorization request with payment method `payolution-inst`"
 \draw[solidarrow]
-(15.21,-4.37) -- node[txt, midway,above] {4 Sends authorization request with payment method payolution-inst} (29.79,-4.37);
+(15.21,-4.37) -- node[txt, midway,above] {4 Sends authorization request with payment method \texttt{payolution-inst}} (29.79,-4.37);
 % Flow "5 Processes and validates transaction and sends authorization request"
 \draw[solidarrow]
 (30.21,-5.62) -- node[txt, midway,above] {5 Processes and validates transaction and sends authorization request} (44.79,-5.62);
-% Flow "6 Provides `URL` for installment plan selection"
+% Flow "6 Provides `URL` for Installment plan selection"
 \draw[solidarrow]
-(44.79,-7.5) -- node[txt, midway,above] {6 Provides \texttt{URL} for installment plan selection} (30.21,-7.5);
+(44.79,-7.5) -- node[txt, midway,above] {6 Provides \texttt{URL} for Installment plan selection} (30.21,-7.5);
 % Flow "7 Processes response and sends it"
 \draw[solidarrow]
 (29.79,-8.75) -- node[txt, midway,above] {7 Processes response and sends it} (15.21,-8.75);
-% Flow "8 Redirects to payolution installment plan selection page"
+% Flow "8 Redirects to payolution Installment plan selection page"
 \draw[solidarrow]
-(14.79,-10) -- node[txt, midway,above] {8 Redirects to payolution installment plan selection page} (0.21,-10);
-% Flow "9 Selects installment plan"
+(14.79,-10) -- node[txt, midway,above] {8 Redirects to payolution Installment plan selection page} (0.21,-10);
+% Flow "9 Selects Installment plan"
 \draw[solidarrow]
-(0.21,-11.25) -- node[txt, midway,above] {9 Selects installment plan} (44.79,-11.25);
+(0.21,-11.25) -- node[txt, midway,above] {9 Selects Installment plan} (44.79,-11.25);
 % Flow "10 Performs risk check and authorizes transaction"
 \draw[solidarrow]
 (44.79,-12.5) -- node[txt, midway,above] {10 Performs risk check and authorizes transaction} (30.21,-12.5);
@@ -90,12 +90,12 @@
 % Flow "15 Processes response and sends it"
 \draw[solidarrow]
 (29.79,-19.37) -- node[txt, midway,above] {15 Processes response and sends it} (15.21,-19.37);
-% Flow "16 Generates invoice and sends it to invoices-<<merchant name>>@payolution.com"
+% Flow "16 Generates invoice and sends it to invoices-$<$merchant name$>$@payolution.com"
 \draw[solidarrow]
-(15.21,-20.62) -- (15.61,-20.62) -- node[txt, midway,right] {16 Generates invoice and sends it to invoices-<<merchant name>>@payolution.com} (15.61,-21.87) -- (15.21,-21.87);
-% Flow "17 Waits for incoming payment (in case of changes: void-auhtorization and refund-capture)"
+(15.21,-20.62) -- (15.61,-20.62) -- node[txt, midway,right] {16 Generates invoice and sends it to invoices-$<$merchant name$>$@payolution.com} (15.61,-21.87) -- (15.21,-21.87);
+% Flow "17 Waits for incoming payment (in case of changes: void-authorization and refund-capture)"
 \draw[solidarrow]
-(15.21,-23.12) -- (15.61,-23.12) -- node[txt, midway,right] {17 Waits for incoming payment (in case of changes: void-auhtorization and refund-capture)} (15.61,-24.37) -- (15.21,-24.37);
+(15.21,-23.12) -- (15.61,-23.12) -- node[txt, midway,right] {17 Waits for incoming payment (in case of changes: void-authorization and refund-capture)} (15.61,-24.37) -- (15.21,-24.37);
 
 % Document Footer
 \end{tikzpicture}

@@ -9,24 +9,26 @@
 % Stage "merchant"
 \node[participant] at (0,2) {Merchant};
 \node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
-\draw[aidline] (0, 0.5) -- (0,-8.4);
+\draw[aidline] (0, 0.5) -- (0,-10.9);
 
 % Stage "payment"
 \node[participant] at (15,2) {Payment Gateway};
 \node[icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
-\draw[aidline] (15, 0.5) -- (15,-8.4);
+\draw[aidline] (15, 0.5) -- (15,-10.9);
 
 % Stage "p24"
 \node[participant] at (30,2) {Przelewy24};
 \node[icon] (icon2) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
-\draw[aidline] (30, 0.5) -- (30,-8.4);
+\draw[aidline] (30, 0.5) -- (30,-10.9);
 
 % Boxes
 \draw[box, nightblue] (0,0.1) -- (0,-2.6);
-\draw[box, nightblue] (0,-7) -- (0,-8);
+\draw[box, nightblue] (0,-9.5) -- (0,-10.5);
+\draw[box, nightblue] (0,-5.75) -- (0,-6.75);
 \draw[box, nightblue] (15,-2.4) -- (15,-3.85);
-\draw[box, nightblue] (15,-4.9) -- (15,-7.6);
-\draw[box, nightblue] (30,-3.65) -- (30,-5.1);
+\draw[box, nightblue] (15,-4.9) -- (15,-6.35);
+\draw[box, nightblue] (15,-7.4) -- (15,-10.1);
+\draw[box, nightblue] (30,-3.65) -- (30,-7.6);
 
 % Flows
 % Flow "1 Initiates refund"
@@ -35,18 +37,24 @@
 % Flow "2 Sends request"
 \draw[solidarrow]
 (0.21,-2.5) -- node[txt, midway,above] {2 Sends request} (14.79,-2.5);
-% Flow "3 Sends response"
+% Flow "3 Redirects request"
 \draw[solidarrow]
-(15.21,-3.75) -- node[txt, midway,above] {3 Sends response} (29.79,-3.75);
-% Flow "4 Processes Refund (within a day)"
+(15.21,-3.75) -- node[txt, midway,above] {3 Redirects request} (29.79,-3.75);
+% Flow "4 Sends response"
 \draw[solidarrow]
-(29.79,-5) -- node[txt, midway,above] {4 Processes Refund (within a day)} (15.21,-5);
-% Flow "5 Waits for completion of refund process"
+(29.79,-5) -- node[txt, midway,above] {4 Sends response} (15.21,-5);
+% Flow "5 Redirects response"
 \draw[solidarrow]
-(15.21,-6.25) -- (15.61,-6.25) -- node[txt, midway,right] {5 Waits for completion of refund process} (15.61,-7.5) -- (15.21,-7.5);
-% Flow "6 Sends notification of refund outcome"
+(14.79,-6.25) -- node[txt, midway,above] {5 Redirects response} (0.21,-6.25);
+% Flow "6 Processes refund (within a day)"
 \draw[solidarrow]
-(14.79,-7.5) -- node[txt, midway,above] {6 Sends notification of refund outcome} (0.21,-7.5);
+(29.79,-7.5) -- node[txt, midway,above] {6 Processes refund (within a day)} (15.21,-7.5);
+% Flow "7 Waits for completion of refund process"
+\draw[solidarrow]
+(15.21,-8.75) -- (15.61,-8.75) -- node[txt, midway,right] {7 Waits for completion of refund process} (15.61,-10) -- (15.21,-10);
+% Flow "8 Sends notification of refund outcome"
+\draw[solidarrow]
+(14.79,-10) -- node[txt, midway,above] {8 Sends notification of refund outcome} (0.21,-10);
 
 % Document Footer
 \end{tikzpicture}
