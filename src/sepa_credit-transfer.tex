@@ -1,0 +1,83 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.5) -- (0,-14.87);
+
+% Stage "merchant"
+\node[participant] at (10,2) {Merchant};
+\node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (10, 0.5) -- (10,-14.87);
+
+% Stage "payment"
+\node[participant] at (20,2) {Payment Gateway};
+\node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (20, 0.5) -- (20,-14.87);
+
+% Stage "wbank"
+\node[participant] at (30,2) {Wirecard Bank};
+\node[icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {bank.png}};
+\draw[aidline] (30, 0.5) -- (30,-14.87);
+
+% Stage "cbank"
+\node[participant] at (40,2) {Consumer's Bank};
+\node[icon] (icon4) at (40,3.5) {\includegraphics[width=.1\textwidth] {financialinstitution.png}};
+\draw[aidline] (40, 0.5) -- (40,-14.87);
+
+% Boxes
+\draw[box, nightblue] (0,0.1) -- (0,-2.6);
+\draw[box, nightblue] (10,-2.4) -- (10,-3.85);
+\draw[box, nightblue] (10,-5.125) -- (10,-6.125);
+\draw[box, nightblue] (20,-3.65) -- (20,-11.35);
+\draw[box, nightblue] (10,-10.75) -- (10,-11.75);
+\draw[box, nightblue] (30,-8.65) -- (30,-11.35);
+\draw[box, nightblue] (40,-11.15) -- (40,-14.475);
+
+% Flows
+% Flow "1 Requests funds from merchant"
+\draw[solidarrow]
+(0.21,0) -- (0.61,0) -- node[txt, midway,right] {1 Requests funds from merchant} (0.61,-1.25) -- (0.21,-1.25);
+% Flow "2 Provides bank details"
+\draw[solidarrow]
+(0.21,-2.5) -- node[txt, midway,above] {2 Provides bank details} (9.79,-2.5);
+% Flow "3 Sends pending-credit request"
+\draw[solidarrow]
+(10.21,-3.75) -- node[txt, midway,above] {3 Sends pending-credit request} (19.79,-3.75);
+% Flow "4 Sends pending-credit successful response"
+\draw[solidarrow]
+(19.79,-5.62) -- node[txt, midway,above] {4 Sends pending-credit successful response} (10.21,-5.62);
+% Flow "5 Batches transactions"
+\draw[solidarrow]
+(20.21,-6.25) -- (20.61,-6.25) -- node[txt, midway,right] {5 Batches transactions} (20.61,-7.5) -- (20.21,-7.5);
+% Flow "6 Sends batch file (daily at 10:00 UTC)"
+\draw[solidarrow]
+(20.21,-8.75) -- node[txt, midway,above] {6 Sends batch file (daily at 10:00 UTC)} (29.79,-8.75);
+% Flow "7 Creates credit after 24 hours"
+\draw[solidarrow]
+(20.21,-10) -- (20.61,-10) -- node[txt, midway,right] {7 Creates credit after 24 hours} (20.61,-11.25) -- (20.21,-11.25);
+% Flow "8 Sends credit"
+\draw[solidarrow]
+(19.79,-11.25) -- node[txt, midway,above] {8 Sends credit} (10.21,-11.25);
+% Flow "9 Prepares batch file for further processing"
+\draw[solidarrow]
+(30.21,-8.75) -- (30.61,-8.75) -- node[txt, midway,right] {9 Prepares batch file for further processing} (30.61,-10) -- (30.21,-10);
+% Flow "10 Sends file"
+\draw[solidarrow]
+(30.21,-11.25) -- node[txt, midway,above] {10 Sends file} (39.79,-11.25);
+% Flow "11 Processes credit transaction"
+\draw[solidarrow]
+(40.21,-11.25) -- (40.61,-11.25) -- node[txt, midway,right] {11 Processes credit transaction} (40.61,-12.5) -- (40.21,-12.5);
+% Flow "12 Credits consumer's account"
+\draw[solidarrow]
+(40.21,-13.12) -- (40.61,-13.12) -- node[txt, midway,right] {12 Credits consumer's account} (40.61,-14.37) -- (40.21,-14.37);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

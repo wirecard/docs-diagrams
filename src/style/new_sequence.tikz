@@ -17,6 +17,7 @@
   aidline/.style={gray2, dashed, thin},
   box/.style={nightblue,line width=6pt},
   txt/.style={text=gray3,fill=white,text width=8cm,inner sep=0pt,outer sep=2pt,align=left},
+  txt_right/.style={text=gray3,text width=7cm, align=right},
   fontscale/.style={font=11pt},
   solidarrow/.style={line width=2pt,gray3, ->, >=stealth},
   dashedarrow/.style={line width=2pt,gray3, ->, >=stealth, dashed},
