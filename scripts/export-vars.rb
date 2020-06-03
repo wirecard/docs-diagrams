@@ -51,6 +51,10 @@ puts "Reading #{file}"
 doc = Asciidoctor.load_file(file, safe: :unsafe, header_only: true)
 attrs = doc.attributes
 
+attrs.each do |k,v|
+  puts "#{k}\t->\t#{v}"
+end
+
 content = attrs.reject { |k, v| check_key(k) || check_value(v) }.map do |k, v|
   k_valid = replace_num(k.to_s).delete('-')
   v_valid = v.to_s.sub('#', '\\#')

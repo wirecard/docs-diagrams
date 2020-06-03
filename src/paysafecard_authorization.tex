@@ -1,0 +1,79 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-15.27);
+
+% Stage "merchant"
+\node[participant] at (12,2) {Merchant};
+\node[icon] (icon1) at (12,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (12, 0.9) -- (12,-15.27);
+
+% Stage "payment"
+\node[participant] at (24,2) {Payment Gateway};
+\node[icon] (icon2) at (24,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (24, 0.9) -- (24,-15.27);
+
+% Stage "paysafecard"
+\node[participant] at (36,2) {paysafecard};
+\node[icon] (icon3) at (36,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (36, 0.9) -- (36,-15.27);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (12,0.1) -- (12,-1.35);
+\draw[box, nightblue] (24,-1.15) -- (24,-3.225);
+\draw[box, nightblue] (12,-3.025) -- (12,-4.475);
+\draw[box, nightblue] (0,-4.275) -- (0,-5.725);
+\draw[box, nightblue] (36,-5.525) -- (36,-6.975);
+\draw[box, nightblue] (24,-6.775) -- (24,-8.225);
+\draw[box, nightblue] (12,-8.025) -- (12,-11.975);
+\draw[box, nightblue] (36,-11.775) -- (36,-13.225);
+\draw[box, nightblue] (24,-13.025) -- (24,-14.475);
+\draw[box, nightblue] (12,-13.875) -- (12,-14.875);
+
+% Flows
+% Flow "1 Initializes payment"
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Initializes payment} (11.79,0);
+% Flow "2 Sends transaction request"
+\draw[solidarrow]
+(12.21,-1.25) -- node[txt, midway,above] {2 Sends transaction request} (23.79,-1.25);
+% Flow "3 Creates payment URL (return in response)"
+\draw[solidarrow]
+(23.79,-3.12) -- node[txt, midway,above] {3 Creates payment URL (return in response)} (12.21,-3.12);
+% Flow "4 Redirects consumer to paysafecard page according to `redirect-url`"
+\draw[solidarrow]
+(11.79,-4.37) -- node[txt, midway,above] {4 Redirects consumer to paysafecard page according to \texttt{redirect-url}} (0.21,-4.37);
+% Flow "5 Enters 16 digit PIN and authorizes payment"
+\draw[solidarrow]
+(0.21,-5.62) -- node[txt, midway,above] {5 Enters 16 digit PIN and authorizes payment} (35.79,-5.62);
+% Flow "6 Sends authorization status"
+\draw[solidarrow]
+(35.79,-6.87) -- node[txt, midway,above] {6 Sends authorization status} (24.21,-6.87);
+% Flow "7 Sends notification containing payment result"
+\draw[solidarrow]
+(23.79,-8.12) -- node[txt, midway,above] {7 Sends notification containing payment result} (12.21,-8.12);
+% Flow "8 Voids or captures transaction"
+\draw[solidarrow]
+(12.21,-9.37) -- (12.61,-9.37) -- node[txt, midway,right] {8 Voids or captures transaction} (12.61,-10.62) -- (12.21,-10.62);
+% Flow "9 Sends notification"
+\draw[solidarrow]
+(12.21,-11.87) -- node[txt, midway,above] {9 Sends notification} (35.79,-11.87);
+% Flow "10 Sends transaction status"
+\draw[solidarrow]
+(35.79,-13.12) -- node[txt, midway,above] {10 Sends transaction status} (24.21,-13.12);
+% Flow "11 Sends notification according to transaction status"
+\draw[solidarrow]
+(23.79,-14.37) -- node[txt, midway,above] {11 Sends notification according to transaction status} (12.21,-14.37);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

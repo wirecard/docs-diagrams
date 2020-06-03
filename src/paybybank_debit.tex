@@ -1,0 +1,75 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-13);
+
+% Stage "merchant"
+\node[participant] at (11,2) {Merchant};
+\node[icon] (icon1) at (11,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (11, 0.9) -- (11,-13);
+
+% Stage "paybybank"
+\node[participant] at (22,2) {Pay by Bank app};
+\node[icon] (icon2) at (22,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (22, 0.9) -- (22,-13);
+
+% Stage "finstitution"
+\node[participant] at (33,2) {Financial Institution};
+\node[icon] (icon3) at (33,3.5) {\includegraphics[width=.1\textwidth] {financialinstitution.png}};
+\draw[aidline] (33, 0.9) -- (33,-13);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (22,0.1) -- (22,-1.35);
+\draw[box, nightblue] (0,-1.15) -- (0,-6.975);
+\draw[box, nightblue] (33,-6.775) -- (33,-11.35);
+\draw[box, nightblue] (22,-8.025) -- (22,-9.475);
+\draw[box, nightblue] (11,-11.15) -- (11,-12.6);
+\draw[box, nightblue] (0,-9.275) -- (0,-12.6);
+
+% Flows
+% Flow "1 Selects payment method PBBA"
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Selects payment method PBBA} (21.79,0);
+% Flow "2 Generates unique payment code"
+\draw[solidarrow]
+(22.21,0) -- (22.61,0) -- node[txt, midway,right] {2 Generates unique payment code} (22.61,-1.25) -- (22.21,-1.25);
+% Flow "3 Sends code"
+\draw[solidarrow]
+(21.79,-1.25) -- node[txt, midway,above] {3 Sends code} (0.21,-1.25);
+% Flow "4 Uses mobile device to logs in to Mobile Banking App (MBA)"
+\draw[solidarrow]
+(0.21,-2.5) -- (0.61,-2.5) -- node[txt, midway,right] {4 Uses mobile device to logs in to Mobile Banking App (MBA)} (0.61,-3.75) -- (0.21,-3.75);
+% Flow "5 Enters unique payment code"
+\draw[solidarrow]
+(0.21,-4.37) -- (0.61,-4.37) -- node[txt, midway,right] {5 Enters unique payment code} (0.61,-5.62) -- (0.21,-5.62);
+% Flow "6 Confirms payment (can activate PayConnect)"
+\draw[solidarrow]
+(0.21,-6.87) -- node[txt, midway,above] {6 Confirms payment (can activate PayConnect)} (32.79,-6.87);
+% Flow "7 Processes payment"
+\draw[solidarrow]
+(33.21,-6.87) -- (33.61,-6.87) -- node[txt, midway,right] {7 Processes payment} (33.61,-8.12) -- (33.21,-8.12);
+% Flow "8 Sends payment confirmation"
+\draw[solidarrow]
+(32.79,-8.12) -- node[txt, midway,above] {8 Sends payment confirmation} (22.21,-8.12);
+% Flow "9 Sends payment and order confirmation"
+\draw[solidarrow]
+(21.79,-9.37) -- node[txt, midway,above] {9 Sends payment and order confirmation} (0.21,-9.37);
+% Flow "10 Sends payment confirmation"
+\draw[solidarrow]
+(32.79,-11.25) -- node[txt, midway,above] {10 Sends payment confirmation} (11.21,-11.25);
+% Flow "11 Sends payment and order confirmation"
+\draw[solidarrow]
+(10.79,-12.5) -- node[txt, midway,above] {11 Sends payment and order confirmation} (0.21,-12.5);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

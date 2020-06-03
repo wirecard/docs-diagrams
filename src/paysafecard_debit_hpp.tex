@@ -1,0 +1,55 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.5) -- (0,-9.02);
+
+% Stage "merchant"
+\node[participant] at (10,2) {Merchant};
+\node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (10, 0.5) -- (10,-9.02);
+
+% Stage "payment"
+\node[participant] at (20,2) {Payment Gateway};
+\node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (20, 0.5) -- (20,-9.02);
+
+% Stage "paysafecard"
+\node[participant] at (30,2) {paysafecard};
+\node[icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (30, 0.5) -- (30,-9.02);
+
+% Boxes
+\draw[box, nightblue] (0,0.1) -- (0,-2.6);
+\draw[box, nightblue] (20,-2.4) -- (20,-4.475);
+\draw[box, nightblue] (0,-4.275) -- (0,-6.35);
+\draw[box, nightblue] (30,-6.15) -- (30,-8.225);
+\draw[box, nightblue] (10,-7.625) -- (10,-8.625);
+
+% Flows
+% Flow "1 Initializes payment"
+\draw[solidarrow]
+(0.21,0) -- (0.61,0) -- node[txt, midway,right] {1 Initializes payment} (0.61,-1.25) -- (0.21,-1.25);
+% Flow "2 Selects payment method paysafecard"
+\draw[solidarrow]
+(0.21,-2.5) -- node[txt, midway,above] {2 Selects payment method paysafecard} (19.79,-2.5);
+% Flow "3 Redirects consumer to paysafecard landing page"
+\draw[solidarrow]
+(19.79,-4.37) -- node[txt, midway,above] {3 Redirects consumer to paysafecard landing page} (0.21,-4.37);
+% Flow "4 Enters 16 digit PIN and authorizes payment"
+\draw[solidarrow]
+(0.21,-6.25) -- node[txt, midway,above] {4 Enters 16 digit PIN and authorizes payment} (29.79,-6.25);
+% Flow "5 paysafecard redirects consumer to confirmation page"
+\draw[solidarrow]
+(29.79,-8.12) -- node[txt, midway,above] {5 paysafecard redirects consumer to confirmation page} (10.21,-8.12);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

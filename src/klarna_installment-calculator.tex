@@ -1,0 +1,62 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-8.62);
+
+% Stage "merchant"
+\node[participant] at (15,2) {Merchant};
+\node[icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (15, 0.9) -- (15,-8.62);
+
+% Stage "payment"
+\node[participant] at (30,2) {Payment Gateway};
+\node[icon] (icon2) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (30, 0.9) -- (30,-8.62);
+
+% Stage "klarna"
+\node[participant] at (45,2) {Klarna};
+\node[icon] (icon3) at (45,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (45, 0.9) -- (45,-8.62);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (0,-5.525) -- (0,-8.225);
+\draw[box, nightblue] (15,0.1) -- (15,-1.35);
+\draw[box, nightblue] (15,-4.275) -- (15,-5.725);
+\draw[box, nightblue] (30,-1.15) -- (30,-2.6);
+\draw[box, nightblue] (45,-2.4) -- (45,-4.475);
+
+% Flows
+% Flow "1 Selects payment option installment"
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Selects payment option installment} (14.79,0);
+% Flow "2 Prepares installment calculator request"
+\draw[solidarrow]
+(15.21,-1.25) -- node[txt, midway,above] {2 Prepares installment calculator request} (29.79,-1.25);
+% Flow "3 Forwards request"
+\draw[solidarrow]
+(30.21,-2.5) -- node[txt, midway,above] {3 Forwards request} (44.79,-2.5);
+% Flow "4 Generates list of available installment plans"
+\draw[solidarrow]
+(45.21,-2.5) -- (45.61,-2.5) -- node[txt, midway,right] {4 Generates list of available installment plans} (45.61,-4.37) -- (45.21,-4.37);
+% Flow "5 Sends list of available installment plans"
+\draw[solidarrow]
+(44.79,-4.37) -- node[txt, midway,above] {5 Sends list of available installment plans} (15.21,-4.37);
+% Flow "6 Shows installment plans"
+\draw[solidarrow]
+(14.79,-5.62) -- node[txt, midway,above] {6 Shows installment plans} (0.21,-5.62);
+% Flow "7 Selects installment plan"
+\draw[solidarrow]
+(0.21,-6.87) -- (0.61,-6.87) -- node[txt, midway,right] {7 Selects installment plan} (0.61,-8.12) -- (0.21,-8.12);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

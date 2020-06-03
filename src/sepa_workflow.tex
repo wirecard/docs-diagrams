@@ -1,0 +1,66 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "cbank"
+\node[participant] at (0,2) {Consumer's Bank};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {financialinstitution.png}};
+\draw[aidline] (0, 0.9) -- (0,-14.25);
+
+% Stage "merchant"
+\node[participant] at (10,2) {Merchant};
+\node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (10, 0.9) -- (10,-14.25);
+
+% Stage "wbank"
+\node[participant] at (20,2) {Wirecard Bank};
+\node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {bank.png}};
+\draw[aidline] (20, 0.9) -- (20,-14.25);
+
+% Stage "payment"
+\node[participant] at (30,2) {Payment Gateway};
+\node[icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (30, 0.9) -- (30,-14.25);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (20,0.1) -- (20,-1.35);
+\draw[box, nightblue] (30,-1.15) -- (30,-3.85);
+\draw[box, nightblue] (30,-6.15) -- (30,-10.1);
+\draw[box, nightblue] (30,-11.15) -- (30,-13.85);
+\draw[box, nightblue] (10,-9.9) -- (10,-13.85);
+
+% Flows
+% Flow "1 Sends debit-return or credit-return transaction"
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Sends debit-return or credit-return transaction} (19.79,0);
+% Flow "2 Forwards *-return transaction"
+\draw[solidarrow]
+(20.21,-1.25) -- node[txt, midway,above] {2 Forwards *-return transaction} (29.79,-1.25);
+% Flow "3 Looks for corresponding parent transaction"
+\draw[solidarrow]
+(30.21,-1.25) -- (30.61,-1.25) -- node[txt, midway,right] {3 Looks for corresponding parent transaction} (30.61,-2.5) -- (30.21,-2.5);
+% Flow "Parent found?"
+\draw[dashedarrow] (28.98119355564303,-3.75) -- node[left] {yes} (28.98119355564303,-6.25) -- (29.794562222347185,-6.25);
+\draw[dashedarrow] (31.01880644435697,-3.75) -- node[right] {no} (31.01880644435697,-11.25) -- (30.205437777652815,-11.25);
+\node (question) [question] at (30,-3.75) {Parent found?};
+% Flow "4 Maps *-return transaction to existing debit or credit"
+\draw[solidarrow]
+(29.79,-7.5) -- (29.39,-7.5) -- node[txt_right, midway,left] {4 Maps *-return transaction to existing debit or credit} (29.39,-8.75) -- (29.79,-8.75);
+% Flow "5 Sends *-return notification"
+\draw[solidarrow]
+(29.79,-10) -- node[txt, midway,above] {5 Sends *-return notification} (10.21,-10);
+% Flow "6 Generates unreferenced *-return transaction"
+\draw[solidarrow]
+(30.21,-12.5) -- (30.61,-12.5) -- node[txt, midway,right] {6 Generates unreferenced *-return transaction} (30.61,-13.75) -- (30.21,-13.75);
+% Flow "7 Sends *-return notification"
+\draw[solidarrow]
+(29.79,-13.75) -- node[txt, midway,above] {7 Sends *-return notification} (10.21,-13.75);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,108 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-28.4);
+
+% Stage "merchant"
+\node[participant] at (11,2) {Merchant};
+\node[icon] (icon1) at (11,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (11, 0.9) -- (11,-28.4);
+
+% Stage "payment"
+\node[participant] at (22,2) {Payment Gateway};
+\node[icon] (icon2) at (22,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (22, 0.9) -- (22,-28.4);
+
+% Stage "payolution"
+\node[participant] at (33,2) {Payolution};
+\node[icon] (icon3) at (33,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (33, 0.9) -- (33,-28.4);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (11,0.1) -- (11,-2.6);
+\draw[box, nightblue] (0,-2.4) -- (0,-5.1);
+\draw[box, nightblue] (11,-4.9) -- (11,-6.35);
+\draw[box, nightblue] (22,-6.15) -- (22,-7.6);
+\draw[box, nightblue] (33,-7.4) -- (33,-10.1);
+\draw[box, nightblue] (22,-9.9) -- (22,-11.35);
+\draw[box, nightblue] (11,-11.15) -- (11,-13.85);
+\draw[box, nightblue] (22,-13.65) -- (22,-15.1);
+\draw[box, nightblue] (33,-14.9) -- (33,-17.6);
+\draw[box, nightblue] (22,-17.4) -- (22,-18.85);
+\draw[box, nightblue] (11,-18.65) -- (11,-22.6);
+\draw[box, nightblue] (22,-22.4) -- (22,-23.85);
+\draw[box, nightblue] (33,-23.65) -- (33,-26.35);
+\draw[box, nightblue] (22,-26.15) -- (22,-27.6);
+\draw[box, nightblue] (11,-27) -- (11,-28);
+
+% Flows
+% Flow "1 Provides account data"
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Provides account data} (10.79,0);
+% Flow "2 Offers payment method Invoice if requirements are fulfilled"
+\draw[solidarrow]
+(10.79,-2.5) -- node[txt, midway,above] {2 Offers payment method Invoice if requirements are fulfilled} (0.21,-2.5);
+% Flow "3 Selects payment method Invoice"
+\draw[solidarrow]
+(0.21,-5) -- node[txt, midway,above] {3 Selects payment method Invoice} (10.79,-5);
+% Flow "4 Sends authorization request with payment method payolution-inv"
+\draw[solidarrow]
+(11.21,-6.25) -- node[txt, midway,above] {4 Sends authorization request with payment method payolution-inv} (21.79,-6.25);
+% Flow "5 Processes and validates transaction and sends authorization request"
+\draw[solidarrow]
+(22.21,-7.5) -- node[txt, midway,above] {5 Processes and validates transaction and sends authorization request} (32.79,-7.5);
+% Flow "6 Performs risk check"
+\draw[solidarrow]
+(33.21,-7.5) -- (33.61,-7.5) -- node[txt, midway,right] {6 Performs risk check} (33.61,-10) -- (33.21,-10);
+% Flow "7 Authorizes transaction"
+\draw[solidarrow]
+(32.79,-10) -- node[txt, midway,above] {7 Authorizes transaction} (22.21,-10);
+% Flow "8 Processes authorization response and forwards it"
+\draw[solidarrow]
+(21.79,-11.25) -- node[txt, midway,above] {8 Processes authorization response and forwards it} (11.21,-11.25);
+% Flow "9 Sends partial capture-authorization request when some items are ready for delivery"
+\draw[solidarrow]
+(11.21,-13.75) -- node[txt, midway,above] {9 Sends partial capture-authorization request when some items are ready for delivery} (21.79,-13.75);
+% Flow "10 Processes and validates transaction and sends capture-authorization request"
+\draw[solidarrow]
+(22.21,-15) -- node[txt, midway,above] {10 Processes and validates transaction and sends capture-authorization request} (32.79,-15);
+% Flow "11 Captures requested amount"
+\draw[solidarrow]
+(33.21,-15) -- (33.61,-15) -- node[txt, midway,right] {11 Captures requested amount} (33.61,-17.5) -- (33.21,-17.5);
+% Flow "12 Sends capture-authorization response"
+\draw[solidarrow]
+(32.79,-17.5) -- node[txt, midway,above] {12 Sends capture-authorization response} (22.21,-17.5);
+% Flow "13 Processes and sends capture-authorization response"
+\draw[solidarrow]
+(21.79,-18.75) -- node[txt, midway,above] {13 Processes and sends capture-authorization response} (11.21,-18.75);
+% Flow "14 Generates invoice and sends it to invoices-$<$merchantname$>$@payolution.com"
+\draw[solidarrow]
+(11.21,-20) -- (11.61,-20) -- node[txt, midway,right] {14 Generates invoice and sends it to invoices-$<$merchantname$>$@payolution.com} (11.61,-21.25) -- (11.21,-21.25);
+% Flow "15 Sends void-authorization request"
+\draw[solidarrow]
+(11.21,-22.5) -- node[txt, midway,above] {15 Sends void-authorization request} (21.79,-22.5);
+% Flow "16 Processes and validates transaction and sends void-authorization request"
+\draw[solidarrow]
+(22.21,-23.75) -- node[txt, midway,above] {16 Processes and validates transaction and sends void-authorization request} (32.79,-23.75);
+% Flow "17 Voids full authorized amount that has not been captured yet. Partial void authorizations are not possible."
+\draw[solidarrow]
+(33.21,-23.75) -- (33.61,-23.75) -- node[txt, midway,right] {17 Voids full authorized amount that has not been captured yet. Partial void authorizations are not possible.} (33.61,-26.25) -- (33.21,-26.25);
+% Flow "18 Sends void-authorization response"
+\draw[solidarrow]
+(32.79,-26.25) -- node[txt, midway,above] {18 Sends void-authorization response} (22.21,-26.25);
+% Flow "19 Processes and sends void-authorization response\\(in case of changes: void-authorization and refund-capture)"
+\draw[solidarrow]
+(21.79,-27.5) -- node[txt, midway,above] {19 Processes and sends void-authorization response\\(in case of changes: void-authorization and refund-capture)} (11.21,-27.5);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

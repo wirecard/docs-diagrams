@@ -25,20 +25,20 @@
 \draw[box] (20,-5.9) -- (20,-9.6);
 \draw[box] (10,-9.4) -- (10,-11.6);
 
-\draw[solidarrow, txt]
-	(0.2,-1.5) -- (0.6,-1.5) -- node[midway,right] {1.1 Selects payment method \\ Credit Card} (0.6,-3) -- (0.2,-3);
-\draw[solidarrow, txt]
-	(0.2,-5) -- node[midway,above] {1.2 Uses credit card for \\ the first time} (9.8,-5);
-\draw[solidarrow, txt]
-	(10.2,-6) -- node[midway,above] {2 Sends authorization request} (19.8,-6);
-\draw[solidarrow, txt]
-	(20.2,-6) -- (20.6,-6) -- node[midway,right] {3.1 Creates \texttt{token-id}} (20.6,-7.5) -- (20.2,-7.5);
-\draw[solidarrow, txt]
-	(20.2,-8) -- (20.6,-8) -- node[midway,right] {3.2 Replaces \texttt{card} tag with \texttt{card-token} tag} (20.6,-9.5) -- (20.2,-9.5);
-\draw[solidarrow, txt]
-	(19.8,-9.5) -- node[midway,above] {3.3 Sends authorization response with \texttt{card-token}} (10.2,-9.5);
-\draw[solidarrow, txt]
-	(10.2,-10) -- (10.6,-10) -- node[midway,right] {4 Stores \texttt{card-token} data for reuse with corresponding credit card} (10.6,-11.5) -- (10.2,-11.5);
+\draw[solidarrow]
+	(0.2,-1.5) -- (0.6,-1.5) -- node[txt, midway,right] {1 Selects payment method \\ Credit Card} (0.6,-3) -- (0.2,-3);
+\draw[solidarrow]
+	(0.2,-5) -- node[txt, midway,above] {2 Uses credit card for \\ the first time} (9.8,-5);
+\draw[solidarrow]
+	(10.2,-6) -- node[txt, midway,above] {3 Sends authorization request} (19.8,-6);
+\draw[solidarrow]
+	(20.2,-6) -- (20.6,-6) -- node[txt, midway,right] {4 Creates \texttt{token-id}} (20.6,-7.5) -- (20.2,-7.5);
+\draw[solidarrow]
+	(20.2,-8) -- (20.6,-8) -- node[txt, midway,right] {5 Replaces \texttt{card} tag with \texttt{card-token} tag} (20.6,-9.5) -- (20.2,-9.5);
+\draw[solidarrow]
+	(19.8,-9.5) -- node[txt, midway,above] {6 Sends authorization response with \texttt{card-token}} (10.2,-9.5);
+\draw[solidarrow]
+	(10.2,-10) -- (10.6,-10) -- node[txt, midway,right] {7 Stores \texttt{card-token} data for reuse with corresponding credit card} (10.6,-11.5) -- (10.2,-11.5);
 
 \end{tikzpicture}
 \end{document}
