@@ -1,0 +1,76 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.5) -- (0,-16.52);
+
+% Stage "merchant"
+\node[participant] at (10,2) {Merchant};
+\node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (10, 0.5) -- (10,-16.52);
+
+% Stage "payment"
+\node[participant] at (20,2) {Payment Gateway};
+\node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (20, 0.5) -- (20,-16.52);
+
+% Stage "finstitution"
+\node[participant] at (30,2) {Financial Institution};
+\node[icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {financialinstitution.png}};
+\draw[aidline] (30, 0.5) -- (30,-16.52);
+
+% Boxes
+\draw[box, nightblue] (0,0.1) -- (0,-2.6);
+\draw[box, nightblue] (10,-2.4) -- (10,-3.85);
+\draw[box, nightblue] (20,-3.65) -- (20,-5.725);
+\draw[box, nightblue] (10,-5.525) -- (10,-8.225);
+\draw[box, nightblue] (0,-8.025) -- (0,-11.975);
+\draw[box, nightblue] (30,-11.775) -- (30,-13.225);
+\draw[box, nightblue] (20,-13.025) -- (20,-15.725);
+\draw[box, nightblue] (10,-15.125) -- (10,-16.125);
+
+% Flows
+% Flow "1 Initiates payment process on merchant's site"
+\draw[solidarrow]
+(0.21,0) -- (0.61,0) -- node[txt, midway,right] {1 Initiates payment process on merchant's site} (0.61,-1.25) -- (0.21,-1.25);
+% Flow "2 Selects payment method POI/PIA"
+\draw[solidarrow]
+(0.21,-2.5) -- node[txt, midway,above] {2 Selects payment method POI/PIA} (9.79,-2.5);
+% Flow "3 Sends authorization request"
+\draw[solidarrow]
+(10.21,-3.75) -- node[txt, midway,above] {3 Sends authorization request} (19.79,-3.75);
+% Flow "4 Sends response containing PTRID and merchant bank details"
+\draw[solidarrow]
+(19.79,-5.62) -- node[txt, midway,above] {4 Sends response containing PTRID and merchant bank details} (10.21,-5.62);
+% Flow "5 Presents invoice to consumer"
+\draw[solidarrow]
+(10.21,-6.87) -- (10.61,-6.87) -- node[txt, midway,right] {5 Presents invoice to consumer} (10.61,-8.12) -- (10.21,-8.12);
+% Flow "6 Displays confirmation page"
+\draw[solidarrow]
+(9.79,-8.12) -- node[txt, midway,above] {6 Displays confirmation page} (0.21,-8.12);
+% Flow "7 Confirms payment"
+\draw[solidarrow]
+(0.21,-9.37) -- (0.61,-9.37) -- node[txt, midway,right] {7 Confirms payment} (0.61,-10.62) -- (0.21,-10.62);
+% Flow "8 Initiates credit transfer at their bank"
+\draw[solidarrow]
+(0.21,-11.87) -- node[txt, midway,above] {8 Initiates credit transfer at their bank} (29.79,-11.87);
+% Flow "9 Sends notification"
+\draw[solidarrow]
+(29.79,-13.12) -- node[txt, midway,above] {9 Sends notification} (20.21,-13.12);
+% Flow "10 Deposits funds into merchant's bank account"
+\draw[solidarrow]
+(20.21,-14.37) -- (20.61,-14.37) -- node[txt, midway,right] {10 Deposits funds into merchant's bank account} (20.61,-15.62) -- (20.21,-15.62);
+% Flow "11 Sends notification"
+\draw[solidarrow]
+(19.79,-15.62) -- node[txt, midway,above] {11 Sends notification} (10.21,-15.62);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}
