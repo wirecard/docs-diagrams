@@ -34,7 +34,8 @@
 \draw[box, nightblue] (30,-4.9) -- (30,-7.6);
 \draw[box, nightblue] (45,-7.4) -- (45,-10.1);
 \draw[box, nightblue] (30,-9.9) -- (30,-13.85);
-\draw[box, nightblue] (30,-18.65) -- (30,-20.1);
+\draw[box, nightblue] (45,-17.4) -- (45,-20.1);
+\draw[box, nightblue] (30,-19.9) -- (30,-21.35);
 \draw[box, nightblue] (15,-12.4) -- (15,-21.35);
 \draw[box, nightblue] (0,-20.75) -- (0,-21.75);
 
@@ -67,21 +68,25 @@
 \draw[solidarrow]
 (29.79,-12.5) -- node[txt, midway,above] {9 Sends authorization success/failure response and IPN} (15.21,-12.5);
 % Flow "Advanced risk check required?"
-\draw[dashedarrow] (30,-14.375) -- node[right] {yes} (30,-17.5) -- (29.394562222347187,-17.5);
+\draw[dashedarrow] (28.98119355564303,-14.375) -- node[left] {yes} (28.98119355564303,-17.5) -- (28.375755777990218,-17.5);
 \draw[solidarrow]
-(29.18912444469437,-17.5) -- node[txt, midway,above] {10 Sends pending-authorization response} (15.205437777652815,-17.5);
+(28.170318000337403,-17.5) -- node[txt, midway,above] {10 Sends pending-authorization response} (15.205437777652815,-17.5);
+\draw[dashedarrow] (31.01880644435697,-14.375) -- node[right] {yes} (31.01880644435697,-17.5) -- (31.624244222009782,-17.5);
+\draw[solidarrow]
+(31.829681999662597,-17.5) -- node[txt, midway,above] {11} (44.79456222234719,-17.5);
 \node (question) [question] at (30,-14.375) {Advanced risk check required?};
-% Flow "Advanced risk check required?"
-\draw[dashedarrow] (45,-14.375) -- node[right] {yes} (45,-18.75) -- (44.39456222234718,-18.75);
+% Flow "12 Performs advanced risk check"
 \draw[solidarrow]
-(44.18912444469437,-18.75) -- node[txt, midway,above] {11 Performs advanced risk check and sends result} (30.205437777652815,-18.75);
-\node (question) [question] at (45,-14.375) {Advanced risk check required?};
-% Flow "12 Processes result and sends authorization response and IPN"
+(45.21,-17.5) -- (45.61,-17.5) -- node[txt, midway,right] {12 Performs advanced risk check} (45.61,-20) -- (45.21,-20);
+% Flow "13 Sends result"
 \draw[solidarrow]
-(29.79,-20) -- node[txt, midway,above] {12 Processes result and sends authorization response and IPN} (15.21,-20);
-% Flow "13 Redirects to payment status page"
+(44.79,-20) -- node[txt, midway,above] {13 Sends result} (30.21,-20);
+% Flow "14 Processes result and sends authorization response and IPN"
 \draw[solidarrow]
-(14.79,-21.25) -- node[txt, midway,above] {13 Redirects to payment status page} (0.21,-21.25);
+(29.79,-21.25) -- node[txt, midway,above] {14 Processes result and sends authorization response and IPN} (15.21,-21.25);
+% Flow "15 Redirects to payment status page"
+\draw[solidarrow]
+(14.79,-21.25) -- node[txt, midway,above] {15 Redirects to payment status page} (0.21,-21.25);
 
 % Document Footer
 \end{tikzpicture}
