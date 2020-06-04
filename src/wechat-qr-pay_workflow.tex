@@ -1,0 +1,78 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-14.65);
+
+% Stage "merchant"
+\node[participant] at (10,2) {Merchant};
+\node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (10, 0.9) -- (10,-14.65);
+
+% Stage "payment"
+\node[participant] at (20,2) {Payment Gateway};
+\node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (20, 0.9) -- (20,-14.65);
+
+% Stage "wechat"
+\node[participant] at (30,2) {WeChat};
+\node[icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (30, 0.9) -- (30,-14.65);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (10,0.1) -- (10,-1.35);
+\draw[box, nightblue] (20,-1.15) -- (20,-2.6);
+\draw[box, nightblue] (30,-2.4) -- (30,-4.475);
+\draw[box, nightblue] (20,-4.275) -- (20,-5.725);
+\draw[box, nightblue] (10,-5.525) -- (10,-6.975);
+\draw[box, nightblue] (0,-6.775) -- (0,-10.725);
+\draw[box, nightblue] (30,-10.525) -- (30,-12.6);
+\draw[box, nightblue] (20,-12.4) -- (20,-13.85);
+\draw[box, nightblue] (10,-13.25) -- (10,-14.25);
+
+% Flows
+% Flow "1 Approaches POS to pay selected items"
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Approaches POS to pay selected items} (9.79,0);
+% Flow "2 Sends request to create QR code"
+\draw[solidarrow]
+(10.21,-1.25) -- node[txt, midway,above] {2 Sends request to create QR code} (19.79,-1.25);
+% Flow "3 Forwards QR code request"
+\draw[solidarrow]
+(20.21,-2.5) -- node[txt, midway,above] {3 Forwards QR code request} (29.79,-2.5);
+% Flow "4 Creates QR code"
+\draw[solidarrow]
+(30.21,-2.5) -- (30.61,-2.5) -- node[txt, midway,right] {4 Creates QR code} (30.61,-4.37) -- (30.21,-4.37);
+% Flow "5 Sends QR code"
+\draw[solidarrow]
+(29.79,-4.37) -- node[txt, midway,above] {5 Sends QR code} (20.21,-4.37);
+% Flow "6 Forwards QR code response"
+\draw[solidarrow]
+(19.79,-5.62) -- node[txt, midway,above] {6 Forwards QR code response} (10.21,-5.62);
+% Flow "7 Displays QR code"
+\draw[solidarrow]
+(9.79,-6.87) -- node[txt, midway,above] {7 Displays QR code} (0.21,-6.87);
+% Flow "8 Scans QR code with mobile device"
+\draw[solidarrow]
+(0.21,-8.12) -- (0.61,-8.12) -- node[txt, midway,right] {8 Scans QR code with mobile device} (0.61,-9.37) -- (0.21,-9.37);
+% Flow "9 Confirms payment"
+\draw[solidarrow]
+(0.21,-10.62) -- node[txt, midway,above] {9 Confirms payment} (29.79,-10.62);
+% Flow "10 Sends notification about payment result"
+\draw[solidarrow]
+(29.79,-12.5) -- node[txt, midway,above] {10 Sends notification about payment result} (20.21,-12.5);
+% Flow "11 Sends notification about payment result"
+\draw[solidarrow]
+(19.79,-13.75) -- node[txt, midway,above] {11 Sends notification about payment result} (10.21,-13.75);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}
