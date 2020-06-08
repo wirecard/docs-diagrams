@@ -1,4 +1,6 @@
 applepay_workflow::apple-pay_new
+ApplePay_MAID_Workflow_AppleAccount_yes::apple-pay_maid_apple-account_yes
+ApplePay_MAID_Workflow_AppleAccount_no::apple-pay_maid_apple-account_no
 AlipayCB_debit_Workflow::alipay-cb_debit
 AlipayCB_auto-debit_Workflow::alipay-cb_auto-debit
 AlipayDom_Workflow_debit::alipay-dom_debit
