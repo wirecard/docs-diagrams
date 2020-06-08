@@ -1,0 +1,173 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "pbba"
+\node[participant] at (0,2) {PBBA Web Merchant Button Library};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (0, 0) -- (0,-39.75);
+
+% Stage "merchant_web"
+\node[participant] at (10,2) {Merchant Website on mobile or tablet};
+\node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (10, 0) -- (10,-39.75);
+
+% Stage "merchant_backend"
+\node[participant] at (20,2) {Merchant Backend Server};
+\node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {server.png}};
+\draw[aidline] (20, 0) -- (20,-39.75);
+
+% Stage "distributor"
+\node[participant] at (30,2) {Distributor Gateway};
+\node[icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (30, 0) -- (30,-39.75);
+
+% Stage "zapp"
+\node[participant] at (40,2) {PBBA/Zapp};
+\node[icon] (icon4) at (40,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (40, 0) -- (40,-39.75);
+
+% Stage "cfi"
+\node[participant] at (50,2) {CFI Gateway};
+\node[icon] (icon5) at (50,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (50, 0) -- (50,-39.75);
+
+% Stage "bank"
+\node[participant] at (60,2) {Pay by Bank enabled CFI App};
+\node[icon] (icon6) at (60,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (60, 0) -- (60,-39.75);
+
+% Boxes
+\draw[box, nightblue] (10,-0.4) -- (10,-3.1);
+\draw[box, nightblue] (20,-2.9) -- (20,-4.35);
+\draw[box, nightblue] (10,-4.15) -- (10,-9.35);
+\draw[box, nightblue] (20,-9.15) -- (20,-10.6);
+\draw[box, nightblue] (30,-10.4) -- (30,-11.85);
+\draw[box, nightblue] (40,-11.65) -- (40,-13.1);
+\draw[box, nightblue] (30,-12.9) -- (30,-14.35);
+\draw[box, nightblue] (20,-14.15) -- (20,-16.225);
+\draw[box, nightblue] (10,-16.025) -- (10,-18.725);
+\draw[box, nightblue] (0,-16.875) -- (0,-17.875);
+\draw[box, nightblue] (60,-18.525) -- (60,-19.975);
+\draw[box, nightblue] (50,-19.775) -- (50,-21.225);
+\draw[box, nightblue] (40,-21.025) -- (40,-22.475);
+\draw[box, nightblue] (50,-22.275) -- (50,-23.725);
+\draw[box, nightblue] (10,-23.125) -- (10,-24.125);
+\draw[box, nightblue] (20,-23.525) -- (20,-24.975);
+\draw[box, nightblue] (30,-24.375) -- (30,-25.375);
+\draw[box, nightblue] (60,-23.525) -- (60,-31.225);
+\draw[box, nightblue] (50,-26.025) -- (50,-27.475);
+\draw[box, nightblue] (40,-27.275) -- (40,-28.725);
+\draw[box, nightblue] (50,-28.525) -- (50,-29.975);
+\draw[box, nightblue] (10,-30.625) -- (10,-31.625);
+\draw[box, nightblue] (40,-31.875) -- (40,-32.875);
+\draw[box, nightblue] (30,-32.275) -- (30,-33.725);
+\draw[box, nightblue] (20,-33.525) -- (20,-34.975);
+\draw[box, nightblue] (10,-34.775) -- (10,-36.85);
+\draw[box, nightblue] (0,-36.65) -- (0,-39.35);
+
+% Flows
+% Flow "1 Browses catalogue"
+\draw[solidarrow]
+(10.21,-0.5) -- (10.61,-0.5) -- node[txt, midway,right] {1 Browses catalogue} (10.61,-1.75) -- (10.21,-1.75);
+% Flow "2 Adds item to shopping cart"
+\draw[solidarrow]
+(10.21,-3) -- node[txt, midway,above] {2 Adds item to shopping cart} (19.79,-3);
+% Flow "3 Item is added to shopping cart"
+\draw[solidarrow]
+(19.79,-4.25) -- node[txt, midway,above] {3 Item is added to shopping cart} (10.21,-4.25);
+% Flow "4 Goes to checkout page"
+\draw[solidarrow]
+(10.21,-4.87) -- (10.61,-4.87) -- node[txt, midway,right] {4 Goes to checkout page} (10.61,-6.12) -- (10.21,-6.12);
+% Flow "5 Selects payment method and click on PBBA branded button"
+\draw[solidarrow]
+(10.21,-6.75) -- (10.61,-6.75) -- node[txt, midway,right] {5 Selects payment method and click on PBBA branded button} (10.61,-8) -- (10.21,-8);
+% Flow "6 Starts payment"
+\draw[solidarrow]
+(10.21,-9.25) -- node[txt, midway,above] {6 Starts payment} (19.79,-9.25);
+% Flow "7 Starts payment"
+\draw[solidarrow]
+(20.21,-10.5) -- node[txt, midway,above] {7 Starts payment} (29.79,-10.5);
+% Flow "8 Submits request to pay"
+\draw[solidarrow]
+(30.21,-11.75) -- node[txt, midway,above] {8 Submits request to pay} (39.79,-11.75);
+% Flow "9 Sends secure token"
+\draw[solidarrow]
+(39.79,-13) -- node[txt, midway,above] {9 Sends secure token} (30.21,-13);
+% Flow "10 Sends secure token"
+\draw[solidarrow]
+(29.79,-14.25) -- node[txt, midway,above] {10 Sends secure token} (20.21,-14.25);
+% Flow "11 Creates merchant transaction"
+\draw[solidarrow]
+(20.21,-14.87) -- (20.61,-14.87) -- node[txt, midway,right] {11 Creates merchant transaction} (20.61,-16.12) -- (20.21,-16.12);
+% Flow "12 Sends secure token"
+\draw[solidarrow]
+(19.79,-16.12) -- node[txt, midway,above] {12 Sends secure token} (10.21,-16.12);
+% Flow "13 Popup to select App invokation vs. PBBA Code presentation"
+\draw[solidarrow]
+(9.79,-17.37) -- node[txt, midway,above] {13 Popup to select App invokation vs. PBBA Code presentation} (0.21,-17.37);
+% Flow "14 Invokes Pay by Bank app enabled CFI App using secure token"
+\draw[solidarrow]
+(10.21,-18.62) -- node[txt, midway,above] {14 Invokes Pay by Bank app enabled CFI App using secure token} (59.79,-18.62);
+% Flow "15 Retrieve transaction details"
+\draw[solidarrow]
+(59.79,-19.87) -- node[txt, midway,above] {15 Retrieve transaction details} (50.21,-19.87);
+% Flow "16 Retrieve transaction details"
+\draw[solidarrow]
+(49.79,-21.12) -- node[txt, midway,above] {16 Retrieve transaction details} (40.21,-21.12);
+% Flow "17 Sends transaction details"
+\draw[solidarrow]
+(40.21,-22.37) -- node[txt, midway,above] {17 Sends transaction details} (49.79,-22.37);
+% Flow "18 Sends transaction details"
+\draw[solidarrow]
+(50.21,-23.62) -- node[txt, midway,above] {18 Sends transaction details} (59.79,-23.62);
+% Flow "19 Sends poll for merchant payment status - every x seconds"
+\draw[solidarrow]
+(10.21,-23.62) -- node[txt, midway,above] {19 Sends poll for merchant payment status - every x seconds} (19.79,-23.62);
+% Flow "20 Sends poll for distributor payment status - every x seconds"
+\draw[solidarrow]
+(20.21,-24.87) -- node[txt, midway,above] {20 Sends poll for distributor payment status - every x seconds} (29.79,-24.87);
+% Flow "21 Updates payment status"
+\draw[solidarrow]
+(59.79,-26.12) -- node[txt, midway,above] {21 Updates payment status} (50.21,-26.12);
+% Flow "22 Updates payment status"
+\draw[solidarrow]
+(49.79,-27.37) -- node[txt, midway,above] {22 Updates payment status} (40.21,-27.37);
+% Flow "23 User authenticates, approves or cancels payment"
+\draw[solidarrow]
+(60.21,-27.37) -- (60.61,-27.37) -- node[txt, midway,right] {23 User authenticates, approves or cancels payment} (60.61,-28.62) -- (60.21,-28.62);
+% Flow "24 Payment status updated"
+\draw[solidarrow]
+(40.21,-28.62) -- node[txt, midway,above] {24 Payment status updated} (49.79,-28.62);
+% Flow "25 Payment status updated"
+\draw[solidarrow]
+(50.21,-29.87) -- node[txt, midway,above] {25 Payment status updated} (59.79,-29.87);
+% Flow "26 CFI App invokes Merchant App using merchant callback URL"
+\draw[solidarrow]
+(59.79,-31.12) -- node[txt, midway,above] {26 CFI App invokes Merchant App using merchant callback URL} (10.21,-31.12);
+% Flow "27 Sends payment notification"
+\draw[solidarrow]
+(39.79,-32.37) -- node[txt, midway,above] {27 Sends payment notification} (30.21,-32.37);
+% Flow "28 Sends response to merchant polling with distributor payment status"
+\draw[solidarrow]
+(29.79,-33.62) -- node[txt, midway,above] {28 Sends response to merchant polling with distributor payment status} (20.21,-33.62);
+% Flow "28 Sends merchant payment status"
+\draw[solidarrow]
+(19.79,-34.87) -- node[txt, midway,above] {28 Sends merchant payment status} (10.21,-34.87);
+% Flow "29 Displays payment confirmation message based on merchant payment status"
+\draw[solidarrow]
+(10.21,-35.5) -- (10.61,-35.5) -- node[txt, midway,right] {29 Displays payment confirmation message based on merchant payment status} (10.61,-36.75) -- (10.21,-36.75);
+% Flow "30 Sends setAppCookie"
+\draw[solidarrow]
+(9.79,-36.75) -- node[txt, midway,above] {30 Sends setAppCookie} (0.21,-36.75);
+% Flow "31 Closes popup"
+\draw[solidarrow]
+(0.21,-38) -- (0.61,-38) -- node[txt, midway,right] {31 Closes popup} (0.61,-39.25) -- (0.21,-39.25);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

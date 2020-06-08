@@ -1,0 +1,114 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.15) -- (0,-27.27);
+
+% Stage "merchant"
+\node[participant] at (11,2) {Merchant};
+\node[icon] (icon1) at (11,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (11, 0.15) -- (11,-27.27);
+
+% Stage "payment"
+\node[participant] at (22,2) {Payment Gateway};
+\node[icon] (icon2) at (22,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (22, 0.15) -- (22,-27.27);
+
+% Stage "3ds"
+\node[participant] at (33,2) {3DS Router};
+\node[align=center] at (33,0.75) {(Public Endpoint)};
+\node[icon] (icon3) at (33,3.5) {\includegraphics[width=.1\textwidth] {3dsrouter.png}};
+\draw[aidline] (33, 0.15) -- (33,-27.27);
+
+% Boxes
+\draw[box, nightblue] (0,-0.25) -- (0,-1.25);
+\draw[box, nightblue] (11,-0.65) -- (11,-2.1);
+\draw[box, nightblue] (22,-1.9) -- (22,-3.35);
+\draw[box, nightblue] (11,-3.15) -- (11,-4.6);
+\draw[box, nightblue] (0,-4.4) -- (0,-5.85);
+\draw[box, nightblue] (33,-5.65) -- (33,-9.6);
+\draw[box, nightblue] (0,-7.525) -- (0,-13.35);
+\draw[box, nightblue] (33,-13.15) -- (33,-15.225);
+\draw[box, nightblue] (0,-15.025) -- (0,-18.975);
+\draw[box, nightblue] (33,-18.775) -- (33,-20.225);
+\draw[box, nightblue] (0,-20.025) -- (0,-22.1);
+\draw[box, nightblue] (11,-21.9) -- (11,-23.35);
+\draw[box, nightblue] (22,-23.15) -- (22,-25.225);
+\draw[box, nightblue] (11,-25.025) -- (11,-26.475);
+\draw[box, nightblue] (22,-25.875) -- (22,-26.875);
+
+% Flows
+% Flow "1 Initiates checkout"
+\draw[solidarrow]
+(0.21,-0.75) -- node[txt, midway,above] {1 Initiates checkout} (10.79,-0.75);
+% Flow "2 Sends Check-enrollment request"
+\draw[solidarrow]
+(11.21,-2) -- node[txt, midway,above] {2 Sends Check-enrollment request} (21.79,-2);
+% Flow "3 Checks supported 3DS version with 3DS Server"
+\draw[solidarrow]
+(22.21,-2) -- (22.61,-2) -- node[txt, midway,right] {3 Checks supported 3DS version with 3DS Server} (22.61,-3.25) -- (22.21,-3.25);
+% Flow "4 Sends check-enrollment response"
+\draw[solidarrow]
+(21.79,-3.25) -- node[txt, midway,above] {4 Sends check-enrollment response} (11.21,-3.25);
+% Flow "5 Initiates cardholder POST HTTPS redirect"
+\draw[solidarrow]
+(10.79,-4.5) -- node[txt, midway,above] {5 Initiates cardholder POST HTTPS redirect} (0.21,-4.5);
+% Flow "6 POST HTTPS redirect"
+\draw[solidarrow]
+(0.21,-5.75) -- node[txt, midway,above] {6 POST HTTPS redirect} (32.79,-5.75);
+% Flow "7 Decodes PAReq"
+\draw[solidarrow]
+(33.21,-5.75) -- (33.61,-5.75) -- node[txt, midway,right] {7 Decodes PAReq} (33.61,-7.62) -- (33.21,-7.62);
+% Flow "8 Sends HTML with scheme logo and processing screen"
+\draw[solidarrow]
+(32.79,-7.62) -- node[txt, midway,above] {8 Sends HTML with scheme logo and processing screen} (0.21,-7.62);
+% Flow "9 Redirects cardholder to 3DSMethodUrl for device fingerprinting"
+\draw[solidarrow]
+(32.79,-9.5) -- node[txt, midway,above] {9 Redirects cardholder to 3DSMethodUrl for device fingerprinting} (0.21,-9.5);
+% Flow "10 Executes issuer ACS information gathering"
+\draw[solidarrow]
+(0.21,-10.75) -- (0.61,-10.75) -- node[txt, midway,right] {10 Executes issuer ACS information gathering} (0.61,-12) -- (0.21,-12);
+% Flow "11 Sends 3DS method completion"
+\draw[solidarrow]
+(0.21,-13.25) -- node[txt, midway,above] {11 Sends 3DS method completion} (32.79,-13.25);
+% Flow "12 Initiates authentication flow"
+\draw[solidarrow]
+(33.21,-13.25) -- (33.61,-13.25) -- node[txt, midway,right] {12 Initiates authentication flow} (33.61,-15.12) -- (33.21,-15.12);
+% Flow "13 Displays Challenge Windows (lightbox/page/iframe) POST redirect to ACS"
+\draw[solidarrow]
+(32.79,-15.12) -- node[txt, midway,above] {13 Displays Challenge Windows (lightbox/page/iframe) POST redirect to ACS} (0.21,-15.12);
+% Flow "14 Enters challenge data"
+\draw[solidarrow]
+(0.21,-16.37) -- (0.61,-16.37) -- node[txt, midway,right] {14 Enters challenge data} (0.61,-17.62) -- (0.21,-17.62);
+% Flow "15 Sends challenge response"
+\draw[solidarrow]
+(0.21,-18.87) -- node[txt, midway,above] {15 Sends challenge response} (32.79,-18.87);
+% Flow "16 Sends authentication response"
+\draw[solidarrow]
+(32.79,-20.12) -- node[txt, midway,above] {16 Sends authentication response} (0.21,-20.12);
+% Flow "17 Redirects through cardholder browser to termURL"
+\draw[solidarrow]
+(0.21,-22) -- node[txt, midway,above] {17 Redirects through cardholder browser to termURL} (10.79,-22);
+% Flow "18 Sends Check-payer-response request"
+\draw[solidarrow]
+(11.21,-23.25) -- node[txt, midway,above] {18 Sends Check-payer-response request} (21.79,-23.25);
+% Flow "19 Decodes PARes"
+\draw[solidarrow]
+(22.21,-23.25) -- (22.61,-23.25) -- node[txt, midway,right] {19 Decodes PARes} (22.61,-25.12) -- (22.21,-25.12);
+% Flow "20 Sends Check-payer-response response"
+\draw[solidarrow]
+(21.79,-25.12) -- node[txt, midway,above] {20 Sends Check-payer-response response} (11.21,-25.12);
+% Flow "21 Authorizes or purchases"
+\draw[solidarrow]
+(11.21,-26.37) -- node[txt, midway,above] {21 Authorizes or purchases} (21.79,-26.37);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,93 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-16.52);
+
+% Stage "merchant"
+\node[participant] at (11,2) {Merchant};
+\node[icon] (icon1) at (11,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (11, 0.9) -- (11,-16.52);
+
+% Stage "payment"
+\node[participant] at (22,2) {Payment Gateway};
+\node[icon] (icon2) at (22,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (22, 0.9) -- (22,-16.52);
+
+% Stage "acs"
+\node[participant] at (33,2) {Issuer ACS};
+\node[icon] (icon3) at (33,3.5) {\includegraphics[width=.1\textwidth] {schemes.png}};
+\draw[aidline] (33, 0.9) -- (33,-16.52);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (11,0.1) -- (11,-1.35);
+\draw[box, nightblue] (22,-1.15) -- (22,-2.6);
+\draw[box, nightblue] (11,-2.4) -- (11,-3.85);
+\draw[box, nightblue] (0,-3.65) -- (0,-5.1);
+\draw[box, nightblue] (33,-4.9) -- (33,-6.35);
+\draw[box, nightblue] (0,-6.15) -- (0,-7.6);
+\draw[box, nightblue] (33,-7.4) -- (33,-9.475);
+\draw[box, nightblue] (0,-9.275) -- (0,-11.35);
+\draw[box, nightblue] (11,-11.15) -- (11,-12.6);
+\draw[box, nightblue] (22,-12.4) -- (22,-14.475);
+\draw[box, nightblue] (11,-14.275) -- (11,-15.725);
+\draw[box, nightblue] (22,-15.125) -- (22,-16.125);
+
+% Flows
+% Flow "1 Initiates checkout"
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Initiates checkout} (10.79,0);
+% Flow "2 Sends Check-enrollment request"
+\draw[solidarrow]
+(11.21,-1.25) -- node[txt, midway,above] {2 Sends Check-enrollment request} (21.79,-1.25);
+% Flow "3 Checks supported 3DS version with 3DS Server"
+\draw[solidarrow]
+(22.21,-1.25) -- (22.61,-1.25) -- node[txt, midway,right] {3 Checks supported 3DS version with 3DS Server} (22.61,-2.5) -- (22.21,-2.5);
+% Flow "4 Sends check-enrollment response"
+\draw[solidarrow]
+(21.79,-2.5) -- node[txt, midway,above] {4 Sends check-enrollment response} (11.21,-2.5);
+% Flow "5 Initiates consumer POST HTTPS redirect"
+\draw[solidarrow]
+(10.79,-3.75) -- node[txt, midway,above] {5 Initiates consumer POST HTTPS redirect} (0.21,-3.75);
+% Flow "6 POST HTTPS redirect"
+\draw[solidarrow]
+(0.21,-5) -- node[txt, midway,above] {6 POST HTTPS redirect} (32.79,-5);
+% Flow "7 Decodes PAReq"
+\draw[solidarrow]
+(33.21,-5) -- (33.61,-5) -- node[txt, midway,right] {7 Decodes PAReq} (33.61,-6.25) -- (33.21,-6.25);
+% Flow "8 Displays authentication windows"
+\draw[solidarrow]
+(32.79,-6.25) -- node[txt, midway,above] {8 Displays authentication windows} (0.21,-6.25);
+% Flow "9 Provides authentication credentials"
+\draw[solidarrow]
+(0.21,-7.5) -- node[txt, midway,above] {9 Provides authentication credentials} (32.79,-7.5);
+% Flow "10 Sends authentications response with POST redirect to termURL"
+\draw[solidarrow]
+(32.79,-9.37) -- node[txt, midway,above] {10 Sends authentications response with POST redirect to termURL} (0.21,-9.37);
+% Flow "11 Redirects through consumer browser to termURL"
+\draw[solidarrow]
+(0.21,-11.25) -- node[txt, midway,above] {11 Redirects through consumer browser to termURL} (10.79,-11.25);
+% Flow "12 Sends Check-payer-response request"
+\draw[solidarrow]
+(11.21,-12.5) -- node[txt, midway,above] {12 Sends Check-payer-response request} (21.79,-12.5);
+% Flow "13 Verifies PARes"
+\draw[solidarrow]
+(22.21,-12.5) -- (22.61,-12.5) -- node[txt, midway,right] {13 Verifies PARes} (22.61,-14.37) -- (22.21,-14.37);
+% Flow "14 Sends Check-payer-response response"
+\draw[solidarrow]
+(21.79,-14.37) -- node[txt, midway,above] {14 Sends Check-payer-response response} (11.21,-14.37);
+% Flow "15 Authorizes or purchases"
+\draw[solidarrow]
+(11.21,-15.62) -- node[txt, midway,above] {15 Authorizes or purchases} (21.79,-15.62);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

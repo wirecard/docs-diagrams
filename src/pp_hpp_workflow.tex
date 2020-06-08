@@ -1,0 +1,86 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.15) -- (0,-14.77);
+
+% Stage "merchant"
+\node[participant] at (11,2) {Merchant};
+\node[icon] (icon1) at (11,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (11, 0.15) -- (11,-14.77);
+
+% Stage "hostedPayment"
+\node[participant] at (22,2) {Hosted Payment Page};
+\node[icon] (icon2) at (22,3.5) {\includegraphics[width=.1\textwidth] {paymentpage.png}};
+\draw[aidline] (22, 0.15) -- (22,-14.77);
+
+% Stage "payment"
+\node[participant] at (33,2) {Payment Gateway};
+\node[icon] (icon3) at (33,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (33, 0.15) -- (33,-14.77);
+
+% Stage "finstitution"
+\node[participant] at (44,2) {Financial Institution};
+\node[icon] (icon4) at (44,3.5) {\includegraphics[width=.1\textwidth] {financialinstitution.png}};
+\draw[aidline] (44, 0.15) -- (44,-14.77);
+
+% Boxes
+\draw[box, nightblue] (0,-0.25) -- (0,-1.25);
+\draw[box, nightblue] (11,-0.65) -- (11,-2.1);
+\draw[box, nightblue] (22,-1.9) -- (22,-6.475);
+\draw[box, nightblue] (33,-2.525) -- (33,-3.975);
+\draw[box, nightblue] (0,-4.625) -- (0,-5.625);
+\draw[box, nightblue] (33,-6.275) -- (33,-8.975);
+\draw[box, nightblue] (44,-7.125) -- (44,-8.125);
+\draw[box, nightblue] (22,-8.775) -- (22,-10.225);
+\draw[box, nightblue] (11,-10.025) -- (11,-13.975);
+\draw[box, nightblue] (0,-13.375) -- (0,-14.375);
+
+% Flows
+% Flow "1 Checks out"
+\draw[solidarrow]
+(0.21,-0.75) -- node[txt, midway,above] {1 Checks out} (10.79,-0.75);
+% Flow "2 Redirects to HPP URL"
+\draw[solidarrow]
+(11.21,-2) -- node[txt, midway,above] {2 Redirects to HPP URL} (21.79,-2);
+% Flow "3 Validates signature"
+\draw[solidarrow]
+(33.21,-2.62) -- (33.61,-2.62) -- node[txt, midway,right] {3 Validates signature} (33.61,-3.87) -- (33.21,-3.87);
+% Flow "4 Sends list of payment methods"
+\draw[solidarrow]
+(32.79,-3.87) -- node[txt, midway,above] {4 Sends list of payment methods} (22.21,-3.87);
+% Flow "5 Displays payment methods"
+\draw[solidarrow]
+(21.79,-5.12) -- node[txt, midway,above] {5 Displays payment methods} (0.21,-5.12);
+% Flow "6 Posts payment transaction"
+\draw[solidarrow]
+(22.21,-6.37) -- node[txt, midway,above] {6 Posts payment transaction} (32.79,-6.37);
+% Flow "7 Processes payment"
+\draw[solidarrow]
+(33.21,-7.62) -- node[txt, midway,above] {7 Processes payment} (43.79,-7.62);
+% Flow "8 Sends final response"
+\draw[solidarrow]
+(32.79,-8.87) -- node[txt, midway,above] {8 Sends final response} (22.21,-8.87);
+% Flow "9 Posts response (success/failure)"
+\draw[solidarrow]
+(21.79,-10.12) -- node[txt, midway,above] {9 Posts response (success/failure)} (11.21,-10.12);
+% Flow "10 Validates signature"
+\draw[dashedarrow]
+(11.21,-10.75) -- (11.61,-10.75) -- node[txt, midway,right] {10 Validates signature} (11.61,-12) -- (11.21,-12);
+% Flow "11 Decodes response"
+\draw[dashedarrow]
+(11.21,-12.62) -- (11.61,-12.62) -- node[txt, midway,right] {11 Decodes response} (11.61,-13.87) -- (11.21,-13.87);
+% Flow "12 Redirects consumer to success or failure page"
+\draw[solidarrow]
+(10.79,-13.87) -- node[txt, midway,above] {12 Redirects consumer to success or failure page} (0.21,-13.87);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

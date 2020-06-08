@@ -1,0 +1,150 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer/Device};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-38.4);
+
+% Stage "merchant"
+\node[participant] at (8.5,2) {Merchant};
+\node[icon] (icon1) at (8.5,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (8.5, 0.9) -- (8.5,-38.4);
+
+% Stage "payment"
+\node[participant] at (17,2) {Payment Gateway};
+\node[icon] (icon2) at (17,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (17, 0.9) -- (17,-38.4);
+
+% Stage "apple"
+\node[participant] at (25.5,2) {Apple Server};
+\node[icon] (icon3) at (25.5,3.5) {\includegraphics[width=.1\textwidth] {server.png}};
+\draw[aidline] (25.5, 0.9) -- (25.5,-38.4);
+
+% Stage "secure"
+\node[participant] at (34,2) {Secure Element};
+\node[icon] (icon4) at (34,3.5) {\includegraphics[width=.1\textwidth] {pc.png}};
+\draw[aidline] (34, 0.9) -- (34,-38.4);
+
+% Stage "schemes"
+\node[participant] at (42.5,2) {Schemes};
+\node[icon] (icon5) at (42.5,3.5) {\includegraphics[width=.1\textwidth] {schemes.png}};
+\draw[aidline] (42.5, 0.9) -- (42.5,-38.4);
+
+% Stage "issuer"
+\node[participant] at (51,2) {Issuer};
+\node[icon] (icon6) at (51,3.5) {\includegraphics[width=.1\textwidth] {financialinstitution.png}};
+\draw[aidline] (51, 0.9) -- (51,-38.4);
+
+% Boxes
+\draw[box, nightblue] (8.5,0.5) -- (8.5,-0.5);
+\draw[box, nightblue] (0,0.1) -- (0,-1.35);
+\draw[box, nightblue] (8.5,-1.15) -- (8.5,-2.6);
+\draw[box, nightblue] (0,-2.4) -- (0,-6.35);
+\draw[box, nightblue] (8.5,-6.15) -- (8.5,-7.6);
+\draw[box, nightblue] (25.5,-7.4) -- (25.5,-8.85);
+\draw[box, nightblue] (8.5,-8.65) -- (8.5,-10.1);
+\draw[box, nightblue] (0,-9.9) -- (0,-22.6);
+\draw[box, nightblue] (25.5,-20.75) -- (25.5,-21.75);
+\draw[box, nightblue] (34,-22.4) -- (34,-23.85);
+\draw[box, nightblue] (0,-23.65) -- (0,-25.1);
+\draw[box, nightblue] (25.5,-24.9) -- (25.5,-26.35);
+\draw[box, nightblue] (0,-26.15) -- (0,-30.1);
+\draw[box, nightblue] (8.5,-29.9) -- (8.5,-32.6);
+\draw[box, nightblue] (17,-32.4) -- (17,-33.85);
+\draw[box, nightblue] (42.5,-33.65) -- (42.5,-35.1);
+\draw[box, nightblue] (51,-34.9) -- (51,-36.35);
+\draw[box, nightblue] (8.5,-36.15) -- (8.5,-37.6);
+\draw[box, nightblue] (0,-37) -- (0,-38);
+
+% Flows
+% Flow "1 Checks if Apple Pay is available"
+\draw[solidarrow]
+(8.29,0) -- node[txt, midway,above] {1 Checks if Apple Pay is available} (0.21,0);
+% Flow "2 Returns confirmation response"
+\draw[solidarrow]
+(0.21,-1.25) -- node[txt, midway,above] {2 Returns confirmation response} (8.29,-1.25);
+% Flow "3 Displays Apple Pay button"
+\draw[solidarrow]
+(8.29,-2.5) -- node[txt, midway,above] {3 Displays Apple Pay button} (0.21,-2.5);
+% Flow "4 Clicks Apple Pay button to show Apple Pay payment sheet"
+\draw[solidarrow]
+(0.21,-3.75) -- (0.61,-3.75) -- node[txt, midway,right] {4 Clicks Apple Pay button to show Apple Pay payment sheet} (0.61,-5) -- (0.21,-5);
+% Flow "5 Starts payment session"
+\draw[solidarrow]
+(0.21,-6.25) -- node[txt, midway,above] {5 Starts payment session} (8.29,-6.25);
+% Flow "6 Starts payment session"
+\draw[solidarrow]
+(8.71,-7.5) -- node[txt, midway,above] {6 Starts payment session} (25.29,-7.5);
+% Flow "7 Returns session information"
+\draw[solidarrow]
+(25.29,-8.75) -- node[txt, midway,above] {7 Returns session information} (8.71,-8.75);
+% Flow "8 Forwards session information"
+\draw[solidarrow]
+(8.29,-10) -- node[txt, midway,above] {8 Forwards session information} (0.21,-10);
+% Flow "9 Authenticates session with iOS device"
+\draw[solidarrow]
+(0.21,-11.25) -- (0.61,-11.25) -- node[txt, midway,right] {9 Authenticates session with iOS device} (0.61,-12.5) -- (0.21,-12.5);
+% Flow "10 Displays preferred address, contact and shipping from Apple Wallet"
+\draw[solidarrow]
+(0.21,-13.75) -- (0.61,-13.75) -- node[txt, midway,right] {10 Displays preferred address, contact and shipping from Apple Wallet} (0.61,-15) -- (0.21,-15);
+% Flow "11 Authenticates transaction with Touch or Face ID"
+\draw[solidarrow]
+(0.21,-16.25) -- (0.61,-16.25) -- node[txt, midway,right] {11 Authenticates transaction with Touch or Face ID} (0.61,-17.5) -- (0.21,-17.5);
+% Flow "12 Authorizes payment"
+\draw[solidarrow]
+(0.21,-18.75) -- (0.61,-18.75) -- node[txt, midway,right] {12 Authorizes payment} (0.61,-20) -- (0.21,-20);
+% Flow "13 Exchanges nonces"
+\draw[solidarrow]
+(0.21,-21.25) -- node[txt, midway,above] {13 Exchanges nonces} (25.29,-21.25);
+% Flow "14 Activates Secure Element"
+\draw[solidarrow]
+(0.21,-22.5) -- node[txt, midway,above] {14 Activates Secure Element} (33.79,-22.5);
+% Flow "15 Generates cryptogram"
+\draw[solidarrow]
+(34.21,-22.5) -- (34.61,-22.5) -- node[txt, midway,right] {15 Generates cryptogram} (34.61,-23.75) -- (34.21,-23.75);
+% Flow "16 Encrypts payment data"
+\draw[solidarrow]
+(33.79,-23.75) -- node[txt, midway,above] {16 Encrypts payment data} (0.21,-23.75);
+% Flow "17 Sends paymentData object"
+\draw[solidarrow]
+(0.21,-25) -- node[txt, midway,above] {17 Sends paymentData object} (25.29,-25);
+% Flow "18 Unwraps payment data object with merchant's public key"
+\draw[solidarrow]
+(25.71,-25) -- (26.11,-25) -- node[txt, midway,right] {18 Unwraps payment data object with merchant's public key} (26.11,-26.25) -- (25.71,-26.25);
+% Flow "19 Sends paymentData object"
+\draw[solidarrow]
+(25.29,-26.25) -- node[txt, midway,above] {19 Sends paymentData object} (0.21,-26.25);
+% Flow "20 Calls back with billing, shipping and contact"
+\draw[solidarrow]
+(0.21,-27.5) -- (0.61,-27.5) -- node[txt, midway,right] {20 Calls back with billing, shipping and contact} (0.61,-28.75) -- (0.21,-28.75);
+% Flow "21 Sends billing, shipping and contact data"
+\draw[solidarrow]
+(0.21,-30) -- node[txt, midway,above] {21 Sends billing, shipping and contact data} (8.29,-30);
+% Flow "22 Decrpyts paymentData to receive DPAN, card expiration date and cryptogram"
+\draw[solidarrow]
+(8.71,-30) -- (9.11,-30) -- node[txt, midway,right] {22 Decrpyts paymentData to receive DPAN, card expiration date and cryptogram} (9.11,-31.25) -- (8.71,-31.25);
+% Flow "23 Sends decrypted data"
+\draw[solidarrow]
+(8.71,-32.5) -- node[txt, midway,above] {23 Sends decrypted data} (16.79,-32.5);
+% Flow "24 Sends data with 3DS message format"
+\draw[solidarrow]
+(17.21,-33.75) -- node[txt, midway,above] {24 Sends data with 3DS message format} (42.29,-33.75);
+% Flow "25 Sends data for authorization"
+\draw[solidarrow]
+(42.71,-35) -- node[txt, midway,above] {25 Sends data for authorization} (50.79,-35);
+% Flow "26 Authorizes payment"
+\draw[solidarrow]
+(50.79,-36.25) -- node[txt, midway,above] {26 Authorizes payment} (8.71,-36.25);
+% Flow "27 Dismisses payment sheet and shows confirmation page"
+\draw[solidarrow]
+(8.29,-37.5) -- node[txt, midway,above] {27 Dismisses payment sheet and shows confirmation page} (0.21,-37.5);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}
