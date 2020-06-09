@@ -6,6 +6,10 @@
 \begin{document}
 \begin{tikzpicture}
 
+\tikzset{
+txt/.style={text width=7cm}
+}
+
 % Stage "consumer"
 \node[participant] at (0,2) {Consumer/Device};
 \node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
