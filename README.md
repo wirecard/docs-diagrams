@@ -19,6 +19,8 @@
 Run
 ```
 make
+# or
+make -j 8
 ```
 and the diagrams will be in `out/`.
 
