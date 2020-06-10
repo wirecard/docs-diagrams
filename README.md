@@ -16,13 +16,21 @@
 3. [pdf2svg](http://www.cityinthesky.co.uk/opensource/pdf2svg/)
 
 ### Build
-Run:
+Run
 ```
 make
 ```
-... and find the diagrams in `out/`.
+and the diagrams will be in `out/`.
 
 ## Variable export from Asciidoctor
+This repository includes utility scripts to export Asciidoctor variables from `shortcuts.adoc` to generate a Latex file which contains the same variables.
+Latex variable names are very restricted, this is why Ruby *humanize* is needed.
 
+### Requirements
 * Ruby
   * humanize (translate numbers to words, because Latex variables cannot contain digits)
+
+### Run
+```sh
+ruby scripts/export-vars.rb
+```
