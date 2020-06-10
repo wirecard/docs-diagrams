@@ -6,17 +6,19 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    # Docker Hub image that `container-job` executes in
-    container: ldzw/texlive:latest
+    container: wirecardtecdoc/texlive:latest
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Build PDFs and SVGs
-      run: make
+      run: make -j 8
+
     - name: Move artifacts
       run: |
         mkdir -p artifacts
         mv out/*.pdf out/*.svg artifacts/
+
     - uses: actions/upload-artifact@v1
       with:
         name: diagrams

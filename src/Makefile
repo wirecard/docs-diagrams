@@ -1,4 +1,4 @@
-ODIR=../out/
+ODIR=../out
 
 LTX=xelatex
 OPTS=-shell-escape -output-directory=$(ODIR)/
