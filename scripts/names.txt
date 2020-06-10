@@ -1,4 +1,3 @@
-applepay_workflow::apple-pay_new
 AlipayCB_debit_Workflow::alipay-cb_debit
 AlipayCB_auto-debit_Workflow::alipay-cb_auto-debit
 AlipayDom_Workflow_debit::alipay-dom_debit
