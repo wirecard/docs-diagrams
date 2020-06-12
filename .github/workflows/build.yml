@@ -11,10 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-  - uses: actions/cache@v2
-    with:
-      path: out/
-      key: ${{ runner.os }}-${{ hashFiles('out/*.svg') }}
+    - uses: actions/cache@v2
+      with:
+        path: out/
+        key: ${{ runner.os }}-${{ hashFiles('out/*.svg') }}
 
     - name: Build PDFs and SVGs
       run: make -j 8
