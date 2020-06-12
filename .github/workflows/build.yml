@@ -25,6 +25,7 @@ jobs:
       run: |
         mkdir -p artifacts
         mv out/*.pdf out/*.svg artifacts/
+        mv scripts/names.txt artifacts/
 
     - uses: actions/upload-artifact@v1
       with:
