@@ -14,7 +14,9 @@ jobs:
     - uses: actions/cache@v2
       with:
         path: out/
-        key: ${{ runner.os }}-${{ hashFiles('src/*.tex') }}
+        key: ${{ runner.os }}-docs-diagrams-${{ hashFiles('src/*.tex') }}
+        restore-keys: |
+          ${{ runner.os }}-docs-diagrams-
 
     - name: Build PDFs and SVGs
       run: make -j 8
