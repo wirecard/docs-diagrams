@@ -26,7 +26,7 @@ SEPA_Credit_Transfer_Workflow:sepa_credit-transfer
 SEPA_Direct_Debit_Successful:sepa_direct-debit
 VisaCheckout_workflow_hpp:visa_checkout_hpp
 VisaCheckout_workflow_restapi_with_callid:visa_rest-api-with-call-id
-VisaChesckout_workflow_restapi_without_callid:visa_rest-api-without-call-id
+VisaCheckout_workflow_restapi_without_callid:visa_rest-api-without-call-id
 Boleto_Debit_Workflow:boleto_debit
 Boleto_Refund_Workflow:boleto_refund
 Interac_workflow:interac
