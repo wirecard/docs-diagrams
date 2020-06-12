@@ -1,6 +1,6 @@
 #!/bin/bash
 
 TEXDIR="${PWD}"
-IMAGE="ldz/texlive:latest"
+IMAGE="wirecardtecdoc/texlive:latest"
 
-docker run -v ${TEXDIR}:/data ${IMAGE} make
+docker run -v ${TEXDIR}:/data ${IMAGE} make -j 8
