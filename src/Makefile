@@ -14,6 +14,12 @@ PNGS= $(_OUT:.tex=.png)
 
 all: $(ODIR) $(PDFS) $(SVGS) $(PNGS)
 
+pdf: $(ODIR) $(PDFS)
+
+svg: $(ODIR) $(SVGS)
+
+png: $(ODIR) $(PNGS)
+
 $(ODIR):
 	mkdir -p $(ODIR)
 
@@ -29,5 +35,5 @@ $(ODIR)/%.png: $(ODIR)/%.pdf
 clean:
 	rm -rf $(ODIR)
 
-.PHONY: clean
+.PHONY: pdf svg png clean
 

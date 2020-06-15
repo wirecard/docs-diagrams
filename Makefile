@@ -3,8 +3,8 @@ SRCDIR=src/
 all:
 	cd $(SRCDIR) && $(MAKE)
 
-clean:
-	cd $(SRCDIR) && $(MAKE) clean
+pdf svg png clean:
+	cd $(SRCDIR) && $(MAKE) $@
 
-.PHONY: clean
+.PHONY: pdf svg png clean
 
