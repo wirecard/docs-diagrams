@@ -4,13 +4,14 @@ LTX=xelatex
 OPTS=-shell-escape -output-directory=$(ODIR)/
 
 PDF2SVG=pdftocairo -svg
-PDF2PNG=pdftocairo -png
+PDF2PNG=pdftocairo -png -singlefile
 
 SRCS=$(wildcard *.tex)
 _OUT=$(patsubst %, $(ODIR)/%, $(SRCS))
 PDFS= $(_OUT:.tex=.pdf)
 SVGS= $(_OUT:.tex=.svg)
-PNGS= $(_OUT:.tex=.png)
+# PNGs need special handling, because the extension .png is appended automatically
+PNGS= $(_OUT:.tex=)
 
 all: $(ODIR) $(PDFS) $(SVGS) $(PNGS)
 
@@ -29,7 +30,8 @@ $(ODIR)/%.pdf: %.tex
 $(ODIR)/%.svg: $(ODIR)/%.pdf
 	$(PDF2SVG) $< $@
 
-$(ODIR)/%.png: $(ODIR)/%.pdf
+# PNGs need special handling, because the extension .png is appended automatically
+$(ODIR)/%: $(ODIR)/%.pdf
 	$(PDF2PNG) $< $@
 
 clean:
