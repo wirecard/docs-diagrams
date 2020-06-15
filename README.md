@@ -14,6 +14,8 @@
 1. texlive (xelatex)
 2. [GNU Make](http://gnuwin32.sourceforge.net/packages/make.htm)
 3. [pdf2svg](http://www.cityinthesky.co.uk/opensource/pdf2svg/)
+4. [svg2png](https://github.com/domenic/svg2png)
+<!-- 3. [cairo](https://www.cairographics.org/): converting Tikz graphics to svg and png -->
 
 ### Build
 Run
