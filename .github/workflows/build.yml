@@ -24,8 +24,8 @@ jobs:
     - name: Move artifacts
       run: |
         mkdir -p artifacts
-        mv out/*.{pdf,svg,png} artifacts/
-        mv scripts/names.txt artifacts/
+        mv out/*.pdf out/*.svg out/*.png artifacts/
+        cp scripts/names.txt artifacts/
 
     - uses: actions/upload-artifact@v1
       with:
