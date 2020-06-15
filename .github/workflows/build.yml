@@ -6,7 +6,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    container: wirecardtecdoc/texlive:latest
+    container: wirecardtecdoc/texlive:cairo
 
     steps:
     - uses: actions/checkout@v2
@@ -24,7 +24,7 @@ jobs:
     - name: Move artifacts
       run: |
         mkdir -p artifacts
-        mv out/*.pdf out/*.svg artifacts/
+        mv out/*.{pdf,svg,png} artifacts/
         mv scripts/names.txt artifacts/
 
     - uses: actions/upload-artifact@v1
