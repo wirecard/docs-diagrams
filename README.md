@@ -1,7 +1,6 @@
 # docs-diagrams
 
-## Writer (Windows Setup)
-### Setup
+## Writer Setup (Windows)
 
 1. Install [MiKTeX](https://miktex.org/download)
 2. Install [TikzEdt](http://tikzedt.org/) (There is a [portable version](https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/tikzedt/TikzEdtBeta0_2_3.zip) for regular users, i.e. no admin rights required).
@@ -9,7 +8,7 @@
 
 ![image](assets/settings.png)
 
-## Build System
+## Build System (Linux)
 ### Requirements
 1. texlive (xelatex)
 2. [GNU Make](http://gnuwin32.sourceforge.net/packages/make.htm)
@@ -25,7 +24,7 @@ make -j 8
 and the diagrams will be in `out/`.
 
 ### Docker
-Github Actions uses the Docker image `wirecardtecdoc/texlive:cairo` from [here](https://github.com/wirecard/docs-dockerfile/docs-diagrams/).
+Github Actions uses the Docker image `wirecardtecdoc/texlive:cairo` from [here](https://github.com/wirecard/docs-dockerfile/tree/master/docs-diagrams).
 
 ## Variable export from Asciidoctor
 This repository includes utility scripts to export Asciidoctor variables from `shortcuts.adoc` to generate a Latex file which contains the same variables.
