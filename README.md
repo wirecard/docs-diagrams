@@ -13,7 +13,7 @@
 ### Requirements
 1. texlive (xelatex)
 2. [GNU Make](http://gnuwin32.sourceforge.net/packages/make.htm)
-3. [pdf2svg](http://www.cityinthesky.co.uk/opensource/pdf2svg/)
+3. [cairo](https://www.cairographics.org/)
 
 ### Build
 Run
@@ -23,6 +23,9 @@ make
 make -j 8
 ```
 and the diagrams will be in `out/`.
+
+### Docker
+Github Actions uses the Docker image `wirecardtecdoc/texlive:cairo` from [here](https://github.com/wirecard/docs-dockerfile/docs-diagrams/).
 
 ## Variable export from Asciidoctor
 This repository includes utility scripts to export Asciidoctor variables from `shortcuts.adoc` to generate a Latex file which contains the same variables.
