@@ -1,0 +1,36 @@
+\usepackage{fontspec}
+\graphicspath{{../icons/}}
+
+\definecolor{nightblue}{HTML}{002846}
+\definecolor{gray2}{HTML}{A2AAAD}
+\definecolor{gray3}{HTML}{425563}
+
+% Style for transaction flows with splitted boxes
+\tikzset{
+fontscale/.style={font=11pt},
+solidarrow/.style={line width=2pt, gray3, ->, >=stealth},
+dashedarrow/.style={line width=2pt, gray3, ->, >=stealth, dashed},
+outcome/.style={rectangle,fill=nightblue,draw=nightblue,rounded corners,text=white,ultra thick,text width=6cm,align=center,node distance=9cm},
+split/.style={
+       rectangle split,
+       rectangle split parts=2,
+       rectangle split part fill={nightblue,white},
+       rounded corners,
+       draw=nightblue, ultra thick,
+       minimum height=2cm,
+       text width=6cm,
+       text=white,
+       inner sep=5pt,
+       text centered,
+       node distance=9cm
+       }
+}
+
+% Font
+%% ItalicFont=DINWebPro-Ita.otf,
+%% BoldItalicFont=texgyreheros-bolditalic.otf]
+\setmainfont[
+  Path=../fonts/,
+  BoldFont=DINWebPro-Bold.ttf,
+  ItalicFont=DINWebPro-Ita.ttf
+]{DINWebPro.ttf}
