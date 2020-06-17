@@ -3,4 +3,4 @@
 TEXDIR="${PWD}"
 IMAGE="wirecardtecdoc/texlive:latest"
 
-docker run -v ${TEXDIR}:/data ${IMAGE} make -j 8
+docker run -v ${TEXDIR}:/data ${IMAGE} make -j8
