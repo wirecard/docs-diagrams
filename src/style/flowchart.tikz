@@ -12,7 +12,7 @@
 \tikzset{
   fontscale/.style={font=11pt},
   transaction/.style={rectangle,fill=nightblue,draw=nightblue,rounded corners,text=white,ultra thick,text width=3cm,align=center,node distance=6cm},
-  emphasized/.style={rectangle,fill=white,rounded corners,draw=nightblue,text=nightblue,ultra thick,text width=3cm,align=center,node distance=6cm},
+  emphasized/.style={rectangle,fill=white,rounded corners,draw=nightblue,text=gray3,ultra thick,text width=3cm,align=center,node distance=6cm},
   solidarrow/.style={line width=2pt, gray3, ->, >=stealth},
   dashedarrow/.style={line width=2pt, gray3, ->, >=stealth, dashed},
   start_end/.style={rectangle, rounded corners=3, text=white, font=\bf, align=center, fill=nightblue},
