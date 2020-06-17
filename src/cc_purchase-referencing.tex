@@ -13,33 +13,33 @@
 
 % Nodes
 \node[name=int1,split3] (int1) {
-    \nodepart  [white] {one} Initial Transaction \\ (Request)
-    \nodepart [nightblue] {two} $<$transaction-type$>$:purchase
-    \nodepart [nightblue] {three} $<$periodic-type$>$:recurring \\ $<$sequence-type$>$:first
+    \nodepart [white] {one} Initial Transaction \\ (Request)
+    \nodepart {two} $<$transaction-type$>$:purchase
+    \nodepart {three} $<$periodic-type$>$:recurring \\ $<$sequence-type$>$:first
   };
 \node[name=int2, split, right of=int1] (int2) {
     \nodepart [white] {one} Initial Transaction \\ (Response)
-    \nodepart [nightblue] {two} $<$transaction-id$>$:12345
+    \nodepart {two} $<$transaction-id$>$:12345
   };
 \node[name=rect1, split4, right of=int2] (rect1) {
     \nodepart [white] {one} Recurring Transaction \\ (Request)
-    \nodepart [nightblue] {two} $<$transaction-type$>$: \\ referenced-purchase
-    \nodepart [nightblue] {three} $<$parent-transaction-id$>$:12345
-    \nodepart [nightblue] {four} $<$periodic-type$>$:recurring \\ $<$sequence-type$>$:recurring
+    \nodepart {two} $<$transaction-type$>$: \\ referenced-purchase
+    \nodepart {three} $<$parent-transaction-id$>$:12345
+    \nodepart {four} $<$periodic-type$>$:recurring \\ $<$sequence-type$>$:recurring
   };
 \node[name=rect2, split, right of=rect1] (rect2) {
     \nodepart [white] {one} Recurring Transaction \\ (Response)
-    \nodepart [nightblue] {two} $<$transaction-id$>$:67890
+    \nodepart {two} $<$transaction-id$>$:67890
   };
 \node[name=fint1, split4, right of=rect2] (fint1) {
     \nodepart [white] {one} Final Transaction \\ (Request)
-    \nodepart [nightblue] {two} $<$transaction-type$>$: \\ referenced-purchase
-    \nodepart [nightblue] {three} $<$parent-transaction-id$>$:12345
-    \nodepart [nightblue] {four} $<$periodic-type$>$:recurring \\ $<$sequence-type$>$:final
+    \nodepart {two} $<$transaction-type$>$: \\ referenced-purchase
+    \nodepart {three} $<$parent-transaction-id$>$:12345
+    \nodepart {four} $<$periodic-type$>$:recurring \\ $<$sequence-type$>$:final
   };
 \node[name=fint2, split, right of=fint1] (fint2) {
     \nodepart [white] {one} Final Transaction \\ (Response)
-    \nodepart [nightblue] {two} $<$transaction-id$>$:45678
+    \nodepart {two} $<$transaction-id$>$:45678
   };
 
 % Lines
