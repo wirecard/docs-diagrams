@@ -1,0 +1,84 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.5) -- (0,-17.15);
+
+% Stage "merchant"
+\node[participant] at (10,2) {Merchant};
+\node[icon] (icon1) at (10,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (10, 0.5) -- (10,-17.15);
+
+% Stage "interac"
+\node[participant] at (20,2) {Interac};
+\node[icon] (icon2) at (20,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (20, 0.5) -- (20,-17.15);
+
+% Stage "payment"
+\node[participant] at (30,2) {Payment Gateway};
+\node[icon] (icon3) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (30, 0.5) -- (30,-17.15);
+
+% Boxes
+\draw[box, nightblue] (0,0.1) -- (0,-1.35);
+\draw[box, nightblue] (0,-4.9) -- (0,-11.35);
+\draw[box, nightblue] (0,-15.75) -- (0,-16.75);
+\draw[box, nightblue] (10,0.1) -- (10,-2.6);
+\draw[box, nightblue] (10,-3.65) -- (10,-5.1);
+\draw[box, nightblue] (10,-13.65) -- (10,-16.35);
+\draw[box, nightblue] (20,-11.15) -- (20,-12.6);
+\draw[box, nightblue] (30,-2.4) -- (30,-3.85);
+\draw[box, nightblue] (30,-2.4) -- (30,-3.85);
+\draw[box, nightblue] (30,-12.4) -- (30,-15.1);
+
+% Flows
+% Flow "1 Displays all Payment Methods"
+\draw[solidarrow]
+(9.79,0) -- node[txt, midway,above] {1 Displays all Payment Methods} (0.21,0);
+% Flow "2 Selects Interac"
+\draw[solidarrow]
+(0.21,-1.25) -- node[txt, midway,above] {2 Selects Interac} (9.79,-1.25);
+% Flow "3 Initiates debit transaction"
+\draw[solidarrow]
+(10.21,-2.5) -- node[txt, midway,above] {3 Initiates debit transaction} (29.79,-2.5);
+% Flow "4 Responds with `redirect-url`"
+\draw[solidarrow]
+(29.79,-3.75) -- node[txt, midway,above] {4 Responds with \texttt{redirect-url}} (10.21,-3.75);
+% Flow "5 Redirects consumer to Interac Financial Institution selection"
+\draw[solidarrow]
+(9.79,-5) -- node[txt, midway,above] {5 Redirects consumer to Interac Financial Institution selection} (0.21,-5);
+% Flow "6 Selects Interac Financial Institution"
+\draw[solidarrow]
+(0.21,-6.25) -- (0.61,-6.25) -- node[txt, midway,right] {6 Selects Interac Financial Institution} (0.61,-7.5) -- (0.21,-7.5);
+% Flow "7 Redirects to consumer bank web site"
+\draw[solidarrow]
+(0.21,-8.75) -- (0.61,-8.75) -- node[txt, midway,right] {7 Redirects to consumer bank web site} (0.61,-10) -- (0.21,-10);
+% Flow "8 Confirms payment"
+\draw[solidarrow]
+(0.21,-11.25) -- node[txt, midway,above] {8 Confirms payment} (19.79,-11.25);
+% Flow "9 Processes transaction"
+\draw[solidarrow]
+(20.21,-12.5) -- node[txt, midway,above] {9 Processes transaction} (29.79,-12.5);
+% Flow "10 Receives transaction's status"
+\draw[solidarrow]
+(30.21,-12.5) -- (30.61,-12.5) -- node[txt, midway,right] {10 Receives transaction's status} (30.61,-13.75) -- (30.21,-13.75);
+% Flow "11 Sends transaction's status"
+\draw[solidarrow]
+(29.79,-13.75) -- node[txt, midway,above] {11 Sends transaction's status} (10.21,-13.75);
+% Flow "12 Redirects consumer back"
+\draw[solidarrow]
+(29.79,-15) -- node[txt, midway,above] {12 Redirects consumer back} (10.21,-15);
+% Flow "13 Displays completion of payment process"
+\draw[solidarrow]
+(9.79,-16.25) -- node[txt, midway,above] {13 Displays completion of payment process} (0.21,-16.25);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

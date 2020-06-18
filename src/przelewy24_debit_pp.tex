@@ -1,0 +1,60 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-13.62);
+
+% Stage "merchant"
+\node[participant] at (15,2) {Merchant};
+\node[icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (15, 0.9) -- (15,-13.62);
+
+% Stage "payment"
+\node[participant] at (30,2) {Payment Gateway};
+\node[icon] (icon2) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (30, 0.9) -- (30,-13.62);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (15,0.1) -- (15,-1.35);
+\draw[box, nightblue] (0,-4.9) -- (0,-9.475);
+\draw[box, nightblue] (30,-9.275) -- (30,-13.225);
+
+% Flows
+% Flow "1 Initiates transaction (currency set to PLN)"
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Initiates transaction (currency set to PLN)} (14.79,0);
+% Flow "2 Sends request"
+\draw[solidarrow]
+(15.21,-1.25) -- node[txt, midway,above] {2 Sends request} (31.035437777652813,-1.25);
+% Flow "Is payment method set to P24?"
+\draw[dashedarrow] (28.98119355564303,-1.25) -- node[left] {No} (28.98119355564303,-5) -- (28.375755777990218,-5);
+\draw[solidarrow]
+(28.170318000337403,-5) -- node[txt, midway,above] {3 Selects payment method P24} (0.20543777765281448,-5);
+\draw[dashedarrow] (31.01880644435697,-1.25) -- node[right] {Yes} (31.01880644435697,-6.25) -- (30.413368666704155,-6.25);
+\draw[solidarrow]
+(30.20793088905134,-6.25) -- node[txt, midway,above] {} (0.20543777765281448,-6.25);
+\node (question) [question] at (30,-1.25) {Is payment method set to P24?};
+% Flow "4 Selects desired bank"
+\draw[solidarrow]
+(0.21,-6.87) -- (0.61,-6.87) -- node[txt, midway,right] {4 Selects desired bank} (0.61,-8.12) -- (0.21,-8.12);
+% Flow "5 Authorizes transaction (within 15 min)"
+\draw[solidarrow]
+(0.21,-9.37) -- node[txt, midway,above] {5 Authorizes transaction (within 15 min)} (29.79,-9.37);
+% Flow "6 Redirects consumer to shop page according to `success-redirect-url` or `fail-redirect-url`"
+\draw[solidarrow]
+(30.21,-9.37) -- (30.61,-9.37) -- node[txt, midway,right] {6 Redirects consumer to shop page according to \texttt{success-redirect-url} or \texttt{fail-redirect-url}} (30.61,-10.62) -- (30.21,-10.62);
+% Flow "7 Sends notification of payment outcome (within 30 days). Receiver depends on `notifications/notification/@url`"
+\draw[solidarrow]
+(30.21,-11.87) -- (30.61,-11.87) -- node[txt, midway,right] {7 Sends notification of payment outcome (within 30 days). Receiver depends on \texttt{notifications/notification/@url}} (30.61,-13.12) -- (30.21,-13.12);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

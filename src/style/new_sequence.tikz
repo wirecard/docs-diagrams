@@ -1,0 +1,37 @@
+%New Style Sheet
+
+\usepackage{fontspec}
+\graphicspath{{../icons/}}
+
+% Colors and gray tones (according to brand colors):
+%% Nightblue for participants, icons, boxes
+%% Gray for arrows and text
+\definecolor{nightblue}{HTML}{002846}
+\definecolor{gray2}{HTML}{A2AAAD}
+\definecolor{gray3}{HTML}{425563}
+
+% Style
+\tikzset{
+  icon/.style={inner sep=1pt},
+  participant/.style={nightblue, font=\Large, text width=6cm, align=center, below},
+  aidline/.style={gray2, dashed, thin},
+  box/.style={nightblue,line width=6pt},
+  txt/.style={text=gray3,fill=white,text width=8cm,inner sep=0pt,outer sep=2pt,align=left},
+  txt_right/.style={text=gray3,text width=7cm, align=right},
+  fontscale/.style={font=11pt},
+  solidarrow/.style={line width=2pt,gray3, ->, >=stealth},
+  dashedarrow/.style={line width=2pt,gray3, ->, >=stealth, dashed},
+% For questions or decision nodes within a sequence diagram
+  question/.style={rectangle,draw=nightblue,fill=white,ultra thick,text width=2.5cm,align=center,nightblue},
+% For info boxes
+  infobox/.style={rectangle,draw=gray2,fill=white,ultra thick,text width=2.5cm,align=center}
+}
+
+% Font
+%% ItalicFont=DINWebPro-Ita.otf,
+%% BoldItalicFont=texgyreheros-bolditalic.otf]
+\setmainfont[
+  Path=../fonts/,
+  BoldFont=DINWebPro-Bold.ttf,
+  ItalicFont=DINWebPro-Ita.ttf
+]{DINWebPro.ttf}

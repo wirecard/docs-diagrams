@@ -1,0 +1,86 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-21.12);
+
+% Stage "merchant"
+\node[participant] at (15,2) {Merchant};
+\node[icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (15, 0.9) -- (15,-21.12);
+
+% Stage "payment"
+\node[participant] at (30,2) {Payment Gateway};
+\node[icon] (icon2) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (30, 0.9) -- (30,-21.12);
+
+% Stage "payolution"
+\node[participant] at (45,2) {Payolution};
+\node[icon] (icon3) at (45,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\draw[aidline] (45, 0.9) -- (45,-21.12);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (15,0.1) -- (15,-1.975);
+\draw[box, nightblue] (0,-1.775) -- (0,-3.225);
+\draw[box, nightblue] (15,-3.025) -- (15,-4.475);
+\draw[box, nightblue] (30,-4.275) -- (30,-5.725);
+\draw[box, nightblue] (45,-5.525) -- (45,-7.6);
+\draw[box, nightblue] (30,-7.4) -- (30,-8.85);
+\draw[box, nightblue] (15,-8.65) -- (15,-11.975);
+\draw[box, nightblue] (30,-11.775) -- (30,-13.225);
+\draw[box, nightblue] (45,-13.025) -- (45,-14.475);
+\draw[box, nightblue] (30,-14.275) -- (30,-15.725);
+\draw[box, nightblue] (15,-15.525) -- (15,-20.725);
+
+% Flows
+% Flow "1 Provides account data"
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Provides account data} (14.79,0);
+% Flow "2 Offers payment method Invoice if requirements are fulfilled"
+\draw[solidarrow]
+(14.79,-1.87) -- node[txt, midway,above] {2 Offers payment method Invoice if requirements are fulfilled} (0.21,-1.87);
+% Flow "3 Selects payment method Invoice"
+\draw[solidarrow]
+(0.21,-3.12) -- node[txt, midway,above] {3 Selects payment method Invoice} (14.79,-3.12);
+% Flow "4 Sends authorization request with payment method `payolution-inv`"
+\draw[solidarrow]
+(15.21,-4.37) -- node[txt, midway,above] {4 Sends authorization request with payment method \texttt{payolution-inv}} (29.79,-4.37);
+% Flow "5 Processes and validates transaction and sends authorization request"
+\draw[solidarrow]
+(30.21,-5.62) -- node[txt, midway,above] {5 Processes and validates transaction and sends authorization request} (44.79,-5.62);
+% Flow "6 Performs risk check and authorizes transaction"
+\draw[solidarrow]
+(44.79,-7.5) -- node[txt, midway,above] {6 Performs risk check and authorizes transaction} (30.21,-7.5);
+% Flow "7 Processes response and sends it"
+\draw[solidarrow]
+(29.79,-8.75) -- node[txt, midway,above] {7 Processes response and sends it} (15.21,-8.75);
+% Flow "8 Sends capture request when the items are ready for delivery (multiple captures are allowed)"
+\draw[solidarrow]
+(15.21,-11.87) -- node[txt, midway,above] {8 Sends capture request when the items are ready for delivery (multiple captures are allowed)} (29.79,-11.87);
+% Flow "9 Processes and validates transaction and sends capture request"
+\draw[solidarrow]
+(30.21,-13.12) -- node[txt, midway,above] {9 Processes and validates transaction and sends capture request} (44.79,-13.12);
+% Flow "10 Captures requested amount"
+\draw[solidarrow]
+(44.79,-14.37) -- node[txt, midway,above] {10 Captures requested amount} (30.21,-14.37);
+% Flow "11 Processes response and sends it"
+\draw[solidarrow]
+(29.79,-15.62) -- node[txt, midway,above] {11 Processes response and sends it} (15.21,-15.62);
+% Flow "12 Generates invoice and sends it to invoices-$<$merchant name$>$@payolution.com"
+\draw[solidarrow]
+(15.21,-16.87) -- (15.61,-16.87) -- node[txt, midway,right] {12 Generates invoice and sends it to invoices-$<$merchant name$>$@payolution.com} (15.61,-18.12) -- (15.21,-18.12);
+% Flow "13 Waits for incoming payment (in case of changes: void-authorization and refund-capture)"
+\draw[solidarrow]
+(15.21,-19.37) -- (15.61,-19.37) -- node[txt, midway,right] {13 Waits for incoming payment (in case of changes: void-authorization and refund-capture)} (15.61,-20.62) -- (15.21,-20.62);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

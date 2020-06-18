@@ -1,0 +1,66 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-13);
+
+% Stage "merchant"
+\node[participant] at (9,2) {Merchant};
+\node[icon] (icon1) at (9,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (9, 0.9) -- (9,-13);
+
+% Stage "paymsdkent"
+\node[participant] at (18,2) {PaymentSDK};
+\node[icon] (icon2) at (18,3.5) {\includegraphics[width=.1\textwidth] {sdk.png}};
+\draw[aidline] (18, 0.9) -- (18,-13);
+
+% Stage "payment gateway"
+\node[participant] at (27,2) {Payment Gateway};
+\node[icon] (icon3) at (27,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (27, 0.9) -- (27,-13);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.50);
+\draw[box, nightblue] (9,0.1) -- (9,-3.10);
+\draw[box, nightblue] (18,-2.90) -- (18,-4.60);
+\draw[box, nightblue] (0,-4.40) -- (0,-6.10);
+\draw[box, nightblue] (18,-5.90) -- (18,-7.60);
+\draw[box, nightblue] (27,-7.40) -- (27,-9.10);
+\draw[box, nightblue] (18,-8.90) -- (18,-12.1);
+\draw[box, nightblue] (0,-10) -- (0,-11);
+\draw[box, nightblue] (9,-11.50) -- (9,-12.50);
+
+% Flows
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway, above] {1 Initiates payment process} (8.79,0);
+\draw[solidarrow]
+(9.21,0) -- (9.61,0) -- node[txt, right] {2 Generates signature} (9.61,-1.5) -- (9.21,-1.5);
+\draw[solidarrow]
+(9.21,-3) -- node[txt, midway, above] {3 Sends payment request data} (17.79,-3);
+\draw[solidarrow]
+(18.21,-3) -- (18.61,-3) -- node[txt, right] {4 Checks data's completeness} (18.61,-4.5) -- (18.21,-4.5);
+\draw[solidarrow]
+(17.79,-4.5) -- node[txt, align=right, above, text width=9cm] {5 Requests consumer to authorize payment}  (0.21,-4.5);
+\draw[solidarrow]
+(0.21,-6) -- node[txt, above, text width=9cm] {6 Authorizes payment by using Apple PassKit} (17.79,-6);
+\draw[solidarrow]
+(18.21,-7.5) -- node[txt, midway, above] {7 Sends payment request}  (26.79,-7.5);
+\draw[solidarrow]
+(27.21,-7.5) -- (27.61,-7.5) -- node[txt, midway, right, text width=5cm] {8 Validates signature} (27.61,-9) -- (27.21,-9);
+\draw[solidarrow]
+(26.79,-9) -- node[txt, align=right, above] {9 Sends payment response}  (18.21,-9);
+\draw[solidarrow]
+(17.79,-10.5) -- node[txt, align=right, above,inner sep=2pt] {10 Informs consumer about result} (0.21,-10.5);
+\draw[solidarrow]
+(17.79,-12) -- node[txt, align=right, above] {11 Sends payment response} (9.21,-12);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

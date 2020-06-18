@@ -1,71 +1,68 @@
-% Preamble
 \documentclass[tikz,border=12pt,12pt]{standalone}
-\input{style/sequence.tikz}
+\input{style/new_sequence.tikz}
 \input{vars/shortcuts.tex}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
 
 \begin{document}
 \begin{tikzpicture}
   	
-    	% Participants
-    	\node[pt1] at (-5,1.5) {Merchant System};
-    		\node[inner sep=0pt] (icon1) at (-5,3)
-		{\includegraphics[width=.1\textwidth]{retailers.png}};
-    	\node[pt2] at (10,2) {\wdpaymentprocessingapi};
-		\node[inner sep=0pt] (icon2) at (10,3)
-		{\includegraphics[width=.1\textwidth]{gear.png}};
-    	\node[pt3] at (25,1.5) {Payment Provider};
-		\node[inner sep=0pt] (icon3) at (25,3)
-		{\includegraphics[width=.1\textwidth]{bigdata.png}};
+    	\node[participant] at (0,2) {Merchant};
+    		\node[inner sep=0pt] (icon1) at (0,3.5)
+		{\includegraphics[width=.1\textwidth]{merchant.png}};
+    	\node[participant] at (10,2) {Payment Gateway};
+		\node[inner sep=0pt] (icon2) at (10,3.5)
+		{\includegraphics[width=.1\textwidth]{paymentgateway.png}};
+    	\node[participant] at (20,2) {Payment Provider};
+    		\node[align=center] at (20,0.75) {(Voucher, Credit Card, Online Bank Transfer)};
+		\node[inner sep=0pt] (icon3) at (20,3.5)
+		{\includegraphics[width=.1\textwidth]{paymentprovider.png}};
 
-	% Aid Lines
-	\draw[line_mulberry] (-5,0) -- (-5,-20);
-	\draw[line_night] (10,0) -- (10,-20);
-	\draw[line_nightsky] (25,0) -- (25,-20);
+    		\foreach \i in {0,10,20} {
+		\draw[aidline] (\i,0) -- (\i,-19.5);
+		}
+
+	\draw[box] (0,-0.5)-- (0,-1.5);
+	\draw[box] (10,-0.9) -- (10,-6.1);
+	\draw[box] (20,-5.9) -- (20,-9.1);
+	\draw[box] (20,-11.1) -- (20,-17.1);
+	\draw[box] (10,-16.9) -- (10,-18.6);
+	\draw[box] (0,-18)-- (0,-19);
     	
-    	% Nodes
-    	\fill[mulberry] (-5.1,-.75) rectangle (-4.9,-1.25);
-    	\fill[nightsky] (10.1,-0.9) rectangle (9.9,-6.2);
-    	\fill[sky] (25.1,-6.0) rectangle (24.9,-10.2);
-    	\fill[sky] (24.8,-9) rectangle (24.7,-10.2);
-    	\fill[nightsky] (10.1,-9) rectangle (9.9,-19.3);
-    	\fill[nightsky] (10.2,-10) rectangle (10.3,-13.2);
-    	\fill[sky] (25.1,-13) rectangle (24.9,-19.3);
-    	\fill[mulberry] (-5.1,-18.95) rectangle (-4.9,-19.45);
-    	
-    	% Arrows & Text
     	\draw[solidarrow]
-    		(-4.8,-1) -- node[midway,above] {Multipayment Request} (9.8,-1);
-    	\draw[solidarrow, txt]
-    		(10.2,-1) -- (10.4,-1) -- node[midway,right] {Validate payment request} (10.4,-2.5) -- (10.2,-2.5);
-    	\draw[solidarrow, txt]
-    		(10.2,-3) -- (10.4,-3) -- node[midway,right] {Generate single payment request \\ for each payment method} (10.4,-4.5) -- (10.2,-4.5);
-    	\draw[solidarrow, txt]
-    		(10.2,-6.1) -- node[midway,above] {Send request for single payment method} (24.8,-6.1);
-    	\draw[solidarrow, txt]
-    		(25.2,-6.1) -- (25.4,-6.1) -- node[midway,right] {Process payment request} (25.4,-7.6) -- (25.2,-7.6);
-    	\draw[solidarrow, txt]
-    		(25.2,-8.1) -- (25.4,-8.1) -- node[midway,right] {Send payment response} (25.4,-9.6) -- (25.2,-9.6);
-      	\draw[solidarrow, txt]
-    		(24.6,-9.1) -- node[midway,above] {Payment successful} (10.2,-9.1);
-    	\draw[solidarrow, txt]
-    		(24.6,-10.1) -- node[midway,above] {Payment failed} (10.4,-10.1);
-  
-    	\draw[solidarrow, txt]
-    		(10.4,-13.1) -- node[midway,above] {Rollback previously successful \\ payment transaction} (24.8,-13.1);
-    			\draw[solidarrow, txt]
-    				(25.2,-13.1) -- (25.4,-13.1) -- node[midway,right] {Cancel previous \\ payment transaction} (25.4,-19.2) -- (25.2,-19.2);
-    			\draw[solidarrow, txt]
-    				(24.8,-19.2) -- node[midway,above] { } (10.2,-19.2);
-    	\draw[solidarrow, txt]
-    		(10.2,-14.1) -- (10.4,-14.1) -- node[midway,right] {Pending Payment Request?} (10.4,-15.6) -- (10.2,-15.6);
-    			\draw[solidarrow]
-    				(9.8,-15.6) -- (9.6,-15.6) -- node[left] {Yes (1 to n)} (9.6,-6.1) -- (9.8,-6.1);
-    			\draw[solidarrow, txt]
-    				(10.2,-15.7) -- (10.4,-15.7) -- node[midway, right] {No} (10.4,-17.2) -- (10.2,-17.2);
-    	\draw[solidarrow, txt]
-    		(10.2,-17.7) -- (10.4,-17.7) -- node[midway,right] {Build Response} (10.4,-19.2) -- (10.2,-19.2);
-    	\draw[solidarrow, txt]
-    		(9.8,-19.2) -- node[midway,above] {Multipayment Response} (-4.8,-19.2);
+    	(0.2,-1) -- node[txt, midway,above] {1 Multipayment request} (9.8,-1);
+    	\draw[solidarrow]
+    	(10.2,-1) -- (10.6,-1) -- node[txt, midway,right] {2 Validates payment request} (10.6,-2.5) -- (10.2,-2.5);
+    	\draw[solidarrow]
+    	(10.2,-3.5) -- (10.6,-3.5) -- node[txt, midway,right] {3 Generates single payment request \\ for each payment method} (10.6,-5) -- (10.2,-5);
+    	\draw[solidarrow]
+    	(10.2,-6) -- node[txt, midway,above] {4 Single payment request} (19.8,-6);
+    	\draw[solidarrow]
+    	(20.2,-6) -- (20.6,-6) -- node[txt, midway,right] {5 Processes payment request} (20.6,-9) -- (20.2,-9);
+    	\draw[solidarrow]
+    		(19.8,-9) -- node[txt, midway,above] {6 Payment response} (11.5,-9);
+    		% Style for questions within sequence diagram
+    			\node (question) [question] at (10,-9) {Payment \\ successful?};
+    				\draw[dashedarrow]
+    				(9.4,-9.7) -- node[txt, left, text width=0.7cm] {yes} (9.4,-12);
+    				\draw[dashedarrow]
+    				(10.6,-9.7) -- node[txt, right] {no} (10.6,-11.2) -- (11,-11.2);  	
+     					\draw[solidarrow]
+    					(11.1,-11.2) -- node[txt, midway,above] {7 Rolls back previously successful \\ payment transaction} (19.8,-11.2);
+    					\draw[solidarrow]
+    					(20.2,-11.2) -- (20.6,-11.2) -- node[txt, midway,right] {8 Cancels previous \\ payment transaction} (20.6,-17) -- (20.2,-17);
+    					\draw[solidarrow]
+    					(19.8,-17) -- node[txt, midway,above] {9 Payment response} (10.7,-17);   					
+    					
+    			\node (question) [question] at (10,-13) {Pending payment request?};
+    				\draw[dashedarrow]
+    				(9.4,-14) -- node[txt, left, text width=1.5cm, align=center] {yes \\ (1 to n)} (9.4,-15.5) -- (6.4,-15.5)-- (6.4,-6) -- (9.8,-6);
+    				\draw[dashedarrow]
+    				(10.6,-14) -- node[txt, right] {no} (10.6,-16.9);  	
+    				\draw[solidarrow]
+    					(10.2,-17) -- (10.6,-17) -- node[txt, midway,right] {10 Builds response} (10.6,-18.5) -- (10.2,-18.5);
+    	\draw[solidarrow]
+    		(9.8,-18.5) -- node[txt, midway,above] {11 Multipayment response} (0.2,-18.5);
     		
 \end{tikzpicture}
 \end{document}

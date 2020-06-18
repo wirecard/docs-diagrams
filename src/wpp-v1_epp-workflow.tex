@@ -1,60 +1,55 @@
-% Preamble
 \documentclass[tikz,border=12pt,12pt]{standalone}
-\input{style/sequence.tikz}
+\input{style/new_sequence.tikz}
 \input{vars/shortcuts.tex}
 
 \begin{document}
 \begin{tikzpicture}
 
-% Body
-  % Participants
-  \node[pt2] at (-5,1.5) {Consumer};
-  \node[icon] (icon1) at (-5,3)
-       {\includegraphics[width=.1\textwidth]{useralt.png}};
-       \node[pt1] at (5,2) {Payment Page \\ (Merchant Site)};
-       \node[icon] (icon2) at (5,3)
-            {\includegraphics[width=.1\textwidth]{paymentpage.png}};
-            \node[pt3] at (15,1.5) {Payment Gateway};
-            \node[icon] (icon3) at (15,3)
-                 {\includegraphics[width=.1\textwidth]{gear.png}};
-                 \node[pt4] at (25,2) {Financial \\ Institution};
-                 \node[icon] (icon4) at (25,3)
-                      {\includegraphics[width=.1\textwidth]{issuing.png}};
+  \node[participant] at (0,1.5) {Consumer};
+  	\node[icon] (icon1) at (0,3)
+  		{\includegraphics[width=.1\textwidth]{consumer.png}};
+  \node[participant] at (7,2) {Pament Page \\ (Merchant)};
+  	\node[icon] (icon2) at (7,3)
+  		{\includegraphics[width=.1\textwidth]{paymentpage.png}};
+  \node[participant] at (14,1.5) {Payment Gateway};
+  	\node[icon] (icon3) at (14,3)
+  		{\includegraphics[width=.1\textwidth]{paymentgateway.png}};
+  \node[participant] at (21,1.5) {Financial Institution};
+  	\node[icon] (icon4) at (21,3)
+  		{\includegraphics[width=.1\textwidth]{financialinstitution.png}};
                       
-  			% Aid Lines
-  			\draw[line_night] (-5,0) -- (-5,-10);
-  			\draw[line_mulberry] (5,0) -- (5,-10);
-  			\draw[line_nightsky] (15,0) -- (15,-10);
-  			\draw[line_sky] (25,0) -- (25,-10);
-
-                      % Nodes
-                      \fill[night] (-5.1,-.75) rectangle (-4.9,-1.25);
-                      \fill[mulberry] (5.1,-.9) rectangle (4.9,-1.6);
-                      \fill[nightsky] (15.1,-1.4) rectangle (14.9,-3.1);
-                      \fill[mulberry] (5.1,-2.9) rectangle (4.9,-4.6);
-                      \fill[nightsky] (14.9,-4.4) rectangle (15.1,-5.1);
-                      \fill[sky] (24.9,-4.9) rectangle (25.1,-6.6);
-                      \fill[nightsky] (14.9,-6.4) rectangle (15.1,-7.1);
-                      \fill[mulberry] (5.1,-6.9) rectangle (4.9,-9.1);
-                      \fill[night] (-5.1,-8.75) rectangle (-4.9,-9.25);
-
-                      % Arrows & Text
-                      \draw[solidarrow, txt]
-                      	(5.2,-1.5) -- node[midway,above] {2. } (14.8,-1.5);
-                      \draw[dashedarrow, txt]
-                      	(14.8,-3) -- node[midway,above] {3. } (5.2,-3);
-                      \draw[solidarrow, txt]
-                     	 (5.2,-4.5) -- node[midway,above] {4. } (14.8,-4.5);
-                      \draw[solidarrow, txt]
-                      	(15.2,-5) -- node[midway,above] {5. } (24.8,-5);
-                      \draw[dashedarrow, txt]
-                      	(24.8,-6.5) -- node[midway,above] {5.1 } (15.2,-6.5);
-                      \draw[dashedarrow, txt]
-                      	(14.8,-7) -- node[midway,above] {6. } (5.2,-7);
-                      \draw[dashedarrow, txt]
-                      	(5.3,-7.5) -- (5.5,-7.5) -- node[midway,right] {7. } (5.5,-9) -- (5.3,-9);
-                      \draw[dashedarrow, txt]
-                      	(4.8,-9) -- node[midway,above] {8. } (-4.8,-9);
+	\foreach \i in {0,7,14,21} {
+		\draw[aidline] (\i,0) -- (\i,-10);
+		}
+		
+	\draw[box] (0,-0.5) -- (0,-1.5);
+	\draw[box] (7,-0.9) -- (7,-2.6);
+	\draw[box] (14,-2.4) -- (14,-4.1);	
+	\draw[box] (7,-3.9) -- (7,-5.6);
+	\draw[box] (14,-5.25) -- (14,-5.75);
+	\draw[box] (21,-5.4) -- (21,-7.1);
+	\draw[box] (14,-6.75) -- (14,-7.25);
+	\draw[box] (7,-6.9) -- (7,-9.1);
+	\draw[box] (0,-8.5) -- (0,-9.5);
+	
+                      \draw[solidarrow]
+                      	(0.2,-1) -- node[txt, text width=3cm, midway,above] {1 } (6.8,-1);
+                      \draw[solidarrow]
+                      	(7.2,-2.5) -- node[txt, text width=3cm, midway,above] {2 } (13.8,-2.5);
+                      \draw[dashedarrow]
+                      	(13.8,-4) -- node[txt, text width=3cm, midway,above] {3 } (7.2,-4);
+                      \draw[solidarrow]
+                     	 (7.2,-5.5) -- node[txt, text width=3cm, midway,above] {4 } (13.8,-5.5);
+                      \draw[solidarrow]
+                      	(14.2,-5.5) -- node[txt, text width=3cm,  midway,above] {5 } (20.8,-5.5);
+                      \draw[dashedarrow]
+                      	(20.8,-7) -- node[txt, text width=3cm,  midway,above] { } (14.2,-7);
+                      \draw[dashedarrow]
+                      	(13.8,-7) -- node[txt, text width=3cm,  midway,above] {6 } (7.2,-7);
+                      \draw[dashedarrow]
+                      	(7.2,-7.5) -- (7.6,-7.5) -- node[txt, text width=3cm, midway,right] {7 } (7.6,-9) -- (7.2,-9);
+                      \draw[dashedarrow]
+                      	(6.8,-9) -- node[txt, text width=3cm,  midway,above] {8 } (0.2,-9);
 
 \end{tikzpicture}
 \end{document}

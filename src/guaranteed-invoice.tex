@@ -1,0 +1,60 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Stage "consumer"
+\node[participant] at (0,2) {Consumer};
+\node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
+\draw[aidline] (0, 0.9) -- (0,-7.37);
+
+% Stage "merchant"
+\node[participant] at (15,2) {Merchant};
+\node[icon] (icon1) at (15,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
+\draw[aidline] (15, 0.9) -- (15,-7.37);
+
+% Stage "payment"
+\node[participant] at (30,2) {Payment Gateway};
+\node[icon] (icon2) at (30,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+\draw[aidline] (30, 0.9) -- (30,-7.37);
+
+% Boxes
+\draw[box, nightblue] (0,0.5) -- (0,-0.5);
+\draw[box, nightblue] (15,0.1) -- (15,-1.35);
+\draw[box, nightblue] (30,-1.15) -- (30,-2.6);
+\draw[box, nightblue] (15,-2.4) -- (15,-3.85);
+\draw[box, nightblue] (30,-3.65) -- (30,-5.1);
+\draw[box, nightblue] (15,-4.9) -- (15,-6.975);
+
+% Flows
+% Flow "1 Selects Guaranteed invoice"
+\draw[solidarrow]
+(0.21,0) -- node[txt, midway,above] {1 Selects Guaranteed invoice} (14.79,0);
+% Flow "2 Sends authorization request"
+\draw[solidarrow]
+(15.21,-1.25) -- node[txt, midway,above] {2 Sends authorization request} (29.79,-1.25);
+% Flow "3 Generates descriptor"
+\draw[solidarrow]
+(30.21,-1.25) -- (30.61,-1.25) -- node[txt, midway,right] {3 Generates descriptor} (30.61,-2.5) -- (30.21,-2.5);
+% Flow "4 Sends authorization response"
+\draw[solidarrow]
+(29.79,-2.5) -- node[txt, midway,above] {4 Sends authorization response} (15.21,-2.5);
+% Flow "5 Sends capture request"
+\draw[solidarrow]
+(15.21,-3.75) -- node[txt, midway,above] {5 Sends capture request} (29.79,-3.75);
+% Flow "6 Generates invoice"
+\draw[solidarrow]
+(30.21,-3.75) -- (30.61,-3.75) -- node[txt, midway,right] {6 Generates invoice} (30.61,-5) -- (30.21,-5);
+% Flow "7 Sends invoice"
+\draw[solidarrow]
+(29.79,-5) -- node[txt, midway,above] {7 Sends invoice} (15.21,-5);
+% Flow "8 Waits for incoming payment"
+\draw[solidarrow]
+(15.21,-5.62) -- (15.61,-5.62) -- node[txt, midway,right] {8 Waits for incoming payment} (15.61,-6.87) -- (15.21,-6.87);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}

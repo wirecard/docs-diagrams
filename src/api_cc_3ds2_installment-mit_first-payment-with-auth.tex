@@ -1,0 +1,29 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/flowchart.tikz}
+\input{vars/shortcuts.tex}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+
+\begin{document}
+\begin{tikzpicture}
+
+% Nodes
+\node[transaction]
+(1) {1 check-enrollment (full amount + interest)};
+\node[emphasized, right of= 1]
+(2) {2 ACS URL redirect};
+\node[transaction, right of= 2]
+(3) {3 check-payer-response (optional)};
+\node[transaction, right of= 3]
+(4) {4 purchase (first installment amount)};
+
+% Lines
+\draw[solidarrow] (1.east) -- (2.west);
+\draw[solidarrow] (2.east) -- (3.west);
+\draw[solidarrow] (3.east) -- (4.west);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}
