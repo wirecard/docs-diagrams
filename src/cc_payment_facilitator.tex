@@ -1,0 +1,29 @@
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\input{style/flowchart.tikz}
+\input{vars/shortcuts.tex}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+
+\begin{document}
+\begin{tikzpicture}
+	\node[transaction] (start) {Payment Gateway (WPG) checks:};
+	\node[emphasized, right of=start] (wpg1) {Payment Facilitator (PF)-ID configured?};
+	\node[emphasized, right of=wpg1] (decision1) {$<$sub-merchant-info$>$ available?};
+	\node[transaction, below of=wpg1, node distance=4cm] (decision2) {Treats transaction as non PF transaction};
+	\node[transaction, right of=decision1] (decision3) {Processes transaction with PF-ID and $<$sub-merchant-info$>$};
+	\node[transaction, below of=decision1, node distance=4cm] (decision4) {Sends error response and rejects transaction};
+
+	\draw[solidarrow]
+                      	(start.east) -- (wpg1.west);
+	\draw[solidarrow]
+                      	(wpg1.east) -- (decision1.west) node [yes_no] {yes};
+	\draw[solidarrow]
+                      	(wpg1.south) -- (decision2.north) node [yes_no] {no};
+	\draw[solidarrow]
+                      	(decision1.east) -- (decision3.west) node [yes_no] {yes};
+	\draw[solidarrow]
+                      	(decision1.south) -- (decision4.north) node [yes_no] {no};
+
+               
+\end{tikzpicture}
+\end{document}
