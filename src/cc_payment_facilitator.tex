@@ -6,7 +6,8 @@
 
 \begin{document}
 \begin{tikzpicture}
-	\node[transaction] (start) {Payment Gateway (WPG) checks:};
+	\node[transaction] (start) {Payment Gateway checks:};
+	\node[left of=start, node distance=2.7cm] (icon) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
 	\node[emphasized, right of=start] (wpg1) {Payment Facilitator (PF)-ID configured?};
 	\node[emphasized, right of=wpg1] (decision1) {$<$sub-merchant-info$>$ available?};
 	\node[transaction, below of=wpg1, node distance=4cm] (decision2) {Treats transaction as non PF transaction};
