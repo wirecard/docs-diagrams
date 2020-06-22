@@ -25,7 +25,7 @@
   solidarrow/.style={line width=2pt,gray3, ->, >=stealth},
   dashedarrow/.style={line width=2pt,gray3, ->, >=stealth, dashed},
 % For questions or decision nodes within a sequence diagram
-  question/.style={rectangle,draw=nightblue,fill=white,ultra thick,text width=2.5cm,align=center,nightblue},
+  question/.style={rectangle,draw=nightblue,fill=white,ultra thick,text width=2.5cm,align=center,text=gray3},
 % For info boxes
   infobox/.style={rectangle,draw=gray2,fill=white,ultra thick,text width=2.5cm,align=center}
 }
