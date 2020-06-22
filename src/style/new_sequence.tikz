@@ -7,8 +7,11 @@
 %% Nightblue for participants, icons, boxes
 %% Gray for arrows and text
 \definecolor{nightblue}{HTML}{002846}
+\definecolor{gray1}{HTML}{EBEBEB}
 \definecolor{gray2}{HTML}{A2AAAD}
 \definecolor{gray3}{HTML}{425563}
+\definecolor{white}{HTML}{FFFFFF}
+
 
 % Style
 \tikzset{
