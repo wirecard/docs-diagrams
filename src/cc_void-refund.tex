@@ -6,11 +6,11 @@
 
 \begin{document}
 \begin{tikzpicture}
-	\node[transaction,text width=4cm] (consumer1) {1 Consumer buys products/services on merchant's website};
-	\node[emphasized, right of=consumer1] (decision1) {Funds transfer triggered?};
-	\node[emphasized, right of=decision1] (decision2) {Payment process cancelled?};
-	\node[transaction,text width=4cm,right of=decision2] (merchant1) {2 Merchant cancels payment process};
-	\node[transaction,right of=merchant1] (merchant2) {3 Merchant refunds money};
+	\node[transaction,text width=4cm, minimum height=2cm] (consumer1) {1 Consumer buys products/services on merchant's website};
+	\node[emphasized, right of=consumer1, minimum height=2cm] (decision1) {Funds transfer triggered?};
+	\node[emphasized, right of=decision1, minimum height=2cm] (decision2) {Payment process cancelled?};
+	\node[transaction,text width=4cm,right of=decision2, minimum height=2cm] (merchant1) {2 Merchant cancels payment process};
+	\node[transaction,right of=merchant1, minimum height=2cm] (merchant2) {3 Merchant refunds money};
 	
 	\draw[solidarrow]
                       	(consumer1.east) -- (decision1.west);
