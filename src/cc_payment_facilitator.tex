@@ -7,7 +7,6 @@
 \begin{document}
 \begin{tikzpicture}
 	\node[transaction, minimum height=2cm, text width=5cm] (start) {Payment Gateway checks:};
-	\node[left of=start, node distance=4cm, minimum height=2cm] (icon) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
 	\node[emphasized, node distance=8cm, right of=start, minimum height=2cm, text width=5cm] (wpg1) {Payment Facilitator (PF)-ID configured?};
 	\node[emphasized, node distance=8cm, right of=wpg1, minimum height=2cm, text width=5cm] (decision1) {$<$sub-merchant-info$>$ available?};
 	\node[transaction, below of=wpg1, node distance=4cm, minimum height=2cm, text width=5cm] (decision2) {Payment Gateway treats transaction as non-PF transaction};
