@@ -12,15 +12,15 @@
 \begin{tikzpicture} 
 
 % Nodes
-\node [split] (request1) {\nodepart [white]{one} 1 capture (Request)
+\node [split, text width=5cm, text height=.3cm, text depth=.3cm] (request1) {\nodepart [white]{one} 1 capture (Request)
 						\nodepart {two} $<$requested-amount \\ currency="EUR"$>$20.00$<$/ \\ requested-amount$>$ };
-\node [split, text height=0.5cm, text depth=0.5cm, right of=request1] (response1) {\nodepart [white]{one} 2 capture (Response)
+\node [split, text width=5cm, node distance=7cm, text height=.58cm, text depth=.58cm, right of=request1] (response1) {\nodepart [white]{one} 2 capture (Response)
 						\nodepart {two} $<$transaction-id$>$12345$<$/ \\ transaction-id$>$};
-\node [split,right of=response1] (request2) {\nodepart [white]{one} 3 void-capture (Request)
+\node [split, text width=5cm, node distance=7cm, text height=.4cm, text depth=.4cm, right of=response1] (request2) {\nodepart [white]{one} 3 void-capture (Request)
 						\nodepart {two}  $<$parent-transaction-id$>$12345$<$/parent-transaction-id$>$};
-\node [split,right of=request2] (response2) {\nodepart [white]{one} 4 void-capture (Response)
+\node [split, text width=5cm, node distance=7cm, text height=.4cm, text depth=.4cm, right of=request2] (response2) {\nodepart [white]{one} 4 void-capture (Response)
 						\nodepart {two}  $<$requested-amount \\ currency="EUR"$>$20.00$<$/ \\ requested-amount$>$ };
-\node [outcome, text height=1.2cm, text depth=1.2cm, right of=response2, white] (outcome) {Funds not transferred from consumer's account};
+\node [outcome, text width=5cm, node distance=7cm, text height=1.4cm, text depth=1.4cm, right of=response2, white] (outcome) {Funds not transferred from consumer's account};
 
 % Lines
 \draw[solidarrow] (request1.east) -- (response1.west);
