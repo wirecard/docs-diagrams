@@ -1,0 +1,26 @@
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\input{style/flowchart.tikz}
+\input{vars/shortcuts.tex}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+
+\begin{document}
+\begin{tikzpicture}
+	\node[transaction,text width=4cm, minimum height=2cm] (consumer1) {1 Consumer buys products/services on merchant's website};
+	\node[emphasized, right of=consumer1, minimum height=2cm, text width=4cm] (decision1) {Funds transfer triggered?};
+	\node[emphasized, below of=decision1, minimum height=2cm, node distance=4cm, text width=4cm] (note) {As soon as the fund transfer process has started, a cancelled payment process must be refunded.};
+	\node[transaction,text width=4cm,right of=decision1, minimum height=2cm, text width=4cm] (merchant1) {2 Merchant cancels payment process};
+	\node[transaction,right of=merchant1, minimum height=2cm, text width=4cm] (merchant2) {3 Merchant refunds money};
+	
+	\draw[solidarrow]
+                      	(consumer1.east) -- (decision1.west);
+	\draw[solidarrow]
+                      	(decision1.east) -- (merchant1.west) node [yes_no] {yes};
+	\draw[solidarrow]
+                      	(merchant1.east) -- (merchant2.west) node [yes_no] {yes};
+       \draw[line width=2pt, gray3]
+       			(note.north) -- (decision1.south);
+
+               
+\end{tikzpicture}
+\end{document}
