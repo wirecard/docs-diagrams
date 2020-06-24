@@ -16,9 +16,9 @@
 	\node[icon] (icon2) at (5,2.1)
 	{\includegraphics[width=.1\textwidth]{merchant.png}};
 
-\node[participant] at (15,1.1) {Payment Gateway};
+\node[participant] at (15,1.1) {Payment Page};
 	\node[icon] (icon3) at (15,2.1)
-	{\includegraphics[width=.1\textwidth]{paymentgateway.png}};
+	{\includegraphics[width=.1\textwidth]{paymentpage.png}};
 	                 
 % Aid Lines
 \foreach \i in {-5,5,15} {
@@ -32,16 +32,15 @@
 \draw[box] (5,-3.9) -- (5,-5.6);
 \draw[box] (-5,-5.4) --(-5,-8.1);
 \draw[box] (15,-7.9) -- (15,-9.6);
-\draw[box] (5,-11.5) -- (5,-13.2);
 \draw[box] (-5,-11.5) -- (-5,-13.2);
                       
 % Arrows & Text
 \draw[solidarrow]
-	(-4.8,-1) -- node[txt, above, outer sep=4pt] {1 Checks out} (4.8,-1);
+	(-4.8,-1) -- node[txt, above, outer sep=4pt] {1 Proceeds to check out} (4.8,-1);
 \draw[solidarrow]
 	(5.2,-2.5) -- node[txt, above] {2 Sends POST request with payment data} (14.8,-2.5);
 \draw[solidarrow]
-	(15.2,-2.5) -- (15.5,-2.5) -- node[txt, midway, right] {3 Creates a session} (15.5,-4) -- (15.2,-4);
+	(15.2,-2.5) -- (15.5,-2.5) -- node[txt, midway, right] {3 Creates payment session} (15.5,-4) -- (15.2,-4);
 \draw[solidarrow]
 	(14.8,-4) -- node[txt,above,align=right] {4 Returns payment URL} (5.2,-4);
 \draw[solidarrow]
@@ -57,13 +56,13 @@
 	
 \node (question) [question] at (5,-9.5) {Transaction \\ successful?};
     				\draw[dashedarrow]
-    				(4.3,-10.2) -- node[txt, left, text width=0.7cm] {yes} (4.3,-11.6) -- (3.8,-11.6);
+    				(4.3,-10.2) -- node[txt, left, text width=0.7cm] {yes} (4.3,-11.6) -- (2.8,-11.6);
     				\draw[dashedarrow]
-    				(5.7,-10.2) -- node[txt, right] {no} (5.7,-13.1) -- (5.2,-13.1); 
+    				(5.7,-10.2) -- node[txt, right] {no} (5.7,-13.1) -- (2.8,-13.1); 
 	
 \draw[solidarrow]
-	(3.7,-11.6) -- node[txt_right, above] {10.1 Redirects to success page} (-4.8,-11.6);  
+	(2.7,-11.6) -- node[txt_right, above] {10.1 Redirects consumer \\ to success page} (-4.8,-11.6);  
 \draw[solidarrow]
-	(4.8,-13.1) -- node[txt_right, above] {10.2 Redirects to fail page} (-4.8,-13.1);  
+	(2.7,-13.1) -- node[txt_right, above] {10.2 Redirects consumer \\ to fail page} (-4.8,-13.1);  
 \end{tikzpicture}
 \end{document}
