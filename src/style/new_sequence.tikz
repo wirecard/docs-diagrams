@@ -7,8 +7,11 @@
 %% Nightblue for participants, icons, boxes
 %% Gray for arrows and text
 \definecolor{nightblue}{HTML}{002846}
+\definecolor{gray1}{HTML}{EBEBEB}
 \definecolor{gray2}{HTML}{A2AAAD}
 \definecolor{gray3}{HTML}{425563}
+\definecolor{white}{HTML}{FFFFFF}
+
 
 % Style
 \tikzset{
@@ -22,7 +25,7 @@
   solidarrow/.style={line width=2pt,gray3, ->, >=stealth},
   dashedarrow/.style={line width=2pt,gray3, ->, >=stealth, dashed},
 % For questions or decision nodes within a sequence diagram
-  question/.style={rectangle,draw=nightblue,fill=white,ultra thick,text width=2.5cm,align=center,nightblue},
+  question/.style={rectangle,draw=nightblue,fill=white,ultra thick,text width=2.5cm,align=center,text=gray3},
 % For info boxes
   infobox/.style={rectangle,draw=gray2,fill=white,ultra thick,text width=2.5cm,align=center}
 }

@@ -12,15 +12,15 @@
 \begin{tikzpicture} 
 
 % Nodes
-\node [split] (request1) {\nodepart{one} 1 capture (Request)
-						\nodepart[text=nightblue]{two} $<$requested-amount \\ currency="EUR"$>$20.00$<$/ \\ requested-amount$>$ };
-\node [split,right of=request1] (response1) {\nodepart{one} 2 capture (Response)
-						\nodepart[text=nightblue]{two} $<$transaction-id$>$12345$<$/ \\ transaction-id$>$};
-\node [split,right of=response1] (request2) {\nodepart{one} 3 refund-capture (Request)
-						\nodepart[text=nightblue]{two}  $<$parent-transaction-id$>$12345$<$/parent-transaction-id$>$};
-\node [split,right of=request2] (response2) {\nodepart{one} 4 refund-capture (Response)
-						\nodepart[text=nightblue]{two}  $<$requested-amount \\ currency="EUR"$>$20.00$<$/ \\ requested-amount$>$ };
-\node [outcome,right of=response2] (outcome) {Merchant returns funds to consumer's account.};
+\node [split] (request1) {\nodepart [white]{one} 1 capture (Request)
+						\nodepart {two} $<$requested-amount \\ currency="EUR"$>$20.00$<$/ \\ requested-amount$>$ };
+\node [split, text height=.5cm, text depth=.5cm, right of=request1] (response1) {\nodepart [white]{one} 2 capture (Response)
+						\nodepart{two} $<$transaction-id$>$12345$<$/ \\ transaction-id$>$};
+\node [split,right of=response1] (request2) {\nodepart [white]{one} 3 refund-capture (Request)
+						\nodepart {two}  $<$parent-transaction-id$>$12345$<$/parent-transaction-id$>$};
+\node [split,right of=request2] (response2) {\nodepart [white]{one} 4 refund-capture (Response)
+						\nodepart {two}  $<$requested-amount \\ currency="EUR"$>$20.00$<$/ \\ requested-amount$>$ };
+\node [outcome, text height=1.1cm, text depth=1.3cm, right of=response2, white] (outcome) {Merchant returns funds to consumer's account.};
 
 % Lines
 \draw[solidarrow] (request1.east) -- (response1.west);

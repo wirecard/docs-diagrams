@@ -1,0 +1,67 @@
+% Document Header
+\documentclass[tikz,border=12pt,12pt]{standalone}
+\hyphenpenalty=10000
+\input{style/new_sequence.tikz}
+\input{vars/shortcuts.tex}
+\begin{document}
+\begin{tikzpicture}
+
+% Aidlines
+\foreach \i in {0,10,20,30} {
+	\draw[aidline] (\i,0) -- (\i,-17);
+}
+
+% Participants
+\node[participant] at (0,1.5) {Consumer};
+	\node[icon] (icon0) at (0,3) {\includegraphics[width=.1\textwidth] {consumer.png}};
+
+\node[participant] at (10,1.5) {Merchant};
+	\node[icon] (icon1) at (10,3) {\includegraphics[width=.1\textwidth] {merchant.png}};
+
+\node[participant] at (20,1.5) {Payment Gateway};
+	\node[icon] (icon2) at (20,3) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
+
+\node[participant] at (30,1.5) {Alipay QR Pay};
+	\node[icon] (icon3) at (30,3) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+
+% Boxes
+\draw[box] (0,-0.5) -- (0,-1.5);
+\draw[box] (10,-0.9) -- (10,-2.6);
+\draw[box] (20,-2.4) -- (20,-4.1);
+\draw[box] (30,-3.9) -- (30,-5.6);
+\draw[box] (20,-5.4) -- (20,-7.1);
+\draw[box] (10,-6.9) -- (10,-8.6);
+\draw[box] (0,-8.4) -- (0,-13.1);
+\draw[box] (30,-12.9) -- (30,-14.6);
+\draw[box] (20,-14.4) -- (20,-16.1);
+\draw[box] (10,-15.5) -- (10,-16.5);
+
+% Arrows
+\draw[solidarrow]
+	(0.2,-1) -- node[txt, align=center, above] {1 Approaches POS to pay selected items} (9.8,-1);
+\draw[solidarrow]
+	(10.2,-2.5) -- node[txt, align=center, above] {2 Sends request to generate QR code} (19.8,-2.5);
+\draw[solidarrow]
+	(20.2,-4) -- node[txt, align=center, above] {3 Forwards QR code request} (29.8,-4);
+\draw[solidarrow]
+	(30.2,-4) -- (30.6,-4) -- node[txt, right] {4.1 Generates QR code \\ in different sizes} (30.6,-5.5) -- (30.2,-5.5);
+\draw[solidarrow]
+	(29.8,-5.5) -- node[txt, align=center, above] {4.2 Sends payment URL with QR code} (20.2,-5.5);
+\draw[solidarrow]
+	(19.8,-7) -- node[txt, align=center, above] {5.1 Forwards payment URL with QR code} (10.2,-7);
+\draw[solidarrow]
+	(9.8,-8.5) -- node[txt, align=center, midway, above] {5.2 Displays QR code} (0.2,-8.5);
+\draw[solidarrow]
+	(0.2,-10) -- (0.6,-10) -- node[txt, right] {6.1 Scans QR code with mobile device} (0.6,-11.5) -- (0.2,-11.5);
+\draw[solidarrow]
+	(0.2,-13) -- node[txt, align=center, above] {6.2 Confirms payment} (29.8,-13);
+\draw[solidarrow]
+	(30.2,-13) -- (30.6,-13) -- node[txt, right] {7.1 Receives confirmation} (30.6,-14.5) -- (30.2,-14.5);
+\draw[solidarrow]
+	(29.8,-14.5) -- node[txt, align=center, above] {7.2 Sends payment result} (20.2,-14.5);
+\draw[solidarrow]
+	(19.8,-16) -- node[txt, align=center, above] {8 Informs about payment result} (10.2,-16);
+
+% Document Footer
+\end{tikzpicture}
+\end{document}
