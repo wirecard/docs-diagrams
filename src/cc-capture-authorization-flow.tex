@@ -6,13 +6,13 @@
 
 \begin{document}
 \begin{tikzpicture}
-   \node[transaction] (authorization) {authorization};
+   \node[transaction, text height=.7cm,text depth=.7cm] (authorization) {authorization};
    \node[emphasized, right of=authorization] (decision1) {Reserved\\ funds\\ captured?};
-   \node[transaction,below of=decision1,node distance=3cm] (void-authorization) {void-authorization};
-   \node[transaction,right of=decision1] (capture-authorization) {capture-authorization};
+   \node[transaction, text height=.7cm,text depth=.7cm, below of=decision1,node distance=3cm] (void-authorization) {void-authorization};
+   \node[transaction, text height=.7cm,text depth=.7cm, right of=decision1] (capture-authorization) {capture-authorization};
    \node[emphasized,right of=capture-authorization] (decision2) {Funds\\ transfer\\ triggered?};
-   \node[transaction,below of=decision2,node distance=3cm] (void-capture) {void-capture};
-   \node[transaction,right of=decision2] (refund-capture) {refund-capture};
+   \node[transaction, text height=.7cm,text depth=.7cm, below of=decision2,node distance=3cm] (void-capture) {void-capture};
+   \node[transaction, text height=.7cm,text depth=.7cm, right of=decision2] (refund-capture) {refund-capture};
 
   \draw[solidarrow]
                       	(authorization.east) -- (decision1.west);

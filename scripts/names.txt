@@ -1,4 +1,3 @@
-ApplePay_Workflow_short:apple-pay_short
 AlipayCB_debit_Workflow:alipay-cb_debit
 AlipayCB_auto-debit_Workflow:alipay-cb_auto-debit
 AlipayDom_Workflow_debit:alipay-dom_debit
@@ -57,14 +56,11 @@ Paylib_Workflow_debit:paylib_debit
 paysafecard_workflow_debit_REST:paysafecard_debit_rest-api
 paysafecard_workflow_debit_HPP:paysafecard_debit_hpp
 paysafecard_workflow_authorization:paysafecard_authorization
-WirecardVoucher_Workflow:wirecard-voucher
 poipia_workflow_rest:poipia_rest
 poipia_workflow_hpp:poipia_hpp
 Przelewy24_Debit_TX_ReST:przelewy24_debit_rest
 Przelewy24_Debit_TX_PPage:przelewy24_debit_pp
 Przelewy24_Refund_TX_ReST:przelewy24_refund_rest
-MOLPay_workflow_debit_RESTAPI:molpay_debit_rest-api
-MOLPay_workflow_debit_HPP:molpay_debit_hpp
 trustly-workflow:trustly
 TrustPay_workflow_debit:trustpay_debit
 TrustPay_directbankingextension_workflow:trustpay_direct-banking-extension
@@ -95,9 +91,14 @@ API_CC_3DS2_PaymentFlows_InstallmentMIT_FirstPaymentAndInstallment_FirstCI:api_c
 API_CC_3DS2_PaymentFlows_MITUCOF_FirstAndUnscheduledMIT_FirstPayment:api_cc_3ds2_installment-mit_first-payment_one-step_with-auth
 API_CC_3DS2_PaymentFlows_MITUCOF_StoringCard_AuthAndVoid:api_cc_3ds2_mit-with-ucof_storing
 
+NEU:
+alipay-qr-workflow:alipay-qr-pay
+ApplePay_Workflow_short:apple-pay_short
 CC_void-capture_flow:cc_void-capture
 CC_void_refund_refund:cc_void-refund
 CC_refund-capture_flow:cc_refund-capture
 Enable_payment_facilitator:cc_payment_facilitator
 NewPPBasicWorkflow:wpp-v2_basic
-alipay-qr-workflow:alipay-qr-pay
+MOLPay_workflow_debit_HPP:molpay_debit_hpp
+MOLPay_workflow_debit_RESTAPI:molpay_debit_rest-api
+WirecardVoucher_Workflow:wirecard-voucher
