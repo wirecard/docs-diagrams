@@ -10,7 +10,7 @@
 	\node[emphasized, right of=consumer1, minimum height=2cm, text width=4cm] (decision1) {Funds transfer triggered?};
 	\node[emphasized, below of=decision1, minimum height=2cm, node distance=4cm, text width=4cm] (note) {As soon as the fund transfer process has started, a cancelled payment process must be refunded.};
 	\node[transaction,text width=4cm,right of=decision1, minimum height=2cm, text width=4cm] (merchant1) {2 Merchant cancels payment process};
-	\node[transaction,right of=merchant1, minimum height=2cm, text width=4cm] (merchant2) {3 Merchant refunds money};
+	\node[transaction,right of=merchant1, minimum height=2cm, text width=4cm] (merchant2) {3 Merchant \\ refunds money};
 	
 	\draw[solidarrow]
                       	(consumer1.east) -- (decision1.west);
