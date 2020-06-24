@@ -1,5 +1,5 @@
 % Document Header
-\documentclass[tikz,border=12pt,12pt]{standalone}
+\documentclass[tikz,border=12pt,20pt]{standalone}
 \hyphenpenalty=10000
 \input{style/cc-flow1.tikz}
 \input{vars/shortcuts.tex}
@@ -12,15 +12,15 @@
 \begin{tikzpicture} 
 
 % Nodes
-\node [split, text width=5cm, text height=.4cm, text depth=.4cm] (request1) {\nodepart [white]{one} 1 capture (Request)
+\node [split, text width=5cm, text height=.2cm, text depth=.2cm] (request1) {\nodepart [white]{one} 1 capture (Request)
 						\nodepart {two} $<$requested-amount \\ currency="EUR"$>$20.00$<$/ \\ requested-amount$>$ };
-\node [split, text width=5cm, node distance=7cm, text height=.7cm, text depth=.7cm, right of=request1] (response1) {\nodepart [white]{one} 2 capture (Response)
+\node [split, text width=5cm, node distance=7cm, text height=.4cm, text depth=.4cm, right of=request1] (response1) {\nodepart [white]{one} 2 capture (Response)
 						\nodepart{two} $<$transaction-id$>$12345$<$/ \\ transaction-id$>$};
 \node [split, text width=5cm, node distance=7cm, right of=response1] (request2) {\nodepart [white]{one} 3 refund-capture (Request)
 						\nodepart {two}  $<$parent-transaction-id$>$12345$<$/parent-transaction-id$>$};
 \node [split, node distance=7cm, text width=5cm,right of=request2] (response2) {\nodepart [white]{one} 4 refund-capture (Response)
 						\nodepart {two}  $<$requested-amount \\ currency="EUR"$>$20.00$<$/ \\ requested-amount$>$ };
-\node [outcome, node distance=7cm, text width=5cm, text height=1.4cm, text depth=1.4cm, right of=response2, white] (outcome) {Merchant returns funds to consumer's account.};
+\node [outcome, node distance=7cm, text width=5cm, text height=1cm, text depth=1cm, right of=response2] (outcome) {Merchant returns funds to consumer's account.};
 
 % Lines
 \draw[solidarrow] (request1.east) -- (response1.west);
