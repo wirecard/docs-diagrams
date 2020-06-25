@@ -13,32 +13,32 @@
 
 % Nodes
 \node[name=int1,split3] (int1) {
-    \nodepart [white] {one} 1 Initial Transaction \\ (Request)
+    \nodepart [white] {one} 1 Initial Transaction (Request)
     \nodepart {two} $<$transaction-type$>$:purchase
     \nodepart {three} $<$periodic-type$>$:recurring \\ $<$sequence-type$>$:first 
   };
 \node[name=int2, split, right of=int1] (int2) {
-    \nodepart [white] {one} 2 Initial Transaction \\ (Response)
+    \nodepart [white] {one} 2 Initial Transaction (Response)
     \nodepart {two} $<$transaction-id$>$:12345 
   };
 \node[name=rect1, split4, right of=int2] (rect1) {
-    \nodepart [white] {one} 3 Recurring Transaction \\ (Request)
+    \nodepart [white] {one} 3 Recurring Transaction (Request)
     \nodepart {two} $<$transaction-type$>$: \\ referenced-purchase
     \nodepart {three} $<$parent-transaction-id$>$:12345
     \nodepart {four} $<$periodic-type$>$:recurring \\ $<$sequence-type$>$:recurring
   };
 \node[name=rect2, split, right of=rect1] (rect2) {
-    \nodepart [white] {one} 4 Recurring Transaction \\ (Response)
+    \nodepart [white] {one} 4 Recurring Transaction (Response)
     \nodepart {two} $<$transaction-id$>$:67890
   };
 \node[name=fint1, split4, right of=rect2] (fint1) {
-    \nodepart [white] {one} 5 Final Transaction \\ (Request)
+    \nodepart [white] {one} 5 Final Transaction (Request)
     \nodepart {two} $<$transaction-type$>$: \\ referenced-purchase
     \nodepart {three} $<$parent-transaction-id$>$:12345
     \nodepart {four} $<$periodic-type$>$:recurring \\ $<$sequence-type$>$:final
   };
 \node[name=fint2, split, right of=fint1] (fint2) {
-    \nodepart [white] {one} 6 Final Transaction \\ (Response)
+    \nodepart [white] {one} 6 Final Transaction (Response)
     \nodepart {two} $<$transaction-id$>$:45678
   };
 

@@ -14,7 +14,7 @@
 \node(2) [split, right of=1] {\nodepart[white] {one} 2 capture (Response)
 	\nodepart {two} $<$transaction-id$>$12345$<$/ \\ transaction \\ -id$>$ };
 \node(3) [split, right of=2] {\nodepart[white] {one} 3 void-capture (Request)
-	\nodepart {two}  $<$parent-transaction-id$>$12345$<$/parent-transaction-id$>$ };
+	\nodepart {two}  $<$parent-transaction-id$>$12345$<$/parent-transaction \\ -id$>$ };
 \node(4) [split, right of=3] {\nodepart [white]{one} 4 void-capture (Response)
 	\nodepart {two}  $<$requested-amount \\ currency="EUR"$>$20.00$<$/ \\ requested-amount$>$ };
 \node(5) [end, right of=4] {Funds not transferred from consumer's account };
