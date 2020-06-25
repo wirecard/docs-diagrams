@@ -14,8 +14,8 @@
 % Nodes
 \node[name=int1,split3] (int1) {
     \nodepart [white] {one} 1 Initial Transaction (Request)
-    \nodepart {two} $<$transaction-type$>$:purchase
-    \nodepart {three} $<$periodic-type$>$:recurring \\ $<$sequence-type$>$:first 
+    \nodepart {two} $<$transaction-type$>$: \\ purchase
+    \nodepart {three} $<$periodic-type$>$: \\ recurring \\ $<$sequence-type$>$: \\ first 
   };
 \node[name=int2, split, right of=int1] (int2) {
     \nodepart [white] {one} 2 Initial Transaction (Response)
