@@ -27,7 +27,7 @@
     \nodepart {three} $<$parent-transaction-id$>$:12345
     \nodepart {four} $<$periodic-type$>$:recurring \\ $<$sequence-type$>$:recurring
   };
-\node[name=rect2, split4, right of=rect1] (rect2) {
+\node[name=rect2, split, right of=rect1] (rect2) {
     \nodepart [white] {one} 4 Recurring Transaction \\ (Response)
     \nodepart {two} $<$transaction-id$>$:67890
   };
@@ -37,7 +37,7 @@
     \nodepart {three} $<$parent-transaction-id$>$:12345
     \nodepart {four} $<$periodic-type$>$:recurring \\ $<$sequence-type$>$:final
   };
-\node[name=fint2, split4, right of=fint1] (fint2) {
+\node[name=fint2, split, right of=fint1] (fint2) {
     \nodepart [white] {one} 6 Final Transaction \\ (Response)
     \nodepart {two} $<$transaction-id$>$:45678
   };
