@@ -22,32 +22,67 @@
     \nodepart {two} $<$transaction-id$>$:12345 
   };
 \node[name=rect1, split4, right of=int2] (rect1) {
+\node[name=int1,split3, text width=7cm] (int1) at (0,0) {
+    \nodepart [white] {one} 1 Initial Transaction (Request)
+    \nodepart {two} $<$transaction-type$>$:purchase
+    \nodepart {three} $<$periodic-type$>$:recurring \\ $<$sequence-type$>$:first
+  };
+\node[name=int2, split, right of=int1, text width=7cm] (int2) at (0,-0.1) {
+    \nodepart [white] {one} 2 Initial Transaction (Response)
+    \nodepart {two} $<$transaction-id$>$:12345
+  };
+\node[name=rect1, split4, right of=int2, text width=7cm] (rect1) at (9,-0.15) {
+>>>>>>> PSPDOC-1464
     \nodepart [white] {one} 3 Recurring Transaction (Request)
     \nodepart {two} $<$transaction-type$>$: \\ referenced-purchase
     \nodepart {three} $<$parent-transaction-id$>$:12345
     \nodepart {four} $<$periodic-type$>$:recurring \\ $<$sequence-type$>$:recurring
   };
+<<<<<<< HEAD
 \node[name=rect2, split, right of=rect1] (rect2) {
     \nodepart [white] {one} 4 Recurring Transaction (Response)
     \nodepart {two} $<$transaction-id$>$:67890
   };
 \node[name=fint1, split4, right of=rect2] (fint1) {
+=======
+\node[name=rect2, split, right of=rect1, text width=7cm] (rect2) at (18,-0.1) {
+    \nodepart [white] {one} 4 Recurring Transaction (Response)
+    \nodepart {two} $<$transaction-id$>$:67890
+  };
+\node[name=fint1, split4, right of=rect2, text width=7cm] (fint1) at (27,-0.15) {
+>>>>>>> PSPDOC-1464
     \nodepart [white] {one} 5 Final Transaction (Request)
     \nodepart {two} $<$transaction-type$>$: \\ referenced-purchase
     \nodepart {three} $<$parent-transaction-id$>$:12345
     \nodepart {four} $<$periodic-type$>$:recurring \\ $<$sequence-type$>$:final
   };
+<<<<<<< HEAD
 \node[name=fint2, split, right of=fint1] (fint2) {
+=======
+\node[name=fint2, split, right of=fint1, text width=7cm] (fint2) {
+>>>>>>> PSPDOC-1464
     \nodepart [white] {one} 6 Final Transaction (Response)
     \nodepart {two} $<$transaction-id$>$:45678
   };
 
 % Lines
+<<<<<<< HEAD
 \draw[solidarrow] (int1.east) -- (int2.west);
 \draw[solidarrow] (int2.east) -- (rect1.west);
 \draw[solidarrow] (rect1.east) -- (rect2.west);
 \draw[solidarrow] (rect2.east) -- (fint1.west);
 \draw[solidarrow] (fint1.east) -- (fint2.west);
+=======
+\draw[solidarrow] (3.7,-0.17) -- (5.3,-0.17);
+
+\draw[solidarrow] (12.7,-0.17) -- (14.3,-0.17);
+
+\draw[solidarrow] (21.7,-0.17) -- (23.3,-0.17);
+
+\draw[solidarrow] (30.7,-0.17) -- (32.3,-0.17);
+
+\draw[solidarrow] (39.7,-0.17) -- (41.3,-0.17);
+>>>>>>> PSPDOC-1464
 
 % Document Footer
 \end{tikzpicture}
