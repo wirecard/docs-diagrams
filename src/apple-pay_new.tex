@@ -6,6 +6,10 @@
 \begin{document}
 \begin{tikzpicture}
 
+\foreach \i in {0,8.5,17,25.5,34,42.5,51} {
+	\draw[aidline] (\i,0.8) -- (\i,-43);
+}
+
 \tikzset{
 txt/.style={text width=7.5cm,text=gray3,fill=white,inner sep=0pt,outer sep=3pt,align=left}
 }
@@ -13,37 +17,30 @@ txt/.style={text width=7.5cm,text=gray3,fill=white,inner sep=0pt,outer sep=3pt,a
 % Stage "consumer"
 \node[participant] at (0,2) {Consumer/Device};
 \node[icon] (icon0) at (0,3.5) {\includegraphics[width=.1\textwidth] {consumer.png}};
-\draw[aidline] (0, 0.9) -- (0,-38.4);
 
 % Stage "merchant"
 \node[participant] at (8.5,2) {Merchant};
 \node[icon] (icon1) at (8.5,3.5) {\includegraphics[width=.1\textwidth] {merchant.png}};
-\draw[aidline] (8.5, 0.9) -- (8.5,-38.4);
 
 % Stage "payment"
 \node[participant] at (17,2) {Payment Gateway};
 \node[icon] (icon2) at (17,3.5) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
-\draw[aidline] (17, 0.9) -- (17,-38.4);
 
 % Stage "apple"
 \node[participant] at (25.5,2) {Apple Server};
-\node[icon] (icon3) at (25.5,3.5) {\includegraphics[width=.1\textwidth] {server.png}};
-\draw[aidline] (25.5, 0.9) -- (25.5,-38.4);
+\node[icon] (icon3) at (25.5,3.5) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
 
 % Stage "secure"
 \node[participant] at (34,2) {Secure Element};
 \node[icon] (icon4) at (34,3.5) {\includegraphics[width=.1\textwidth] {pc.png}};
-\draw[aidline] (34, 0.9) -- (34,-38.4);
 
 % Stage "schemes"
 \node[participant] at (42.5,2) {Schemes};
 \node[icon] (icon5) at (42.5,3.5) {\includegraphics[width=.1\textwidth] {schemes.png}};
-\draw[aidline] (42.5, 0.9) -- (42.5,-38.4);
 
 % Stage "issuer"
 \node[participant] at (51,2) {Issuer};
 \node[icon] (icon6) at (51,3.5) {\includegraphics[width=.1\textwidth] {financialinstitution.png}};
-\draw[aidline] (51, 0.9) -- (51,-38.4);
 
 % Boxes
 \draw[box, nightblue] (8.5,0.5) -- (8.5,-0.5);
@@ -63,8 +60,13 @@ txt/.style={text width=7.5cm,text=gray3,fill=white,inner sep=0pt,outer sep=3pt,a
 \draw[box, nightblue] (17,-32.4) -- (17,-33.85);
 \draw[box, nightblue] (42.5,-33.65) -- (42.5,-35.1);
 \draw[box, nightblue] (51,-34.9) -- (51,-36.35);
-\draw[box, nightblue] (8.5,-36.15) -- (8.5,-37.6);
-\draw[box, nightblue] (0,-37) -- (0,-38);
+
+\draw[box, nightblue] (42.5,-36.15) -- (42.5,-37.60);
+\draw[box, nightblue] (34,-38.85) -- (34,-37.40);
+\draw[box, nightblue] (25.5,-40.10) -- (25.5,-38.65);
+\draw[box, nightblue] (17,-39.90) -- (17,-41.35);
+\draw[box, nightblue] (8.5,-41.15) -- (8.5,-42.60);
+\draw[box, nightblue] (0,-42) -- (0,-43);
 
 % Flows
 % Flow "1 Checks if Apple Pay is available"
@@ -104,7 +106,7 @@ txt/.style={text width=7.5cm,text=gray3,fill=white,inner sep=0pt,outer sep=3pt,a
 \draw[solidarrow]
 (0.21,-18.75) -- (0.61,-18.75) -- node[txt, midway,right] {12 Authorizes payment} (0.61,-20) -- (0.21,-20);
 % Flow "13 Exchanges nonces"
-\draw[solidarrow]
+\draw[solidarrow, <->]
 (0.21,-21.25) -- node[txt, midway,above] {13 Exchanges nonces} (25.29,-21.25);
 % Flow "14 Activates Secure Element"
 \draw[solidarrow]
@@ -144,10 +146,18 @@ txt/.style={text width=7.5cm,text=gray3,fill=white,inner sep=0pt,outer sep=3pt,a
 (42.71,-35) -- node[txt, midway,above] {25 Sends data for authorization} (50.79,-35);
 % Flow "26 Authorizes payment"
 \draw[solidarrow]
-(50.79,-36.25) -- node[txt, midway,above] {26 Authorizes payment} (8.71,-36.25);
+(50.79,-36.25) -- node[txt, midway,above] {26 Authorizes payment} (42.71,-36.25);
+	\draw[solidarrow]
+	(42.21,-37.50) -- node[txt, midway,above] {26.1 Authorizes payment} (34.21,-37.50);
+	\draw[solidarrow]
+	(33.79,-38.75) -- node[txt, midway,above] {26.2 Authorizes payment} (25.71,-38.75);
+	\draw[solidarrow]
+	(25.29,-40) -- node[txt, midway,above] {26.3 Authorizes payment} (17.21,-40);	
+	\draw[solidarrow]
+	(16.79,-41.25) -- node[txt, midway,above] {26.4 Authorizes payment} (8.71,-41.25);
 % Flow "27 Dismisses payment sheet and shows confirmation page"
 \draw[solidarrow]
-(8.29,-37.5) -- node[txt, midway,above] {27 Dismisses payment sheet and shows confirmation page} (0.21,-37.5);
+(8.29,-42.50) -- node[txt, midway,above] {27 Dismisses payment sheet and shows confirmation page} (0.21,-42.50);
 
 % Document Footer
 \end{tikzpicture}
