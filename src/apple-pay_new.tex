@@ -6,7 +6,7 @@
 \begin{document}
 \begin{tikzpicture}
 
-\foreach \i in {0,8.5,17,25.5,34,42.5,51} {
+\foreach \i in {0,8.5,16.5,24.5,32.5,40.5,48.5} {
 	\draw[aidline] (\i,0.8) -- (\i,-38.5);
 }
 
@@ -22,25 +22,25 @@ txt/.style={text width=7.5cm,text=gray3,fill=white,inner sep=0pt,outer sep=3pt,a
 \node[participant] (merchant) at (8.5,3) {Merchant \\ (Website)};
 \node[icon] (icon1) at (8.5,4) {\includegraphics[width=.1\textwidth] {merchant.png}};
 
-% Stage "payment"
-\node[participant] (pg) at (17,2.5) {Payment Gateway};
-\node[icon] (icon2) at (17,4) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
-
 % Stage "apple"
-\node[participant] (server) at (25.5,2.5) {Apple Server};
-\node[icon] (icon3) at (25.5,4) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
+\node[participant] (server) at (16.5,2.5) {Apple Server};
+\node[icon] (icon3) at (16.5,4) {\includegraphics[width=.1\textwidth] {paymentprovider.png}};
 
 % Stage "secure"
-\node[participant] (secure) at (34,2.5) {Secure Element};
-\node[icon] (icon4) at (34,4) {\includegraphics[width=.1\textwidth] {lock.png}};
+\node[participant] (secure) at (24.5,2.5) {Secure Element};
+\node[icon] (icon4) at (24.5,4) {\includegraphics[width=.1\textwidth] {lock.png}};
+
+% Stage "payment"
+\node[participant] (pg) at (32,2.5) {Payment Gateway};
+\node[icon] (icon2) at (32.5,4) {\includegraphics[width=.1\textwidth] {paymentgateway.png}};
 
 % Stage "schemes"
-\node[participant] (schemes) at (42.5,2.5) {Schemes};
-\node[icon] (icon5) at (42.5,4) {\includegraphics[width=.1\textwidth] {schemes.png}};
+\node[participant] (schemes) at (40.5,2.5) {Schemes};
+\node[icon] (icon5) at (40.5,4) {\includegraphics[width=.1\textwidth] {schemes.png}};
 
 % Stage "issuer"
-\node[participant] (issuer) at (51,2.5) {Issuer};
-\node[icon] (icon6) at (51,4) {\includegraphics[width=.1\textwidth] {financialinstitution.png}};
+\node[participant] (issuer) at (48.5,2.5) {Issuer};
+\node[icon] (icon6) at (48.5,4) {\includegraphics[width=.1\textwidth] {financialinstitution.png}};
 
 % Boxes
 \draw[box, nightblue] (8.5,0.5) -- (8.5,-0.5);
@@ -48,19 +48,18 @@ txt/.style={text width=7.5cm,text=gray3,fill=white,inner sep=0pt,outer sep=3pt,a
 \draw[box, nightblue] (8.5,-1.15) -- (8.5,-2.6);
 \draw[box, nightblue] (0,-2.4) -- (0,-6.35);
 \draw[box, nightblue] (8.5,-6.15) -- (8.5,-7.6);
-\draw[box, nightblue] (25.5,-7.4) -- (25.5,-8.85);
+\draw[box, nightblue] (16.5,-7.4) -- (16.5,-8.85);
 \draw[box, nightblue] (8.5,-8.65) -- (8.5,-10.1);
 \draw[box, nightblue] (0,-9.9) -- (0,-22.6);
-\draw[box, nightblue] (25.5,-20.75) -- (25.5,-21.75);
-\draw[box, nightblue] (34,-22.4) -- (34,-23.85);
+\draw[box, nightblue] (16.5,-20.75) -- (16.5,-21.75);
+\draw[box, nightblue] (24.5,-22.4) -- (24.5,-23.85);
 \draw[box, nightblue] (0,-23.65) -- (0,-25.1);
-\draw[box, nightblue] (25.5,-24.9) -- (25.5,-26.35);
+\draw[box, nightblue] (16.5,-24.9) -- (16.5,-26.35);
 \draw[box, nightblue] (0,-26.15) -- (0,-30.1);
 \draw[box, nightblue] (8.5,-29.9) -- (8.5,-32.6);
-\draw[box, nightblue] (17,-32.4) -- (17,-33.85);
-\draw[box, nightblue] (42.5,-33.65) -- (42.5,-35.1);
-\draw[box, nightblue] (51,-34.9) -- (51,-36.35);
-
+\draw[box, nightblue] (32.5,-32.4) -- (32.5,-33.85);
+\draw[box, nightblue] (40.5,-33.65) -- (40.5,-35.1);
+\draw[box, nightblue] (48.5,-34.9) -- (48.5,-36.35);
 \draw[box, nightblue] (8.5,-36.15) -- (8.5,-37.60);
 \draw[box, nightblue] (0,-37) -- (0,-38);
 
@@ -82,10 +81,10 @@ txt/.style={text width=7.5cm,text=gray3,fill=white,inner sep=0pt,outer sep=3pt,a
 (0.21,-6.25) -- node[txt, midway,above] {5 Starts payment session} (8.29,-6.25);
 % Flow "6 Starts payment session"
 \draw[solidarrow]
-(8.71,-7.5) -- node[txt, midway,above] {6 Starts payment session} (25.29,-7.5);
+(8.71,-7.5) -- node[txt, midway,above] {6 Starts payment session} (16.29,-7.5);
 % Flow "7 Returns session information"
 \draw[solidarrow]
-(25.29,-8.75) -- node[txt, align=right, midway,above, outer sep=5pt] {7 Returns session information} (8.71,-8.75);
+(16.29,-8.75) -- node[txt, align=right, midway,above, outer sep=5pt] {7 Returns session information} (8.71,-8.75);
 % Flow "8 Forwards session information"
 \draw[solidarrow]
 (8.29,-10) -- node[txt, align=right, midway,above,outer sep=5pt] {8 Forwards session information} (0.21,-10);
@@ -103,46 +102,46 @@ txt/.style={text width=7.5cm,text=gray3,fill=white,inner sep=0pt,outer sep=3pt,a
 (0.21,-18.75) -- (0.61,-18.75) -- node[txt, midway,right] {12 Authorizes payment} (0.61,-20) -- (0.21,-20);
 % Flow "13 Exchanges nonces"
 \draw[solidarrow, <->]
-(0.21,-21.25) -- node[txt, midway,above] {13 Exchanges nonces} (25.29,-21.25);
+(0.21,-21.25) -- node[txt, midway,above] {13 Exchanges nonces} (16.29,-21.25);
 % Flow "14 Activates Secure Element"
 \draw[solidarrow]
-(0.21,-22.5) -- node[txt, midway,above, outer sep=5pt] {14 Activates Secure Element} (33.79,-22.5);
+(0.21,-22.5) -- node[txt, midway,above, outer sep=5pt] {14 Activates Secure Element} (24.29,-22.5);
 % Flow "15 Generates cryptogram"
 \draw[solidarrow]
-(34.21,-22.5) -- (34.61,-22.5) -- node[txt, midway,right] {15 Generates cryptogram} (34.61,-23.75) -- (34.21,-23.75);
+(24.71,-22.5) -- (25.11,-22.5) -- node[txt, midway,right] {15 Generates cryptogram} (25.11,-23.75) -- (24.71,-23.75);
 % Flow "16 Encrypts payment data"
 \draw[solidarrow]
-(33.79,-23.75) -- node[txt, align=right, above] {16 Encrypts payment data} (0.21,-23.75);
+(24.29,-23.75) -- node[txt, align=right, above] {16 Encrypts payment data} (0.21,-23.75);
 % Flow "17 Sends paymentData object"
 \draw[solidarrow]
-(0.21,-25) -- node[txt, midway,above] {17 Sends paymentData object} (25.29,-25);
+(0.21,-25) -- node[txt, midway,above] {17 Sends paymentData object} (16.29,-25);
 % Flow "18 Unwraps payment data object with merchant's public key"
 \draw[solidarrow]
-(25.71,-25) -- (26.11,-25) -- node[txt, midway,right] {18 Unwraps payment data object with merchant's public key} (26.11,-26.25) -- (25.71,-26.25);
+(16.71,-25) -- (17.11,-25) -- node[txt, midway,right, text width=7cm] {18 Unwraps payment data object \\ with merchant's public key} (17.11,-26.25) -- (16.71,-26.25);
 % Flow "19 Sends paymentData object"
 \draw[solidarrow]
-(25.29,-26.25) -- node[txt, align=right, midway,above] {19 Sends paymentData object} (0.21,-26.25);
+(16.29,-26.25) -- node[txt, align=right, midway,above] {19 Sends paymentData object} (0.21,-26.25);
 % Flow "20 Calls back with billing, shipping and contact"
 \draw[solidarrow]
-(0.21,-27.5) -- (0.61,-27.5) -- node[txt, midway,right] {20 Calls back with billing, shipping and contact} (0.61,-28.75) -- (0.21,-28.75);
+(0.21,-27.5) -- (0.61,-27.5) -- node[txt, midway,right] {20 Calls back with billing, \\ shipping and contact} (0.61,-28.75) -- (0.21,-28.75);
 % Flow "21 Sends billing, shipping and contact data"
 \draw[solidarrow]
 (0.21,-30) -- node[txt, midway,above,outer sep=5pt] {21 Sends billing, shipping, contact data} (8.29,-30);
 % Flow "22 Decrpyts paymentData to receive DPAN, card expiration date and cryptogram"
 \draw[solidarrow]
-(8.71,-30) -- (9.11,-30) -- node[txt, midway,right] {22 Decrpyts paymentData to receive DPAN, card expiration date and cryptogram} (9.11,-31.25) -- (8.71,-31.25);
+(8.71,-30) -- (9.11,-30) -- node[txt, midway,right, text width=7cm] {22 Decrpyts paymentData to receive DPAN, card expiration date \\ and cryptogram} (9.11,-31.25) -- (8.71,-31.25);
 % Flow "23 Sends decrypted data"
 \draw[solidarrow]
-(8.71,-32.5) -- node[txt, midway,above] {23 Sends decrypted data} (16.79,-32.5);
-% Flow "24 Sends data with 3DS message format"
+(8.71,-32.5) -- node[txt, midway,above] {23 Sends decrypted data} (32.29,-32.5);
+% Flow "24 Sends data witha 3DS message format"
 \draw[solidarrow]
-(17.21,-33.75) -- node[txt, midway,above,outer sep=5pt, text width=8cm] {24 Sends data with 3DS message format} (42.29,-33.75);
+(32.71,-33.75) -- node[txt, midway,above,outer sep=5pt] {24 Sends data with 3DS \\ message format} (40.29,-33.75);
 % Flow "25 Sends data for authorization"
 \draw[solidarrow]
-(42.71,-35) -- node[txt, midway,above,outer sep=5pt] {25 Sends data for authorization} (50.79,-35);
+(40.71,-35) -- node[txt, midway,above,outer sep=5pt] {25 Sends data for authorization} (48.29,-35);
 % Flow "26 Authorizes payment"
 \draw[solidarrow]
-(50.79,-36.25) -- node[txt, align=right, midway,above] {26 Authorizes payment} (8.71,-36.25);
+(48.29,-36.25) -- node[txt, align=right, midway,above] {26 Authorizes payment} (8.71,-36.25);
 % Flow "27 Dismisses payment sheet and shows confirmation page"
 \draw[solidarrow]
 (8.29,-37.50) -- node[txt, align=right, midway,above] {27 Dismisses payment sheet and shows confirmation page} (0.21,-37.50);
