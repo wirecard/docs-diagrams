@@ -99,7 +99,7 @@ MOLPay_workflow_debit_HPP:molpay_debit_hpp
 MOLPay_workflow_debit_RESTAPI:molpay_debit_rest-api
 WirecardVoucher_Workflow:wirecard-voucher
 CC_purchaseReferencing_flow:cc_purchase-referencing
-NewPPBasicWorkflow:wpp_basic_workflow
+NewPPBasicWorkflow:wpp-v2_basic
 CC_purchase_complete_sequence_StartEnd:cc-purchase-flow
 Create_TokenID_Workflow:cc-workflow-tokenization
 CC_authorization_capture_sequence:cc-capture-authorization-flow
