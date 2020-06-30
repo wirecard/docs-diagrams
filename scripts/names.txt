@@ -72,7 +72,6 @@ maybank2u-workflow:maybank2u
 3DSfallback:3ds-fallback
 Skrill_Workflow:skrill
 Sofort_successful_transaction:sofort_success-transaction
-NewPPBasicWorkflow:wpp_basic_workflow
 PP_HPP_Workflow:pp_hpp_workflow
 eNETS_workflow:enets
 FPX_workflow:fpx
@@ -96,7 +95,11 @@ CC_void-capture_flow:cc_void-capture
 CC_void_refund_refund:cc_void-refund
 CC_refund-capture_flow:cc_refund-capture
 Enable_payment_facilitator:cc_payment_facilitator
-NewPPBasicWorkflow:wpp-v2_basic
 MOLPay_workflow_debit_HPP:molpay_debit_hpp
 MOLPay_workflow_debit_RESTAPI:molpay_debit_rest-api
 WirecardVoucher_Workflow:wirecard-voucher
+CC_purchaseReferencing_flow:cc_purchase-referencing
+NewPPBasicWorkflow:wpp_basic_workflow
+CC_purchase_complete_sequence_StartEnd:cc-purchase-flow
+Create_TokenID_Workflow:cc-workflow-tokenization
+CC_authorization_capture_sequence:cc-capture-authorization-flow
