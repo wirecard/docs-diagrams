@@ -103,3 +103,4 @@ NewPPBasicWorkflow:wpp-v2_basic
 CC_purchase_complete_sequence_StartEnd:cc-purchase-flow
 Create_TokenID_Workflow:cc-workflow-tokenization
 CC_authorization_capture_sequence:cc-capture-authorization-flow
+transaction-brace:int-guides-mpAPI-workflow
